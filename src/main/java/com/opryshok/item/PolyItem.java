@@ -16,10 +16,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class FoodItem extends Item implements PolymerItem {
+public class PolyItem extends Item implements PolymerItem {
     private final PolymerModelData polymerModel;
     private final String modelId;
-    public FoodItem(Settings settings, String modelId) {
+    public PolyItem(Settings settings, String modelId) {
         super(settings);
         this.modelId = modelId;
         polymerModel = PolymerResourcePackUtils.requestModel(Items.FLINT, Identifier.of(BorukvaFood.MOD_ID, modelId ).withPrefixedPath("item/"));

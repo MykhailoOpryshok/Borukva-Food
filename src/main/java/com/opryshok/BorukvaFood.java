@@ -1,5 +1,6 @@
 package com.opryshok;
 
+import com.opryshok.block.ModBlocks;
 import com.opryshok.item.ModItems;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import net.fabricmc.api.ModInitializer;
@@ -16,6 +17,7 @@ public class BorukvaFood implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ModBlocks.registerBlocks();
 		ModItems.registerModItems();
 		if (PolymerResourcePackUtils.addModAssets(MOD_ID)) {
 			LOGGER.info("Successfully added mod assets for " + MOD_ID);
