@@ -4,7 +4,6 @@ import com.opryshok.block.ModBlocks;
 import com.opryshok.item.ModItems;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import net.fabricmc.api.ModInitializer;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

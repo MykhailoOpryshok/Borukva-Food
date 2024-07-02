@@ -9,8 +9,10 @@ import net.minecraft.util.Identifier;
 
 public class ModItems {
     public static Item PIZZA = registerItem("pizza", new PolyItem(new Item.Settings().food(ModFoodComponents.PIZZA), "pizza"));
-    public static Item TOMATO_SEEDS = registerItem("tomato_seeds", new PolySeedsItem(ModBlocks.TOMATO_BLOCK, new Item.Settings(), "tomato_seeds"));
     public static Item BEEF_SANDWICH = registerItem("beef_sandwich", new PolyItem(new Item.Settings().food(ModFoodComponents.BEEF_SANDWICH), "beef_sandwich"));
+    public static Item FERTILIZER = registerItem("fertilizer", new FertilizerItem(new Item.Settings(), "fertilizer"));
+
+    public static Item TOMATO_SEEDS = registerItem("tomato_seeds", new PolySeedsItem(ModBlocks.TOMATO_BLOCK, new Item.Settings(), "tomato_seeds"));
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(BorukvaFood.MOD_ID, name), item);
     }

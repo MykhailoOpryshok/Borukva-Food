@@ -17,7 +17,7 @@ public class PolySeedsItem extends AliasedBlockItem  implements PolymerItem {
     private final PolymerModelData polymerModel;
     public PolySeedsItem(Block block, Settings settings, String modelID) {
         super(block, settings);
-        this.polymerModel = PolymerResourcePackUtils.requestModel(Items.PUMPKIN_SEEDS, Identifier.of(BorukvaFood.MOD_ID, "block/" + modelID));
+        this.polymerModel = PolymerResourcePackUtils.requestModel(Items.PUMPKIN_SEEDS, Identifier.of(BorukvaFood.MOD_ID, "item/" + modelID));
     }
 
     @Override
