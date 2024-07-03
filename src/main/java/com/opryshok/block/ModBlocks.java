@@ -17,6 +17,7 @@ public class ModBlocks {
     public static final Block TOMATO_BLOCK = registerBlock("tomato_crop",
             new PolyCropBlock(Block.Settings.copy(Blocks.WHEAT),"tomato_crop"));
     public static final Block BETTER_FARMLAND_BLOCK = registerBlock("better_farmland_block", new BetterFarmlandBlock(Block.Settings.copy(Blocks.FARMLAND)));
+    public static final Block MEAT_PIZZA_BLOCK = registerBlock("meat_pizza_block", new MeatPizzaBlock(Block.Settings.copy(Blocks.CAKE),"meat_pizza"));
     public static final BlockItem BETTER_FARMLAND_BLOCK_ITEM = registerBlockItem("better_farmland_block", new PolymerBlockItem(BETTER_FARMLAND_BLOCK, new Item.Settings(), Items.FARMLAND));
 
     public static void registerBlocks() {

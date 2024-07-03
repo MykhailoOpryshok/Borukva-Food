@@ -24,17 +24,13 @@ public class FertilizerItem extends PolyItem{
             BlockState state = world.getBlockState(pos);
             BetterFarmlandBlock block = (BetterFarmlandBlock) state.getBlock();
 
-            int currentFertility = block.getFertility(state);
-            int currentAcidity = block.getAcidity(state);
-
-            int newFertility = currentFertility + 2;
-            int newAcidity = currentAcidity - 1;
+            int newFertility = block.getFertility(state) + 2;
+            int newAcidity = block.getAcidity(state) - 1;
 
             if (newFertility > BetterFarmlandBlock.MAX_FERTILITY) newFertility = BetterFarmlandBlock.MAX_FERTILITY;
             if (newAcidity < 0) newAcidity = 0;
 
-            world.setBlockState(pos, state.with(ModProperties.FERTILITY, newFertility));
-            world.setBlockState(pos, state.with(ModProperties.ACIDITY, newAcidity));
+            world.setBlockState(pos, state.with(ModProperties.FERTILITY, newFertility).with(ModProperties.ACIDITY, newAcidity));
 
             world.playSound(null, pos, SoundEvents.BLOCK_COMPOSTER_FILL, SoundCategory.BLOCKS, 1f, 1f);
             context.getStack().decrement(1);
