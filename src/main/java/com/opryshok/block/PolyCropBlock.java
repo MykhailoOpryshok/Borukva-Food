@@ -21,12 +21,12 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 
 public class PolyCropBlock extends CropBlock implements PolymerTexturedBlock {
-    public static final int MAX_AGE = 5;
-    public static final IntProperty AGE = Properties.AGE_5;
+    public static final int MAX_AGE = 7;
+    public static final IntProperty AGE = Properties.AGE_7;
     private final ArrayList<BlockState> polymerBlockStates = new ArrayList<>();
     public PolyCropBlock(Settings settings, String modelId) {
         super(settings);
-        for (int i = 0; i <= MAX_AGE; i++){
+        for (int i = 0; i <= 4; i++){
             polymerBlockStates.add(PolymerBlockResourceUtils.requestBlock(BlockModelType.PLANT_BLOCK,
                     PolymerBlockModel.of(Identifier.of(BorukvaFood.MOD_ID, modelId)
                             .withPrefixedPath("block/")
@@ -36,7 +36,12 @@ public class PolyCropBlock extends CropBlock implements PolymerTexturedBlock {
 
     @Override
     public BlockState getPolymerBlockState(BlockState state) {
-        return polymerBlockStates.get(state.get(getAgeProperty()));
+        return switch (state.get(getAgeProperty())) {
+            case 2, 3 -> polymerBlockStates.get(1);
+            case 4, 5, 6 -> polymerBlockStates.get(2);
+            case 7 -> polymerBlockStates.get(3);
+            default -> polymerBlockStates.getFirst();
+        };
     }
 
     @Override

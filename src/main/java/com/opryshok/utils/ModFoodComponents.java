@@ -1,4 +1,4 @@
-package com.opryshok.item;
+package com.opryshok.utils;
 
 import net.minecraft.component.type.FoodComponent;
 

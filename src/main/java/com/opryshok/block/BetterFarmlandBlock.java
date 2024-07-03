@@ -1,5 +1,6 @@
 package com.opryshok.block;
 
+import com.opryshok.utils.ModProperties;
 import eu.pb4.polymer.core.api.block.PolymerBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -9,24 +10,29 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
+import net.minecraft.state.property.Properties;
 
 public class BetterFarmlandBlock extends FarmlandBlock implements PolymerBlock {
     public static final IntProperty FERTILITY;
     public static final IntProperty ACIDITY;
+    public static final int MAX_FERTILITY;
+    public static final int MAX_ACIDITY;
 
     static{
-        FERTILITY = IntProperty.of("fertility", 0, 10);
-        ACIDITY = IntProperty.of("acidity", 0, 10);
+        FERTILITY = ModProperties.FERTILITY;
+        ACIDITY = ModProperties.ACIDITY;
+        MAX_FERTILITY = 10;
+        MAX_ACIDITY = 10;
     }
 
     public BetterFarmlandBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(FERTILITY, 5).with(ACIDITY, 5));
+        this.setDefaultState(this.stateManager.getDefaultState().with(FERTILITY, 8).with(ACIDITY, 5));
     }
 
     @Override
     public BlockState getPolymerBlockState(BlockState state) {
-        return Blocks.FARMLAND.getDefaultState();
+        return Blocks.FARMLAND.getDefaultState().with(Properties.MOISTURE, state.get(MOISTURE));
     }
 
     @Override
@@ -38,5 +44,11 @@ public class BetterFarmlandBlock extends FarmlandBlock implements PolymerBlock {
     @Override
     public Item asItem() {
         return Items.DIRT;
+    }
+    public int getFertility(BlockState state){
+        return state.get(ModProperties.FERTILITY);
+    }
+    public int getAcidity(BlockState state){
+        return state.get(ModProperties.ACIDITY);
     }
 }

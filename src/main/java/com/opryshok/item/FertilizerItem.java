@@ -1,8 +1,10 @@
 package com.opryshok.item;
 
+import com.opryshok.block.BetterFarmlandBlock;
 import com.opryshok.block.ModBlocks;
+import com.opryshok.utils.ModProperties;
+import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
@@ -19,12 +21,21 @@ public class FertilizerItem extends PolyItem{
         World world = context.getWorld();
         BlockPos pos = context.getBlockPos();
         if (world.getBlockState(pos).isOf(ModBlocks.BETTER_FARMLAND_BLOCK)) {
-            for (int i = 0; i < 360; i++){
-                if(i % 20 == 0){
-                   world.addParticle(ParticleTypes.ANGRY_VILLAGER, true, pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5,
-                           Math.cos(i) * 0.25d, 0.15d, Math.sin(i) * 0.25d);
-                }
-            }
+            BlockState state = world.getBlockState(pos);
+            BetterFarmlandBlock block = (BetterFarmlandBlock) state.getBlock();
+
+            int currentFertility = block.getFertility(state);
+            int currentAcidity = block.getAcidity(state);
+
+            int newFertility = currentFertility + 2;
+            int newAcidity = currentAcidity - 1;
+
+            if (newFertility > BetterFarmlandBlock.MAX_FERTILITY) newFertility = BetterFarmlandBlock.MAX_FERTILITY;
+            if (newAcidity < 0) newAcidity = 0;
+
+            world.setBlockState(pos, state.with(ModProperties.FERTILITY, newFertility));
+            world.setBlockState(pos, state.with(ModProperties.ACIDITY, newAcidity));
+
             world.playSound(null, pos, SoundEvents.BLOCK_COMPOSTER_FILL, SoundCategory.BLOCKS, 1f, 1f);
             context.getStack().decrement(1);
             return ActionResult.SUCCESS;

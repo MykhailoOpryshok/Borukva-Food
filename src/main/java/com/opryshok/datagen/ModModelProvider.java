@@ -1,5 +1,7 @@
 package com.opryshok.datagen;
 
+import com.opryshok.block.ModBlocks;
+import com.opryshok.block.PolyCropBlock;
 import com.opryshok.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
@@ -14,7 +16,7 @@ public class ModModelProvider extends FabricModelProvider{
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-       // blockStateModelGenerator.registerCrop(ModBlocks.TOMATO_BLOCK, PolyCropBlock.AGE, 0, 1, 2, 3, 4, 5);
+        blockStateModelGenerator.registerCrop(ModBlocks.TOMATO_BLOCK, PolyCropBlock.AGE, 0, 0, 1, 1, 2, 2, 2, 3);
     }
 
     @Override
@@ -22,6 +24,6 @@ public class ModModelProvider extends FabricModelProvider{
         itemModelGenerator.register(ModItems.PIZZA, Models.GENERATED);
         itemModelGenerator.register(ModItems.BEEF_SANDWICH, Models.GENERATED);
         itemModelGenerator.register(ModItems.FERTILIZER, Models.GENERATED);
-        //itemModelGenerator.register(ModItems.TOMATO_SEEDS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SOIL_ANALIZATOR, Models.GENERATED);
     }
 }
