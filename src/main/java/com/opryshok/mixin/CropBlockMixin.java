@@ -3,10 +3,7 @@ package com.opryshok.mixin;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.opryshok.block.ModBlocks;
 import com.opryshok.utils.ModProperties;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.CropBlock;
-import net.minecraft.block.FarmlandBlock;
+import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
@@ -31,7 +28,7 @@ public abstract class CropBlockMixin {
         float original = cir.getReturnValue();
         float edited = original;
 
-        if(world.getBlockState(pos.down()).isOf(ModBlocks.BETTER_FARMLAND_BLOCK)){
+        if(world.getBlockState(pos.down()).isOf(ModBlocks.BETTER_FARMLAND)){
             BlockState farmlandState = world.getBlockState(pos.down());
             float x = farmlandState.get(ModProperties.FERTILITY);
             System.out.println("x: " + x);
@@ -48,12 +45,13 @@ public abstract class CropBlockMixin {
     }
     @Inject(method = "randomTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/world/ServerWorld;setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;I)Z", shift = At.Shift.AFTER))
     public void randomTickFertilityDecrement(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci){
-        FertilityDecrement(world, pos, state.get(CropBlock.AGE) + 1);
+        CropBlock crop = (CropBlock) (Object) this;
+        FertilityDecrement(world, pos, crop.getAge(state) + 1);
     }
 
     @Unique
     public void FertilityDecrement(World world, BlockPos pos, int i){
-        if (world.getBlockState(pos.down()).isOf(ModBlocks.BETTER_FARMLAND_BLOCK)){
+        if (world.getBlockState(pos.down()).isOf(ModBlocks.BETTER_FARMLAND)){
             CropBlock crop = (CropBlock) (Object) this;
             if(i == crop.getMaxAge()){
                 BlockState farmlandState = world.getBlockState(pos.down());

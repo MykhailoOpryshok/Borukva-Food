@@ -19,11 +19,11 @@
                   "block": "borukva-food:tomato_crop",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "age": "5"
+                    "age": "7"
                   }
                 }
               ],
-              "name": "borukva-food:pizza"
+              "name": "borukva-food:tomato"
             },
             {
               "type": "minecraft:item",
@@ -41,7 +41,7 @@
           "block": "borukva-food:tomato_crop",
           "condition": "minecraft:block_state_property",
           "properties": {
-            "age": "5"
+            "age": "7"
           }
         }
       ],
@@ -54,12 +54,12 @@
               "formula": "minecraft:binomial_with_bonus_count",
               "function": "minecraft:apply_bonus",
               "parameters": {
-                "extra": 3,
+                "extra": 2,
                 "probability": 0.5714286
               }
             }
           ],
-          "name": "borukva-food:tomato_seeds"
+          "name": "borukva-food:tomato"
         }
       ],
       "rolls": 1.0

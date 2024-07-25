@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/crop",
-  "textures": {
-    "crop": "borukva-food:block/tomato_crop_stage1"
-  }
-}

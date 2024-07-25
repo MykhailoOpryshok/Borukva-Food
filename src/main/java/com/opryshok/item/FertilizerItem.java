@@ -20,7 +20,7 @@ public class FertilizerItem extends PolyItem{
     public ActionResult useOnBlock(ItemUsageContext context) {
         World world = context.getWorld();
         BlockPos pos = context.getBlockPos();
-        if (world.getBlockState(pos).isOf(ModBlocks.BETTER_FARMLAND_BLOCK)) {
+        if (world.getBlockState(pos).isOf(ModBlocks.BETTER_FARMLAND)) {
             BlockState state = world.getBlockState(pos);
             BetterFarmlandBlock block = (BetterFarmlandBlock) state.getBlock();
 

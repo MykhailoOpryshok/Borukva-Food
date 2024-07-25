@@ -1,5 +1,27 @@
 {
-  "item.borukva-food.pizza": "Pizza",
-  "item.borukfa-food.fertilizer": "Fertilizer",
-  "tooltip.borukva-food.pizza.tooltip": "test"
+  "item.borukva-food.knife": "Ніж",
+  "item.borukva-food.soil_analizator": "Аналізатор ґрунту",
+  "item.borukva-food.fertilizer": "Мінеральне добриво",
+  "item.borukva-food.compost": "Компост",
+  "item.borukva-food.tomato_seeds": "Насіння помідорів",
+  "item.borukva-food.tomato": "Помідор",
+  "item.borukva-food.vegan_pizza_slice": "Шматок веганської піци",
+  "item.borukva-food.meat_pizza_slice": "Шматок м'ясної піци",
+  "item.borukva-food.chocolate_ice_cream": "Шоколадне морозиво",
+  "item.borukva-food.ice_cream": "Морозиво",
+  "item.borukva-food.sweet_berry_cookie": "Ягідне печиво",
+  "item.borukva-food.blackcurrant_cookie": "Печиво зі смородиною",
+  "item.borukva-food.beef_sandwich": "Сендвіч з яловичиною",
+  "item.borukva-food.tomato_sandwich": "Сендвіч з помідором",
+  "item.borukva-food.bread_slice": "Шматок хліба",
+  "item.borukva-food.borsch": "Борщ",
+  "item.borukva-food.broth": "Бульйон",
+  "item.borukva-food.rotten_soup": "Гнилий суп",
+
+  "block.borukva-food.tomato_crop": "Кущ помідорів",
+  "block.borukva-food.better_farmland": "Ґрунт",
+  "block.borukva-food.meat_pizza": "М'ясна піца",
+  "block.borukva-food.vegan_pizza": "Веганська піца",
+  "block.borukva-food.stove": "Плита",
+  "block.borukva-food.pan": "Пательня"
 }

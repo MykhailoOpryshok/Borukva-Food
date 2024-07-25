@@ -1,2 +1,18 @@
-// 1.21	2024-07-03T15:34:09.1355731	Borukva Food/Block Loot Tables
-91f175216f265398afcfedcd362fb9189edecade data\borukva-food\loot_table\blocks\tomato_crop.json
+// 1.21	2024-07-25T23:31:56.9831525	Borukva Food/Block Loot Tables
+5ea1ee2aa6917ef94ff3a0f2566bd924e6f48b87 data\borukva-food\loot_table\blocks\beetroot_crate.json
+89d3762b6e9cc8f750d93c7388338b92ae0d0c83 data\borukva-food\loot_table\blocks\cabbage_crop.json
+f191ffad114c8c8a1591915cf5277d949bb09326 data\borukva-food\loot_table\blocks\pan.json
+09a987d10dba6fd58c80a25860f2dd1feef425f2 data\borukva-food\loot_table\blocks\cutting_board.json
+b6fab353de07c4f0f1ee715b861f3f32fef3d947 data\borukva-food\loot_table\blocks\corn_crate.json
+5a9f346add1ed0f0dbaa5c1357abab3109ac6f22 data\borukva-food\loot_table\blocks\lettuce_crate.json
+5293298f4a200a83739aa86c4dd5ff7db14ae455 data\borukva-food\loot_table\blocks\tomato_crop.json
+b6dc615d23bf39f4c043f8e1cdb635c0be9cb708 data\borukva-food\loot_table\blocks\better_farmland.json
+449be85c32de5de18d2c36e071fef1b05982a1a2 data\borukva-food\loot_table\blocks\stove.json
+e694c99a2009e582c99547b840a176409b1b311b data\borukva-food\loot_table\blocks\chilli_pepper_crate.json
+8152299328131474df9345eae724b1d9ffcc013e data\borukva-food\loot_table\blocks\tomato_crate.json
+8f88c6ee381de848f6c05aa6420ff6bee867ec32 data\borukva-food\loot_table\blocks\carrot_crate.json
+33c830b7ac4043f5ffeb58455bed977ad4e6ed71 data\borukva-food\loot_table\blocks\cucumber_crate.json
+37c7866d24af6adc1c0d8bbdeedb381cba306c6c data\borukva-food\loot_table\blocks\potato_crate.json
+b1aebaa2d888f3d9577bae09e2b93760596be22d data\borukva-food\loot_table\blocks\corn_crop.json
+3e6b7318809e6572c02711fa8d029f8a314fc2a1 data\borukva-food\loot_table\blocks\cabbage_crate.json
+aafbd5a417541dd1052550a074de14ce2ff20640 data\borukva-food\loot_table\blocks\chilli_pepper_crop.json
