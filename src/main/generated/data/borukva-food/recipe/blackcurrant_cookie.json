@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "borukva-food:blackcurrants"
+    },
+    "W": {
+      "item": "minecraft:wheat"
+    }
+  },
+  "pattern": [
+    "WBW"
+  ],
+  "result": {
+    "count": 8,
+    "id": "borukva-food:blackcurrant_cookie"
+  }
+}

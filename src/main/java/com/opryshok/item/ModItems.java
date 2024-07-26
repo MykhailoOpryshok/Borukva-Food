@@ -14,16 +14,15 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
-    public static Item MEAT_PIZZA_SLICE = registerItem("meat_pizza_slice", new PolyItem(new Item.Settings().food(ModFoodComponents.PIZZA), "meat_pizza_slice"));
-    public static Item VEGAN_PIZZA_SLICE = registerItem("vegan_pizza_slice", new PolyItem(new Item.Settings().food(ModFoodComponents.PIZZA), "vegan_pizza_slice"));
     public static Item FERTILIZER = registerItem("fertilizer", new FertilizerItem(new Item.Settings(), "fertilizer"));
     public static Item SOIL_ANALIZATOR = registerItem("soil_analizator", new SoilAnalizatorItem(new Item.Settings(), "soil_analizator"));
+    public static Item KNIFE = registerItem("knife", new KnifeTool(new Item.Settings()));
+    public static Item COMPOST = registerItem("compost", new CompostItem(new Item.Settings(), "compost"));
+
     public static Item TOMATO_SEEDS = registerItem("tomato_seeds", new PolySeedsItem(ModBlocks.TOMATO, new Item.Settings(), "tomato_seeds"));
     public static Item CABBAGE_SEEDS = registerItem("cabbage_seeds", new PolySeedsItem(ModBlocks.CABBAGE, new Item.Settings(), "cabbage_seeds"));
     public static Item CORN_SEEDS = registerItem("corn_seeds", new PolySeedsItem(ModBlocks.CORN, new Item.Settings(), "corn_seeds"));
     public static Item CHILLI_PEPPER_SEEDS = registerItem("chilli_pepper_seeds", new PolySeedsItem(ModBlocks.CHILLI_PEPPER, new Item.Settings(), "chilli_pepper_seeds"));
-    public static Item KNIFE = registerItem("knife", new KnifeTool(new Item.Settings()));
-    public static Item COMPOST = registerItem("compost", new CompostItem(new Item.Settings(), "compost"));
     public static Item TOMATO = registerItem("tomato", new PolyItem(new Item.Settings().food(ModFoodComponents.TOMATO), "tomato"));
     public static Item CABBAGE = registerItem("cabbage", new PolyItem(new Item.Settings(), "cabbage"));
     public static Item CHILLI_PEPPER = registerItem("chilli_pepper", new PolyItem(new Item.Settings(), "chilli_pepper"));
@@ -31,6 +30,13 @@ public class ModItems {
     public static Item CUCUMBER = registerItem("cucumber", new PolyItem(new Item.Settings(), "cucumber"));
     public static Item LETTUCE = registerItem("lettuce", new PolyItem(new Item.Settings(), "lettuce"));
 
+    public static Item WAFFLE = registerItem("waffle", new PolyItem(new Item.Settings(), "waffle"));
+    public static Item CHOCOLATE_BAR = registerItem("chocolate_bar", new PolyItem(new Item.Settings(), "chocolate_bar"));
+    public static Item KETCHUP = registerItem("ketchup", new PolyItem(new Item.Settings(), "ketchup"));
+    public static Item MAYONNASIE = registerItem("mayonnasie", new PolyItem(new Item.Settings(), "mayonnasie"));
+
+    public static Item MEAT_PIZZA_SLICE = registerItem("meat_pizza_slice", new PolyItem(new Item.Settings().food(ModFoodComponents.PIZZA), "meat_pizza_slice"));
+    public static Item VEGAN_PIZZA_SLICE = registerItem("vegan_pizza_slice", new PolyItem(new Item.Settings().food(ModFoodComponents.PIZZA), "vegan_pizza_slice"));
     public static Item CHOCOLATE_ICE_CREAM = registerItem("chocolate_ice_cream", new PolyItem(new Item.Settings().food(ModFoodComponents.ICE_CREAM), "chocolate_ice_cream"));
     public static Item ICE_CREAM = registerItem("ice_cream", new PolyItem(new Item.Settings().food(ModFoodComponents.ICE_CREAM), "ice_cream"));
     public static Item SWEET_BERRY_COOKIE = registerItem("sweet_berry_cookie", new PolyItem(new Item.Settings().food(ModFoodComponents.COOKIE), "sweet_berry_cookie"));

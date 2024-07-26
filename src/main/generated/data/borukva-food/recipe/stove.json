@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:mud_bricks"
+    },
+    "S": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "G G",
+    "GGG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "borukva-food:stove"
+  }
+}

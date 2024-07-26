@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:brick"
+    },
+    "S": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    " SS",
+    " SS",
+    "G  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "borukva-food:pan"
+  }
+}

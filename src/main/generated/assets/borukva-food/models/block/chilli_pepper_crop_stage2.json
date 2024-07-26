@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "borukva-food:block/chilli_pepper_crop_stage2"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:cooked_beef"
+    },
+    "K": {
+      "item": "borukva-food:ketchup"
+    },
+    "L": {
+      "item": "borukva-food:lettuce"
+    },
+    "S": {
+      "item": "borukva-food:bread_slice"
+    }
+  },
+  "pattern": [
+    " S ",
+    "LBK",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "borukva-food:beef_sandwich"
+  }
+}

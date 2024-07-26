@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "side": "borukva-food:block/stove_side",
+    "front": "borukva-food:block/stove_front",
+    "bottom": "borukva-food:block/stove_bottom",
+    "top": "borukva-food:block/stove_top"
+  }
+}

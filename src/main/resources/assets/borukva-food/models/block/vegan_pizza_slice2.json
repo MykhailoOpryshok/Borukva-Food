@@ -1,0 +1,22 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"1": "borukva-food:block/pizza_bottom_sliced2",
+		"top": "borukva-food:block/vegan_pizza_top_slice2"
+	},
+	"elements": [
+		{
+			"from": [1, 0, 1],
+			"to": [15, 1, 15],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1, 0, 1]},
+			"faces": {
+				"north": {"uv": [16, 0, 0, 1.14286], "texture": "#top"},
+				"east": {"uv": [14.85714, 0, 16, 16], "rotation": 90, "texture": "#top"},
+				"south": {"uv": [0, 14.85714, 16, 16], "texture": "#top"},
+				"west": {"uv": [0, 16, 1.14286, 0], "rotation": 90, "texture": "#top"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#top"},
+				"down": {"uv": [0, 16, 16, 0], "texture": "#1"}
+			}
+		}
+	]
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "item": "borukva-food:lettuce"
+    },
+    "M": {
+      "item": "borukva-food:mayonnasie"
+    },
+    "S": {
+      "item": "borukva-food:bread_slice"
+    },
+    "T": {
+      "item": "borukva-food:tomato"
+    }
+  },
+  "pattern": [
+    " S ",
+    "LTM",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "borukva-food:tomato_sandwich"
+  }
+}

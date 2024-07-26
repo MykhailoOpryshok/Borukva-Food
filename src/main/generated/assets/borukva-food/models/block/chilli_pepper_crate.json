@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "borukva-food:block/crate_bottom",
+    "east": "borukva-food:block/chilli_pepper_crate_side",
+    "north": "borukva-food:block/chilli_pepper_crate_side",
+    "particle": "borukva-food:block/chilli_pepper_crate_side",
+    "south": "borukva-food:block/chilli_pepper_crate_side",
+    "up": "borukva-food:block/chilli_pepper_crate_top",
+    "west": "borukva-food:block/chilli_pepper_crate_side"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "borukva-food:block/cabbage_crop_stage7"
+  }
+}

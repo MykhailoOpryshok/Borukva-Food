@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "borukva-food:waffle"
+    },
+    {
+      "item": "minecraft:snowball"
+    },
+    {
+      "item": "borukva-food:chocolate_bar"
+    },
+    {
+      "item": "borukva-food:chocolate_bar"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "borukva-food:chocolate_ice_cream"
+  }
+}

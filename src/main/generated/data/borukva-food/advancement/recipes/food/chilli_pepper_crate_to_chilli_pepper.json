@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chilli_pepper_crate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "borukva-food:chilli_pepper_crate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "borukva-food:chilli_pepper_crate_to_chilli_pepper"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_chilli_pepper_crate"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "borukva-food:chilli_pepper_crate_to_chilli_pepper"
+    ]
+  }
+}

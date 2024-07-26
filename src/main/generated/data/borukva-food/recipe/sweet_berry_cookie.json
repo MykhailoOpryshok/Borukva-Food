@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:sweet_berries"
+    },
+    "W": {
+      "item": "minecraft:wheat"
+    }
+  },
+  "pattern": [
+    "WBW"
+  ],
+  "result": {
+    "count": 8,
+    "id": "borukva-food:sweet_berry_cookie"
+  }
+}
