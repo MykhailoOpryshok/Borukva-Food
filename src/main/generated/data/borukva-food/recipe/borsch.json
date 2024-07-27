@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:potato"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:beetroot"
+    },
+    {
+      "item": "borukva-food:onion"
+    },
+    {
+      "item": "borukva-food:tomato"
+    },
+    {
+      "item": "borukva-food:cabbage"
+    },
+    {
+      "item": "minecraft:porkchop"
+    },
+    {
+      "item": "borukva-food:salt"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "borukva-food:borsch"
+  }
+}

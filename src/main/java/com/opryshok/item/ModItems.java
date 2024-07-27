@@ -29,9 +29,17 @@ public class ModItems {
     public static Item CORN = registerItem("corn", new PolyItem(new Item.Settings(),"corn"));
     public static Item CUCUMBER = registerItem("cucumber", new PolyItem(new Item.Settings(), "cucumber"));
     public static Item LETTUCE = registerItem("lettuce", new PolyItem(new Item.Settings(), "lettuce"));
+    public static Item LEMON = registerItem("lemon", new PolyItem(new Item.Settings(), "lemon"));
+    public static Item BLACKCURRANTS = registerItem("blackcurrants", new PolySeedsItem(ModBlocks.BLACKCURRANTS_BUSH, new Item.Settings().food(FoodComponents.SWEET_BERRIES), "blackcurrants"));
+    public static Item GOOSEBERRY = registerItem("gooseberry", new PolySeedsItem(ModBlocks.GOOSEBERRY_BUSH, new Item.Settings().food(FoodComponents.SWEET_BERRIES), "gooseberry"));
+    public static Item ONION = registerItem("onion", new PolyItem(new Item.Settings(), "onion"));
 
+    public static Item SALT = registerItem("salt", new PolyItem(new Item.Settings(), "salt"));
     public static Item WAFFLE = registerItem("waffle", new PolyItem(new Item.Settings(), "waffle"));
     public static Item CHOCOLATE_BAR = registerItem("chocolate_bar", new PolyItem(new Item.Settings(), "chocolate_bar"));
+    public static Item OIL = registerItem("oil", new PolyItem(new Item.Settings(), "oil"));
+    public static Item GUACAMOLE = registerItem("guacamole", new PolyItem(new Item.Settings(), "guacamole"));
+    public static Item HOT_SPICE = registerItem("hot_spice", new PolyItem(new Item.Settings(), "hot_spice"));
     public static Item KETCHUP = registerItem("ketchup", new PolyItem(new Item.Settings(), "ketchup"));
     public static Item MAYONNASIE = registerItem("mayonnasie", new PolyItem(new Item.Settings(), "mayonnasie"));
 
@@ -47,8 +55,6 @@ public class ModItems {
     public static Item BORSCH = registerItem("borsch", new PolyItem(new Item.Settings().food(ModFoodComponents.BORSCH).maxCount(1), "borsch"));
     public static Item BROTH = registerItem("broth", new PolyItem(new Item.Settings().food(ModFoodComponents.BROTH).maxCount(1), "broth"));
     public static Item ROTTEN_SOUP = registerItem("rotten_soup", new PolyItem(new Item.Settings().food(ModFoodComponents.ROTTEN_SOUP).maxCount(1), "rotten_soup"));
-    public static Item BLACKCURRANTS = registerItem("blackcurrants", new PolySeedsItem(ModBlocks.BLACKCURRANTS_BUSH, new Item.Settings().food(FoodComponents.SWEET_BERRIES), "blackcurrants"));
-    public static Item GOOSEBERRY = registerItem("gooseberry", new PolySeedsItem(ModBlocks.GOOSEBERRY_BUSH, new Item.Settings().food(FoodComponents.SWEET_BERRIES), "gooseberry"));
     public static Item BEEF_SLICES = registerItem("beef_slices", new PolyItem(new Item.Settings().food(ModFoodComponents.BEEF_SLICES), "beef_slices"));
     public static Item VEGAN_BARBECUE = registerItem("vegan_barbecue", new PolyItem(new Item.Settings().food(ModFoodComponents.VEGAN_BARBECUE), "vegan_barbecue"));
     public static Item COOKED_VEGAN_BARBECUE = registerItem("cooked_vegan_barbecue", new PolyItem(new Item.Settings().food(ModFoodComponents.COOKED_VEGAN_BARBECUE), "cooked_vegan_barbecue"));

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_slabs": {
+    "has_item_with_tag": {
       "conditions": {
         "items": [
           {
-            "items": "#minecraft:wooden_slabs"
+            "items": "#borukva-food:plant_food"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "borukva-food:cutting_board"
+        "recipe": "borukva-food:vegan_barbecue"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_slabs"
+      "has_item_with_tag"
     ]
   ],
   "rewards": {
     "recipes": [
-      "borukva-food:cutting_board"
+      "borukva-food:vegan_barbecue"
     ]
   }
 }

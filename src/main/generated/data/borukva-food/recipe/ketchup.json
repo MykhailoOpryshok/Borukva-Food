@@ -3,17 +3,17 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "borukva-food:waffle"
+      "item": "borukva-food:tomato"
     },
     {
-      "item": "minecraft:snowball"
+      "item": "borukva-food:salt"
     },
     {
-      "item": "borukva-food:chocolate_bar"
+      "item": "minecraft:sugar"
     }
   ],
   "result": {
     "count": 1,
-    "id": "borukva-food:chocolate_ice_cream"
+    "id": "borukva-food:ketchup"
   }
 }

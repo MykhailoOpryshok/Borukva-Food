@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "tag": "borukva-food:plant_food"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "P  ",
+    "P  ",
+    "S  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "borukva-food:vegan_barbecue"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 600,
+  "experience": 0.0,
+  "ingredient": {
+    "item": "borukva-food:beef_barbecue"
+  },
+  "result": {
+    "id": "borukva-food:cooked_beef_barbecue"
+  }
+}

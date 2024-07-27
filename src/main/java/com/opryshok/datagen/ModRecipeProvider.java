@@ -3,15 +3,19 @@ package com.opryshok.datagen;
 import com.opryshok.BorukvaFood;
 import com.opryshok.block.ModBlocks;
 import com.opryshok.item.ModItems;
+import com.opryshok.utils.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Blocks;
+import net.minecraft.data.server.recipe.CookingRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.CampfireCookingRecipe;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
@@ -65,7 +69,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.CUTTING_BOARD_ITEM, 1)
                 .input(Ingredient.fromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wooden_slabs"))))
-                .criterion(hasItem(Items.OAK_SLAB), conditionsFromItem(Items.OAK_SLAB))
+                .criterion("has_slabs", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wooden_slabs"))))
                 .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID,  getRecipeName(ModBlocks.CUTTING_BOARD_ITEM)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.KNIFE, 1)
@@ -152,7 +156,77 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.SNOWBALL), conditionsFromItem(Items.SNOWBALL))
                 .criterion(hasItem(ModItems.CHOCOLATE_BAR), conditionsFromItem(ModItems.CHOCOLATE_BAR))
                 .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.CHOCOLATE_ICE_CREAM)));
+
+        campfireCookingRecipe(exporter, ModItems.BEEF_BARBECUE, ModItems.COOKED_BEEF_BARBECUE);
+        campfireCookingRecipe(exporter, ModItems.VEGAN_BARBECUE, ModItems.COOKED_VEGAN_BARBECUE);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.KETCHUP, 1)
+                .input(ModItems.TOMATO)
+                .input(ModItems.SALT)
+                .input(Items.SUGAR)
+                .criterion(hasItem(ModItems.TOMATO), conditionsFromItem(ModItems.TOMATO))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.KETCHUP)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.MAYONNASIE, 1)
+                .input(ModItems.OIL)
+                .input(Items.EGG)
+                .input(ModItems.LEMON)
+                .criterion(hasItem(Items.EGG), conditionsFromItem(Items.EGG))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.MAYONNASIE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.VEGAN_BARBECUE, 1)
+                .pattern("P  ")
+                .pattern("P  ")
+                .pattern("S  ")
+                .input('P', Ingredient.fromTag(ModTags.Items.PLANT_FOOD))
+                .input('S', Items.STICK)
+                .criterion("has_item_with_tag", conditionsFromTag(ModTags.Items.PLANT_FOOD))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.VEGAN_BARBECUE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.BEEF_BARBECUE, 1)
+                .pattern("B  ")
+                .pattern("B  ")
+                .pattern("S  ")
+                .input('B', ModItems.BEEF_SLICES)
+                .input('S', Items.STICK)
+                .criterion(hasItem(ModItems.BEEF_SLICES), conditionsFromItem(ModItems.BEEF_SLICES))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.BEEF_BARBECUE)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.BORSCH, 1)
+                .input(Items.POTATO)
+                .input(Items.CARROT)
+                .input(Items.BEETROOT)
+                .input(ModItems.ONION)
+                .input(ModItems.TOMATO)
+                .input(ModItems.CABBAGE)
+                .input(Items.PORKCHOP)
+                .input(ModItems.SALT)
+                .input(Items.BOWL)
+                .criterion(hasItem(Items.BEETROOT), conditionsFromItem(Items.BEETROOT))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.BORSCH)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.BROTH, 1)
+                .input(Items.CARROT)
+                .input(Items.CHICKEN)
+                .input(ModItems.ONION)
+                .input(ModItems.OIL)
+                .input(ModItems.SALT)
+                .input(Items.BOWL)
+                .criterion(hasItem(Items.CHICKEN), conditionsFromItem(Items.CHICKEN))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.BROTH)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.ROTTEN_SOUP, 1)
+                .input(Ingredient.fromTag(ModTags.Items.ROTTEN_SOUP_INGREDIENTS), 4)
+                .input(Items.BOWL)
+                .criterion("has_rotten_item", conditionsFromTag(ModTags.Items.ROTTEN_SOUP_INGREDIENTS))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.ROTTEN_SOUP)));
     }
+    private void campfireCookingRecipe(RecipeExporter exporter, Item input, Item output) {
+        CookingRecipeJsonBuilder.create(Ingredient.ofItems(input), RecipeCategory.FOOD, output, 0, 600, RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new)
+                .criterion(FabricRecipeProvider.hasItem(input), FabricRecipeProvider.conditionsFromItem(input))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(output)));
+    }
+
     private void compressBlockRecipe(Item blockItem, Item item, RecipeExporter exporter){
         ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, blockItem, 1)
                 .pattern("SSS")

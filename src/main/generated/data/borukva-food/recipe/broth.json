@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:chicken"
+    },
+    {
+      "item": "borukva-food:onion"
+    },
+    {
+      "item": "borukva-food:oil"
+    },
+    {
+      "item": "borukva-food:salt"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "borukva-food:broth"
+  }
+}

@@ -168,10 +168,8 @@ public class CuttingBoard extends BlockWithEntity implements FactoryBlock, Block
             item.setPitch(90f+180f);
             item.setYaw(direction.asRotation());
             addElement(item);
-            System.out.println("init");
         }
         public void updateItem(ItemStack stack) {
-            System.out.println(stack.toString());
             this.item.setItem(stack.copy());
             this.item.tick();
         }

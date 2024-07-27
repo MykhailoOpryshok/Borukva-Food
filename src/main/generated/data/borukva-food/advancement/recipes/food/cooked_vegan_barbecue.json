@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "borukva-food:cooked_vegan_barbecue"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_vegan_barbecue": {
+      "conditions": {
+        "items": [
+          {
+            "items": "borukva-food:vegan_barbecue"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_vegan_barbecue"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "borukva-food:cooked_vegan_barbecue"
+    ]
+  }
+}

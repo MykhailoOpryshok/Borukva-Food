@@ -31,7 +31,6 @@ public abstract class CropBlockMixin {
         if(world.getBlockState(pos.down()).isOf(ModBlocks.BETTER_FARMLAND)){
             BlockState farmlandState = world.getBlockState(pos.down());
             float x = farmlandState.get(ModProperties.FERTILITY);
-            System.out.println("x: " + x);
             edited = original * (2*(x / 10));
             if (x == 0){
                 edited = 0.00001f;
