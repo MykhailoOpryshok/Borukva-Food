@@ -22,16 +22,18 @@ import org.jetbrains.annotations.Nullable;
 
 public class KnifeTool extends ToolItem implements PolymerItem {
     private final PolymerModelData polymerModel;
+
     public KnifeTool(Settings settings) {
         super(ToolMaterials.IRON, settings);
-        polymerModel = PolymerResourcePackUtils.requestModel(Items.IRON_SWORD, Identifier.of(BorukvaFood.MOD_ID, "knife").withPrefixedPath("item/"));
-    }
 
+        polymerModel = PolymerResourcePackUtils.requestModel(Items.IRON_SWORD, Identifier.of(BorukvaFood.MOD_ID, "item/knife"));
+    }
 
     @Override
     public Item getPolymerItem(ItemStack itemStack, @Nullable ServerPlayerEntity player) {
         return polymerModel.item();
     }
+
     @Override
     public int getPolymerCustomModelData(ItemStack itemStack, @Nullable ServerPlayerEntity player) {
         return polymerModel.value();
@@ -41,20 +43,21 @@ public class KnifeTool extends ToolItem implements PolymerItem {
     public ActionResult useOnBlock(ItemUsageContext context) {
         World world = context.getWorld();
         BlockPos pos = context.getBlockPos();
-        PlayerEntity player = context.getPlayer();
         BlockState state = world.getBlockState(pos);
+        PlayerEntity player = context.getPlayer();
 
-        if ((state.getBlock() instanceof VeganPizza block) && (player != null)){
+        if (state.getBlock() instanceof VeganPizza block && player != null) {
             int i = state.get(ModProperties.SLICES);
+
             if (i < 6) {
                 world.setBlockState(pos, state.with(ModProperties.SLICES, i + 1), 3);
                 ItemScatterer.spawn(world, player.getX(), player.getY(), player.getZ(), new ItemStack(block.getDropItem(), 1));
                 player.getStackInHand(Hand.MAIN_HAND).damage(1, player, LivingEntity.getSlotForHand(Hand.MAIN_HAND));
-            }
-            else {
+            } else {
                 world.removeBlock(pos, false);
                 world.emitGameEvent(player, GameEvent.BLOCK_DESTROY, pos);
             }
+
             return ActionResult.SUCCESS;
         }
         return ActionResult.SUCCESS;

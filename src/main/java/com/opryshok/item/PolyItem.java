@@ -13,11 +13,11 @@ import org.jetbrains.annotations.Nullable;
 
 public class PolyItem extends Item implements PolymerItem {
     private final PolymerModelData polymerModel;
-    private final String modelId;
+
     public PolyItem(Settings settings, String modelId) {
         super(settings);
-        this.modelId = modelId;
-        polymerModel = PolymerResourcePackUtils.requestModel(Items.GOLD_NUGGET, Identifier.of(BorukvaFood.MOD_ID, modelId ).withPrefixedPath("item/"));
+
+        polymerModel = PolymerResourcePackUtils.requestModel(Items.GOLD_NUGGET, Identifier.of(BorukvaFood.MOD_ID, modelId).withPrefixedPath("item/"));
     }
 
     @Override
@@ -29,5 +29,4 @@ public class PolyItem extends Item implements PolymerItem {
     public int getPolymerCustomModelData(ItemStack itemStack, @Nullable ServerPlayerEntity player) {
         return this.polymerModel.value();
     }
-
 }

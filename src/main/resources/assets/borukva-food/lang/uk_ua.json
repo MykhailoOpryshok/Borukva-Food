@@ -62,5 +62,9 @@
   "block.borukva-food.lettuce_crate": "Ящик салату",
   "block.borukva-food.potato_crate": "Ящик картоплі",
   "block.borukva-food.tomato_crate": "Ящик помідорів",
-  "block.borukva-food.corn_crate": "Ящик кукурудзи"
+  "block.borukva-food.corn_crate": "Ящик кукурудзи",
+
+  "tooltip.borukva-food.soil_analizator": "Визначає рівень родючості та кислотності в ґрунті",
+
+  "chat.borukva-food.soil_analizator.on_use": "[Родючість: %d || Кислотність: %d]"
 }

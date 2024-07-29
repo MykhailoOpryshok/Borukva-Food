@@ -1,8 +1,8 @@
 package com.opryshok.item;
 
-import com.opryshok.block.ModBlocks;
-import com.opryshok.utils.ModProperties;
+import com.opryshok.block.BetterFarmlandBlock;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.tooltip.TooltipType;
@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class SoilAnalizatorItem extends PolyItem{
+public class SoilAnalizatorItem extends PolyItem {
     public SoilAnalizatorItem(Settings settings, String modelId) {
         super(settings, modelId);
     }
@@ -23,17 +23,24 @@ public class SoilAnalizatorItem extends PolyItem{
     public ActionResult useOnBlock(ItemUsageContext context) {
         World world = context.getWorld();
         BlockPos pos = context.getBlockPos();
-        if (world.getBlockState(pos).isOf(ModBlocks.BETTER_FARMLAND) && context.getPlayer() != null){
-            BlockState state = world.getBlockState(pos);
-            context.getPlayer().sendMessage(Text.literal("[Родючість: " + state.get(ModProperties.FERTILITY)
-                    + " || Кислотність: " + state.get(ModProperties.ACIDITY) + "]").formatted(Formatting.YELLOW));
+        BlockState state = world.getBlockState(pos);
+        PlayerEntity player = context.getPlayer();
+
+        if (state.getBlock() instanceof BetterFarmlandBlock && player != null) {
+            player.sendMessage(
+                    Text.translatable("chat.borukva-food.soil_analizator.on_use",
+                            state.get(BetterFarmlandBlock.FERTILITY),
+                            state.get(BetterFarmlandBlock.ACIDITY)
+                    ).formatted(Formatting.YELLOW)
+            );
             return ActionResult.SUCCESS;
         }
+
         return ActionResult.PASS;
     }
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.literal("Визначає рівень родючості та кислотності в ґрунті").formatted(Formatting.YELLOW));
+        tooltip.add(Text.translatable("tooltip.borukva-food.soil_analizator").formatted(Formatting.YELLOW));
     }
 }
