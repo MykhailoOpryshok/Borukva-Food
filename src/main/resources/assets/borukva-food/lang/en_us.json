@@ -62,5 +62,9 @@
   "block.borukva-food.lettuce_crate": "Lettuce crate",
   "block.borukva-food.potato_crate": "Potato crate",
   "block.borukva-food.tomato_crate": "Tomato crate",
-  "block.borukva-food.corn_crate": "Corn crate"
+  "block.borukva-food.corn_crate": "Corn crate",
+
+  "tooltip.borukva-food.soil_analizator": "Determines the level of fertility and acidity in the soil",
+
+  "chat.borukva-food.soil_analizator.on_use": "[Fertility: %d || Acidity: %d]"
 }

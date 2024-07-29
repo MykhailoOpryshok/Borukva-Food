@@ -26,7 +26,7 @@ public class ModItems {
     public static Item TOMATO = registerItem("tomato", new PolyItem(new Item.Settings().food(ModFoodComponents.TOMATO), "tomato"));
     public static Item CABBAGE = registerItem("cabbage", new PolyItem(new Item.Settings().food(ModFoodComponents.CABBAGE), "cabbage"));
     public static Item CHILLI_PEPPER = registerItem("chilli_pepper", new PolyItem(new Item.Settings().food(ModFoodComponents.CHILLI_PEPPER), "chilli_pepper"));
-    public static Item CORN = registerItem("corn", new PolyItem(new Item.Settings().food(ModFoodComponents.CORN),"corn"));
+    public static Item CORN = registerItem("corn", new PolyItem(new Item.Settings().food(ModFoodComponents.CORN), "corn"));
     public static Item CUCUMBER = registerItem("cucumber", new PolyItem(new Item.Settings().food(ModFoodComponents.CUCUMBER), "cucumber"));
     public static Item LETTUCE = registerItem("lettuce", new PolyItem(new Item.Settings().food(ModFoodComponents.LETTUCE), "lettuce"));
     public static Item LEMON = registerItem("lemon", new PolyItem(new Item.Settings().food(ModFoodComponents.LEMON), "lemon"));
@@ -64,7 +64,8 @@ public class ModItems {
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(BorukvaFood.MOD_ID, name), item);
     }
-    public static void registerModItems(){
+
+    public static void registerModItems() {
         ItemGroup.Builder builder = PolymerItemGroupUtils.builder();
         builder.icon(() -> new ItemStack(ModItems.TOMATO, 1));
         builder.displayName(Text.of("Їжа"));

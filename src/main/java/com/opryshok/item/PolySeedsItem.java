@@ -13,11 +13,12 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
-public class PolySeedsItem extends AliasedBlockItem  implements PolymerItem {
+public class PolySeedsItem extends AliasedBlockItem implements PolymerItem {
     private final PolymerModelData polymerModel;
-    public PolySeedsItem(Block block, Settings settings, String modelID) {
+
+    public PolySeedsItem(Block block, Settings settings, String modelId) {
         super(block, settings);
-        this.polymerModel = PolymerResourcePackUtils.requestModel(Items.PUMPKIN_SEEDS, Identifier.of(BorukvaFood.MOD_ID, "item/" + modelID));
+        this.polymerModel = PolymerResourcePackUtils.requestModel(Items.PUMPKIN_SEEDS, Identifier.of(BorukvaFood.MOD_ID, modelId).withPrefixedPath("item/"));
     }
 
     @Override
