@@ -65,6 +65,8 @@
   "block.borukva-food.corn_crate": "Corn crate",
 
   "tooltip.borukva-food.soil_analizator": "Determines the level of fertility and acidity in the soil",
+  "tooltip.borukva-food.fertilizer": "Increases the level of fertility and reduces the level of acidity",
+  "tooltip.borukva-food.compost": "Increases the level of fertility and increases the level of acidity",
 
   "chat.borukva-food.soil_analizator.on_use": "[Fertility: %d || Acidity: %d]"
 }

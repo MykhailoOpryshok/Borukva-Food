@@ -67,6 +67,12 @@ public class ModModelProvider extends FabricModelProvider{
         itemModelGenerator.register(ModItems.COOKED_VEGAN_BARBECUE, Models.GENERATED);
         itemModelGenerator.register(ModItems.BEEF_BARBECUE, Models.GENERATED);
         itemModelGenerator.register(ModItems.COOKED_BEEF_BARBECUE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SALT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.OIL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MAYONNAISE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.KETCHUP, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GUACAMOLE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WAFFLE, Models.GENERATED);
     }
     public void generateCrate(BlockStateModelGenerator generator, Block generatedBlock, String path){
         generator.registerCubeWithCustomTextures(

@@ -41,7 +41,7 @@ public class ModItems {
     public static Item GUACAMOLE = registerItem("guacamole", new PolyItem(new Item.Settings(), "guacamole"));
     public static Item HOT_SPICE = registerItem("hot_spice", new PolyItem(new Item.Settings(), "hot_spice"));
     public static Item KETCHUP = registerItem("ketchup", new PolyItem(new Item.Settings(), "ketchup"));
-    public static Item MAYONNASIE = registerItem("mayonnasie", new PolyItem(new Item.Settings(), "mayonnasie"));
+    public static Item MAYONNAISE = registerItem("mayonnaise", new PolyItem(new Item.Settings(), "mayonnaise"));
 
     public static Item MEAT_PIZZA_SLICE = registerItem("meat_pizza_slice", new PolyItem(new Item.Settings().food(ModFoodComponents.PIZZA), "meat_pizza_slice"));
     public static Item VEGAN_PIZZA_SLICE = registerItem("vegan_pizza_slice", new PolyItem(new Item.Settings().food(ModFoodComponents.PIZZA), "vegan_pizza_slice"));
@@ -81,6 +81,13 @@ public class ModItems {
             entries.add(CABBAGE_SEEDS);
             entries.add(CHILLI_PEPPER_SEEDS);
             entries.add(CORN_SEEDS);
+
+            entries.add(SALT);
+            entries.add(OIL);
+            entries.add(MAYONNAISE);
+            entries.add(KETCHUP);
+            entries.add(GUACAMOLE);
+            entries.add(WAFFLE);
 
             entries.add(ModBlocks.MEAT_PIZZA);
             entries.add(ModBlocks.VEGAN_PIZZA);

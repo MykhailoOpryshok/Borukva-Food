@@ -65,6 +65,8 @@
   "block.borukva-food.corn_crate": "Ящик кукурудзи",
 
   "tooltip.borukva-food.soil_analizator": "Визначає рівень родючості та кислотності в ґрунті",
+  "tooltip.borukva-food.fertilizer": "Підвищує рівень родючості та знижує рівень кислотності",
+  "tooltip.borukva-food.compost": "Підвищує рівень родючості та підвищує рівень кислотності",
 
   "chat.borukva-food.soil_analizator.on_use": "[Родючість: %d || Кислотність: %d]"
 }

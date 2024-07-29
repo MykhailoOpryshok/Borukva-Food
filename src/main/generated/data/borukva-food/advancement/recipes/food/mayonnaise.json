@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "borukva-food:mayonnasie"
+        "recipe": "borukva-food:mayonnaise"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "borukva-food:mayonnasie"
+      "borukva-food:mayonnaise"
     ]
   }
 }

@@ -3,7 +3,10 @@ package com.opryshok.mixin;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.opryshok.block.ModBlocks;
 import com.opryshok.utils.ModProperties;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.CropBlock;
+import net.minecraft.block.FarmlandBlock;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
@@ -32,7 +35,9 @@ public abstract class CropBlockMixin {
             BlockState farmlandState = world.getBlockState(pos.down());
             float x = farmlandState.get(ModProperties.FERTILITY);
             edited = original * (2*(x / 10));
-            if (x == 0){
+
+            var acidity = farmlandState.get(ModProperties.ACIDITY);
+            if (acidity < 3 || acidity > 7 || x == 0){
                 edited = 0.00001f;
             }
         }
@@ -51,13 +56,16 @@ public abstract class CropBlockMixin {
     @Unique
     public void FertilityDecrement(World world, BlockPos pos, int i){
         if (world.getBlockState(pos.down()).isOf(ModBlocks.BETTER_FARMLAND)){
-            CropBlock crop = (CropBlock) (Object) this;
-            if(i == crop.getMaxAge()){
-                BlockState farmlandState = world.getBlockState(pos.down());
-                int currentFertility = farmlandState.get(ModProperties.FERTILITY);
-                int newFertility = currentFertility - 1;
-                if(newFertility >= 0) {
-                    world.setBlockState(pos.down(), farmlandState.with(ModProperties.FERTILITY, newFertility));
+            var random = new java.util.Random();
+            if (random.nextBoolean()) {
+                CropBlock crop = (CropBlock) (Object) this;
+                if (i == crop.getMaxAge()) {
+                    BlockState farmlandState = world.getBlockState(pos.down());
+                    int currentFertility = farmlandState.get(ModProperties.FERTILITY);
+                    int newFertility = currentFertility - 1;
+                    if (newFertility >= 0) {
+                        world.setBlockState(pos.down(), farmlandState.with(ModProperties.FERTILITY, newFertility));
+                    }
                 }
             }
         }

@@ -1,8 +1,7 @@
-// 1.21	2024-07-28T02:51:10.5052769	Borukva Food/Recipes
+// 1.21	2024-07-29T11:35:40.9470455	Borukva Food/Recipes
 90377d95a91d23886e29098baa2d1ed7cdfcf7f1 data\borukva-food\advancement\recipes\misc\fertilizer.json
 9749d9ff62488d18303698cb4b5c728946f95ea1 data\borukva-food\advancement\recipes\food\cabbage_crate_to_cabbage.json
 292fcdba09d6e5e9b48ca788c45f75ceba91b586 data\borukva-food\advancement\recipes\decorations\tomato_crate.json
-b79237f38e163377723792e840596d6371c612dd data\borukva-food\advancement\recipes\food\mayonnasie.json
 e0c33e9f19710b7f589755dcebde61be492c08a4 data\borukva-food\advancement\recipes\food\tomato_to_tomato_seeds.json
 efa91c711f5dbd6087c641d9eb1b8fc7c27e62d5 data\borukva-food\advancement\recipes\food\ice_cream.json
 1d92e3d07d1ceced171f7d89d5c9036ab731737f data\borukva-food\recipe\lettuce_crate_to_lettuce.json
@@ -16,6 +15,7 @@ e8684fcd45e175a951258d55131ae0fecd1f1029 data\borukva-food\advancement\recipes\d
 fc899959688e29e059997d4c882ba7bd4c3024d8 data\borukva-food\recipe\chilli_pepper_to_chilli_pepper_seeds.json
 144de59e5a3561beccfa146896f64b143d16b0e7 data\borukva-food\recipe\tomato_crate_to_tomato.json
 fb316da12423b657deffee02fcd3ddf5de1725a8 data\borukva-food\recipe\corn_crate.json
+6a4b0a3832988b3373c60941a10e2273ca7095ae data\borukva-food\recipe\mayonnaise.json
 4d1abcbeb8895cbc0f72da458eb9dcd0264c53a0 data\borukva-food\advancement\recipes\food\blackcurrant_cookie.json
 ddecf2c70de1d437847e4cdfa48558cf2cbd694e data\borukva-food\recipe\rotten_soup.json
 d258b7798836dd221598b388dc18d456aae8147d data\borukva-food\recipe\tomato_crate.json
@@ -33,7 +33,6 @@ af9d34db52afd2528f05b8e64520ca6192b7cc83 data\borukva-food\recipe\ice_cream.json
 ea095f80a72ca706e4dcab6d561456387f5fc59d data\borukva-food\recipe\cabbage_crate.json
 773f7039afe5b7c92f84eda960bf793467edb338 data\borukva-food\advancement\recipes\food\ketchup.json
 d9ddfa92adaf6110c6fa4ecec1b439e79a2657c0 data\borukva-food\advancement\recipes\food\cucumber_crate_to_cucumber.json
-2085187f0408caa5edf382f9ed7554d7c39dbf66 data\borukva-food\recipe\mayonnasie.json
 f3f70ae566f289f2fc00b9b8715ab1b8a5bc4519 data\borukva-food\recipe\cucumber_crate.json
 9a26463a70a31a3bf91d4dff60ae0037e4bccf6b data\borukva-food\recipe\beetroot_crate.json
 4e79b174aaf4bb1c6945318fa39a5afe4279b887 data\borukva-food\recipe\fertilizer.json
@@ -54,7 +53,7 @@ af3dba2a1183b748fe18361d17135d555d335314 data\borukva-food\recipe\soil_analizato
 7631d02ce7c9a26ca089632f3145edcdf649d8e0 data\borukva-food\recipe\cabbage_crate_to_cabbage.json
 577a4abc5ef6b80be876950462708623d8f80cc0 data\borukva-food\advancement\recipes\decorations\carrot_crate.json
 0a646bc89adb953fac1fc187296a5b452506d6cb data\borukva-food\recipe\chilli_pepper_crate.json
-406debe7c16a7da5edb53aa6fde980b0abbe2a08 data\borukva-food\recipe\tomato_sandwich.json
+1526de09215d2708d5125fba69f11a5c8f03e1ab data\borukva-food\recipe\tomato_sandwich.json
 cf1a6666f95ad4cbf42b438043f2e6951564db88 data\borukva-food\advancement\recipes\misc\knife.json
 51f89aa579192724b7bd2b7e45b3caa49ef5cfe0 data\borukva-food\recipe\ketchup.json
 7103d4d66592f2bb6cea5d49b6718957d06e082d data\borukva-food\recipe\beetroot_crate_to_beetroot.json
@@ -76,6 +75,7 @@ d479cbba49a256c7913d341b3e5a14e530158c6b data\borukva-food\recipe\beef_barbecue.
 a0bc103679a2b2ba8a84bf63f4ab575affa760d5 data\borukva-food\recipe\carrot_crate.json
 abdc5e28d86d2835b841875057fc4c2ff4760ef4 data\borukva-food\advancement\recipes\food\potato_crate_to_potato.json
 b75391e1529e5121ad0595354d008294096bfc53 data\borukva-food\recipe\tomato_to_tomato_seeds.json
+1fd43e6df84a5d83485eb6f7de581afc2f86b59b data\borukva-food\advancement\recipes\food\mayonnaise.json
 c5fd8949bb5d62e76da81abc7f6aac09e9cb69cb data\borukva-food\advancement\recipes\decorations\beetroot_crate.json
 5eeaa3dd649f1b8d22a74ce05835998cd915baf1 data\borukva-food\advancement\recipes\food\chocolate_ice_cream.json
 69af905cf9a107dffbeec5df99b33b5d785ce99f data\borukva-food\advancement\recipes\food\tomato_crate_to_tomato.json

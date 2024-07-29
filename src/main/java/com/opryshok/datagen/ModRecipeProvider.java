@@ -130,7 +130,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('S', ModItems.BREAD_SLICE)
                 .input('L', ModItems.LETTUCE)
                 .input('T', ModItems.TOMATO)
-                .input('M', ModItems.MAYONNASIE)
+                .input('M', ModItems.MAYONNAISE)
                 .criterion(hasItem(ModItems.TOMATO), conditionsFromItem(ModItems.TOMATO))
                 .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.TOMATO_SANDWICH)));
 
@@ -167,12 +167,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.TOMATO), conditionsFromItem(ModItems.TOMATO))
                 .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.KETCHUP)));
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.MAYONNASIE, 1)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.MAYONNAISE, 1)
                 .input(ModItems.OIL)
                 .input(Items.EGG)
                 .input(ModItems.LEMON)
                 .criterion(hasItem(Items.EGG), conditionsFromItem(Items.EGG))
-                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.MAYONNASIE)));
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.MAYONNAISE)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.VEGAN_BARBECUE, 1)
                 .pattern("P  ")
