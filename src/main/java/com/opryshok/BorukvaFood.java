@@ -5,6 +5,7 @@ import com.opryshok.entity.ModBlockEntities;
 import com.opryshok.item.ModItems;
 import com.opryshok.ui.GuiTextures;
 import com.opryshok.ui.UiResourceCreator;
+import com.opryshok.utils.CompostableItems;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -22,6 +23,7 @@ public class BorukvaFood implements ModInitializer {
 		ModItems.registerModItems();
 		ModBlocks.registerBlocks();
 		ModBlockEntities.register();
+		CompostableItems.register();
 		if (PolymerResourcePackUtils.addModAssets(MOD_ID)) {
 			LOGGER.info("Successfully added mod assets for " + MOD_ID);
 		} else {

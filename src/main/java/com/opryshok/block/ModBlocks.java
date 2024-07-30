@@ -85,9 +85,10 @@ public class ModBlocks {
             entries.add(STOVE_ITEM);
             entries.add(PAN_ITEM);
             entries.add(CUTTING_BOARD_ITEM);
+            entries.add(ModItems.KNIFE);
+            entries.add(ModItems.SOIL_ANALIZATOR);
             entries.add(ModItems.COMPOST);
             entries.add(ModItems.FERTILIZER);
-            entries.add(ModItems.KNIFE);
         });
         ItemGroup polymerGroup = builder.build();
         PolymerItemGroupUtils.registerPolymerItemGroup(Identifier.of(BorukvaFood.MOD_ID, "blocks"), polymerGroup);

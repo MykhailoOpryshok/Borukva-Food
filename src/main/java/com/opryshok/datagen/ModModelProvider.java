@@ -73,6 +73,7 @@ public class ModModelProvider extends FabricModelProvider{
         itemModelGenerator.register(ModItems.KETCHUP, Models.GENERATED);
         itemModelGenerator.register(ModItems.GUACAMOLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.WAFFLE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CHOCOLATE_BAR, Models.GENERATED);
     }
     public void generateCrate(BlockStateModelGenerator generator, Block generatedBlock, String path){
         generator.registerCubeWithCustomTextures(

@@ -4,7 +4,9 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "CropBlockMixin",
-    "HoeItemMixin"
+    "HoeItemMixin",
+    "ComposterBlockMixin",
+    "FullComposterInventoryMixin"
   ],
   "injectors": {
     "defaultRequire": 1
