@@ -89,8 +89,8 @@ public class ModItems {
             entries.add(GUACAMOLE);
             entries.add(WAFFLE);
 
-            entries.add(ModBlocks.MEAT_PIZZA);
-            entries.add(ModBlocks.VEGAN_PIZZA);
+            entries.add(ModBlocks.MEAT_PIZZA_ITEM);
+            entries.add(ModBlocks.VEGAN_PIZZA_ITEM);
             entries.add(MEAT_PIZZA_SLICE);
             entries.add(VEGAN_PIZZA_SLICE);
             entries.add(CHOCOLATE_ICE_CREAM);
