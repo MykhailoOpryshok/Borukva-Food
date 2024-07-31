@@ -6,10 +6,7 @@ import com.opryshok.block.bushes.GooseberryBush;
 import com.opryshok.block.cooking.CuttingBoard;
 import com.opryshok.block.cooking.Pan;
 import com.opryshok.block.cooking.Stove;
-import com.opryshok.block.crops.CabbageCrop;
-import com.opryshok.block.crops.ChilliPepperCrop;
-import com.opryshok.block.crops.CornCrop;
-import com.opryshok.block.crops.TomatoCrop;
+import com.opryshok.block.crops.*;
 import com.opryshok.block.food.MeatPizza;
 import com.opryshok.block.food.VeganPizza;
 import com.opryshok.item.ModItems;
@@ -31,6 +28,10 @@ public class ModBlocks {
     public static final Block CABBAGE = registerBlock("cabbage_crop", new CabbageCrop(Block.Settings.copy(Blocks.WHEAT)));
     public static final Block CORN = registerBlock("corn_crop", new CornCrop(Block.Settings.copy(Blocks.WHEAT)));
     public static final Block CHILLI_PEPPER = registerBlock("chilli_pepper_crop", new ChilliPepperCrop(Block.Settings.copy(Blocks.WHEAT)));
+    public static final Block LETTUCE = registerBlock("lettuce_crop", new LettuceCrop(Block.Settings.copy(Blocks.WHEAT)));
+    public static final Block CUCUMBER = registerBlock("cucumber_crop", new CucumberCrop(Block.Settings.copy(Blocks.WHEAT)));
+    public static final Block ONION = registerBlock("onion_crop", new OnionCrop(Block.Settings.copy(Blocks.WHEAT)));
+
     public static final Block BETTER_FARMLAND = registerBlock("better_farmland", new BetterFarmlandBlock(Block.Settings.copy(Blocks.FARMLAND)));
     public static final Block MEAT_PIZZA = registerBlock("meat_pizza", new MeatPizza(Block.Settings.copy(Blocks.CAKE)));
     public static final Block VEGAN_PIZZA = registerBlock("vegan_pizza", new VeganPizza(Block.Settings.copy(Blocks.CAKE)));

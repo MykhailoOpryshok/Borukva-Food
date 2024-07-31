@@ -33,6 +33,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addCropDrop(CABBAGE, ModItems.CABBAGE, ModItems.CABBAGE_SEEDS);
         addCropDrop(CORN, ModItems.CORN, ModItems.CORN_SEEDS);
         addCropDrop(CHILLI_PEPPER, ModItems.CHILLI_PEPPER, ModItems.CHILLI_PEPPER_SEEDS);
+        addCropDrop(LETTUCE, ModItems.LETTUCE, ModItems.LETTUCE_SEEDS);
+        addCropDrop(CUCUMBER, ModItems.CUCUMBER, ModItems.CUCUMBER_SEEDS);
+        addCropDrop(ONION, ModItems.ONION, ModItems.ONION_SEEDS);
 
         addDrop(BETTER_FARMLAND, Blocks.DIRT.asItem());
         addDrop(STOVE);

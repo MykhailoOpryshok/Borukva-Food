@@ -32,7 +32,7 @@ public class CuttingBoardBlockEntity extends LockableBlockEntity implements Mini
     private final DefaultedList<ItemStack> items = DefaultedList.ofSize(1, ItemStack.EMPTY);
     private CuttingBoard.Model model;
     public CuttingBoardBlockEntity(BlockPos blockPos, BlockState blockState) {
-        super(ModBlockEntities.CUTTING_BOARD, blockPos, blockState);
+        super(ModEntities.CUTTING_BOARD, blockPos, blockState);
     }
     @Override
     protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup lookup) {

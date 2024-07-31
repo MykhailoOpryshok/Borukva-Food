@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "borukva-food:block/onion_crop_stage4"
+  }
+}

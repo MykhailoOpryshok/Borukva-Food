@@ -10,6 +10,7 @@
   "item.borukva-food.corn_seeds": "Corn seeds",
   "item.borukva-food.cucumber_seeds": "Cucumber seeds",
   "item.borukva-food.lettuce_seeds": "Lettuce seeds",
+  "item.borukva-food.onion_seeds": "Onion seeds",
 
   "item.borukva-food.tomato": "Tomato",
   "item.borukva-food.cabbage": "Cabbage",
@@ -47,6 +48,7 @@
   "item.borukva-food.beef_barbecue": "Beef barbecue",
   "item.borukva-food.cooked_beef_barbecue": "Cooked beef barbecue",
   "item.borukva-food.beef_slices": "Beef slices",
+  "item.borukva-food.cucumber_jar": "Cucumber jar",
 
   "block.borukva-food.better_farmland": "Better farmland",
   "block.borukva-food.meat_pizza": "Meat pizza",
@@ -67,6 +69,7 @@
   "tooltip.borukva-food.soil_analizator": "Determines the level of fertility and acidity in the soil",
   "tooltip.borukva-food.fertilizer": "Increases the level of fertility and reduces the level of acidity",
   "tooltip.borukva-food.compost": "Increases the level of fertility and increases the level of acidity",
+  "tooltip.borukva-food.cucumber_jar": "Folk remedy against phantoms",
 
   "chat.borukva-food.soil_analizator.on_use": "[Fertility: %d || Acidity: %d]"
 }

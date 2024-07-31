@@ -10,6 +10,7 @@
   "item.borukva-food.corn_seeds": "Насіння кукурудзи",
   "item.borukva-food.cucumber_seeds": "Насіння огірка",
   "item.borukva-food.lettuce_seeds": "Насіння салату",
+  "item.borukva-food.onion_seeds": "Насіння цибулі",
 
   "item.borukva-food.tomato": "Помідор",
   "item.borukva-food.cabbage": "Капуста",
@@ -47,6 +48,7 @@
   "item.borukva-food.beef_barbecue": "Шашлик з яловичини",
   "item.borukva-food.cooked_beef_barbecue": "Смажений шашлик з яловичини",
   "item.borukva-food.beef_slices": "Шматочки яловичини",
+  "item.borukva-food.cucumber_jar": "Банка огірків",
 
   "block.borukva-food.better_farmland": "Ґрунт",
   "block.borukva-food.meat_pizza": "М'ясна піца",
@@ -67,6 +69,7 @@
   "tooltip.borukva-food.soil_analizator": "Визначає рівень родючості та кислотності в ґрунті",
   "tooltip.borukva-food.fertilizer": "Підвищує рівень родючості та знижує рівень кислотності",
   "tooltip.borukva-food.compost": "Підвищує рівень родючості та підвищує рівень кислотності",
+  "tooltip.borukva-food.cucumber_jar": "Народний засіб проти фантомів",
 
   "chat.borukva-food.soil_analizator.on_use": "[Родючість: %d || Кислотність: %d]"
 }

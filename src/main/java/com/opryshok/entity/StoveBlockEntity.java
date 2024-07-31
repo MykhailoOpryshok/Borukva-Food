@@ -38,7 +38,7 @@ public class StoveBlockEntity extends LockableBlockEntity implements MinimalSide
     public int fuelInitial = 1;
     private final DefaultedList<ItemStack> items = DefaultedList.ofSize(1, ItemStack.EMPTY);
     public StoveBlockEntity(BlockPos blockPos, BlockState blockState) {
-        super(ModBlockEntities.STOVE, blockPos, blockState);
+        super(ModEntities.STOVE, blockPos, blockState);
     }
 
     @Override

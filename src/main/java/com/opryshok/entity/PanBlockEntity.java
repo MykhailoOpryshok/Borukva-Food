@@ -46,7 +46,7 @@ public class PanBlockEntity extends LockableBlockEntity implements MinimalSidedI
     private Pan.Model model;
     private static final int COOK_TIME = 100;
     public PanBlockEntity(BlockPos blockPos, BlockState blockState) {
-        super(ModBlockEntities.PAN, blockPos, blockState);
+        super(ModEntities.PAN, blockPos, blockState);
     }
     @Override
     protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup lookup) {

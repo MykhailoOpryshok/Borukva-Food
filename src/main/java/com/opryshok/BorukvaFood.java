@@ -1,7 +1,7 @@
 package com.opryshok;
 
 import com.opryshok.block.ModBlocks;
-import com.opryshok.entity.ModBlockEntities;
+import com.opryshok.entity.ModEntities;
 import com.opryshok.item.ModItems;
 import com.opryshok.ui.GuiTextures;
 import com.opryshok.ui.UiResourceCreator;
@@ -22,7 +22,7 @@ public class BorukvaFood implements ModInitializer {
 		UiResourceCreator.setup();
 		ModItems.registerModItems();
 		ModBlocks.registerBlocks();
-		ModBlockEntities.register();
+		ModEntities.register();
 		CompostableItems.register();
 		if (PolymerResourcePackUtils.addModAssets(MOD_ID)) {
 			LOGGER.info("Successfully added mod assets for " + MOD_ID);

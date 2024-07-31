@@ -1,0 +1,50 @@
+package com.opryshok.item;
+
+import com.opryshok.entity.CucumberJarEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ProjectileItem;
+import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Position;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
+
+import java.util.List;
+
+public class CucumberJarItem extends PolyItem implements ProjectileItem {
+    public CucumberJarItem(Item.Settings settings, String modelId) {
+        super(settings, modelId);
+    }
+    @Override
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        var stack = user.getStackInHand(hand);
+
+        CucumberJarEntity.spawn(user.getRotationVector(), user.getEyePos(), world, stack.copyWithCount(1));
+
+        world.playSound(null, user.getX(), user.getEyeY(), user.getZ(), SoundEvents.ENTITY_SPLASH_POTION_THROW, user.getSoundCategory(), 0.5F,
+                0.4F / (world.getRandom().nextFloat() * 0.4F + 1F));
+
+
+        if (!user.isCreative()) {
+            stack.decrement(1);
+        }
+
+        return TypedActionResult.success(stack);
+    }
+    public ProjectileEntity createEntity(World world, Position pos, ItemStack stack, Direction direction) {
+        return CucumberJarEntity.create(Vec3d.of(direction.getVector()), pos, world, stack.copyWithCount(1));
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(Text.translatable("tooltip.borukva-food.cucumber_jar").formatted(Formatting.YELLOW));
+    }
+}

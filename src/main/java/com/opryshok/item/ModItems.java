@@ -23,6 +23,9 @@ public class ModItems {
     public static Item CABBAGE_SEEDS = registerItem("cabbage_seeds", new PolySeedsItem(ModBlocks.CABBAGE, new Item.Settings(), "cabbage_seeds"));
     public static Item CORN_SEEDS = registerItem("corn_seeds", new PolySeedsItem(ModBlocks.CORN, new Item.Settings(), "corn_seeds"));
     public static Item CHILLI_PEPPER_SEEDS = registerItem("chilli_pepper_seeds", new PolySeedsItem(ModBlocks.CHILLI_PEPPER, new Item.Settings(), "chilli_pepper_seeds"));
+    public static Item CUCUMBER_SEEDS = registerItem("cucumber_seeds", new PolySeedsItem(ModBlocks.CUCUMBER, new Item.Settings(), "cucumber_seeds"));
+    public static Item LETTUCE_SEEDS = registerItem("lettuce_seeds", new PolySeedsItem(ModBlocks.LETTUCE, new Item.Settings(), "lettuce_seeds"));
+    public static Item ONION_SEEDS = registerItem("onion_seeds", new PolySeedsItem(ModBlocks.ONION, new Item.Settings(), "onion_seeds"));
     public static Item TOMATO = registerItem("tomato", new PolyItem(new Item.Settings().food(ModFoodComponents.TOMATO), "tomato"));
     public static Item CABBAGE = registerItem("cabbage", new PolyItem(new Item.Settings().food(ModFoodComponents.CABBAGE), "cabbage"));
     public static Item CHILLI_PEPPER = registerItem("chilli_pepper", new PolyItem(new Item.Settings().food(ModFoodComponents.CHILLI_PEPPER), "chilli_pepper"));
@@ -61,6 +64,8 @@ public class ModItems {
     public static Item BEEF_BARBECUE = registerItem("beef_barbecue", new PolyItem(new Item.Settings().food(ModFoodComponents.BEEF_BARBECUE), "beef_barbecue"));
     public static Item COOKED_BEEF_BARBECUE = registerItem("cooked_beef_barbecue", new PolyItem(new Item.Settings().food(ModFoodComponents.COOKED_BEEF_BARBECUE), "cooked_beef_barbecue"));
 
+    public static Item CUCUMBER_JAR = registerItem("cucumber_jar", new CucumberJarItem(new Item.Settings(), "cucumber_jar"));
+
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(BorukvaFood.MOD_ID, name), item);
     }
@@ -77,10 +82,14 @@ public class ModItems {
             entries.add(CORN);
             entries.add(CUCUMBER);
             entries.add(LETTUCE);
+            entries.add(ONION);
             entries.add(TOMATO_SEEDS);
             entries.add(CABBAGE_SEEDS);
             entries.add(CHILLI_PEPPER_SEEDS);
             entries.add(CORN_SEEDS);
+            entries.add(CUCUMBER_SEEDS);
+            entries.add(LETTUCE_SEEDS);
+            entries.add(ONION_SEEDS);
 
             entries.add(SALT);
             entries.add(OIL);
