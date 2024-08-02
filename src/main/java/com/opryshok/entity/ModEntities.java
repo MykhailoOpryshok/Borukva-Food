@@ -18,8 +18,8 @@ public class ModEntities {
     public static final BlockEntityType<StoveBlockEntity> STOVE = register("stove", BlockEntityType.Builder.create(StoveBlockEntity::new, ModBlocks.STOVE));
     public static final BlockEntityType<PanBlockEntity> PAN = register("pan", BlockEntityType.Builder.create(PanBlockEntity::new, ModBlocks.PAN));
     public static final BlockEntityType<CuttingBoardBlockEntity> CUTTING_BOARD = register("cutting_board", BlockEntityType.Builder.create(CuttingBoardBlockEntity::new, ModBlocks.CUTTING_BOARD));
-    public static final EntityType<CucumberJarEntity> CUCUMBER_JAR = register("cucumber_jar", FabricEntityTypeBuilder
-            .create().dimensions(EntityDimensions.fixed(0.25f, 0.25f)).entityFactory(CucumberJarEntity::new));
+    public static final EntityType<PickleJarEntity> CUCUMBER_JAR = register("cucumber_jar", FabricEntityTypeBuilder
+            .create().dimensions(EntityDimensions.fixed(0.25f, 0.25f)).entityFactory(PickleJarEntity::new));
     public static void register() {
     }
     public static <T extends BlockEntity> BlockEntityType<T> register(String path, BlockEntityType.Builder<T> builder) {

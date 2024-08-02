@@ -1,6 +1,7 @@
 package com.opryshok.block;
 
 import com.opryshok.BorukvaFood;
+import com.opryshok.PolySaplingBlock;
 import com.opryshok.block.bushes.BlackcurrantsBush;
 import com.opryshok.block.bushes.GooseberryBush;
 import com.opryshok.block.cooking.CuttingBoard;
@@ -10,11 +11,14 @@ import com.opryshok.block.crops.*;
 import com.opryshok.block.food.MeatPizza;
 import com.opryshok.block.food.VeganPizza;
 import com.opryshok.item.ModItems;
-import eu.pb4.polymer.core.api.item.PolymerBlockItem;
 import eu.pb4.polymer.core.api.item.PolymerItemGroupUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.item.*;
+import net.minecraft.block.SaplingGenerator;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
@@ -49,11 +53,31 @@ public class ModBlocks {
     public static final Block TOMATO_CRATE = registerBlock("tomato_crate", new SimplePolyBlock(Block.Settings.copy(Blocks.COMPOSTER), "tomato_crate"));
     public static final Block BLACKCURRANTS_BUSH = registerBlock("blackcurrants_bush", new BlackcurrantsBush(Block.Settings.copy(Blocks.SWEET_BERRY_BUSH)));
     public static final Block GOOSEBERRY_BUSH = registerBlock("gooseberry_bush", new GooseberryBush(Block.Settings.copy(Blocks.SWEET_BERRY_BUSH)));
+    public static final Block SALT = registerBlock("salt_block", new SimplePolyBlock(Block.Settings.copy(Blocks.STONE), "salt_block"));
+
+
+    public static final Block LEMON_LOG = registerBlock("lemon_log", new PolyLogBlock(Block.Settings.copy(Blocks.OAK_LOG)));
+    public static final Block LEMON_WOOD = registerBlock("lemon_wood", new PolyLogBlock(Block.Settings.copy(Blocks.OAK_WOOD)));
+    public static final Block STRIPPED_LEMON_LOG = registerBlock("stripped_lemon_log", new PolyLogBlock(Block.Settings.copy(Blocks.OAK_LOG)));
+    public static final Block STRIPPED_LEMON_WOOD = registerBlock("stripped_lemon_wood", new PolyLogBlock(Block.Settings.copy(Blocks.OAK_WOOD)));
+    public static final Block LEMON_LEAVES = registerBlock("lemon_leaves", new PolyLeavesBlock(Block.Settings.copy(Blocks.OAK_LEAVES), "lemon_leaves"));
+    public static final Block LEMON_PLANKS = registerBlock("lemon_planks", new SimplePolyBlock(Block.Settings.copy(Blocks.OAK_PLANKS), "lemon_planks"));
+    public static final Block LEMON_SAPLING = registerBlock("lemon_sapling", new PolySaplingBlock(SaplingGenerator.AZALEA, Block.Settings.copy(Blocks.OAK_SAPLING), "lemon_sapling"));
+
 
     // Block Items:
-    public static final BlockItem BETTER_FARMLAND_ITEM = registerBlockItem("better_farmland", new PolymerBlockItem(BETTER_FARMLAND, new Item.Settings(), Items.FARMLAND));
-    public static final BlockItem MEAT_PIZZA_ITEM = registerBlockItem("meat_pizza", new TexturedPolyBlockItem(MEAT_PIZZA, new Item.Settings(), "item/meat_pizza"));
-    public static final BlockItem VEGAN_PIZZA_ITEM = registerBlockItem("vegan_pizza", new TexturedPolyBlockItem(VEGAN_PIZZA, new Item.Settings(), "item/vegan_pizza"));
+    public static final BlockItem LEMON_LOG_ITEM = registerBlockItem("lemon_log", new TexturedPolyBlockItem(LEMON_LOG, new Item.Settings(), "block/lemon_log"));
+    public static final BlockItem LEMON_WOOD_ITEM = registerBlockItem("lemon_wood", new TexturedPolyBlockItem(LEMON_WOOD, new Item.Settings(), "block/lemon_wood"));
+    public static final BlockItem STRIPPED_LEMON_LOG_ITEM = registerBlockItem("stripped_lemon_log", new TexturedPolyBlockItem(STRIPPED_LEMON_LOG, new Item.Settings(), "block/stripped_lemon_log"));
+    public static final BlockItem STRIPPED_LEMON_WOOD_ITEM = registerBlockItem("stripped_lemon_wood", new TexturedPolyBlockItem(STRIPPED_LEMON_WOOD, new Item.Settings(), "block/stripped_lemon_wood"));
+    public static final BlockItem LEMON_LEAVES_ITEM = registerBlockItem("lemon_leaves", new TexturedPolyBlockItem(LEMON_LEAVES, new Item.Settings(), "block/lemon_leaves"));
+    public static final BlockItem LEMON_PLANKS_ITEM = registerBlockItem("lemon_planks", new TexturedPolyBlockItem(LEMON_PLANKS, new Item.Settings(), "block/lemon_planks"));
+    public static final BlockItem LEMON_SAPLING_ITEM = registerBlockItem("lemon_sapling", new TexturedPolyBlockItem(LEMON_SAPLING, new Item.Settings(), "block/lemon_sapling"));
+
+
+    public static final BlockItem SALT_BLOCK_ITEM = registerBlockItem("salt_block", new TexturedPolyBlockItem(SALT, new Item.Settings(), "block/salt_block"));
+    public static final BlockItem MEAT_PIZZA_ITEM = registerBlockItem("meat_pizza", new TexturedPolyBlockItem(MEAT_PIZZA, new Item.Settings().maxCount(1), "item/meat_pizza"));
+    public static final BlockItem VEGAN_PIZZA_ITEM = registerBlockItem("vegan_pizza", new TexturedPolyBlockItem(VEGAN_PIZZA, new Item.Settings().maxCount(1), "item/vegan_pizza"));
     public static final BlockItem STOVE_ITEM = registerBlockItem("stove", new TexturedPolyBlockItem(STOVE, new Item.Settings(), "block/stove"));
     public static final BlockItem PAN_ITEM = registerBlockItem("pan", new TexturedPolyBlockItem(PAN, new Item.Settings(), "block/pan"));
     public static final BlockItem CUTTING_BOARD_ITEM = registerBlockItem("cutting_board", new TexturedPolyBlockItem(CUTTING_BOARD, new Item.Settings(), "item/cutting_board"));
@@ -71,7 +95,7 @@ public class ModBlocks {
     public static void registerBlocks() {
         ItemGroup.Builder builder = PolymerItemGroupUtils.builder();
         builder.icon(() -> new ItemStack(ModBlocks.TOMATO_CRATE_ITEM, 1));
-        builder.displayName(Text.of("Блоки та інструменти"));
+        builder.displayName(Text.translatable("item-group.borukva-food.blocks_and_tools"));
 
         builder.entries((displayContext, entries) -> {
             entries.add(BEETROOT_CRATE_ITEM);

@@ -11,6 +11,7 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.decoration.DisplayEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.PhantomEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.listener.ClientPlayPacketListener;
@@ -29,9 +30,9 @@ import org.joml.Vector3f;
 
 import java.util.List;
 
-public class CucumberJarEntity extends ProjectileEntity implements PolymerEntity {
-    public ItemStack itemStack = ModItems.CUCUMBER_JAR.getDefaultStack();
-    public CucumberJarEntity(EntityType<? extends ProjectileEntity> type, World world) {
+public class PickleJarEntity extends ProjectileEntity implements PolymerEntity {
+    public ItemStack itemStack = ModItems.PICKLE_JAR.getDefaultStack();
+    public PickleJarEntity(EntityType<? extends ProjectileEntity> type, World world) {
         super(type, world);
     }
 
@@ -72,8 +73,8 @@ public class CucumberJarEntity extends ProjectileEntity implements PolymerEntity
             for (Entity entity : entities) {
                 int damage = entity instanceof PhantomEntity ? 100 : 0;
                 entity.damage(this.getDamageSources().thrown(this, this.getOwner()), damage);
-                Break();
             }
+            Break();
         }
     }
     public void Break(){
@@ -82,7 +83,7 @@ public class CucumberJarEntity extends ProjectileEntity implements PolymerEntity
         double y = pos.getY();
         double z = pos.getZ();
         this.getWorld().playSound(null, pos, SoundEvents.ENTITY_SPLASH_POTION_BREAK, SoundCategory.NEUTRAL);
-        ItemScatterer.spawn(this.getWorld(), x, y, z, new ItemStack(ModItems.CUCUMBER, 3));
+        ItemScatterer.spawn(this.getWorld(), x, y, z, new ItemStack(ModItems.PICKLE, 3));
         this.discard();
     }
     @Override
@@ -99,13 +100,14 @@ public class CucumberJarEntity extends ProjectileEntity implements PolymerEntity
             data.add(DataTracker.SerializedEntry.of(DisplayTrackedData.Item.ITEM_DISPLAY, ModelTransformationMode.FIXED.getIndex()));
         }
     }
-    public static void spawn(Vec3d vector, Position pos, World world, ItemStack stack) {
+    public static void spawn(Vec3d vector, Position pos, World world, ItemStack stack, PlayerEntity owner) {
         var entity = create(vector, pos, world, stack);
+        entity.setOwner(owner);
         world.spawnEntity(entity);
     }
 
-    public static CucumberJarEntity create(Vec3d vector, Position pos, World world, ItemStack stack) {
-        var entity = new CucumberJarEntity(ModEntities.CUCUMBER_JAR, world);
+    public static PickleJarEntity create(Vec3d vector, Position pos, World world, ItemStack stack) {
+        var entity = new PickleJarEntity(ModEntities.CUCUMBER_JAR, world);
         entity.itemStack = stack;
         entity.setPosition(new Vec3d(pos.getX(), pos.getY(), pos.getZ()));
         entity.setVelocity(vector);

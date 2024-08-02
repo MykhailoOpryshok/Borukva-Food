@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chocolate_bar": {
+      "conditions": {
+        "items": [
+          {
+            "items": "borukva-food:chocolate_bar"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "borukva-food:jack_candy"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_waffle": {
+      "conditions": {
+        "items": [
+          {
+            "items": "borukva-food:waffle"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_waffle",
+      "has_chocolate_bar"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "borukva-food:jack_candy"
+    ]
+  }
+}

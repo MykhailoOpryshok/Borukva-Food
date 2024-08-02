@@ -18,11 +18,9 @@ import org.joml.Vector3f;
 import java.util.ArrayList;
 
 public class MeatPizza extends VeganPizza {
-    private final Item dropItem;
 
     public MeatPizza(Settings settings) {
         super(settings);
-        this.dropItem = ModItems.MEAT_PIZZA_SLICE;
     }
     @Override
     public @Nullable ElementHolder createElementHolder(ServerWorld world, BlockPos pos, BlockState initialBlockState) {
@@ -30,12 +28,12 @@ public class MeatPizza extends VeganPizza {
     }
 
     @Override
-    public Item getDropItem() {
-        return dropItem;
+    public Item getSlice() {
+        return ModItems.MEAT_PIZZA_SLICE;
     }
 
     public static final class Model extends VeganPizza.Model {
-        private static final ArrayList<ItemStack> MEAT_MODEL = new ArrayList<>();
+        public static final ArrayList<ItemStack> MEAT_MODEL = new ArrayList<>();
 
         static {
             for (int i = 0; i <= 8; i++) {

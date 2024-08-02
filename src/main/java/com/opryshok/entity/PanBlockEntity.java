@@ -69,7 +69,6 @@ public class PanBlockEntity extends LockableBlockEntity implements MinimalSidedI
             this.model.updateItems(this.getStacks());
         }
     }
-
     public static <T extends BlockEntity> void tick(World world, BlockPos pos, BlockState state, T t) {
         if (t instanceof PanBlockEntity self) {
             self.active = state.get(Properties.LIT);

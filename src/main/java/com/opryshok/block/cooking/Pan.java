@@ -125,7 +125,7 @@ public class Pan extends BlockWithEntity implements FactoryBlock, BlockEntityPro
     }
 
     public static final class Model extends BlockModel {
-        public static final ItemStack PAN = BaseItemProvider.requestModel(Identifier.of(BorukvaFood.MOD_ID, "block/pan"));
+        public static final ItemStack MODEL = BaseItemProvider.requestModel(Identifier.of(BorukvaFood.MOD_ID, "block/pan"));
         public ItemDisplayElement[] items =  new ItemDisplayElement[3];
         public ItemDisplayElement pan;
         public ServerWorld world;
@@ -137,7 +137,7 @@ public class Pan extends BlockWithEntity implements FactoryBlock, BlockEntityPro
             init(state);
         }
         public void init(BlockState state) {
-            this.pan = ItemDisplayElementUtil.createSimple(PAN);
+            this.pan = ItemDisplayElementUtil.createSimple(MODEL);
             this.pan.setTranslation(new Vector3f(0, 0, -0.49f));
             this.pan.setScale(new Vector3f(0.7f));
             this.pan.setDisplaySize(1f, 1f);

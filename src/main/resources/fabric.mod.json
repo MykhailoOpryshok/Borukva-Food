@@ -3,15 +3,15 @@
 	"id": "borukva-food",
 	"version": "${version}",
 	"name": "Borukva Food",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "This mod adding new food, crops and blocks for cooking, created for Borukva minecraft server",
 	"authors": [
-		"Me!"
+		"opryshok"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"borukva minecraft server": "https://t.me/borukva_minecraft",
+		"mod github": "https://github.com/MykhailoOpryshok/Borukva-Food"
 	},
-	"license": "CC0-1.0",
+	"license": " CC-BY-SA-4.0",
 	"icon": "assets/borukva-food/icon.png",
 	"environment": "*",
 	"entrypoints": {

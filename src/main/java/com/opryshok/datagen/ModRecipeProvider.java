@@ -45,6 +45,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         seedsRecipe(ModItems.CABBAGE, ModItems.CABBAGE_SEEDS, exporter);
         seedsRecipe(ModItems.CHILLI_PEPPER, ModItems.CHILLI_PEPPER_SEEDS, exporter);
         seedsRecipe(ModItems.CORN, ModItems.CORN_SEEDS, exporter);
+        seedsRecipe(ModItems.CUCUMBER, ModItems.CUCUMBER_SEEDS, exporter);
+        seedsRecipe(ModItems.LETTUCE, ModItems.LETTUCE_SEEDS, exporter);
+        seedsRecipe(ModItems.ONION, ModItems.ONION_SEEDS, exporter);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.STOVE_ITEM, 1)
                 .pattern("SSS")
@@ -220,6 +223,64 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Items.BOWL)
                 .criterion("has_rotten_item", conditionsFromTag(ModTags.Items.ROTTEN_SOUP_INGREDIENTS))
                 .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.ROTTEN_SOUP)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BREWING, ModItems.EMPTY_JAR, 1)
+                .pattern(" S ")
+                .pattern("G G")
+                .pattern(" G ")
+                .input('S', Ingredient.fromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wooden_slabs"))))
+                .input('G', Items.GLASS_PANE)
+                .criterion(hasItem(Items.GLASS_PANE), conditionsFromItem(Items.GLASS_PANE))
+                .criterion("has_slabs", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wooden_slabs"))))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, "empty_jar"));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.PICKLE_JAR, 1)
+                .pattern("SPS")
+                .pattern("CCC")
+                .pattern(" E ")
+                .input('S', ModItems.SALT)
+                .input('P', Items.SUGAR)
+                .input('C', ModItems.CUCUMBER)
+                .input('E', ModItems.EMPTY_JAR)
+                .criterion(hasItem(ModItems.EMPTY_JAR), conditionsFromItem(ModItems.EMPTY_JAR))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, "pickle_jar"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.APPLE_CANDY, 1)
+                .input(Items.APPLE)
+                .input(Items.SUGAR)
+                .input(Items.STICK)
+                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, "apple_candy"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.HONEY_CANDY, 3)
+                .input(Items.HONEY_BOTTLE)
+                .input(Items.SUGAR)
+                .criterion(hasItem(Items.HONEY_BOTTLE), conditionsFromItem(Items.HONEY_BOTTLE))
+                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, "honey_candy"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.JACK_CANDY, 3)
+                .input(ModItems.WAFFLE)
+                .input(ModItems.CHOCOLATE_BAR)
+                .criterion(hasItem(ModItems.WAFFLE), conditionsFromItem(ModItems.WAFFLE))
+                .criterion(hasItem(ModItems.CHOCOLATE_BAR), conditionsFromItem(ModItems.CHOCOLATE_BAR))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, "jack_candy"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.PUMPKIN_CANDY, 3)
+                .input(Items.PUMPKIN)
+                .input(Items.SUGAR)
+                .criterion(hasItem(Items.PUMPKIN), conditionsFromItem(Items.PUMPKIN))
+                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, "pumpkin_candy"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.LEMON_CANDY, 3)
+                .input(ModItems.LEMON)
+                .input(Items.SUGAR)
+                .criterion(hasItem(ModItems.LEMON), conditionsFromItem(ModItems.LEMON))
+                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, "lemon_candy"));
+
+        compressBlockRecipe(ModBlocks.SALT_BLOCK_ITEM, ModItems.SALT, exporter);
     }
     private void campfireCookingRecipe(RecipeExporter exporter, Item input, Item output) {
         CookingRecipeJsonBuilder.create(Ingredient.ofItems(input), RecipeCategory.FOOD, output, 0, 600, RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new)

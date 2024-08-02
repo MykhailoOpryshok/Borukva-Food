@@ -37,7 +37,9 @@ public class ModModelProvider extends FabricModelProvider{
         generateCrate(blockStateModelGenerator, ModBlocks.LETTUCE_CRATE, "lettuce_crate");
         generateCrate(blockStateModelGenerator, ModBlocks.POTATO_CRATE, "potato_crate");
         generateCrate(blockStateModelGenerator, ModBlocks.TOMATO_CRATE, "tomato_crate");
-
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SALT);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LEMON_LEAVES);
+        blockStateModelGenerator.registerLog(ModBlocks.LEMON_LOG).log(ModBlocks.LEMON_LOG).wood(ModBlocks.LEMON_WOOD);
     }
 
     @Override
@@ -78,7 +80,18 @@ public class ModModelProvider extends FabricModelProvider{
         itemModelGenerator.register(ModItems.WAFFLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.CHOCOLATE_BAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.ONION, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CUCUMBER_JAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PICKLE_JAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.LEMON_PIE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.APPLE_PIE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HONEY_PIE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HOT_SPICE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PICKLE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.EMPTY_JAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.APPLE_CANDY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HONEY_CANDY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.JACK_CANDY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PUMPKIN_CANDY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.LEMON_CANDY, Models.GENERATED);
     }
     public void generateCrate(BlockStateModelGenerator generator, Block generatedBlock, String path){
         generator.registerCubeWithCustomTextures(

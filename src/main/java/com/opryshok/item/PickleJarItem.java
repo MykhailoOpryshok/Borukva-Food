@@ -1,6 +1,6 @@
 package com.opryshok.item;
 
-import com.opryshok.entity.CucumberJarEntity;
+import com.opryshok.entity.PickleJarEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.Item;
@@ -19,15 +19,15 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class CucumberJarItem extends PolyItem implements ProjectileItem {
-    public CucumberJarItem(Item.Settings settings, String modelId) {
+public class PickleJarItem extends PolyItem implements ProjectileItem {
+    public PickleJarItem(Item.Settings settings, String modelId) {
         super(settings, modelId);
     }
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         var stack = user.getStackInHand(hand);
 
-        CucumberJarEntity.spawn(user.getRotationVector(), user.getEyePos(), world, stack.copyWithCount(1));
+        PickleJarEntity.spawn(user.getRotationVector(), user.getEyePos(), world, stack.copyWithCount(1), user);
 
         world.playSound(null, user.getX(), user.getEyeY(), user.getZ(), SoundEvents.ENTITY_SPLASH_POTION_THROW, user.getSoundCategory(), 0.5F,
                 0.4F / (world.getRandom().nextFloat() * 0.4F + 1F));
@@ -40,11 +40,11 @@ public class CucumberJarItem extends PolyItem implements ProjectileItem {
         return TypedActionResult.success(stack);
     }
     public ProjectileEntity createEntity(World world, Position pos, ItemStack stack, Direction direction) {
-        return CucumberJarEntity.create(Vec3d.of(direction.getVector()), pos, world, stack.copyWithCount(1));
+        return PickleJarEntity.create(Vec3d.of(direction.getVector()), pos, world, stack.copyWithCount(1));
     }
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.translatable("tooltip.borukva-food.cucumber_jar").formatted(Formatting.YELLOW));
+        tooltip.add(Text.translatable("tooltip.borukva-food.pickle_jar").formatted(Formatting.YELLOW));
     }
 }

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:glass_pane"
+    },
+    "S": {
+      "tag": "minecraft:wooden_slabs"
+    }
+  },
+  "pattern": [
+    " S ",
+    "G G",
+    " G "
+  ],
+  "result": {
+    "count": 1,
+    "id": "borukva-food:empty_jar"
+  }
+}

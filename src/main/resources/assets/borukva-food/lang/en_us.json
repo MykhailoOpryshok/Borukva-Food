@@ -3,6 +3,7 @@
   "item.borukva-food.soil_analizator": "Soil analyzer",
   "item.borukva-food.fertilizer": "Fertilizer",
   "item.borukva-food.compost": "Compost",
+  "item.borukva-food.empty_jar": "Empty jar",
 
   "item.borukva-food.tomato_seeds": "Tomato seeds",
   "item.borukva-food.cabbage_seeds": "Cabbage seeds",
@@ -48,7 +49,16 @@
   "item.borukva-food.beef_barbecue": "Beef barbecue",
   "item.borukva-food.cooked_beef_barbecue": "Cooked beef barbecue",
   "item.borukva-food.beef_slices": "Beef slices",
-  "item.borukva-food.cucumber_jar": "Cucumber jar",
+  "item.borukva-food.pickle_jar": "Pickle jar",
+  "item.borukva-food.lemon_pie": "Lemon pie",
+  "item.borukva-food.apple_pie": "Apple pie",
+  "item.borukva-food.honey_pie": "Honey pie",
+  "item.borukva-food.pickle": "Pickle",
+  "item.borukva-food.apple_candy": "Caramel apple",
+  "item.borukva-food.honey_candy": "Honey candy",
+  "item.borukva-food.jack_candy": "Jack candy",
+  "item.borukva-food.pumpkin_candy": "Pumpkin candy",
+  "item.borukva-food.lemon_candy": "Lemon candy",
 
   "block.borukva-food.better_farmland": "Better farmland",
   "block.borukva-food.meat_pizza": "Meat pizza",
@@ -69,7 +79,10 @@
   "tooltip.borukva-food.soil_analizator": "Determines the level of fertility and acidity in the soil",
   "tooltip.borukva-food.fertilizer": "Increases the level of fertility and reduces the level of acidity",
   "tooltip.borukva-food.compost": "Increases the level of fertility and increases the level of acidity",
-  "tooltip.borukva-food.cucumber_jar": "Folk remedy against phantoms",
+  "tooltip.borukva-food.pickle_jar": "Folk remedy against phantoms",
 
-  "chat.borukva-food.soil_analizator.on_use": "[Fertility: %d || Acidity: %d]"
+  "chat.borukva-food.soil_analizator.on_use": "[Fertility: %d || Acidity: %d]",
+
+  "item-group.borukva-food.items": "Items",
+  "item-group.borukva-food.blocks_and_tools": "Blocks and tools"
 }

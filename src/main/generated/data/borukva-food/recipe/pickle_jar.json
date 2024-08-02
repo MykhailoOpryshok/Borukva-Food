@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "borukva-food:cucumber"
+    },
+    "E": {
+      "item": "borukva-food:empty_jar"
+    },
+    "P": {
+      "item": "minecraft:sugar"
+    },
+    "S": {
+      "item": "borukva-food:salt"
+    }
+  },
+  "pattern": [
+    "SPS",
+    "CCC",
+    " E "
+  ],
+  "result": {
+    "count": 1,
+    "id": "borukva-food:pickle_jar"
+  }
+}

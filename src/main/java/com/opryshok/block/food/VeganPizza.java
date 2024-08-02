@@ -27,11 +27,9 @@ import org.joml.Vector3f;
 import java.util.ArrayList;
 
 public class VeganPizza extends Block implements FactoryBlock {
-    private final Item dropItem;
 
     public VeganPizza(Settings settings) {
         super(settings.nonOpaque());
-        this.dropItem = ModItems.VEGAN_PIZZA_SLICE;
         this.setDefaultState(getDefaultState().with(ModProperties.SLICES, 0));
     }
 
@@ -51,8 +49,8 @@ public class VeganPizza extends Block implements FactoryBlock {
         return world.getBlockState(pos.down()).isSolidBlock(world, pos.down());
     }
 
-    public Item getDropItem() {
-        return dropItem;
+    public Item getSlice() {
+        return ModItems.VEGAN_PIZZA_SLICE;
     }
 
     @Override
@@ -61,7 +59,7 @@ public class VeganPizza extends Block implements FactoryBlock {
     }
 
     public static class Model extends BlockModel {
-        private static final ArrayList<ItemStack> MODEL = new ArrayList<>();
+        public static final ArrayList<ItemStack> MODEL = new ArrayList<>();
 
         static {
             for (int i = 0; i <= 8; i++) {

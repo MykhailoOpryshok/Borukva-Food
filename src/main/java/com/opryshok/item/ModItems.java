@@ -63,8 +63,18 @@ public class ModItems {
     public static Item COOKED_VEGAN_BARBECUE = registerItem("cooked_vegan_barbecue", new PolyItem(new Item.Settings().food(ModFoodComponents.COOKED_VEGAN_BARBECUE), "cooked_vegan_barbecue"));
     public static Item BEEF_BARBECUE = registerItem("beef_barbecue", new PolyItem(new Item.Settings().food(ModFoodComponents.BEEF_BARBECUE), "beef_barbecue"));
     public static Item COOKED_BEEF_BARBECUE = registerItem("cooked_beef_barbecue", new PolyItem(new Item.Settings().food(ModFoodComponents.COOKED_BEEF_BARBECUE), "cooked_beef_barbecue"));
+    public static Item PICKLE_JAR = registerItem("pickle_jar", new PickleJarItem(new Item.Settings().maxCount(16), "pickle_jar"));
+    public static Item LEMON_PIE = registerItem("lemon_pie", new PolyItem(new Item.Settings().food(ModFoodComponents.FRUIT_PIE), "lemon_pie"));
+    public static Item APPLE_PIE = registerItem("apple_pie", new PolyItem(new Item.Settings().food(ModFoodComponents.FRUIT_PIE), "apple_pie"));
+    public static Item HONEY_PIE = registerItem("honey_pie", new PolyItem(new Item.Settings().food(ModFoodComponents.HONEY_PIE), "honey_pie"));
+    public static Item PICKLE = registerItem("pickle", new PolyItem(new Item.Settings().food(ModFoodComponents.PICKLE), "pickle"));
+    public static Item EMPTY_JAR = registerItem("empty_jar", new PolyItem(new Item.Settings(), "empty_jar"));
+    public static Item APPLE_CANDY = registerItem("apple_candy", new PolyItem(new Item.Settings().food(ModFoodComponents.APPLE_CANDY), "apple_candy"));
+    public static Item HONEY_CANDY = registerItem("honey_candy", new PolyItem(new Item.Settings().food(ModFoodComponents.HONEY_CANDY), "honey_candy"));
+    public static Item JACK_CANDY = registerItem("jack_candy", new PolyItem(new Item.Settings().food(ModFoodComponents.JACK_CANDY), "jack_candy"));
+    public static Item PUMPKIN_CANDY = registerItem("pumpkin_candy", new PolyItem(new Item.Settings().food(ModFoodComponents.PUMPKIN_CANDY), "pumpkin_candy"));
+    public static Item LEMON_CANDY = registerItem("lemon_candy", new PolyItem(new Item.Settings().food(ModFoodComponents.LEMON_CANDY), "lemon_candy"));
 
-    public static Item CUCUMBER_JAR = registerItem("cucumber_jar", new CucumberJarItem(new Item.Settings(), "cucumber_jar"));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(BorukvaFood.MOD_ID, name), item);
@@ -73,7 +83,7 @@ public class ModItems {
     public static void registerModItems() {
         ItemGroup.Builder builder = PolymerItemGroupUtils.builder();
         builder.icon(() -> new ItemStack(ModItems.TOMATO, 1));
-        builder.displayName(Text.of("Їжа"));
+        builder.displayName(Text.translatable("item-group.borukva-food.items"));
 
         builder.entries((displayContext, entries) -> {
             entries.add(TOMATO);
@@ -91,12 +101,15 @@ public class ModItems {
             entries.add(LETTUCE_SEEDS);
             entries.add(ONION_SEEDS);
 
+            entries.add(HOT_SPICE);
             entries.add(SALT);
             entries.add(OIL);
             entries.add(MAYONNAISE);
             entries.add(KETCHUP);
             entries.add(GUACAMOLE);
-            entries.add(WAFFLE);
+            entries.add(EMPTY_JAR);
+            entries.add(PICKLE_JAR);
+            entries.add(PICKLE);
 
             entries.add(ModBlocks.MEAT_PIZZA_ITEM);
             entries.add(ModBlocks.VEGAN_PIZZA_ITEM);
@@ -104,6 +117,7 @@ public class ModItems {
             entries.add(VEGAN_PIZZA_SLICE);
             entries.add(CHOCOLATE_ICE_CREAM);
             entries.add(ICE_CREAM);
+            entries.add(WAFFLE);
             entries.add(SWEET_BERRY_COOKIE);
             entries.add(BLACKCURRANT_COOKIE);
             entries.add(BEEF_SANDWICH);
@@ -119,6 +133,14 @@ public class ModItems {
             entries.add(COOKED_BEEF_BARBECUE);
             entries.add(VEGAN_BARBECUE);
             entries.add(COOKED_VEGAN_BARBECUE);
+            entries.add(LEMON_PIE);
+            entries.add(APPLE_PIE);
+            entries.add(HONEY_PIE);
+            entries.add(APPLE_CANDY);
+            entries.add(HONEY_CANDY);
+            entries.add(JACK_CANDY);
+            entries.add(PUMPKIN_CANDY);
+            entries.add(LEMON_CANDY);
         });
         ItemGroup polymerGroup = builder.build();
         PolymerItemGroupUtils.registerPolymerItemGroup(Identifier.of(BorukvaFood.MOD_ID, "items"), polymerGroup);
