@@ -50,6 +50,21 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(LETTUCE_CRATE);
         addDrop(POTATO_CRATE);
         addDrop(TOMATO_CRATE);
+        addDrop(SALT);
+        addDrop(AVOCADO_SAPLING);
+        addDrop(LEMON_SAPLING);
+        addDrop(LEMON_LOG);
+        addDrop(LEMON_WOOD);
+        addDrop(STRIPPED_LEMON_LOG);
+        addDrop(STRIPPED_LEMON_WOOD);
+        addDrop(AVOCADO_LOG);
+        addDrop(AVOCADO_WOOD);
+        addDrop(STRIPPED_AVOCADO_LOG);
+        addDrop(STRIPPED_AVOCADO_WOOD);
+        addDrop(AVOCADO_PLANKS);
+        addDrop(LEMON_PLANKS);
+        addDrop(LEMON_LEAVES, leavesDrops(LEMON_LEAVES, LEMON_SAPLING, 0.05f, 0.0625f, 0.083333336f, 0.1f));
+        addDrop(AVOCADO_LEAVES, leavesDrops(AVOCADO_LEAVES, AVOCADO_SAPLING, 0.05f, 0.0625f, 0.083333336f, 0.1f));
     }
     private void addCropDrop(Block cropBlock, Item cropItem, Item seedItem) {
         BlockStatePropertyLootCondition.Builder builder = BlockStatePropertyLootCondition.builder(cropBlock)

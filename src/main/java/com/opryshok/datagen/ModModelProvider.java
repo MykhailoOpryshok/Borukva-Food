@@ -40,6 +40,13 @@ public class ModModelProvider extends FabricModelProvider{
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SALT);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LEMON_LEAVES);
         blockStateModelGenerator.registerLog(ModBlocks.LEMON_LOG).log(ModBlocks.LEMON_LOG).wood(ModBlocks.LEMON_WOOD);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.LEMON_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_LEMON_LOG).log(ModBlocks.STRIPPED_LEMON_LOG).wood(ModBlocks.STRIPPED_LEMON_WOOD);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LEMON_PLANKS);
+        blockStateModelGenerator.registerLog(ModBlocks.AVOCADO_LOG).log(ModBlocks.AVOCADO_LOG).wood(ModBlocks.AVOCADO_WOOD);
+        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_AVOCADO_LOG).log(ModBlocks.STRIPPED_AVOCADO_LOG).wood(ModBlocks.STRIPPED_AVOCADO_WOOD);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.AVOCADO_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.AVOCADO_LEAVES);
     }
 
     @Override

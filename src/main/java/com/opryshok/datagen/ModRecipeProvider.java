@@ -280,7 +280,24 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
                 .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, "lemon_candy"));
 
-        compressBlockRecipe(ModBlocks.SALT_BLOCK_ITEM, ModItems.SALT, exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SALT_BLOCK_ITEM, 1)
+                .pattern("SS")
+                .pattern("SS")
+                .input('S', ModItems.SALT)
+                .criterion(hasItem(ModItems.SALT), conditionsFromItem(ModItems.SALT))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID,  getRecipeName(ModBlocks.SALT_BLOCK_ITEM)));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.SALT, 4)
+                .input(ModBlocks.SALT_BLOCK_ITEM, 1)
+                .criterion(hasItem(ModBlocks.SALT_BLOCK_ITEM), conditionsFromItem(ModBlocks.SALT_BLOCK_ITEM))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModBlocks.SALT_BLOCK_ITEM) + "_to_" + getRecipeName(ModItems.SALT)));
+
+        planksRecipe(ModTags.Items.AVOCADO_LOGS, ModBlocks.AVOCADO_PLANKS_ITEM, exporter);
+        planksRecipe(ModTags.Items.LEMON_LOGS, ModBlocks.LEMON_PLANKS_ITEM, exporter);
+
+        woodRecipe(ModBlocks.AVOCADO_LOG_ITEM, ModBlocks.AVOCADO_WOOD_ITEM, exporter);
+        woodRecipe(ModBlocks.LEMON_LOG_ITEM, ModBlocks.LEMON_WOOD_ITEM, exporter);
+        woodRecipe(ModBlocks.STRIPPED_AVOCADO_LOG_ITEM, ModBlocks.STRIPPED_AVOCADO_WOOD_ITEM, exporter);
+        woodRecipe(ModBlocks.STRIPPED_LEMON_LOG_ITEM, ModBlocks.STRIPPED_LEMON_WOOD_ITEM, exporter);
     }
     private void campfireCookingRecipe(RecipeExporter exporter, Item input, Item output) {
         CookingRecipeJsonBuilder.create(Ingredient.ofItems(input), RecipeCategory.FOOD, output, 0, 600, RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new)
@@ -306,5 +323,19 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(item)
                 .criterion(hasItem(item), conditionsFromItem(item))
                 .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(item) + "_to_" + getRecipeName(seeds)));
+    }
+    private void planksRecipe(TagKey<Item> log, Item planks, RecipeExporter exporter){
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, planks, 4)
+                .input(Ingredient.fromTag(log))
+                .criterion("has_log", conditionsFromTag(log))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(planks)));
+    }
+    private void woodRecipe(Item log, Item wood, RecipeExporter exporter){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, wood, 3)
+                .pattern("SS")
+                .pattern("SS")
+                .input('S', log)
+                .criterion(hasItem(log), conditionsFromItem(log))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(wood)));
     }
 }

@@ -1,4 +1,10 @@
-// 1.21	2024-08-01T23:54:55.7303752	Borukva Food/Tags for minecraft:block
+// 1.21	2024-08-04T19:58:29.7018031	Borukva Food/Tags for minecraft:block
+6a1a2a50214881ca812efcb68adc75ab8e1aacf8 data\minecraft\tags\block\planks.json
 37d43e735da3bd138d8fdd1b9a83227ffb021fcc data\minecraft\tags\block\mineable\shovel.json
+97bf48458f6d9a80f0fd54fe2477feb6772821eb data\borukva-food\tags\block\lemon_logs.json
 1f192a5cec0c2e6feb3d93d42951ed324344a21f data\minecraft\tags\block\mineable\axe.json
+836ea0cb1d3b3746fe71a51712170bc592ac1af0 data\borukva-food\tags\block\avocado_logs.json
+84a9bd37f1485570250b500f5b949d909567eb38 data\minecraft\tags\block\saplings.json
+ee0c6d48776cc1524cf6ec63029bd03444c895bb data\minecraft\tags\block\logs_that_burn.json
 1301657fdd5f45a0169fc0d3264c9d44dab2cbcf data\minecraft\tags\block\mineable\pickaxe.json
+059bc9806cd472303e2d22c6ed90d3759e4898db data\minecraft\tags\block\leaves.json

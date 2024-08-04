@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "tag": "borukva-food:lemon_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "borukva-food:lemon_planks"
+  }
+}

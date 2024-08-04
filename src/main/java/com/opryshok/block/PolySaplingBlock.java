@@ -1,5 +1,6 @@
-package com.opryshok;
+package com.opryshok.block;
 
+import com.opryshok.BorukvaFood;
 import eu.pb4.polymer.blocks.api.BlockModelType;
 import eu.pb4.polymer.blocks.api.PolymerBlockModel;
 import eu.pb4.polymer.blocks.api.PolymerBlockResourceUtils;

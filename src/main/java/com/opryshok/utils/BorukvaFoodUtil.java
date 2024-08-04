@@ -1,5 +1,9 @@
 package com.opryshok.utils;
 
+import com.opryshok.block.ModBlocks;
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
+import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
+import net.minecraft.block.Block;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 
@@ -30,5 +34,30 @@ public class BorukvaFoodUtil {
         }
 
         return init - itemStack.getCount();
+    }
+    public static void registerWood(){
+        addStripped(ModBlocks.AVOCADO_LOG, ModBlocks.STRIPPED_AVOCADO_LOG);
+        addStripped(ModBlocks.AVOCADO_WOOD, ModBlocks.STRIPPED_AVOCADO_WOOD);
+        addStripped(ModBlocks.LEMON_LOG, ModBlocks.STRIPPED_LEMON_LOG);
+        addStripped(ModBlocks.LEMON_WOOD, ModBlocks.STRIPPED_LEMON_WOOD);
+
+        addFlammable(ModBlocks.AVOCADO_LOG, 5, 5);
+        addFlammable(ModBlocks.AVOCADO_WOOD, 5, 5);
+        addFlammable(ModBlocks.STRIPPED_AVOCADO_LOG, 5, 5);
+        addFlammable(ModBlocks.STRIPPED_AVOCADO_WOOD, 5, 5);
+        addFlammable(ModBlocks.LEMON_LOG, 5, 5);
+        addFlammable(ModBlocks.LEMON_WOOD, 5, 5);
+        addFlammable(ModBlocks.STRIPPED_LEMON_LOG, 5, 5);
+        addFlammable(ModBlocks.STRIPPED_LEMON_WOOD, 5, 5);
+        addFlammable(ModBlocks.LEMON_PLANKS, 5, 20);
+        addFlammable(ModBlocks.AVOCADO_PLANKS, 5, 20);
+        addFlammable(ModBlocks.LEMON_LEAVES, 30, 60);
+        addFlammable(ModBlocks.AVOCADO_LEAVES, 30, 60);
+    }
+    private static void addFlammable(Block block, int burn, int spread){
+        FlammableBlockRegistry.getDefaultInstance().add(block, burn, spread);
+    }
+    private static void addStripped(Block block, Block stripped){
+        StrippableBlockRegistry.register(block, stripped);
     }
 }

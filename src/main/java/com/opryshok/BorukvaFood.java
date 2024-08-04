@@ -13,7 +13,11 @@ import com.opryshok.entity.ModEntities;
 import com.opryshok.item.ModItems;
 import com.opryshok.ui.GuiTextures;
 import com.opryshok.ui.UiResourceCreator;
+import com.opryshok.utils.BorukvaFoodUtil;
 import com.opryshok.utils.CompostableItems;
+import com.opryshok.utils.ModCustomTrades;
+import com.opryshok.utils.ModifyLootTables;
+import com.opryshok.world.gen.ModWorldGeneration;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.item.ItemStack;
@@ -33,6 +37,10 @@ public class BorukvaFood implements ModInitializer {
 		ModBlocks.registerBlocks();
 		ModEntities.register();
 		CompostableItems.register();
+		ModWorldGeneration.generateModWorldGen();
+		ModifyLootTables.modifyLootTables();
+		BorukvaFoodUtil.registerWood();
+		ModCustomTrades.registerCustomTrades();
 		if (PolymerResourcePackUtils.addModAssets(MOD_ID)) {
 			LOGGER.info("Successfully added mod assets for " + MOD_ID);
 		} else {
@@ -41,6 +49,7 @@ public class BorukvaFood implements ModInitializer {
 		initModels();
 		PolymerResourcePackUtils.markAsRequired();
 	}
+
 	@SuppressWarnings("ResultOfMethodCallIgnored")
 	public void initModels(){
 		Stove.Model.LIT_FALSE.isEmpty();

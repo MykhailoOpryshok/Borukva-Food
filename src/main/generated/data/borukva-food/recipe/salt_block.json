@@ -1,15 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
+  "category": "building",
   "key": {
     "S": {
       "item": "borukva-food:salt"
     }
   },
   "pattern": [
-    "SSS",
-    "SSS",
-    "SSS"
+    "SS",
+    "SS"
   ],
   "result": {
     "count": 1,
