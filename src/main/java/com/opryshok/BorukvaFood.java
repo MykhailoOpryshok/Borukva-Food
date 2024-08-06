@@ -7,6 +7,8 @@ import com.opryshok.block.cooking.CuttingBoard;
 import com.opryshok.block.cooking.Pan;
 import com.opryshok.block.cooking.Stove;
 import com.opryshok.block.crops.*;
+import com.opryshok.block.food.ChocolateCake;
+import com.opryshok.block.food.HoneyCake;
 import com.opryshok.block.food.MeatPizza;
 import com.opryshok.block.food.VeganPizza;
 import com.opryshok.entity.ModEntities;
@@ -67,5 +69,7 @@ public class BorukvaFood implements ModInitializer {
 		CornCrop.Model.MODELS.forEach(ItemStack::isEmpty);
 		ChilliPepperCrop.Model.MODELS.forEach(ItemStack::isEmpty);
 		CabbageCrop.Model.MODELS.forEach(ItemStack::isEmpty);
+		ChocolateCake.Model.CHOCOLATE_MODEL.forEach(ItemStack::isEmpty);
+		HoneyCake.Model.HONEY_MODEL.forEach(ItemStack::isEmpty);
 	}
 }

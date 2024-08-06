@@ -41,8 +41,8 @@ public class CucumberCrop extends TomatoCrop{
 
         public Model(BlockState state){
             super(state);
-            init(state);
         }
+        @Override
         public void init(BlockState state){
             this.main = ItemDisplayElementUtil.createSimple(
                     switch (state.get(AGE)) {

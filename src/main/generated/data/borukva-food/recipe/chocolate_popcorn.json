@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "borukva-food:popcorn"
+    },
+    {
+      "item": "borukva-food:popcorn"
+    },
+    {
+      "item": "borukva-food:chocolate_bar"
+    },
+    {
+      "item": "minecraft:paper"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "borukva-food:chocolate_popcorn"
+  }
+}

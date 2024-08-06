@@ -7,8 +7,12 @@ import com.opryshok.block.cooking.CuttingBoard;
 import com.opryshok.block.cooking.Pan;
 import com.opryshok.block.cooking.Stove;
 import com.opryshok.block.crops.*;
+import com.opryshok.block.food.ChocolateCake;
+import com.opryshok.block.food.HoneyCake;
 import com.opryshok.block.food.MeatPizza;
 import com.opryshok.block.food.VeganPizza;
+import com.opryshok.block.leaves.AvocadoFruitLeaves;
+import com.opryshok.block.leaves.LemonFruitLeaves;
 import com.opryshok.item.ModItems;
 import com.opryshok.world.tree.ModSaplingGenerator;
 import eu.pb4.polymer.core.api.item.PolymerItemGroupUtils;
@@ -69,8 +73,15 @@ public class ModBlocks {
     public static final Block AVOCADO_LEAVES = registerBlock("avocado_leaves", new PolyLeavesBlock(Block.Settings.copy(Blocks.OAK_LEAVES), "avocado_leaves"));
     public static final Block AVOCADO_PLANKS = registerBlock("avocado_planks", new SimplePolyBlock(Block.Settings.copy(Blocks.OAK_PLANKS), "avocado_planks"));
     public static final Block AVOCADO_SAPLING = registerBlock("avocado_sapling", new PolySaplingBlock(ModSaplingGenerator.AVOCADO, Block.Settings.copy(Blocks.OAK_SAPLING), "avocado_sapling"));
-
+    public static final Block CHOCOLATE_CAKE = registerBlock("chocolate_cake", new ChocolateCake(Block.Settings.copy(Blocks.CAKE)));
+    public static final Block HONEY_CAKE = registerBlock("honey_cake", new HoneyCake(Block.Settings.copy(Blocks.CAKE)));
+    public static final Block LEMON_FRUIT_LEAVES = registerBlock("lemon_fruit_leaves", new LemonFruitLeaves(Block.Settings.copy(Blocks.OAK_LEAVES)));
+    public static final Block AVOCADO_FRUIT_LEAVES = registerBlock("avocado_fruit_leaves", new AvocadoFruitLeaves(Block.Settings.copy(Blocks.OAK_LEAVES)));
     // Block Items:
+    public static final BlockItem AVOCADO_FRUIT_LEAVES_ITEM = registerBlockItem("avocado_fruit_leaves", new TexturedPolyBlockItem(AVOCADO_FRUIT_LEAVES, new Item.Settings(), "block/avocado_fruit_leaves"));
+    public static final BlockItem LEMON_FRUIT_LEAVE_ITEM =registerBlockItem("lemon_fruit_leaves", new TexturedPolyBlockItem(LEMON_FRUIT_LEAVES, new Item.Settings(), "block/lemon_fruit_leaves"));
+    public static final BlockItem HONEY_CAKE_ITEM = registerBlockItem("honey_cake", new TexturedPolyBlockItem(HONEY_CAKE, new Item.Settings(), "item/honey_cake"));
+    public static final BlockItem CHOCOLATE_CAKE_ITEM = registerBlockItem("chocolate_cake", new TexturedPolyBlockItem(CHOCOLATE_CAKE, new Item.Settings(), "item/chocolate_cake"));
     public static final BlockItem LEMON_LOG_ITEM = registerBlockItem("lemon_log", new TexturedPolyBlockItem(LEMON_LOG, new Item.Settings(), "block/lemon_log"));
     public static final BlockItem LEMON_WOOD_ITEM = registerBlockItem("lemon_wood", new TexturedPolyBlockItem(LEMON_WOOD, new Item.Settings(), "block/lemon_wood"));
     public static final BlockItem STRIPPED_LEMON_LOG_ITEM = registerBlockItem("stripped_lemon_log", new TexturedPolyBlockItem(STRIPPED_LEMON_LOG, new Item.Settings(), "block/stripped_lemon_log"));
@@ -101,8 +112,6 @@ public class ModBlocks {
     public static final BlockItem LETTUCE_CRATE_ITEM = registerBlockItem("lettuce_crate", new TexturedPolyBlockItem(LETTUCE_CRATE, new Item.Settings(), "block/lettuce_crate"));
     public static final BlockItem POTATO_CRATE_ITEM = registerBlockItem("potato_crate", new TexturedPolyBlockItem(POTATO_CRATE, new Item.Settings(), "block/potato_crate"));
     public static final BlockItem TOMATO_CRATE_ITEM = registerBlockItem("tomato_crate", new TexturedPolyBlockItem(TOMATO_CRATE, new Item.Settings(), "block/tomato_crate"));
-
-
     public static void registerBlocks() {
         ItemGroup.Builder builder = PolymerItemGroupUtils.builder();
         builder.icon(() -> new ItemStack(ModBlocks.TOMATO_CRATE_ITEM, 1));
@@ -128,6 +137,7 @@ public class ModBlocks {
             entries.add(SALT_BLOCK_ITEM);
             entries.add(LEMON_SAPLING_ITEM);
             entries.add(LEMON_LEAVES_ITEM);
+            entries.add(LEMON_FRUIT_LEAVE_ITEM);
             entries.add(LEMON_LOG_ITEM);
             entries.add(LEMON_WOOD_ITEM);
             entries.add(STRIPPED_LEMON_LOG_ITEM);
@@ -135,6 +145,7 @@ public class ModBlocks {
             entries.add(LEMON_PLANKS_ITEM);
             entries.add(AVOCADO_SAPLING_ITEM);
             entries.add(AVOCADO_LEAVES_ITEM);
+            entries.add(AVOCADO_FRUIT_LEAVES_ITEM);
             entries.add(AVOCADO_LOG_ITEM);
             entries.add(AVOCADO_WOOD_ITEM);
             entries.add(STRIPPED_AVOCADO_LOG_ITEM);

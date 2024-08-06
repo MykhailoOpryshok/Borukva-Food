@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "borukva-food:gooseberry"
+    },
+    "C": {
+      "item": "minecraft:honey_bottle"
+    },
+    "M": {
+      "item": "minecraft:milk_bucket"
+    },
+    "W": {
+      "item": "minecraft:wheat"
+    }
+  },
+  "pattern": [
+    "MMM",
+    "CBC",
+    "WWW"
+  ],
+  "result": {
+    "count": 1,
+    "id": "borukva-food:honey_cake"
+  }
+}

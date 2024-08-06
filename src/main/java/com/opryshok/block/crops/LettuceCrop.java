@@ -40,7 +40,6 @@ public class LettuceCrop extends TomatoCrop{
 
         public Model(BlockState state){
             super(state);
-            init(state);
         }
 
         @Override

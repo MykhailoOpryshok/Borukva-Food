@@ -11,10 +11,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.ItemScatterer;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
@@ -49,13 +46,14 @@ public class KnifeTool extends ToolItem implements PolymerItem {
         if (state.getBlock() instanceof VeganPizza block && player != null) {
             int i = state.get(ModProperties.SLICES);
 
-            if (i < 6) {
-                world.setBlockState(pos, state.with(ModProperties.SLICES, i + 1), 3);
-                ItemScatterer.spawn(world, player.getX(), player.getY(), player.getZ(), new ItemStack(block.getSlice(), 1));
-                player.getStackInHand(Hand.MAIN_HAND).damage(1, player, LivingEntity.getSlotForHand(Hand.MAIN_HAND));
-            } else {
+            ItemScatterer.spawn(world, player.getX(), player.getY(), player.getZ(), new ItemStack(block.getSlice(), 1));
+            player.getStackInHand(Hand.MAIN_HAND).damage(1, player, LivingEntity.getSlotForHand(Hand.MAIN_HAND));
+            if (i == 7){
                 world.removeBlock(pos, false);
                 world.emitGameEvent(player, GameEvent.BLOCK_DESTROY, pos);
+            }
+            else {
+                world.setBlockState(pos, state.with(ModProperties.SLICES, i + 1), 3);
             }
 
             return ActionResult.SUCCESS;

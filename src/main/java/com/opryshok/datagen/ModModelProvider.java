@@ -47,6 +47,9 @@ public class ModModelProvider extends FabricModelProvider{
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_AVOCADO_LOG).log(ModBlocks.STRIPPED_AVOCADO_LOG).wood(ModBlocks.STRIPPED_AVOCADO_WOOD);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.AVOCADO_PLANKS);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.AVOCADO_LEAVES);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.AVOCADO_FRUIT_LEAVES);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LEMON_FRUIT_LEAVES);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.AVOCADO_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
     }
 
     @Override
@@ -99,6 +102,22 @@ public class ModModelProvider extends FabricModelProvider{
         itemModelGenerator.register(ModItems.JACK_CANDY, Models.GENERATED);
         itemModelGenerator.register(ModItems.PUMPKIN_CANDY, Models.GENERATED);
         itemModelGenerator.register(ModItems.LEMON_CANDY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SALT_POPCORN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CHOCOLATE_POPCORN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CHEESE_POPCORN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.POPCORN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CHEESE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.LAVASH, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SHAWARMA, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BEEF_SALAD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.VEGETABLE_SALAD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COOKED_BEEF_SLICES, Models.GENERATED);
+        itemModelGenerator.register(ModItems.LEMON, Models.GENERATED);
+        itemModelGenerator.register(ModItems.AVOCADO, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TOMATO_SLICES, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CUCUMBER_SLICES, Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.CHOCOLATE_CAKE_ITEM, Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.HONEY_CAKE_ITEM, Models.GENERATED);
     }
     public void generateCrate(BlockStateModelGenerator generator, Block generatedBlock, String path){
         generator.registerCubeWithCustomTextures(

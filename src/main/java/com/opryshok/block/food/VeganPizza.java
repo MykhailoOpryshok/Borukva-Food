@@ -62,7 +62,7 @@ public class VeganPizza extends Block implements FactoryBlock {
         public static final ArrayList<ItemStack> MODEL = new ArrayList<>();
 
         static {
-            for (int i = 0; i <= 8; i++) {
+            for (int i = 0; i <= 7; i++) {
                 MODEL.add(BaseItemProvider.requestModel(Identifier.of(BorukvaFood.MOD_ID, "vegan_pizza")
                         .withPrefixedPath("block/")
                         .withSuffixedPath("_slice" + i)));

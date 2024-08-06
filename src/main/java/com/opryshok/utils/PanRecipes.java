@@ -1,5 +1,6 @@
 package com.opryshok.utils;
 
+import com.opryshok.item.ModItems;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 
@@ -9,7 +10,6 @@ public class PanRecipes {
     public static final HashMap<Item, Item> RECIPES = new HashMap<>();
 
     static {
-        // vanila
         put(Items.CHICKEN, Items.COOKED_CHICKEN);
         put(Items.KELP, Items.DRIED_KELP);
         put(Items.BEEF, Items.COOKED_BEEF);
@@ -19,8 +19,8 @@ public class PanRecipes {
         put(Items.POTATO, Items.BAKED_POTATO);
         put(Items.COD, Items.COOKED_COD);
         put(Items.RABBIT, Items.COOKED_RABBIT);
-        // mod items
-
+        put(ModItems.BEEF_SLICES, ModItems.COOKED_BEEF_SLICES);
+        put(ModItems.CORN_SEEDS, ModItems.POPCORN);
     }
     public static void put(Item ingredient, Item result){
         RECIPES.put(ingredient, result);

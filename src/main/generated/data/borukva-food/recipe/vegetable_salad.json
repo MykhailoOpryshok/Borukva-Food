@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "borukva-food:lettuce"
+    },
+    {
+      "item": "borukva-food:oil"
+    },
+    {
+      "item": "borukva-food:guacamole"
+    },
+    {
+      "item": "borukva-food:cucumber_slices"
+    },
+    {
+      "item": "borukva-food:tomato_slices"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "borukva-food:vegetable_salad"
+  }
+}

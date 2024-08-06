@@ -27,11 +27,14 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(CUCUMBER_CRATE)
                 .add(LETTUCE_CRATE)
                 .add(POTATO_CRATE)
-                .add(TOMATO_CRATE);
+                .add(TOMATO_CRATE)
+                .add(CUTTING_BOARD);
 
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(BETTER_FARMLAND);
 
-        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(STOVE);
+        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+                .add(STOVE)
+                .add(SALT);
 
         getOrCreateTagBuilder(ModTags.Blocks.LEMON_LOGS)
                 .add(LEMON_LOG)
@@ -55,7 +58,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.LEAVES)
                 .add(LEMON_LEAVES)
-                .add(AVOCADO_LEAVES);
+                .add(AVOCADO_LEAVES)
+                .add(AVOCADO_FRUIT_LEAVES)
+                .add(LEMON_FRUIT_LEAVES);
 
         getOrCreateTagBuilder(BlockTags.SAPLINGS)
                 .add(LEMON_SAPLING)

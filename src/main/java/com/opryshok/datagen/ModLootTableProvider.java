@@ -14,6 +14,8 @@ import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.ApplyBonusLootFunction;
+import net.minecraft.loot.function.SetCountLootFunction;
+import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
@@ -65,6 +67,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(LEMON_PLANKS);
         addDrop(LEMON_LEAVES, leavesDrops(LEMON_LEAVES, LEMON_SAPLING, 0.05f, 0.0625f, 0.083333336f, 0.1f));
         addDrop(AVOCADO_LEAVES, leavesDrops(AVOCADO_LEAVES, AVOCADO_SAPLING, 0.05f, 0.0625f, 0.083333336f, 0.1f));
+        addDrop(AVOCADO_FRUIT_LEAVES, fruitLeavesDrop(AVOCADO_FRUIT_LEAVES, AVOCADO_SAPLING, ModItems.AVOCADO, 0.05f, 0.0625f, 0.083333336f, 0.1f));
+        addDrop(LEMON_FRUIT_LEAVES, fruitLeavesDrop(LEMON_FRUIT_LEAVES, LEMON_SAPLING, ModItems.LEMON, 0.05f, 0.0625f, 0.083333336f, 0.1f));
     }
     private void addCropDrop(Block cropBlock, Item cropItem, Item seedItem) {
         BlockStatePropertyLootCondition.Builder builder = BlockStatePropertyLootCondition.builder(cropBlock)
@@ -74,5 +78,13 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     public LootTable.Builder customCropDrop(Block crop, Item product, Item seeds, LootCondition.Builder condition) {
         RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
         return this.applyExplosionDecay(crop, LootTable.builder().pool(LootPool.builder().with(ItemEntry.builder(product).conditionally(condition).alternatively(ItemEntry.builder(seeds)))).pool(LootPool.builder().conditionally(condition).with(ItemEntry.builder(product).apply(ApplyBonusLootFunction.binomialWithBonusCount(impl.getOrThrow(Enchantments.FORTUNE), 0.5714286F, 2)))));
+    }
+    public LootTable.Builder fruitLeavesDrop(Block leaves, Block sapling, Item dropItem, float... saplingChance) {
+        return this.leavesDrops(leaves, sapling, saplingChance)
+                .pool(LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1.0F))
+                        .conditionally(this.createWithoutShearsOrSilkTouchCondition())
+                        .with(ItemEntry.builder(dropItem)
+                                .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1)))));
     }
 }

@@ -1,5 +1,6 @@
 package com.opryshok.utils;
 
+import com.opryshok.block.ModBlocks;
 import com.opryshok.item.ModItems;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.item.Item;
@@ -17,6 +18,8 @@ public class CompostableItems {
         put(ModItems.CUCUMBER_SEEDS, seeds);
         put(ModItems.GOOSEBERRY, seeds);
         put(ModItems.BLACKCURRANTS, seeds);
+        put(ModItems.AVOCADO, seeds);
+        put(ModItems.LEMON, seeds);
 
         put(ModItems.TOMATO, plant);
         put(ModItems.CABBAGE, plant);
@@ -25,6 +28,15 @@ public class CompostableItems {
         put(ModItems.CUCUMBER, plant);
         put(ModItems.LETTUCE, plant);
         put(ModItems.ONION, plant);
+
+        put(ModBlocks.AVOCADO_SAPLING_ITEM, seeds);
+        put(ModBlocks.LEMON_SAPLING_ITEM, seeds);
+
+        put(ModBlocks.AVOCADO_LEAVES_ITEM, seeds);
+        put(ModBlocks.LEMON_LEAVES_ITEM, seeds);
+
+        put(ModBlocks.AVOCADO_FRUIT_LEAVES_ITEM, plant);
+        put(ModBlocks.LEMON_FRUIT_LEAVE_ITEM, plant);
     }
     private static void put(Item item, float chance){
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(item, chance);

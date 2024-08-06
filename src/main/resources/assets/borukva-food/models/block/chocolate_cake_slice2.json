@@ -1,0 +1,22 @@
+{
+    "textures": {
+        "particle": "borukva-food:block/chocolate_cake_side",
+        "bottom": "borukva-food:block/cake_bottom",
+        "top": "borukva-food:block/chocolate_cake_top",
+        "side": "borukva-food:block/chocolate_cake_side",
+        "inside": "borukva-food:block/chocolate_cake_inner"
+    },
+    "elements": [
+        {   "from": [ 5, 0, 1 ],
+            "to": [ 15, 8, 15 ],
+            "faces": {
+                "down":  { "texture": "#bottom", "cullface": "down" },
+                "up":    { "texture": "#top" },
+                "north": { "texture": "#side" },
+                "south": { "texture": "#side" },
+                "west":  { "texture": "#inside" },
+                "east":  { "texture": "#side" }
+            }
+        }
+    ]
+}

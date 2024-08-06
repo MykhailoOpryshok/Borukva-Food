@@ -10,6 +10,6 @@ public class ModProperties {
     static{
         FERTILITY = IntProperty.of("fertility", 0, 10);
         ACIDITY = IntProperty.of("acidity", 0, 10);
-        SLICES = IntProperty.of("sliced", 0, 6);
+        SLICES = IntProperty.of("sliced", 0, 7);
     }
 }

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_avocado": {
+      "conditions": {
+        "items": [
+          {
+            "items": "borukva-food:avocado"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "borukva-food:guacamole"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_avocado"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "borukva-food:guacamole"
+    ]
+  }
+}

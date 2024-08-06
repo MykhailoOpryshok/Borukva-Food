@@ -2,6 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
+    "L": [
+      {
+        "item": "borukva-food:cucumber_slices"
+      },
+      {
+        "item": "borukva-food:tomato_slices"
+      }
+    ],
     "P": {
       "tag": "borukva-food:plant_food"
     },
@@ -11,7 +19,7 @@
   },
   "pattern": [
     "P  ",
-    "P  ",
+    "L  ",
     "S  "
   ],
   "result": {

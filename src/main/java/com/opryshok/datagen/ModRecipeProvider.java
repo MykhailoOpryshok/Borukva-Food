@@ -179,9 +179,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.VEGAN_BARBECUE, 1)
                 .pattern("P  ")
-                .pattern("P  ")
+                .pattern("L  ")
                 .pattern("S  ")
                 .input('P', Ingredient.fromTag(ModTags.Items.PLANT_FOOD))
+                .input('L', Ingredient.ofItems(ModItems.CUCUMBER_SLICES, ModItems.TOMATO_SLICES))
                 .input('S', Items.STICK)
                 .criterion("has_item_with_tag", conditionsFromTag(ModTags.Items.PLANT_FOOD))
                 .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.VEGAN_BARBECUE)));
@@ -298,6 +299,126 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         woodRecipe(ModBlocks.LEMON_LOG_ITEM, ModBlocks.LEMON_WOOD_ITEM, exporter);
         woodRecipe(ModBlocks.STRIPPED_AVOCADO_LOG_ITEM, ModBlocks.STRIPPED_AVOCADO_WOOD_ITEM, exporter);
         woodRecipe(ModBlocks.STRIPPED_LEMON_LOG_ITEM, ModBlocks.STRIPPED_LEMON_WOOD_ITEM, exporter);
+
+        pieRecipe(ModItems.HONEY_PIE, Items.HONEY_BOTTLE, exporter);
+        pieRecipe(ModItems.APPLE_PIE, Items.APPLE, exporter);
+        pieRecipe(ModItems.LEMON_PIE, ModItems.LEMON, exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.CHEESE, 1)
+                .input(Items.MILK_BUCKET)
+                .input(ModItems.SALT)
+                .input(Items.EGG)
+                .criterion(hasItem(Items.MILK_BUCKET), conditionsFromItem(Items.MILK_BUCKET))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.CHEESE)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.WAFFLE, 2)
+                .input(Items.WHEAT)
+                .input(Items.SUGAR)
+                .input(Items.WHEAT)
+                .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.WAFFLE)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.LAVASH, 2)
+                .input(Items.WHEAT)
+                .input(ModItems.SALT)
+                .input(Items.WHEAT)
+                .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.LAVASH)));
+
+        popcornRecipe(ModItems.CHEESE_POPCORN, ModItems.CHEESE, exporter);
+        popcornRecipe(ModItems.SALT_POPCORN, ModItems.SALT, exporter);
+        popcornRecipe(ModItems.CHOCOLATE_POPCORN, ModItems.CHOCOLATE_BAR, exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.GUACAMOLE, 1)
+                .input(ModItems.AVOCADO)
+                .input(Items.BOWL)
+                .criterion(hasItem(ModItems.AVOCADO), conditionsFromItem(ModItems.AVOCADO))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.GUACAMOLE)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.SHAWARMA, 1)
+                .input(ModItems.HOT_SPICE)
+                .input(ModItems.COOKED_BEEF_SLICES)
+                .input(ModItems.KETCHUP)
+                .input(ModItems.MAYONNAISE)
+                .input(Ingredient.ofItems(ModItems.TOMATO_SLICES, ModItems.CUCUMBER_SLICES))
+                .input(ModItems.LETTUCE)
+                .input(ModItems.LAVASH)
+                .criterion(hasItem(ModItems.COOKED_BEEF_SLICES), conditionsFromItem(ModItems.COOKED_BEEF_BARBECUE))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.SHAWARMA)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.VEGETABLE_SALAD, 1)
+                .input(ModItems.LETTUCE)
+                .input(ModItems.OIL)
+                .input(ModItems.GUACAMOLE)
+                .input(ModItems.CUCUMBER_SLICES)
+                .input(ModItems.TOMATO_SLICES)
+                .input(Items.BOWL)
+                .criterion(hasItem(ModItems.LETTUCE), conditionsFromItem(ModItems.LETTUCE))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.VEGETABLE_SALAD)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.BEEF_SALAD, 1)
+                .input(ModItems.LETTUCE)
+                .input(ModItems.OIL)
+                .input(ModItems.COOKED_BEEF_SLICES)
+                .input(ModItems.CUCUMBER_SLICES)
+                .input(ModItems.TOMATO_SLICES)
+                .input(Items.BOWL)
+                .criterion(hasItem(ModItems.LETTUCE), conditionsFromItem(ModItems.LETTUCE))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.BEEF_SALAD)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.OIL, 1)
+                .input(Items.SUNFLOWER)
+                .input(Items.SUNFLOWER)
+                .criterion(hasItem(Items.SUNFLOWER), conditionsFromItem(Items.SUNFLOWER))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.OIL)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModBlocks.MEAT_PIZZA_ITEM, 1)
+                .pattern("KMS")
+                .pattern("JCJ")
+                .pattern("WWW")
+                .input('K', ModItems.KETCHUP)
+                .input('M', ModItems.MAYONNAISE)
+                .input('S', ModItems.TOMATO_SLICES)
+                .input('J', Ingredient.ofItems(Items.COOKED_BEEF, Items.COOKED_PORKCHOP, Items.COOKED_CHICKEN, Items.COOKED_RABBIT, Items.COOKED_MUTTON))
+                .input('C', ModItems.CHEESE)
+                .input('W', Items.WHEAT)
+                .criterion(hasItem(ModItems.KETCHUP), conditionsFromItem(ModItems.KETCHUP))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModBlocks.MEAT_PIZZA_ITEM)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModBlocks.VEGAN_PIZZA_ITEM, 1)
+                .pattern("KMS")
+                .pattern("JCJ")
+                .pattern("WWW")
+                .input('K', ModItems.KETCHUP)
+                .input('M', ModItems.MAYONNAISE)
+                .input('S', ModItems.TOMATO_SLICES)
+                .input('J', Items.BROWN_MUSHROOM)
+                .input('C', ModItems.CHEESE)
+                .input('W', Items.WHEAT)
+                .criterion(hasItem(Items.BROWN_MUSHROOM), conditionsFromItem(Items.BROWN_MUSHROOM))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModBlocks.VEGAN_PIZZA_ITEM)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModBlocks.CHOCOLATE_CAKE_ITEM, 1)
+                .pattern("MMM")
+                .pattern("CBC")
+                .pattern("WWW")
+                .input('M', Items.MILK_BUCKET)
+                .input('C', ModItems.CHOCOLATE_BAR)
+                .input('B', ModItems.BLACKCURRANTS)
+                .input('W', Items.WHEAT)
+                .criterion(hasItem(ModItems.CHOCOLATE_BAR), conditionsFromItem(ModItems.CHOCOLATE_BAR))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModBlocks.CHOCOLATE_CAKE_ITEM)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModBlocks.HONEY_CAKE_ITEM, 1)
+                .pattern("MMM")
+                .pattern("CBC")
+                .pattern("WWW")
+                .input('M', Items.MILK_BUCKET)
+                .input('C', Items.HONEY_BOTTLE)
+                .input('B', ModItems.GOOSEBERRY)
+                .input('W', Items.WHEAT)
+                .criterion(hasItem(Items.HONEY_BOTTLE), conditionsFromItem(Items.HONEY_BOTTLE))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModBlocks.HONEY_CAKE_ITEM)));
     }
     private void campfireCookingRecipe(RecipeExporter exporter, Item input, Item output) {
         CookingRecipeJsonBuilder.create(Ingredient.ofItems(input), RecipeCategory.FOOD, output, 0, 600, RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new)
@@ -337,5 +458,22 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('S', log)
                 .criterion(hasItem(log), conditionsFromItem(log))
                 .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(wood)));
+    }
+    private void pieRecipe(Item item, Item ingredient, RecipeExporter exporter){
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, item, 1)
+                .input(ingredient)
+                .input(Items.SUGAR)
+                .input(Items.EGG)
+                .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(item)));
+    }
+    private void popcornRecipe(Item item, Item ingredient, RecipeExporter exporter){
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, item, 1)
+                .input(ModItems.POPCORN)
+                .input(ModItems.POPCORN)
+                .input(ingredient)
+                .input(Items.PAPER)
+                .criterion(hasItem(ModItems.POPCORN), conditionsFromItem(ModItems.POPCORN))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(item)));
     }
 }

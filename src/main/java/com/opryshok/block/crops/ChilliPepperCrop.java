@@ -38,7 +38,6 @@ public class ChilliPepperCrop extends TomatoCrop{
 
         public Model(BlockState state){
             super(state);
-            init(state);
         }
         @Override
         public ArrayList<ItemStack> getModels() {

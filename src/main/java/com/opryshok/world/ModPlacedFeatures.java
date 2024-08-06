@@ -7,10 +7,12 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.PlacedFeatures;
 import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
+import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
 import net.minecraft.world.gen.placementmodifier.PlacementModifier;
 import net.minecraft.world.gen.placementmodifier.RarityFilterPlacementModifier;
 
@@ -20,6 +22,7 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> AVOCADO_PLACED_KEY = registerKey("avocado_placed");
     public static final RegistryKey<PlacedFeature> BLACKCURRANTS_PLACED_KEY = registerKey("blackcurrants_placed");
     public static final RegistryKey<PlacedFeature> GOOSEBERRY_PLACED_KEY = registerKey("gooseberry_placed");
+    public static final RegistryKey<PlacedFeature> SALT_PLACED_KEY = registerKey("salt_placed");
     public static void boostrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
         register(context, AVOCADO_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.AVOCADO_KEY),
@@ -30,6 +33,9 @@ public class ModPlacedFeatures {
 
         register(context, GOOSEBERRY_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.GOOSEBERRY_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(RarityFilterPlacementModifier.of(30), ModBlocks.GOOSEBERRY_BUSH));
+        register(context, SALT_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SALT_KEY),
+                ModOrePlacement.modifiersWithCount(12,
+                        HeightRangePlacementModifier.uniform(YOffset.fixed(16), YOffset.fixed(56))));
     }
     public static RegistryKey<PlacedFeature> registerKey(String name) {
         return RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(BorukvaFood.MOD_ID, name));

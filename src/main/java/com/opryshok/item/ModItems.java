@@ -36,7 +36,6 @@ public class ModItems {
     public static Item BLACKCURRANTS = registerItem("blackcurrants", new PolySeedsItem(ModBlocks.BLACKCURRANTS_BUSH, new Item.Settings().food(FoodComponents.SWEET_BERRIES), "blackcurrants"));
     public static Item GOOSEBERRY = registerItem("gooseberry", new PolySeedsItem(ModBlocks.GOOSEBERRY_BUSH, new Item.Settings().food(FoodComponents.SWEET_BERRIES), "gooseberry"));
     public static Item ONION = registerItem("onion", new PolyItem(new Item.Settings().food(ModFoodComponents.ONION), "onion"));
-
     public static Item SALT = registerItem("salt", new PolyItem(new Item.Settings(), "salt"));
     public static Item WAFFLE = registerItem("waffle", new PolyItem(new Item.Settings().food(ModFoodComponents.WAFFLE), "waffle"));
     public static Item CHOCOLATE_BAR = registerItem("chocolate_bar", new PolyItem(new Item.Settings().food(ModFoodComponents.CHOCOLATE_BAR), "chocolate_bar"));
@@ -45,7 +44,6 @@ public class ModItems {
     public static Item HOT_SPICE = registerItem("hot_spice", new PolyItem(new Item.Settings(), "hot_spice"));
     public static Item KETCHUP = registerItem("ketchup", new PolyItem(new Item.Settings(), "ketchup"));
     public static Item MAYONNAISE = registerItem("mayonnaise", new PolyItem(new Item.Settings(), "mayonnaise"));
-
     public static Item MEAT_PIZZA_SLICE = registerItem("meat_pizza_slice", new PolyItem(new Item.Settings().food(ModFoodComponents.PIZZA), "meat_pizza_slice"));
     public static Item VEGAN_PIZZA_SLICE = registerItem("vegan_pizza_slice", new PolyItem(new Item.Settings().food(ModFoodComponents.PIZZA), "vegan_pizza_slice"));
     public static Item CHOCOLATE_ICE_CREAM = registerItem("chocolate_ice_cream", new PolyItem(new Item.Settings().food(ModFoodComponents.ICE_CREAM), "chocolate_ice_cream"));
@@ -75,6 +73,19 @@ public class ModItems {
     public static Item PUMPKIN_CANDY = registerItem("pumpkin_candy", new PolyItem(new Item.Settings().food(ModFoodComponents.PUMPKIN_CANDY), "pumpkin_candy"));
     public static Item LEMON_CANDY = registerItem("lemon_candy", new PolyItem(new Item.Settings().food(ModFoodComponents.LEMON_CANDY), "lemon_candy"));
 
+    public static Item SALT_POPCORN = registerItem("salt_popcorn", new PolyItem(new Item.Settings().food(ModFoodComponents.SALT_POPCORN), "salt_popcorn"));
+    public static Item CHOCOLATE_POPCORN = registerItem("chocolate_popcorn", new PolyItem(new Item.Settings().food(ModFoodComponents.CHOCOLATE_POPCORN), "chocolate_popcorn"));
+    public static Item CHEESE_POPCORN = registerItem("cheese_popcorn", new PolyItem(new Item.Settings().food(ModFoodComponents.CHEESE_POPCORN), "cheese_popcorn"));
+    public static Item POPCORN = registerItem("popcorn", new PolyItem(new Item.Settings().food(ModFoodComponents.POPCORN), "popcorn"));
+    public static Item CHEESE = registerItem("cheese", new PolyItem(new Item.Settings().food(ModFoodComponents.CHEESE), "cheese"));
+    public static Item TOMATO_SLICES = registerItem("tomato_slices", new PolyItem(new Item.Settings().food(ModFoodComponents.TOMATO_SLICES), "tomato_slices"));
+    public static Item CUCUMBER_SLICES = registerItem("cucumber_slices", new PolyItem(new Item.Settings().food(ModFoodComponents.CUCUMBER_SLICES), "cucumber_slices"));
+    public static Item LAVASH = registerItem("lavash", new PolyItem(new Item.Settings().food(ModFoodComponents.LAVASH), "lavash"));
+    public static Item SHAWARMA = registerItem("shawarma", new PolyItem(new Item.Settings().food(ModFoodComponents.SHAWARMA), "shawarma"));
+    public static Item BEEF_SALAD = registerItem("beef_salad", new PolyItem(new Item.Settings().food(ModFoodComponents.BEEF_SALAD), "beef_salad"));
+    public static Item VEGETABLE_SALAD = registerItem("vegetable_salad", new PolyItem(new Item.Settings().food(ModFoodComponents.VEGETABLE_SALAD), "vegetable_salad"));
+    public static Item COOKED_BEEF_SLICES = registerItem("cooked_beef_slices", new PolyItem(new Item.Settings().food(ModFoodComponents.COOKED_BEEF_SLICES), "cooked_beef_slices"));
+    public static Item AVOCADO = registerItem("avocado", new PolyItem(new Item.Settings().food(ModFoodComponents.AVOCADO), "avocado"));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(BorukvaFood.MOD_ID, name), item);
@@ -100,7 +111,8 @@ public class ModItems {
             entries.add(CUCUMBER_SEEDS);
             entries.add(LETTUCE_SEEDS);
             entries.add(ONION_SEEDS);
-
+            entries.add(LEMON);
+            entries.add(AVOCADO);
             entries.add(HOT_SPICE);
             entries.add(SALT);
             entries.add(OIL);
@@ -110,7 +122,6 @@ public class ModItems {
             entries.add(EMPTY_JAR);
             entries.add(PICKLE_JAR);
             entries.add(PICKLE);
-
             entries.add(ModBlocks.MEAT_PIZZA_ITEM);
             entries.add(ModBlocks.VEGAN_PIZZA_ITEM);
             entries.add(MEAT_PIZZA_SLICE);
@@ -129,6 +140,7 @@ public class ModItems {
             entries.add(BLACKCURRANTS);
             entries.add(GOOSEBERRY);
             entries.add(BEEF_SLICES);
+            entries.add(COOKED_BEEF_SLICES);
             entries.add(BEEF_BARBECUE);
             entries.add(COOKED_BEEF_BARBECUE);
             entries.add(VEGAN_BARBECUE);
@@ -141,6 +153,19 @@ public class ModItems {
             entries.add(JACK_CANDY);
             entries.add(PUMPKIN_CANDY);
             entries.add(LEMON_CANDY);
+            entries.add(TOMATO_SLICES);
+            entries.add(CUCUMBER_SLICES);
+            entries.add(CHEESE);
+            entries.add(LAVASH);
+            entries.add(SHAWARMA);
+            entries.add(VEGETABLE_SALAD);
+            entries.add(BEEF_SALAD);
+            entries.add(POPCORN);
+            entries.add(SALT_POPCORN);
+            entries.add(CHOCOLATE_POPCORN);
+            entries.add(CHEESE_POPCORN);
+            entries.add(ModBlocks.CHOCOLATE_CAKE_ITEM);
+            entries.add(ModBlocks.HONEY_CAKE_ITEM);
         });
         ItemGroup polymerGroup = builder.build();
         PolymerItemGroupUtils.registerPolymerItemGroup(Identifier.of(BorukvaFood.MOD_ID, "items"), polymerGroup);

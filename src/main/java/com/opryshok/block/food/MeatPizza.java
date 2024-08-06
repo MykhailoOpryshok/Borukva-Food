@@ -36,7 +36,7 @@ public class MeatPizza extends VeganPizza {
         public static final ArrayList<ItemStack> MEAT_MODEL = new ArrayList<>();
 
         static {
-            for (int i = 0; i <= 8; i++) {
+            for (int i = 0; i <= 7; i++) {
                 MEAT_MODEL.add(BaseItemProvider.requestModel(Identifier.of(BorukvaFood.MOD_ID, "meat_pizza")
                         .withPrefixedPath("block/")
                         .withSuffixedPath("_slice" + i)));

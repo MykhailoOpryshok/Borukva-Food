@@ -59,7 +59,21 @@
   "item.borukva-food.jack_candy": "Цукерка «Джек»",
   "item.borukva-food.pumpkin_candy": "Гарбузова цукерка",
   "item.borukva-food.lemon_candy": "Лимонна цукерка",
+  "item.borukva-food.tomato_slices": "Скибочки помідорів",
+  "item.borukva-food.cucumber_slices": "Скибочки огрків",
+  "item.borukva-food.cheese": "Сир",
+  "item.borukva-food.lavash": "Лаваш",
+  "item.borukva-food.shawarma": "Шаурма",
+  "item.borukva-food.beef_salad": "М'ясний салат",
+  "item.borukva-food.vegetable_salad": "Овочевий салат",
+  "item.borukva-food.popcorn": "Попкорн",
+  "item.borukva-food.salt_popcorn": "Солений попкорн",
+  "item.borukva-food.chocolate_popcorn": "Шоколадний попкорн",
+  "item.borukva-food.cheese_popcorn": "Сирний попкорн",
+  "item.borukva-food.cooked_beef_slices": "Смажені шматочки яловичини",
 
+  "block.borukva-food.chocolate_cake": "Шоколадний торт",
+  "block.borukva-food.honey_cake": "Медовий торт",
   "block.borukva-food.better_farmland": "Ґрунт",
   "block.borukva-food.meat_pizza": "М'ясна піца",
   "block.borukva-food.vegan_pizza": "Веганська піца",
@@ -90,6 +104,8 @@
   "block.borukva-food.avocado_leaves": "Листя авокадо",
   "block.borukva-food.avocado_planks": "Дошки авокадо",
   "block.borukva-food.avocado_sapling": "Паросток авокадо",
+  "block.borukva-food.avocado_fruit_leaves": "Фруктове листя авокадо",
+  "block.borukva-food.lemon_fruit_leaves": "Лимонне фруктове листя",
 
   "tooltip.borukva-food.soil_analizator": "Визначає рівень родючості та кислотності в ґрунті",
   "tooltip.borukva-food.fertilizer": "Підвищує рівень родючості та знижує рівень кислотності",
@@ -100,5 +116,6 @@
 
   "item-group.borukva-food.items": "Предмети",
   "item-group.borukva-food.blocks_and_tools": "Блоки та інструменти"
+
 
 }
