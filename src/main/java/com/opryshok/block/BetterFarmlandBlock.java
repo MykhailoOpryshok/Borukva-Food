@@ -27,7 +27,7 @@ public class BetterFarmlandBlock extends FarmlandBlock implements PolymerBlock {
 
     public BetterFarmlandBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(FERTILITY, 8).with(ACIDITY, 5));
+        this.setDefaultState(this.stateManager.getDefaultState().with(FERTILITY, 6).with(ACIDITY, 5));
     }
 
     @Override

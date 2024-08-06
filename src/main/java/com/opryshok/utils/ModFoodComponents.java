@@ -22,6 +22,7 @@ public class ModFoodComponents {
     public static final FoodComponent CHOCOLATE_BAR = new FoodComponent.Builder().nutrition(3).saturationModifier(0.3f).build();
 
     public static final FoodComponent ICE_CREAM = new FoodComponent.Builder().nutrition(3).saturationModifier(0.2f).statusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 40, 0), 0.75f).build();
+    public static final FoodComponent CHOCOLATE_ICE_CREAM = new FoodComponent.Builder().nutrition(6).saturationModifier(0.2f).statusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 40, 0), 0.75f).build();
     public static final FoodComponent COOKIE = new FoodComponent.Builder().nutrition(2).saturationModifier(0.2f).build();
     public static final FoodComponent BEEF_SANDWICH = new FoodComponent.Builder().nutrition(12).saturationModifier(0.75f).build();
     public static final FoodComponent TOMATO_SANDWICH = new FoodComponent.Builder().nutrition(8).saturationModifier(0.5f).build();
@@ -56,6 +57,6 @@ public class ModFoodComponents {
     public static final FoodComponent COOKED_BEEF_SLICES = new FoodComponent.Builder().nutrition(4).saturationModifier(0.5f).build();
     public static final FoodComponent SHAWARMA = new FoodComponent.Builder().nutrition(10).saturationModifier(0.5f).build();
     public static final FoodComponent AVOCADO = new FoodComponent.Builder().nutrition(3).saturationModifier(0.3f).build();
-    public static final FoodComponent VEGETABLE_SALAD = new FoodComponent.Builder().nutrition(8).saturationModifier(0.3f).build();
-    public static final FoodComponent BEEF_SALAD = new FoodComponent.Builder().nutrition(10).saturationModifier(0.5f).build();
+    public static final FoodComponent VEGETABLE_SALAD = new FoodComponent.Builder().nutrition(8).saturationModifier(0.3f).usingConvertsTo(Items.BOWL).build();
+    public static final FoodComponent BEEF_SALAD = new FoodComponent.Builder().nutrition(10).saturationModifier(0.5f).usingConvertsTo(Items.BOWL).build();
 }

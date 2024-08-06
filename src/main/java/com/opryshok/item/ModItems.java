@@ -46,7 +46,7 @@ public class ModItems {
     public static Item MAYONNAISE = registerItem("mayonnaise", new PolyItem(new Item.Settings(), "mayonnaise"));
     public static Item MEAT_PIZZA_SLICE = registerItem("meat_pizza_slice", new PolyItem(new Item.Settings().food(ModFoodComponents.PIZZA), "meat_pizza_slice"));
     public static Item VEGAN_PIZZA_SLICE = registerItem("vegan_pizza_slice", new PolyItem(new Item.Settings().food(ModFoodComponents.PIZZA), "vegan_pizza_slice"));
-    public static Item CHOCOLATE_ICE_CREAM = registerItem("chocolate_ice_cream", new PolyItem(new Item.Settings().food(ModFoodComponents.ICE_CREAM), "chocolate_ice_cream"));
+    public static Item CHOCOLATE_ICE_CREAM = registerItem("chocolate_ice_cream", new PolyItem(new Item.Settings().food(ModFoodComponents.CHOCOLATE_ICE_CREAM), "chocolate_ice_cream"));
     public static Item ICE_CREAM = registerItem("ice_cream", new PolyItem(new Item.Settings().food(ModFoodComponents.ICE_CREAM), "ice_cream"));
     public static Item SWEET_BERRY_COOKIE = registerItem("sweet_berry_cookie", new PolyItem(new Item.Settings().food(ModFoodComponents.COOKIE), "sweet_berry_cookie"));
     public static Item BLACKCURRANT_COOKIE = registerItem("blackcurrant_cookie", new PolyItem(new Item.Settings().food(ModFoodComponents.COOKIE), "blackcurrant_cookie"));
@@ -129,6 +129,7 @@ public class ModItems {
             entries.add(CHOCOLATE_ICE_CREAM);
             entries.add(ICE_CREAM);
             entries.add(WAFFLE);
+            entries.add(CHOCOLATE_BAR);
             entries.add(SWEET_BERRY_COOKIE);
             entries.add(BLACKCURRANT_COOKIE);
             entries.add(BEEF_SANDWICH);
