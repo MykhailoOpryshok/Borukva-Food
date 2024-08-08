@@ -1,5 +1,8 @@
 package com.opryshok.block.cooking;
 
+import com.github.quiltservertools.ledger.callbacks.ItemInsertCallback;
+import com.github.quiltservertools.ledger.callbacks.ItemRemoveCallback;
+import com.github.quiltservertools.ledger.utility.Sources;
 import com.mojang.serialization.MapCodec;
 import com.opryshok.BorukvaFood;
 import com.opryshok.block.ModBlocks;
@@ -17,6 +20,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -90,15 +94,15 @@ public class CuttingBoard extends BlockWithEntity implements FactoryBlock, Block
     }
     private ActionResult tryAddItemFromPlayerHand(World world, CuttingBoardBlockEntity cuttingBoardBlockEntity, PlayerEntity player) {
         ItemStack itemHeld = player.getMainHandStack();
-        ItemStack itemOffhand = player.getOffHandStack();
 
-        if (!itemOffhand.isEmpty()) {
-            return ActionResult.PASS;
-        }
         if (itemHeld.isEmpty() || itemHeld.isOf(ModItems.KNIFE) || itemHeld.isOf(ModBlocks.CUTTING_BOARD_ITEM)) {
             return ActionResult.PASS;
         } else if (cuttingBoardBlockEntity.addItem(player.getAbilities().creativeMode ? itemHeld.copy() : itemHeld)) {
             world.playSound(null, cuttingBoardBlockEntity.getPos(), SoundEvents.BLOCK_WOOD_PLACE, SoundCategory.BLOCKS, 1.f, .8f);
+
+            ServerPlayerEntity serverPlayer = (ServerPlayerEntity) player;
+            ItemInsertCallback.EVENT.invoker().insert(itemHeld.copyWithCount(1), cuttingBoardBlockEntity.getPos(), serverPlayer.getServerWorld(), Sources.PLAYER, serverPlayer);
+
             return ActionResult.SUCCESS;
         }
 
@@ -107,6 +111,7 @@ public class CuttingBoard extends BlockWithEntity implements FactoryBlock, Block
 
     private ActionResult tryProcessCuttingUsingToolInHand(World world, CuttingBoardBlockEntity cuttingBoardBlockEntity, PlayerEntity player) {
         ItemStack itemHeld = player.getStackInHand(player.getActiveHand());
+
         if (cuttingBoardBlockEntity.processItemUsingTool(world, itemHeld, player)) {
             return ActionResult.SUCCESS;
         }
@@ -116,6 +121,9 @@ public class CuttingBoard extends BlockWithEntity implements FactoryBlock, Block
 
     private void pullOutItemWithPlayer(World world, CuttingBoardBlockEntity cuttingBoardBlockEntity, PlayerEntity player) {
         BlockPos pos = cuttingBoardBlockEntity.getPos();
+
+        ServerPlayerEntity serverPlayer = (ServerPlayerEntity) player;
+        ItemRemoveCallback.EVENT.invoker().remove(cuttingBoardBlockEntity.getItemStack(), cuttingBoardBlockEntity.getPos(), serverPlayer.getServerWorld(), Sources.PLAYER, serverPlayer);
 
         ItemScatterer.spawn(world, player.getX(), player.getY(), player.getZ(), cuttingBoardBlockEntity.getItemStack());
         cuttingBoardBlockEntity.removeItem();

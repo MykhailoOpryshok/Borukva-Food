@@ -1,5 +1,8 @@
 package com.opryshok.item;
 
+import com.github.quiltservertools.ledger.callbacks.BlockBreakCallback;
+import com.github.quiltservertools.ledger.callbacks.BlockChangeCallback;
+import com.github.quiltservertools.ledger.utility.Sources;
 import com.opryshok.BorukvaFood;
 import com.opryshok.block.food.VeganPizza;
 import com.opryshok.utils.ModProperties;
@@ -49,11 +52,13 @@ public class KnifeTool extends ToolItem implements PolymerItem {
             ItemScatterer.spawn(world, player.getX(), player.getY(), player.getZ(), new ItemStack(block.getSlice(), 1));
             player.getStackInHand(Hand.MAIN_HAND).damage(1, player, LivingEntity.getSlotForHand(Hand.MAIN_HAND));
             if (i == 7){
+                BlockBreakCallback.EVENT.invoker().breakBlock(world, pos, state, null, Sources.PLAYER, player);
                 world.removeBlock(pos, false);
                 world.emitGameEvent(player, GameEvent.BLOCK_DESTROY, pos);
             }
             else {
                 world.setBlockState(pos, state.with(ModProperties.SLICES, i + 1), 3);
+                BlockChangeCallback.EVENT.invoker().changeBlock(world, pos, state, world.getBlockState(pos), null, null, Sources.CONSUME,  player);
             }
 
             return ActionResult.SUCCESS;

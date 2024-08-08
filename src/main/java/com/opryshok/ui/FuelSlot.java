@@ -1,13 +1,16 @@
 package com.opryshok.ui;
+
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.screen.slot.Slot;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.math.BlockPos;
 
-public class FuelSlot extends Slot {
-    public FuelSlot(Inventory inventory, int index, int x, int y) {
-        super(inventory, index, x, y);
+public class FuelSlot extends LedgerSlot {
+    public FuelSlot(BlockPos pos, ServerPlayerEntity player, Inventory inventory, int index, int x, int y) {
+        super(pos, player, inventory, index, x, y);
     }
 
     public boolean canInsert(ItemStack stack) {
@@ -20,5 +23,10 @@ public class FuelSlot extends Slot {
 
     public static boolean isBucket(ItemStack stack) {
         return stack.isOf(Items.BUCKET);
+    }
+
+    @Override
+    public void onTakeItem(PlayerEntity player, ItemStack stack) {
+        super.onTakeItem(player, stack);
     }
 }

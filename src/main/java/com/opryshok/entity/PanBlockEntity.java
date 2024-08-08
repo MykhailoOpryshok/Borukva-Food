@@ -3,12 +3,13 @@ package com.opryshok.entity;
 import com.opryshok.BorukvaFood;
 import com.opryshok.block.cooking.Pan;
 import com.opryshok.ui.GuiTextures;
+import com.opryshok.ui.LedgerSimpleGui;
+import com.opryshok.ui.LedgerSlot;
 import com.opryshok.utils.MinimalSidedInventory;
 import com.opryshok.utils.PanRecipes;
 import eu.pb4.factorytools.api.block.BlockEntityExtraListener;
 import eu.pb4.factorytools.api.block.entity.LockableBlockEntity;
 import eu.pb4.polymer.virtualentity.api.attachment.BlockAwareAttachment;
-import eu.pb4.sgui.api.gui.SimpleGui;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.inventory.Inventories;
@@ -18,7 +19,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.ScreenHandlerType;
-import net.minecraft.screen.slot.Slot;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
@@ -33,7 +33,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class PanBlockEntity extends LockableBlockEntity implements MinimalSidedInventory, BlockEntityExtraListener, SidedInventory {
+public class PanBlockEntity extends LockableBlockEntity implements MinimalSidedInventory, BlockEntityExtraListener, SidedInventory{
     private static final int[] SLOTS =  new int[]{0, 1, 2};
     public boolean active;
     private final DefaultedList<ItemStack> items = DefaultedList.ofSize(3, ItemStack.EMPTY);
@@ -129,14 +129,14 @@ public class PanBlockEntity extends LockableBlockEntity implements MinimalSidedI
 
     }
 
-    public class Gui extends SimpleGui {
+    public class Gui extends LedgerSimpleGui {
         public Gui(ServerPlayerEntity player) {
             super(ScreenHandlerType.GENERIC_9X2, player, false);
             this.setTitle(GuiTextures.PAN.apply(Text.literal("Пательня")));
 
-            this.setSlotRedirect(3, new Slot(PanBlockEntity.this, 0, 0, 0));
-            this.setSlotRedirect(4, new Slot(PanBlockEntity.this, 1, 1, 0));
-            this.setSlotRedirect(5, new Slot(PanBlockEntity.this, 2, 2, 0));
+            this.setSlotRedirect(3, new LedgerSlot(pos, player, PanBlockEntity.this, 0, 0, 0));
+            this.setSlotRedirect(4, new LedgerSlot(pos, player, PanBlockEntity.this,  1, 1, 0));
+            this.setSlotRedirect(5, new LedgerSlot(pos, player, PanBlockEntity.this, 2, 2, 0));
 
             this.setSlot(13, GuiTextures.FLAME.get(PanBlockEntity.this.active ? 1 : 0));
 

@@ -2,13 +2,13 @@ package com.opryshok.entity;
 
 import com.opryshok.BorukvaFood;
 import com.opryshok.block.cooking.Stove;
-import com.opryshok.ui.GuiTextures;
-import com.opryshok.utils.BorukvaFoodUtil;
 import com.opryshok.ui.FuelSlot;
+import com.opryshok.ui.GuiTextures;
+import com.opryshok.ui.LedgerSimpleGui;
+import com.opryshok.utils.BorukvaFoodUtil;
 import com.opryshok.utils.MinimalSidedInventory;
 import eu.pb4.factorytools.api.advancement.TriggerCriterion;
 import eu.pb4.factorytools.api.block.entity.LockableBlockEntity;
-import eu.pb4.sgui.api.gui.SimpleGui;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -31,12 +31,13 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class StoveBlockEntity extends LockableBlockEntity implements MinimalSidedInventory, SidedInventory {
+public class StoveBlockEntity extends LockableBlockEntity implements MinimalSidedInventory, SidedInventory{
     private static final int[] SLOTS = new int[]{0};
     public float state = 0;
     public int fuelTicks = 0;
     public int fuelInitial = 1;
     private final DefaultedList<ItemStack> items = DefaultedList.ofSize(1, ItemStack.EMPTY);
+
     public StoveBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(ModEntities.STOVE, blockPos, blockState);
     }
@@ -45,6 +46,7 @@ public class StoveBlockEntity extends LockableBlockEntity implements MinimalSide
     public DefaultedList<ItemStack> getStacks() {
         return items;
     }
+
     public static <T extends BlockEntity> void tick(World world, BlockPos pos, BlockState state, T t) {
         var self = (StoveBlockEntity) t;
 
@@ -75,7 +77,7 @@ public class StoveBlockEntity extends LockableBlockEntity implements MinimalSide
                         if (!remainder.isEmpty()) {
                             BorukvaFoodUtil.tryInsertingRegular(self, remainder);
                             if (!remainder.isEmpty()) {
-                                ItemScatterer.spawn(world, pos.getX()  + 0.5, pos.getY(), pos.getZ() + 0.5, remainder);
+                                ItemScatterer.spawn(world, pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, remainder);
                             }
                         }
 
@@ -107,9 +109,20 @@ public class StoveBlockEntity extends LockableBlockEntity implements MinimalSide
     }
 
     @Override
+    public ItemStack removeStack(int slot) {
+        return MinimalSidedInventory.super.removeStack(slot);
+    }
+
+    @Override
+    public ItemStack removeStack(int slot, int amount) {
+        return MinimalSidedInventory.super.removeStack(slot, amount);
+    }
+
+    @Override
     public boolean canExtract(int slot, ItemStack stack, Direction dir) {
         return true;
     }
+
     @Override
     protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup lookup) {
         Inventories.writeNbt(nbt, this.items, lookup);
@@ -132,31 +145,33 @@ public class StoveBlockEntity extends LockableBlockEntity implements MinimalSide
     protected void createGui(ServerPlayerEntity playerEntity) {
         new Gui(playerEntity);
     }
-    private class Gui extends SimpleGui {
+
+    private class Gui extends LedgerSimpleGui {
         private boolean active;
 
         public Gui(ServerPlayerEntity player) {
             super(ScreenHandlerType.GENERIC_9X2, player, false);
             this.setTitle(GuiTextures.STOVE.apply(Text.literal("Плита")));
 
-            this.setSlotRedirect(13, new FuelSlot(StoveBlockEntity.this, 0, 0, 0));
+            this.setSlotRedirect(13, new FuelSlot(pos, player, StoveBlockEntity.this, 0, 0, 0));
             this.setSlot(4, GuiTextures.FLAME.get(progress()));
             this.active = StoveBlockEntity.this.fuelTicks > 0;
             this.open();
-
         }
+
         private float progress() {
             return StoveBlockEntity.this.fuelInitial > 0
                     ? MathHelper.clamp(StoveBlockEntity.this.fuelTicks / (float) StoveBlockEntity.this.fuelInitial, 0, 1)
                     : 0;
         }
+
         @Override
         public void onTick() {
             if (player.getPos().squaredDistanceTo(Vec3d.ofCenter(StoveBlockEntity.this.pos)) > (18 * 18)) {
                 this.close();
             }
 
-            var active =  StoveBlockEntity.this.fuelTicks > 0;
+            var active = StoveBlockEntity.this.fuelTicks > 0;
             if (!this.active && active) {
                 this.active = true;
                 TriggerCriterion.trigger(player, Identifier.of(BorukvaFood.MOD_ID, "fuel_stove"));

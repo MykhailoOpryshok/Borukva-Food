@@ -1,5 +1,8 @@
 package com.opryshok.entity;
 
+import com.github.quiltservertools.ledger.actionutils.LocationalInventory;
+import com.github.quiltservertools.ledger.callbacks.ItemRemoveCallback;
+import com.github.quiltservertools.ledger.utility.Sources;
 import com.opryshok.BorukvaFood;
 import com.opryshok.block.cooking.CuttingBoard;
 import com.opryshok.item.ModItems;
@@ -17,23 +20,32 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.WorldChunk;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
-public class CuttingBoardBlockEntity extends LockableBlockEntity implements MinimalSidedInventory, SidedInventory, BlockEntityExtraListener {
+public class CuttingBoardBlockEntity extends LockableBlockEntity implements MinimalSidedInventory, SidedInventory, BlockEntityExtraListener, LocationalInventory {
     private static final int[] SLOTS = new int[]{0};
     private final DefaultedList<ItemStack> items = DefaultedList.ofSize(1, ItemStack.EMPTY);
     private CuttingBoard.Model model;
     public CuttingBoardBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(ModEntities.CUTTING_BOARD, blockPos, blockState);
     }
+
+    @NotNull
+    @Override
+    public BlockPos getLocation() {
+        return this.pos;
+    }
+
     @Override
     protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup lookup) {
         super.writeNbt(nbt, lookup);
@@ -73,7 +85,6 @@ public class CuttingBoardBlockEntity extends LockableBlockEntity implements Mini
         if (isEmpty() && !itemStack.isEmpty()) {
             setStack(0, itemStack.split(1));
             markDirty();
-
             return true;
         }
 
@@ -81,6 +92,7 @@ public class CuttingBoardBlockEntity extends LockableBlockEntity implements Mini
     }
     public void removeItem() {
         if (!isEmpty()) {
+
             setStack(0, ItemStack.EMPTY);
             markDirty();
         }
@@ -93,6 +105,10 @@ public class CuttingBoardBlockEntity extends LockableBlockEntity implements Mini
             Item currentItem = getItemStack().getItem();
             if (CuttingBoardRecipes.RECIPES.containsKey(currentItem)){
                 tool.damage(1, player, LivingEntity.getSlotForHand(player.getActiveHand()));
+
+                ServerPlayerEntity serverPlayer = (ServerPlayerEntity) player;
+                ItemRemoveCallback.EVENT.invoker().remove(this.getItemStack(), this.getPos(), serverPlayer.getServerWorld(), Sources.PLAYER, serverPlayer);
+                
                 ItemScatterer.spawn(world, player.getX(), player.getY(), player.getZ(), CuttingBoardRecipes.RECIPES.get(currentItem).copy());
                 removeItem();
                 markDirty();

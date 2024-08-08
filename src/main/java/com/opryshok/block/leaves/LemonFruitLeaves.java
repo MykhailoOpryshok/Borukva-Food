@@ -1,5 +1,7 @@
 package com.opryshok.block.leaves;
 
+import com.github.quiltservertools.ledger.callbacks.BlockChangeCallback;
+import com.github.quiltservertools.ledger.utility.Sources;
 import com.opryshok.BorukvaFood;
 import com.opryshok.block.ModBlocks;
 import com.opryshok.item.ModItems;
@@ -35,6 +37,7 @@ public class LemonFruitLeaves extends LeavesBlock implements PolymerTexturedBloc
             dropStack(world, pos, player.getMovementDirection().getOpposite(), getFruitDropStack(1));
             world.playSound(null, pos, SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 1f, 1f);
             world.setBlockState(pos, getBaseBlockState(state));
+            BlockChangeCallback.EVENT.invoker().changeBlock(world, pos, state, getBaseBlockState(state), null, null, Sources.PLAYER, player);
             return ActionResult.SUCCESS;
         }
         return super.onUse(state, world, pos, player, hit);

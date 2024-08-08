@@ -8,7 +8,7 @@ import net.minecraft.util.collection.DefaultedList;
 
 import java.util.Iterator;
 
-public interface MinimalSidedInventory extends SidedInventory {
+public interface MinimalSidedInventory extends SidedInventory{
     DefaultedList<ItemStack> getStacks();
 
     @Override
@@ -19,7 +19,7 @@ public interface MinimalSidedInventory extends SidedInventory {
     @Override
     default boolean isEmpty() {
         Iterator<ItemStack> var1 = this.getStacks().iterator();
-
+        
         ItemStack itemStack;
         do {
             if (!var1.hasNext()) {
