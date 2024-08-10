@@ -14,6 +14,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.CakeBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Hand;
@@ -30,6 +31,11 @@ import java.util.ArrayList;
 public class ChocolateCake extends CakeBlock implements FactoryBlock {
     public ChocolateCake(Settings settings) {
         super(settings);
+    }
+
+    @Override
+    public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
+        return Blocks.CAKE.getDefaultState();
     }
 
     @Override

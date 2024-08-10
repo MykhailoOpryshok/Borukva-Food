@@ -48,9 +48,19 @@ public class Pan extends BlockWithEntity implements FactoryBlock, BlockEntityPro
         CODEC = createCodec(Pan::new);
     }
 
+    @Override
+    public BlockState getPolymerBlockState(BlockState state) {
+        return Blocks.BARRIER.getDefaultState();
+    }
+
     public Pan(Settings settings) {
         super(settings.nonOpaque());
         this.setDefaultState(getDefaultState().with(LIT, false));
+    }
+
+    @Override
+    public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
+        return Blocks.IRON_TRAPDOOR.getDefaultState();
     }
 
     @Nullable
@@ -117,11 +127,6 @@ public class Pan extends BlockWithEntity implements FactoryBlock, BlockEntityPro
     public boolean tickElementHolder(ServerWorld world, BlockPos pos, BlockState initialBlockState) {
         this.model.tick();
         return true;
-    }
-
-    @Override
-    public BlockState getPolymerBlockState(BlockState state) {
-        return Blocks.BARRIER.getDefaultState();
     }
 
     public static final class Model extends BlockModel {

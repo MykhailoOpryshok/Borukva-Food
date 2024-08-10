@@ -19,6 +19,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -59,6 +60,11 @@ public class BlackcurrantsBush extends PlantBlock implements Fertilizable, Facto
 
     public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         return new ItemStack(ModItems.BLACKCURRANTS);
+    }
+
+    @Override
+    public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
+        return Blocks.SWEET_BERRY_BUSH.getDefaultState();
     }
 
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {

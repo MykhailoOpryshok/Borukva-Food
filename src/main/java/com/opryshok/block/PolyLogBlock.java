@@ -10,6 +10,7 @@ import eu.pb4.polymer.virtualentity.api.elements.ItemDisplayElement;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.PillarBlock;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
@@ -20,6 +21,11 @@ public class PolyLogBlock extends PillarBlock implements FactoryBlock {
 
     public PolyLogBlock(Settings settings) {
         super(settings.nonOpaque());
+    }
+
+    @Override
+    public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
+        return Blocks.OAK_LOG.getDefaultState();
     }
 
     @Override

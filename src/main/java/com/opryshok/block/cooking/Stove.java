@@ -52,6 +52,11 @@ public class Stove extends BlockWithEntity implements FactoryBlock, BlockEntityP
     }
 
     @Override
+    public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
+        return Blocks.MUD_BRICKS.getDefaultState();
+    }
+
+    @Override
     protected void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         ItemScatterer.onStateReplaced(state, newState, world, pos);
         if (state.isOf(ModBlocks.STOVE) && newState.isOf(ModBlocks.STOVE)) {

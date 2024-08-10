@@ -8,6 +8,7 @@ import com.opryshok.BorukvaFood;
 import com.opryshok.block.ModBlocks;
 import com.opryshok.entity.CuttingBoardBlockEntity;
 import com.opryshok.item.ModItems;
+import com.zefir.borukvautils.block.FlatTripwireBased;
 import eu.pb4.factorytools.api.block.FactoryBlock;
 import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.BlockModel;
@@ -37,7 +38,7 @@ import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
 
-public class CuttingBoard extends BlockWithEntity implements FactoryBlock, BlockEntityProvider, InventoryProvider {
+public class CuttingBoard extends BlockWithEntity implements FactoryBlock, BlockEntityProvider, InventoryProvider, FlatTripwireBased {
     public static DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final MapCodec<CuttingBoard> CODEC = createCodec(CuttingBoard::new);
     private Model model;
@@ -52,8 +53,8 @@ public class CuttingBoard extends BlockWithEntity implements FactoryBlock, Block
     }
 
     @Override
-    public BlockState getPolymerBlockState(BlockState state) {
-        return Blocks.BARRIER.getDefaultState();
+    public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
+        return Blocks.OAK_PLANKS.getDefaultState();
     }
     @Override
     protected MapCodec<? extends BlockWithEntity> getCodec() {

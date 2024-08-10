@@ -17,6 +17,7 @@ import com.opryshok.item.ModItems;
 import com.opryshok.world.tree.ModSaplingGenerator;
 import eu.pb4.polymer.core.api.item.PolymerItemGroupUtils;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -24,6 +25,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -56,7 +58,12 @@ public class ModBlocks {
     public static final Block TOMATO_CRATE = registerBlock("tomato_crate", new SimplePolyBlock(Block.Settings.copy(Blocks.COMPOSTER), "tomato_crate"));
     public static final Block BLACKCURRANTS_BUSH = registerBlock("blackcurrants_bush", new BlackcurrantsBush(Block.Settings.copy(Blocks.SWEET_BERRY_BUSH)));
     public static final Block GOOSEBERRY_BUSH = registerBlock("gooseberry_bush", new GooseberryBush(Block.Settings.copy(Blocks.SWEET_BERRY_BUSH)));
-    public static final Block SALT = registerBlock("salt_block", new SimplePolyBlock(Block.Settings.copy(Blocks.STONE), "salt_block"));
+    public static final Block SALT = registerBlock("salt_block", new SimplePolyBlock(Block.Settings.copy(Blocks.STONE), "salt_block"){
+        @Override
+        public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
+            return Blocks.STONE.getDefaultState();
+        }
+    });
 
 
     public static final Block LEMON_LOG = registerBlock("lemon_log", new PolyLogBlock(Block.Settings.copy(Blocks.OAK_LOG)));

@@ -3,6 +3,7 @@ package com.opryshok.block.food;
 import com.opryshok.BorukvaFood;
 import com.opryshok.item.ModItems;
 import com.opryshok.utils.ModProperties;
+import com.zefir.borukvautils.block.FlatTripwireBased;
 import eu.pb4.factorytools.api.block.FactoryBlock;
 import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.BlockModel;
@@ -16,6 +17,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.util.Identifier;
@@ -26,7 +28,7 @@ import org.joml.Vector3f;
 
 import java.util.ArrayList;
 
-public class VeganPizza extends Block implements FactoryBlock {
+public class VeganPizza extends Block implements FactoryBlock, FlatTripwireBased {
 
     public VeganPizza(Settings settings) {
         super(settings.nonOpaque());
@@ -36,6 +38,11 @@ public class VeganPizza extends Block implements FactoryBlock {
     @Override
     public @Nullable ElementHolder createElementHolder(ServerWorld world, BlockPos pos, BlockState initialBlockState) {
         return new Model(initialBlockState);
+    }
+
+    @Override
+    public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
+        return Blocks.ORANGE_CARPET.getDefaultState();
     }
 
     @Override
@@ -51,11 +58,6 @@ public class VeganPizza extends Block implements FactoryBlock {
 
     public Item getSlice() {
         return ModItems.VEGAN_PIZZA_SLICE;
-    }
-
-    @Override
-    public BlockState getPolymerBlockState(BlockState state) {
-        return Blocks.BARRIER.getDefaultState();
     }
 
     public static class Model extends BlockModel {
