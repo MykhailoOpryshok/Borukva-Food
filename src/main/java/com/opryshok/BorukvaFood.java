@@ -23,6 +23,7 @@ import com.opryshok.world.gen.ModWorldGeneration;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -71,5 +72,9 @@ public class BorukvaFood implements ModInitializer {
 		CabbageCrop.Model.MODELS.forEach(ItemStack::isEmpty);
 		ChocolateCake.Model.CHOCOLATE_MODEL.forEach(ItemStack::isEmpty);
 		HoneyCake.Model.HONEY_MODEL.forEach(ItemStack::isEmpty);
+	}
+
+	public static Identifier id(String path) {
+		return Identifier.of(MOD_ID, path);
 	}
 }

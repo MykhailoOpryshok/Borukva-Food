@@ -2,6 +2,7 @@ package com.opryshok.entity;
 
 import com.opryshok.BorukvaFood;
 import com.opryshok.block.cooking.Pan;
+import com.opryshok.sounds.SoundRegistry;
 import com.opryshok.ui.GuiTextures;
 import com.opryshok.ui.LedgerSimpleGui;
 import com.opryshok.ui.LedgerSlot;
@@ -20,6 +21,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
@@ -33,9 +35,11 @@ import org.jetbrains.annotations.Nullable;
 import java.util.HashMap;
 import java.util.Objects;
 
+
 public class PanBlockEntity extends LockableBlockEntity implements MinimalSidedInventory, BlockEntityExtraListener, SidedInventory{
     private static final int[] SLOTS =  new int[]{0, 1, 2};
     public boolean active;
+    private int soundTicks = 20;
     private final DefaultedList<ItemStack> items = DefaultedList.ofSize(3, ItemStack.EMPTY);
     private final HashMap<Integer, Integer> slotTick = new HashMap<>();
     {
@@ -72,10 +76,14 @@ public class PanBlockEntity extends LockableBlockEntity implements MinimalSidedI
     public static <T extends BlockEntity> void tick(World world, BlockPos pos, BlockState state, T t) {
         if (t instanceof PanBlockEntity self) {
             self.active = state.get(Properties.LIT);
-            if (self.active) {
+            if (self.active && !self.items.isEmpty()) {
                 for (int i = 0; i < self.items.size(); i++) {
                     ItemStack stack = self.items.get(i);
                     if (!stack.isEmpty() && PanRecipes.RECIPES.containsKey(stack.getItem())) {
+                        if(self.soundTicks >= 20){
+                            world.playSound(null, pos, SoundRegistry.FRYING, SoundCategory.BLOCKS, 1f, 1f);
+                            self.soundTicks = 0;
+                        }
                         int tickCount = self.slotTick.getOrDefault(i, 0);
                         if (tickCount >= COOK_TIME * stack.getCount()) {
                             self.items.set(i, getCookedVariant(stack));
@@ -88,6 +96,7 @@ public class PanBlockEntity extends LockableBlockEntity implements MinimalSidedI
                         self.slotTick.put(i, 0);
                     }
                 }
+                self.soundTicks++;
             }
         }
     }

@@ -1,0 +1,10 @@
+{
+  "frying": {
+    "subtitle": "subtitle.borukva-food.frying",
+    "sounds": [
+      "borukva-food:frying1",
+      "borukva-food:frying2",
+      "borukva-food:frying3"
+    ]
+  }
+}

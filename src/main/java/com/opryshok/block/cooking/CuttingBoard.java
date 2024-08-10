@@ -38,7 +38,7 @@ import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
 
-public class CuttingBoard extends BlockWithEntity implements FactoryBlock, BlockEntityProvider, InventoryProvider, FlatTripwireBased {
+public class CuttingBoard extends BlockWithEntity implements FlatTripwireBased, FactoryBlock, BlockEntityProvider, InventoryProvider {
     public static DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final MapCodec<CuttingBoard> CODEC = createCodec(CuttingBoard::new);
     private Model model;
@@ -54,7 +54,7 @@ public class CuttingBoard extends BlockWithEntity implements FactoryBlock, Block
 
     @Override
     public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
-        return Blocks.OAK_PLANKS.getDefaultState();
+        return Blocks.OAK_TRAPDOOR.getDefaultState();
     }
     @Override
     protected MapCodec<? extends BlockWithEntity> getCodec() {

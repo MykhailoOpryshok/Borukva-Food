@@ -17,7 +17,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.util.Identifier;
@@ -28,7 +27,7 @@ import org.joml.Vector3f;
 
 import java.util.ArrayList;
 
-public class VeganPizza extends Block implements FactoryBlock, FlatTripwireBased {
+public class VeganPizza extends Block implements FlatTripwireBased, FactoryBlock {
 
     public VeganPizza(Settings settings) {
         super(settings.nonOpaque());
@@ -38,11 +37,6 @@ public class VeganPizza extends Block implements FactoryBlock, FlatTripwireBased
     @Override
     public @Nullable ElementHolder createElementHolder(ServerWorld world, BlockPos pos, BlockState initialBlockState) {
         return new Model(initialBlockState);
-    }
-
-    @Override
-    public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
-        return Blocks.ORANGE_CARPET.getDefaultState();
     }
 
     @Override

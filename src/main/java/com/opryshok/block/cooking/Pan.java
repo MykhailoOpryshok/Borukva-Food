@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import com.opryshok.BorukvaFood;
 import com.opryshok.block.ModBlocks;
 import com.opryshok.entity.PanBlockEntity;
+import com.zefir.borukvautils.block.TripwireBased;
 import eu.pb4.factorytools.api.block.FactoryBlock;
 import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.BlockModel;
@@ -36,7 +37,7 @@ import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
 
-public class Pan extends BlockWithEntity implements FactoryBlock, BlockEntityProvider, InventoryProvider {
+public class Pan extends BlockWithEntity implements TripwireBased, FactoryBlock, BlockEntityProvider, InventoryProvider {
     public static final BooleanProperty LIT;
     public static final DirectionProperty FACING;
     public static final MapCodec<Pan> CODEC;
@@ -46,11 +47,6 @@ public class Pan extends BlockWithEntity implements FactoryBlock, BlockEntityPro
         FACING = Properties.HORIZONTAL_FACING;
         LIT = Properties.LIT;
         CODEC = createCodec(Pan::new);
-    }
-
-    @Override
-    public BlockState getPolymerBlockState(BlockState state) {
-        return Blocks.BARRIER.getDefaultState();
     }
 
     public Pan(Settings settings) {
