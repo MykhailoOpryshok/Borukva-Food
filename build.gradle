@@ -32,11 +32,11 @@ dependencies {
 	modImplementation ("eu.pb4:polymer-core:[${polymer_version}]")
 	modImplementation ("eu.pb4:polymer-blocks:[${polymer_version}]")
 	modImplementation ("eu.pb4:polymer-resource-pack:[${polymer_version}]")
-	modImplementation ("eu.pb4:sgui:[${sgui_version}]")
 	modImplementation ("eu.pb4:polymer-virtual-entity:[${polymer_version}]")
-
-	modImplementation ("eu.pb4:factorytools:[${factorytools_version}]")
 	modImplementation ("eu.pb4:polymer-autohost:${polymer_version}")
+
+	modImplementation include ("eu.pb4:factorytools:[${factorytools_version}]")
+	modImplementation include ("eu.pb4:sgui:[${sgui_version}]")
 
 	modImplementation "maven.modrinth:ledger:1.3.4"
 	modImplementation "maven.modrinth:borukvautils:0.1.1"
