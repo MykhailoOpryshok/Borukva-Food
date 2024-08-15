@@ -95,6 +95,7 @@ public class CuttingBoard extends BlockWithEntity implements FlatTripwireBased, 
     }
     private ActionResult tryAddItemFromPlayerHand(World world, CuttingBoardBlockEntity cuttingBoardBlockEntity, PlayerEntity player) {
         ItemStack itemHeld = player.getMainHandStack();
+        ItemStack copy = itemHeld.copyWithCount(1);
 
         if (itemHeld.isEmpty() || itemHeld.isOf(ModItems.KNIFE) || itemHeld.isOf(ModBlocks.CUTTING_BOARD_ITEM)) {
             return ActionResult.PASS;
@@ -102,7 +103,7 @@ public class CuttingBoard extends BlockWithEntity implements FlatTripwireBased, 
             world.playSound(null, cuttingBoardBlockEntity.getPos(), SoundEvents.BLOCK_WOOD_PLACE, SoundCategory.BLOCKS, 1.f, .8f);
 
             ServerPlayerEntity serverPlayer = (ServerPlayerEntity) player;
-            ItemInsertCallback.EVENT.invoker().insert(itemHeld.copyWithCount(1), cuttingBoardBlockEntity.getPos(), serverPlayer.getServerWorld(), Sources.PLAYER, serverPlayer);
+            ItemInsertCallback.EVENT.invoker().insert(copy, cuttingBoardBlockEntity.getPos(), serverPlayer.getServerWorld(), Sources.PLAYER, serverPlayer);
 
             return ActionResult.SUCCESS;
         }

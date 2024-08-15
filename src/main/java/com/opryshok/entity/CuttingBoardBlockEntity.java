@@ -1,6 +1,5 @@
 package com.opryshok.entity;
 
-import com.github.quiltservertools.ledger.actionutils.LocationalInventory;
 import com.github.quiltservertools.ledger.callbacks.ItemRemoveCallback;
 import com.github.quiltservertools.ledger.utility.Sources;
 import com.opryshok.BorukvaFood;
@@ -27,23 +26,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.WorldChunk;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
-public class CuttingBoardBlockEntity extends LockableBlockEntity implements MinimalSidedInventory, SidedInventory, BlockEntityExtraListener, LocationalInventory {
+public class CuttingBoardBlockEntity extends LockableBlockEntity implements MinimalSidedInventory, SidedInventory, BlockEntityExtraListener{
     private static final int[] SLOTS = new int[]{0};
     private final DefaultedList<ItemStack> items = DefaultedList.ofSize(1, ItemStack.EMPTY);
     private CuttingBoard.Model model;
     public CuttingBoardBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(ModEntities.CUTTING_BOARD, blockPos, blockState);
-    }
-
-    @NotNull
-    @Override
-    public BlockPos getLocation() {
-        return this.pos;
     }
 
     @Override

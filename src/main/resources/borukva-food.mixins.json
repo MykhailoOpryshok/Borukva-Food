@@ -3,10 +3,12 @@
   "package": "com.opryshok.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "AttachedStemBlockMixin",
     "ComposterBlockMixin",
     "CropBlockMixin",
     "FullComposterInventoryMixin",
-    "HoeItemMixin"
+    "HoeItemMixin",
+    "StemBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1
