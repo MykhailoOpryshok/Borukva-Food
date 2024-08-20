@@ -419,6 +419,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('W', Items.WHEAT)
                 .criterion(hasItem(Items.HONEY_BOTTLE), conditionsFromItem(Items.HONEY_BOTTLE))
                 .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModBlocks.HONEY_CAKE_ITEM)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, ModBlocks.FERTILIZER_SPRAYER_ITEM, 1)
+                .pattern("III")
+                .pattern("CDC")
+                .pattern("RRR")
+                .input('R', Items.REDSTONE)
+                .input('C', Items.SMOOTH_STONE)
+                .input('D', Items.DISPENSER.asItem())
+                .input('I', Items.IRON_INGOT)
+                .criterion(hasItem(Items.DISPENSER), conditionsFromItem(Items.DISPENSER))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModBlocks.FERTILIZER_SPRAYER_ITEM)));
     }
     private void campfireCookingRecipe(RecipeExporter exporter, Item input, Item output) {
         CookingRecipeJsonBuilder.create(Ingredient.ofItems(input), RecipeCategory.FOOD, output, 0, 600, RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new)

@@ -18,8 +18,8 @@ public class BorukvaFoodDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModLootTableProvider::new);
 		pack.addProvider(ModRecipeProvider::new);
 		pack.addProvider(CustomAssetsProvider::new);
-		pack.addProvider(ModBlockTagProvider::new);
 		pack.addProvider(ModWorldGenerator::new);
+		pack.addProvider(ModBlockTagProvider::new);
 	}
 
 	@Override

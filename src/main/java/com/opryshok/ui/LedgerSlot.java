@@ -1,8 +1,6 @@
 package com.opryshok.ui;
 
-import com.github.quiltservertools.ledger.callbacks.ItemInsertCallback;
-import com.github.quiltservertools.ledger.callbacks.ItemRemoveCallback;
-import com.github.quiltservertools.ledger.utility.Sources;
+import com.opryshok.utils.BorukvaFoodUtil;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
@@ -23,7 +21,7 @@ public class LedgerSlot extends Slot{
     @Override
     public void setStackNoCallbacks(ItemStack stack) {
         if (!stack.isEmpty()) {
-            ItemInsertCallback.EVENT.invoker().insert(stack, pos, player.getServerWorld(), Sources.PLAYER, player);
+            BorukvaFoodUtil.ledgerMixinInvoke();
         }
         super.setStackNoCallbacks(stack);
     }
@@ -35,7 +33,7 @@ public class LedgerSlot extends Slot{
 
     @Override
     public void onTakeItem(PlayerEntity player, ItemStack stack) {
-        ItemRemoveCallback.EVENT.invoker().remove(stack, pos, this.player.getServerWorld(), Sources.PLAYER, this.player);
+        BorukvaFoodUtil.ledgerMixinInvoke();
         super.onTakeItem(player, stack);
     }
 }

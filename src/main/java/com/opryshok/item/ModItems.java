@@ -15,7 +15,7 @@ import net.minecraft.util.Identifier;
 
 public class ModItems {
     public static Item FERTILIZER = registerItem("fertilizer", new FertilizerItem(new Item.Settings(), "fertilizer"));
-    public static Item SOIL_ANALIZATOR = registerItem("soil_analizator", new SoilAnalizatorItem(new Item.Settings(), "soil_analizator"));
+    public static Item SOIL_ANALIZATOR = registerItem("soil_analizator", new SoilAnalizatorItem(new Item.Settings().maxCount(1), "soil_analizator"));
     public static Item KNIFE = registerItem("knife", new KnifeTool(new Item.Settings()));
     public static Item COMPOST = registerItem("compost", new CompostItem(new Item.Settings(), "compost"));
 
@@ -44,7 +44,7 @@ public class ModItems {
     public static Item HOT_SPICE = registerItem("hot_spice", new PolyItem(new Item.Settings(), "hot_spice"));
     public static Item KETCHUP = registerItem("ketchup", new PolyItem(new Item.Settings(), "ketchup"));
     public static Item MAYONNAISE = registerItem("mayonnaise", new PolyItem(new Item.Settings(), "mayonnaise"));
-    public static Item MEAT_PIZZA_SLICE = registerItem("meat_pizza_slice", new PolyItem(new Item.Settings().food(ModFoodComponents.PIZZA), "meat_pizza_slice"));
+    public static Item MEAT_PIZZA_SLICE = registerItem("meat_pizza_slice", new PolyItem(new Item.Settings().food(ModFoodComponents.MEAT_PIZZA), "meat_pizza_slice"));
     public static Item VEGAN_PIZZA_SLICE = registerItem("vegan_pizza_slice", new PolyItem(new Item.Settings().food(ModFoodComponents.PIZZA), "vegan_pizza_slice"));
     public static Item CHOCOLATE_ICE_CREAM = registerItem("chocolate_ice_cream", new PolyItem(new Item.Settings().food(ModFoodComponents.CHOCOLATE_ICE_CREAM), "chocolate_ice_cream"));
     public static Item ICE_CREAM = registerItem("ice_cream", new PolyItem(new Item.Settings().food(ModFoodComponents.ICE_CREAM), "ice_cream"));

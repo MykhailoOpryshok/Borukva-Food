@@ -107,6 +107,16 @@
   "block.borukva-food.avocado_sapling": "Паросток авокадо",
   "block.borukva-food.avocado_fruit_leaves": "Фруктове листя авокадо",
   "block.borukva-food.lemon_fruit_leaves": "Лимонне фруктове листя",
+  "block.borukva-food.tomato_crop": "Помідор",
+  "block.borukva-food.cabbage_crop": "Капуста",
+  "block.borukva-food.corn_crop": "Кукурудза",
+  "block.borukva-food.chilli_pepper_crop": "Перець чилі",
+  "block.borukva-food.lettuce_crop": "Салат",
+  "block.borukva-food.cucumber_crop": "Огірок",
+  "block.borukva-food.onion_crop": "Цибуля",
+  "block.borukva-food.fertilizer_sprayer": "Розпилювач добрива",
+  "block.borukva-food.blackcurrants": "Кущ смородини",
+  "block.borukva-food.gooseberry": "Кущ аґрусу",
 
   "tooltip.borukva-food.soil_analizator": "Визначає рівень родючості та кислотності в ґрунті",
   "tooltip.borukva-food.fertilizer": "Підвищує рівень родючості та знижує рівень кислотності",
@@ -115,8 +125,9 @@
 
   "chat.borukva-food.soil_analizator.on_use": "[Родючість: %d || Кислотність: %d]",
 
-  "item-group.borukva-food.items": "Предмети",
-  "item-group.borukva-food.blocks_and_tools": "Блоки та інструменти"
+  "item-group.borukva-food.items": "BorukvaFood: Насіння та їжа",
+  "item-group.borukva-food.blocks_and_tools": "BorukvaFood: Інструменти та Блоки",
 
-
+  "subtitle.borukva-food.frying": "Смаження",
+  "subtitle.borukva-food.spraying": "Обприскування"
 }

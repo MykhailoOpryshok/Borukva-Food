@@ -1,7 +1,6 @@
 package com.opryshok.ui;
 
-import com.github.quiltservertools.ledger.callbacks.ItemRemoveCallback;
-import com.github.quiltservertools.ledger.utility.Sources;
+import com.opryshok.utils.BorukvaFoodUtil;
 import eu.pb4.sgui.api.gui.SimpleGui;
 import eu.pb4.sgui.virtual.inventory.VirtualSlot;
 import net.minecraft.item.ItemStack;
@@ -32,9 +31,7 @@ public class LedgerSimpleGui extends SimpleGui {
                 if (!this.insertItem(itemStack2, this.getVirtualSize(), this.getVirtualSize() + 9 * 4, true)) {
                     return ItemStack.EMPTY;
                 }
-                if (slot instanceof LedgerSlot ledgerSlot) {
-                    ItemRemoveCallback.EVENT.invoker().remove(itemStack, ledgerSlot.pos, player.getServerWorld(), Sources.PLAYER, player);
-                }
+                BorukvaFoodUtil.ledgerMixinInvoke();
             } else if (!this.insertItem(itemStack2, 0, this.getVirtualSize(), false)) {
                 return ItemStack.EMPTY;
             }

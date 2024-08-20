@@ -1,4 +1,4 @@
-// 1.21	2024-08-06T13:35:38.1805648	Borukva Food/Recipes
+// 1.21	2024-08-20T09:58:58.3374445	Borukva Food/Recipes
 df9c5889af77414d6c8633c0efd6af8d351008e7 data\borukva-food\advancement\recipes\food\honey_candy.json
 9749d9ff62488d18303698cb4b5c728946f95ea1 data\borukva-food\advancement\recipes\food\cabbage_crate_to_cabbage.json
 fd4c49a7952122c50df14ebf1248a531844cf1a7 data\borukva-food\recipe\waffle.json
@@ -92,6 +92,8 @@ f9a2742b1fd9e805ac219d04436e0847485adc6c data\borukva-food\advancement\recipes\f
 90377d95a91d23886e29098baa2d1ed7cdfcf7f1 data\borukva-food\advancement\recipes\misc\fertilizer.json
 292fcdba09d6e5e9b48ca788c45f75ceba91b586 data\borukva-food\advancement\recipes\decorations\tomato_crate.json
 b2a749a39ad79e6a8a65e114c2f9f7497a093657 data\borukva-food\recipe\avocado_planks.json
+3063dbaf7dc1f726fbbf867da881f3795772fc03 data\borukva-food\advancement\recipes\redstone\fertilizer_sprayer.json
+2c1a0001b270e790d022fcec5fbef5fcdb09cd18 data\borukva-food\recipe\fertilizer_sprayer.json
 95081060ffd2ee0759e2b82ac6b2bc3151833dea data\borukva-food\advancement\recipes\food\cheese.json
 e0c33e9f19710b7f589755dcebde61be492c08a4 data\borukva-food\advancement\recipes\food\tomato_to_tomato_seeds.json
 efa91c711f5dbd6087c641d9eb1b8fc7c27e62d5 data\borukva-food\advancement\recipes\food\ice_cream.json

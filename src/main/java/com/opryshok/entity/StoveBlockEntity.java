@@ -151,7 +151,7 @@ public class StoveBlockEntity extends LockableBlockEntity implements MinimalSide
 
         public Gui(ServerPlayerEntity player) {
             super(ScreenHandlerType.GENERIC_9X2, player, false);
-            this.setTitle(GuiTextures.STOVE.apply(Text.literal("Плита")));
+            this.setTitle(GuiTextures.STOVE.apply(Text.translatable("block.borukva-food.stove")));
 
             this.setSlotRedirect(13, new FuelSlot(pos, player, StoveBlockEntity.this, 0, 0, 0));
             this.setSlot(4, GuiTextures.FLAME.get(progress()));

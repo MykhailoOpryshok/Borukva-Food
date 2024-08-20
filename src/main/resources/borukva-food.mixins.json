@@ -8,6 +8,7 @@
     "CropBlockMixin",
     "FullComposterInventoryMixin",
     "HoeItemMixin",
+    "SecondaryPointsOfInterestSensorMixin",
     "StemBlockMixin"
   ],
   "injectors": {

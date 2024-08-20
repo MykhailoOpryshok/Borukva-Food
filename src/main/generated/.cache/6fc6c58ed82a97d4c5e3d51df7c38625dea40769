@@ -1,4 +1,4 @@
-// 1.21	2024-08-06T13:35:38.1989677	Borukva Food/Block Loot Tables
+// 1.21	2024-08-20T09:58:58.3495704	Borukva Food/Block Loot Tables
 5ea1ee2aa6917ef94ff3a0f2566bd924e6f48b87 data\borukva-food\loot_table\blocks\beetroot_crate.json
 3c09254a411db2e082b5a2623d64e972a6bcf929 data\borukva-food\loot_table\blocks\lemon_leaves.json
 631f5f061e4e0853742964a96267a4a15b1c1b79 data\borukva-food\loot_table\blocks\lettuce_crop.json
@@ -10,6 +10,7 @@ fada633d917cdf0a9b77e5109e2353e0cf54ce02 data\borukva-food\loot_table\blocks\oni
 4c08dc59bbfa3cd2a0a56be49e9ba9b42f77ffa8 data\borukva-food\loot_table\blocks\avocado_wood.json
 b6dc615d23bf39f4c043f8e1cdb635c0be9cb708 data\borukva-food\loot_table\blocks\better_farmland.json
 1fc79446ce9d03e6bd925e5930a4eff19331a515 data\borukva-food\loot_table\blocks\stripped_avocado_log.json
+ec1ffa336853faaa1f7911074f792167586bf3a9 data\borukva-food\loot_table\blocks\fertilizer_sprayer.json
 5f5308679e6427b2b6e4dd80d5729dff96bb6edd data\borukva-food\loot_table\blocks\stripped_lemon_wood.json
 8152299328131474df9345eae724b1d9ffcc013e data\borukva-food\loot_table\blocks\tomato_crate.json
 33c830b7ac4043f5ffeb58455bed977ad4e6ed71 data\borukva-food\loot_table\blocks\cucumber_crate.json
@@ -30,8 +31,8 @@ e694c99a2009e582c99547b840a176409b1b311b data\borukva-food\loot_table\blocks\chi
 a9d839bed7f30d2cd1b4357a590cd3a4d0242f61 data\borukva-food\loot_table\blocks\avocado_planks.json
 8f88c6ee381de848f6c05aa6420ff6bee867ec32 data\borukva-food\loot_table\blocks\carrot_crate.json
 37c7866d24af6adc1c0d8bbdeedb381cba306c6c data\borukva-food\loot_table\blocks\potato_crate.json
-cbab12474195f5c361a8f9878ee845b628c6762f data\borukva-food\loot_table\blocks\avocado_log.json
 b1aebaa2d888f3d9577bae09e2b93760596be22d data\borukva-food\loot_table\blocks\corn_crop.json
+cbab12474195f5c361a8f9878ee845b628c6762f data\borukva-food\loot_table\blocks\avocado_log.json
 104f963ce0b9ef950d9cfec36e63f0219e143270 data\borukva-food\loot_table\blocks\lemon_planks.json
 020e8f077b0f4f289e5b373039697bc5c94e45e7 data\borukva-food\loot_table\blocks\stripped_avocado_wood.json
 95fd8291b3fa9caab61676cffdb0bd7f2ad89266 data\borukva-food\loot_table\blocks\lemon_wood.json

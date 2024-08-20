@@ -1,5 +1,6 @@
 package com.opryshok.utils;
 
+import com.opryshok.block.ModBlocks;
 import com.opryshok.item.ModItems;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.loot.LootPool;
@@ -55,9 +56,9 @@ public class ModifyLootTables {
                                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 3), false))
                                 .weight(75))
 
-                        .with(ItemEntry.builder(ModItems.LETTUCE_SEEDS)
+                        .with(ItemEntry.builder(ModBlocks.LEMON_SAPLING_ITEM)
                                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 3), false))
-                                .weight(75)));
+                                .weight(30)));
             }
             if ((key.getValue() == LootTables.RUINED_PORTAL_CHEST.getValue())){
                 tableBuilder.modifyPools(builder -> builder.with(ItemEntry.builder(ModItems.CHILLI_PEPPER_SEEDS)

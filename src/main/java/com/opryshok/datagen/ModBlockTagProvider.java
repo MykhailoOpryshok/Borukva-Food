@@ -34,7 +34,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(STOVE)
-                .add(SALT);
+                .add(SALT)
+                .add(FERTILIZER_SPRAYER);
 
         getOrCreateTagBuilder(ModTags.Blocks.LEMON_LOGS)
                 .add(LEMON_LOG)

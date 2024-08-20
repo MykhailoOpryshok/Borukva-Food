@@ -1,13 +1,11 @@
 package com.opryshok.block.cooking;
 
-import com.github.quiltservertools.ledger.callbacks.ItemInsertCallback;
-import com.github.quiltservertools.ledger.callbacks.ItemRemoveCallback;
-import com.github.quiltservertools.ledger.utility.Sources;
 import com.mojang.serialization.MapCodec;
 import com.opryshok.BorukvaFood;
 import com.opryshok.block.ModBlocks;
 import com.opryshok.entity.CuttingBoardBlockEntity;
 import com.opryshok.item.ModItems;
+import com.opryshok.utils.BorukvaFoodUtil;
 import com.zefir.borukvautils.block.FlatTripwireBased;
 import eu.pb4.factorytools.api.block.FactoryBlock;
 import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
@@ -102,8 +100,7 @@ public class CuttingBoard extends BlockWithEntity implements FlatTripwireBased, 
         } else if (cuttingBoardBlockEntity.addItem(player.getAbilities().creativeMode ? itemHeld.copy() : itemHeld)) {
             world.playSound(null, cuttingBoardBlockEntity.getPos(), SoundEvents.BLOCK_WOOD_PLACE, SoundCategory.BLOCKS, 1.f, .8f);
 
-            ServerPlayerEntity serverPlayer = (ServerPlayerEntity) player;
-            ItemInsertCallback.EVENT.invoker().insert(copy, cuttingBoardBlockEntity.getPos(), serverPlayer.getServerWorld(), Sources.PLAYER, serverPlayer);
+            BorukvaFoodUtil.ledgerMixinInvoke();
 
             return ActionResult.SUCCESS;
         }
@@ -124,8 +121,7 @@ public class CuttingBoard extends BlockWithEntity implements FlatTripwireBased, 
     private void pullOutItemWithPlayer(World world, CuttingBoardBlockEntity cuttingBoardBlockEntity, PlayerEntity player) {
         BlockPos pos = cuttingBoardBlockEntity.getPos();
 
-        ServerPlayerEntity serverPlayer = (ServerPlayerEntity) player;
-        ItemRemoveCallback.EVENT.invoker().remove(cuttingBoardBlockEntity.getItemStack(), cuttingBoardBlockEntity.getPos(), serverPlayer.getServerWorld(), Sources.PLAYER, serverPlayer);
+        BorukvaFoodUtil.ledgerMixinInvoke();
 
         ItemScatterer.spawn(world, player.getX(), player.getY(), player.getZ(), cuttingBoardBlockEntity.getItemStack());
         cuttingBoardBlockEntity.removeItem();

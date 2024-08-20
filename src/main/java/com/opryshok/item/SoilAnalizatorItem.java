@@ -1,11 +1,14 @@
 package com.opryshok.item;
 
 import com.opryshok.block.BetterFarmlandBlock;
+import com.opryshok.block.ModBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
@@ -32,8 +35,17 @@ public class SoilAnalizatorItem extends PolyItem {
                             state.get(BetterFarmlandBlock.FERTILITY),
                             state.get(BetterFarmlandBlock.ACIDITY)
                     ).formatted(Formatting.YELLOW)
-            );
+            , true);
             return ActionResult.SUCCESS;
+        }
+        if (state.isOf(ModBlocks.FERTILIZER_SPRAYER) && player!= null && player.isSneaking()){
+            if (world instanceof ServerWorld serverWorld){
+                for (int x = -4; x <= 5; x++) {
+                    for (int z = -4; z <= 5; z++) {
+                        serverWorld.spawnParticles(ParticleTypes.SCRAPE, pos.getX() + x, pos.getY() + 0.5, pos.getZ() + z, 10, 0, 0, 0,0);
+                    }
+                }
+            }
         }
 
         return ActionResult.PASS;

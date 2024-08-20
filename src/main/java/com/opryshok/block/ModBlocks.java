@@ -41,11 +41,12 @@ public class ModBlocks {
     public static final Block CUCUMBER = registerBlock("cucumber_crop", new CucumberCrop(Block.Settings.copy(Blocks.WHEAT)));
     public static final Block ONION = registerBlock("onion_crop", new OnionCrop(Block.Settings.copy(Blocks.WHEAT)));
 
+    public static final Block FERTILIZER_SPRAYER = registerBlock("fertilizer_sprayer", new FertilizerSprayerBlock(Block.Settings.copy(Blocks.IRON_BLOCK)));
     public static final Block BETTER_FARMLAND = registerBlock("better_farmland", new BetterFarmlandBlock(Block.Settings.copy(Blocks.FARMLAND)));
     public static final Block MEAT_PIZZA = registerBlock("meat_pizza", new MeatPizza(Block.Settings.copy(Blocks.CAKE)));
     public static final Block VEGAN_PIZZA = registerBlock("vegan_pizza", new VeganPizza(Block.Settings.copy(Blocks.CAKE)));
-    public static final Block STOVE = registerBlock("stove", new Stove(Block.Settings.copy(Blocks.FURNACE)));
-    public static final Block PAN = registerBlock("pan", new Pan(Block.Settings.copy(Blocks.GRASS_BLOCK)));
+    public static final Block STOVE = registerBlock("stove", new Stove(Block.Settings.copy(Blocks.MUD_BRICKS)));
+    public static final Block PAN = registerBlock("pan", new Pan(Block.Settings.copy(Blocks.IRON_TRAPDOOR)));
     public static final Block CUTTING_BOARD = registerBlock("cutting_board", new CuttingBoard(Block.Settings.copy(Blocks.OAK_PLANKS)));
     public static final Block BEETROOT_CRATE = registerBlock("beetroot_crate", new SimplePolyBlock(Block.Settings.copy(Blocks.COMPOSTER), "beetroot_crate"));
     public static final Block CABBAGE_CRATE = registerBlock("cabbage_crate", new SimplePolyBlock(Block.Settings.copy(Blocks.COMPOSTER), "cabbage_crate"));
@@ -64,7 +65,6 @@ public class ModBlocks {
             return Blocks.STONE.getDefaultState();
         }
     });
-
 
     public static final Block LEMON_LOG = registerBlock("lemon_log", new PolyLogBlock(Block.Settings.copy(Blocks.OAK_LOG)));
     public static final Block LEMON_WOOD = registerBlock("lemon_wood", new PolyLogBlock(Block.Settings.copy(Blocks.OAK_WOOD)));
@@ -103,7 +103,7 @@ public class ModBlocks {
     public static final BlockItem AVOCADO_LEAVES_ITEM = registerBlockItem("avocado_leaves", new TexturedPolyBlockItem(AVOCADO_LEAVES, new Item.Settings(), "block/avocado_leaves"));
     public static final BlockItem AVOCADO_PLANKS_ITEM = registerBlockItem("avocado_planks", new TexturedPolyBlockItem(AVOCADO_PLANKS, new Item.Settings(), "block/avocado_planks"));
     public static final BlockItem AVOCADO_SAPLING_ITEM = registerBlockItem("avocado_sapling", new TexturedPolyBlockItem(AVOCADO_SAPLING, new Item.Settings(), "item/avocado_sapling"));
-
+    public static final BlockItem FERTILIZER_SPRAYER_ITEM = registerBlockItem("fertilizer_sprayer", new TexturedPolyBlockItem(FERTILIZER_SPRAYER, new Item.Settings(), "block/fertilizer_sprayer_off"));
     public static final BlockItem SALT_BLOCK_ITEM = registerBlockItem("salt_block", new TexturedPolyBlockItem(SALT, new Item.Settings(), "block/salt_block"));
     public static final BlockItem MEAT_PIZZA_ITEM = registerBlockItem("meat_pizza", new TexturedPolyBlockItem(MEAT_PIZZA, new Item.Settings().maxCount(1), "item/meat_pizza"));
     public static final BlockItem VEGAN_PIZZA_ITEM = registerBlockItem("vegan_pizza", new TexturedPolyBlockItem(VEGAN_PIZZA, new Item.Settings().maxCount(1), "item/vegan_pizza"));
@@ -141,6 +141,7 @@ public class ModBlocks {
             entries.add(ModItems.SOIL_ANALIZATOR);
             entries.add(ModItems.COMPOST);
             entries.add(ModItems.FERTILIZER);
+            entries.add(FERTILIZER_SPRAYER_ITEM);
             entries.add(SALT_BLOCK_ITEM);
             entries.add(LEMON_SAPLING_ITEM);
             entries.add(LEMON_LEAVES_ITEM);

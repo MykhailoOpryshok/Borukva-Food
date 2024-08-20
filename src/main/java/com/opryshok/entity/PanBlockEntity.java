@@ -141,7 +141,7 @@ public class PanBlockEntity extends LockableBlockEntity implements MinimalSidedI
     public class Gui extends LedgerSimpleGui {
         public Gui(ServerPlayerEntity player) {
             super(ScreenHandlerType.GENERIC_9X2, player, false);
-            this.setTitle(GuiTextures.PAN.apply(Text.literal("Пательня")));
+            this.setTitle(GuiTextures.PAN.apply(Text.translatable("block.borukva-food.pan")));
 
             this.setSlotRedirect(3, new LedgerSlot(pos, player, PanBlockEntity.this, 0, 0, 0));
             this.setSlotRedirect(4, new LedgerSlot(pos, player, PanBlockEntity.this,  1, 1, 0));

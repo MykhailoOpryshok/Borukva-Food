@@ -60,4 +60,5 @@ public class BorukvaFoodUtil {
     private static void addStripped(Block block, Block stripped){
         StrippableBlockRegistry.register(block, stripped);
     }
+    public static void ledgerMixinInvoke(){}
 }

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "borukva-food:block/fertilizer_sprayer_top",
+    "east": "borukva-food:block/fertilizer_sprayer_on",
+    "north": "borukva-food:block/fertilizer_sprayer_on",
+    "particle": "borukva-food:block/fertilizer_sprayer_on",
+    "south": "borukva-food:block/fertilizer_sprayer_on",
+    "up": "borukva-food:block/fertilizer_sprayer_top",
+    "west": "borukva-food:block/fertilizer_sprayer_on"
+  }
+}

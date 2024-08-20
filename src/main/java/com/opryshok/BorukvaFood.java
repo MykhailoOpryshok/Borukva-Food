@@ -12,6 +12,7 @@ import com.opryshok.block.food.HoneyCake;
 import com.opryshok.block.food.MeatPizza;
 import com.opryshok.block.food.VeganPizza;
 import com.opryshok.entity.ModEntities;
+import com.opryshok.item.CompostItem;
 import com.opryshok.item.ModItems;
 import com.opryshok.ui.GuiTextures;
 import com.opryshok.ui.UiResourceCreator;
@@ -22,6 +23,7 @@ import com.opryshok.utils.ModifyLootTables;
 import com.opryshok.world.gen.ModWorldGeneration;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.block.DispenserBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
@@ -44,6 +46,7 @@ public class BorukvaFood implements ModInitializer {
 		ModifyLootTables.modifyLootTables();
 		BorukvaFoodUtil.registerWood();
 		ModCustomTrades.registerCustomTrades();
+		DispenserBlock.registerBehavior(ModItems.COMPOST, CompostItem.COMPOST_BEHAVIOR);
 		if (PolymerResourcePackUtils.addModAssets(MOD_ID)) {
 			LOGGER.info("Successfully added mod assets for " + MOD_ID);
 		} else {
@@ -72,6 +75,8 @@ public class BorukvaFood implements ModInitializer {
 		CabbageCrop.Model.MODELS.forEach(ItemStack::isEmpty);
 		ChocolateCake.Model.CHOCOLATE_MODEL.forEach(ItemStack::isEmpty);
 		HoneyCake.Model.HONEY_MODEL.forEach(ItemStack::isEmpty);
+		FertilizerSprayerBlock.Model.MODEL_ON.isEmpty();
+		FertilizerSprayerBlock.Model.MODEL_OFF.isEmpty();
 	}
 
 	public static Identifier id(String path) {

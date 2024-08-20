@@ -9,10 +9,11 @@ public class ModFoodComponents {
     private static FoodComponent.Builder createStew(int hunger) {
         return (new FoodComponent.Builder()).nutrition(hunger).saturationModifier(0.6F).usingConvertsTo(Items.BOWL);
     }
+    public static final FoodComponent MEAT_PIZZA = new FoodComponent.Builder().nutrition(6).saturationModifier(0.3f).build();
     public static final FoodComponent PIZZA = new FoodComponent.Builder().nutrition(4).saturationModifier(0.3f).build();
     public static final FoodComponent TOMATO = new FoodComponent.Builder().nutrition(2).saturationModifier(0.3F).build();
     public static final FoodComponent CABBAGE = new FoodComponent.Builder().nutrition(1).saturationModifier(0.3f).build();
-    public static final FoodComponent CHILLI_PEPPER = new FoodComponent.Builder().nutrition(1).saturationModifier(0.3f).statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 40, 0),  1f).build();
+    public static final FoodComponent CHILLI_PEPPER = new FoodComponent.Builder().nutrition(1).saturationModifier(0.3f).statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 60, 0),  1f).build();
     public static final FoodComponent CORN = new FoodComponent.Builder().nutrition(1).saturationModifier(0.3f).build();
     public static final FoodComponent CUCUMBER = new FoodComponent.Builder().nutrition(2).saturationModifier(0.3f).build();
     public static final FoodComponent LETTUCE = new FoodComponent.Builder().nutrition(1).saturationModifier(0.25f).build();
@@ -42,10 +43,10 @@ public class ModFoodComponents {
     public static final FoodComponent HONEY_PIE = new FoodComponent.Builder().nutrition(8).saturationModifier(0.3f).statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 60, 0), 1f).build();
     public static final FoodComponent PICKLE = new FoodComponent.Builder().nutrition(4).saturationModifier(0.5f).build();
     public static final FoodComponent APPLE_CANDY = new FoodComponent.Builder().nutrition(6).saturationModifier(0.5f).build();
-    public static final FoodComponent HONEY_CANDY = new FoodComponent.Builder().nutrition(2).saturationModifier(0.2f).build();
-    public static final FoodComponent JACK_CANDY = new FoodComponent.Builder().nutrition(2).saturationModifier(0.3f).build();
-    public static final FoodComponent PUMPKIN_CANDY = new FoodComponent.Builder().nutrition(3).saturationModifier(0.3f).build();
-    public static final FoodComponent LEMON_CANDY = new FoodComponent.Builder().nutrition(2).saturationModifier(0.2f).build();
+    public static final FoodComponent HONEY_CANDY = new FoodComponent.Builder().nutrition(2).saturationModifier(0.2f).statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 60, 0), 0.75f).build();
+    public static final FoodComponent JACK_CANDY = new FoodComponent.Builder().nutrition(2).saturationModifier(0.3f).statusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 60, 1), 0.75f).build();
+    public static final FoodComponent PUMPKIN_CANDY = new FoodComponent.Builder().nutrition(3).saturationModifier(0.3f).statusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 60, 0), 0.75f).build();
+    public static final FoodComponent LEMON_CANDY = new FoodComponent.Builder().nutrition(2).saturationModifier(0.2f).statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 60, 1), 0.75f).build();
     public static final FoodComponent POPCORN = new FoodComponent.Builder().nutrition(3).saturationModifier(0.35f).build();
     public static final FoodComponent SALT_POPCORN = new FoodComponent.Builder().nutrition(6).saturationModifier(0.35f).build();
     public static final FoodComponent CHEESE_POPCORN = new FoodComponent.Builder().nutrition(7).saturationModifier(0.5f).build();

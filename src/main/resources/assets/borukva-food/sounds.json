@@ -6,5 +6,13 @@
       "borukva-food:frying2",
       "borukva-food:frying3"
     ]
+  },
+  "spraying": {
+    "subtitle": "subtitle.borukva-food.spraying",
+    "sounds": [
+      "borukva-food:spraying1",
+      "borukva-food:spraying2",
+      "borukva-food:spraying3"
+    ]
   }
 }

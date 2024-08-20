@@ -3,20 +3,49 @@ package com.opryshok.item;
 import com.opryshok.block.BetterFarmlandBlock;
 import com.opryshok.utils.ModProperties;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.SaplingBlock;
+import net.minecraft.block.dispenser.DispenserBehavior;
+import net.minecraft.block.dispenser.ItemDispenserBehavior;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.math.BlockPointer;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
 import java.util.List;
 
 public class CompostItem extends PolyItem {
+    public static final DispenserBehavior COMPOST_BEHAVIOR = new ItemDispenserBehavior(){
+        @Override
+        protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
+            ServerWorld world = pointer.world();
+            Direction direction = pointer.state().get(net.minecraft.block.DispenserBlock.FACING);
+            BlockPos pos = pointer.pos().offset(direction);
+            BlockState state = world.getBlockState(pos);
+
+            if (state.getBlock() instanceof SaplingBlock block) {
+                if (block.isFertilizable(world, pos, state)) {
+                    if (!world.isClient) {
+                        if (block.canGrow(world, world.random, pos, state)) {
+                            block.grow(world, world.random, pos, state);
+                        }
+                        stack.decrement(1);
+                        return stack;
+                    }
+                }
+            }
+
+            return stack;
+        }
+    };
     public CompostItem(Settings settings, String modelId) {
         super(settings, modelId);
     }
@@ -40,6 +69,18 @@ public class CompostItem extends PolyItem {
             context.getStack().decrement(1);
 
             return ActionResult.SUCCESS;
+        }
+
+        if (state.getBlock() instanceof SaplingBlock block){
+            if (block.isFertilizable(world, pos, state)){
+                if (!world.isClient()){
+                    if (block.canGrow(world, world.random, pos, state)) {
+                        block.grow((ServerWorld)world, world.random, pos, state);
+                    }
+                    context.getStack().decrement(1);
+                    return ActionResult.SUCCESS;
+                }
+            }
         }
 
         return ActionResult.PASS;

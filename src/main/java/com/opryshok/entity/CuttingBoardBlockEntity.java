@@ -1,10 +1,9 @@
 package com.opryshok.entity;
 
-import com.github.quiltservertools.ledger.callbacks.ItemRemoveCallback;
-import com.github.quiltservertools.ledger.utility.Sources;
 import com.opryshok.BorukvaFood;
 import com.opryshok.block.cooking.CuttingBoard;
 import com.opryshok.item.ModItems;
+import com.opryshok.utils.BorukvaFoodUtil;
 import com.opryshok.utils.CuttingBoardRecipes;
 import com.opryshok.utils.MinimalSidedInventory;
 import eu.pb4.factorytools.api.block.BlockEntityExtraListener;
@@ -19,7 +18,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -98,8 +96,7 @@ public class CuttingBoardBlockEntity extends LockableBlockEntity implements Mini
             if (CuttingBoardRecipes.RECIPES.containsKey(currentItem)){
                 tool.damage(1, player, LivingEntity.getSlotForHand(player.getActiveHand()));
 
-                ServerPlayerEntity serverPlayer = (ServerPlayerEntity) player;
-                ItemRemoveCallback.EVENT.invoker().remove(this.getItemStack(), this.getPos(), serverPlayer.getServerWorld(), Sources.PLAYER, serverPlayer);
+                BorukvaFoodUtil.ledgerMixinInvoke();
                 
                 ItemScatterer.spawn(world, player.getX(), player.getY(), player.getZ(), CuttingBoardRecipes.RECIPES.get(currentItem).copy());
                 removeItem();

@@ -18,6 +18,7 @@ public class GuiTextures {
     public static final GuiElement EMPTY = EMPTY_BUILDER.get().hideTooltip().build();
     public static final Function<Text, Text> STOVE = background("stove");
     public static final Function<Text, Text> PAN = background("pan");
+    public static final Function<Text, Text> FERTILIZER_SPRAYER = background("fertilizer_sprayer");
     public static final Progress FLAME = Progress.createVertical("flame", 1, 14, true);
     public static void register(){
         BorukvaFood.LOGGER.info("Gui Textures register");
