@@ -37,8 +37,6 @@ dependencies {
 
 	modImplementation include ("eu.pb4:factorytools:[${factorytools_version}]")
 	modImplementation include ("eu.pb4:sgui:[${sgui_version}]")
-
-	modImplementation "maven.modrinth:borukvautils:0.1.1"
 }
 
 processResources {

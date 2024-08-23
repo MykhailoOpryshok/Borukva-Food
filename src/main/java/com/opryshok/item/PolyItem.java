@@ -19,7 +19,6 @@ public class PolyItem extends Item implements PolymerItem {
 
         polymerModel = PolymerResourcePackUtils.requestModel(Items.GOLD_NUGGET, Identifier.of(BorukvaFood.MOD_ID, modelId).withPrefixedPath("item/"));
     }
-
     @Override
     public Item getPolymerItem(ItemStack itemStack, @Nullable ServerPlayerEntity player) {
         return this.polymerModel.item();

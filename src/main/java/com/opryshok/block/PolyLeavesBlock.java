@@ -25,7 +25,6 @@ public class PolyLeavesBlock extends LeavesBlock implements PolymerTexturedBlock
     public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
         return Blocks.OAK_LEAVES.getDefaultState();
     }
-
     @Override
     public BlockState getPolymerBlockState(BlockState state) {
         if (state.get(Properties.WATERLOGGED)) return modelWaterlogged;

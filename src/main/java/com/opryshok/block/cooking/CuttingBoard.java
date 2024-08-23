@@ -6,7 +6,7 @@ import com.opryshok.block.ModBlocks;
 import com.opryshok.entity.CuttingBoardBlockEntity;
 import com.opryshok.item.ModItems;
 import com.opryshok.utils.BorukvaFoodUtil;
-import com.zefir.borukvautils.block.FlatTripwireBased;
+import com.opryshok.utils.TransparentFlatTripWire;
 import eu.pb4.factorytools.api.block.FactoryBlock;
 import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.BlockModel;
@@ -36,7 +36,7 @@ import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
 
-public class CuttingBoard extends BlockWithEntity implements FlatTripwireBased, FactoryBlock, BlockEntityProvider, InventoryProvider {
+public class CuttingBoard extends BlockWithEntity implements TransparentFlatTripWire, FactoryBlock, BlockEntityProvider, InventoryProvider {
     public static DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final MapCodec<CuttingBoard> CODEC = createCodec(CuttingBoard::new);
     private Model model;

@@ -34,12 +34,10 @@ public class KnifeTool extends ToolItem implements PolymerItem {
     public Item getPolymerItem(ItemStack itemStack, @Nullable ServerPlayerEntity player) {
         return polymerModel.item();
     }
-
     @Override
     public int getPolymerCustomModelData(ItemStack itemStack, @Nullable ServerPlayerEntity player) {
         return polymerModel.value();
     }
-
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         World world = context.getWorld();

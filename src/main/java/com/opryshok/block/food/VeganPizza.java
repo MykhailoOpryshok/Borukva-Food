@@ -3,7 +3,7 @@ package com.opryshok.block.food;
 import com.opryshok.BorukvaFood;
 import com.opryshok.item.ModItems;
 import com.opryshok.utils.ModProperties;
-import com.zefir.borukvautils.block.FlatTripwireBased;
+import com.opryshok.utils.TransparentFlatTripWire;
 import eu.pb4.factorytools.api.block.FactoryBlock;
 import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.BlockModel;
@@ -26,7 +26,7 @@ import org.joml.Vector3f;
 
 import java.util.ArrayList;
 
-public class VeganPizza extends Block implements FlatTripwireBased, FactoryBlock {
+public class VeganPizza extends Block implements TransparentFlatTripWire, FactoryBlock {
 
     public VeganPizza(Settings settings) {
         super(settings.nonOpaque());
