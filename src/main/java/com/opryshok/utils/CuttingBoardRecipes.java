@@ -15,6 +15,7 @@ public class CuttingBoardRecipes {
         put(ModItems.CHILLI_PEPPER, new ItemStack(ModItems.HOT_SPICE, 1));
         put(ModItems.TOMATO, new ItemStack(ModItems.TOMATO_SLICES, 2));
         put(ModItems.CUCUMBER, new ItemStack(ModItems.CUCUMBER_SLICES, 2));
+        put(Items.COOKED_BEEF, new ItemStack(ModItems.COOKED_BEEF_SLICES, 2));
     }
     public static void put(Item ingredient, ItemStack result){
         RECIPES.put(ingredient, result);
