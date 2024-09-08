@@ -30,7 +30,7 @@
 		"minecraft": "~1.21",
 		"java": ">=21",
 		"fabric-api": "*",
-		"polymer": "${polymer_version}"
+		"polymer": "0.9.11+1.21.1"
 	},
 	"suggests": {
 		"another-mod": "*"
