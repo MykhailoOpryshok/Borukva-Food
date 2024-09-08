@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bowl"
+    },
+    "C": {
+      "item": "borukva-food:cabbage"
+    },
+    "G": {
+      "item": "minecraft:sugar"
+    },
+    "J": {
+      "item": "minecraft:carrot"
+    },
+    "S": {
+      "item": "borukva-food:salt"
+    }
+  },
+  "pattern": [
+    "SGS",
+    "CJC",
+    " B "
+  ],
+  "result": {
+    "count": 1,
+    "id": "borukva-food:sauerkraut"
+  }
+}

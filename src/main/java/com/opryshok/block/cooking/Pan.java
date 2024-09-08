@@ -4,7 +4,7 @@ import com.mojang.serialization.MapCodec;
 import com.opryshok.BorukvaFood;
 import com.opryshok.block.ModBlocks;
 import com.opryshok.entity.PanBlockEntity;
-import com.opryshok.utils.TransparentTripWire;
+import com.opryshok.utils.TransparentBlocks.TransparentTripWire;
 import eu.pb4.factorytools.api.block.FactoryBlock;
 import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.BlockModel;
@@ -43,7 +43,7 @@ public class Pan extends BlockWithEntity implements TransparentTripWire, Factory
     public static final MapCodec<Pan> CODEC;
     private Model model;
 
-    static{
+    static {
         FACING = Properties.HORIZONTAL_FACING;
         LIT = Properties.LIT;
         CODEC = createCodec(Pan::new);
@@ -64,7 +64,7 @@ public class Pan extends BlockWithEntity implements TransparentTripWire, Factory
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         World world = ctx.getWorld();
         BlockState stoveState = world.getBlockState(ctx.getBlockPos().down());
-        if(stoveState.isOf(ModBlocks.STOVE)){
+        if (stoveState.isOf(ModBlocks.STOVE)) {
             return this.getDefaultState().with(LIT, stoveState.get(LIT)).with(FACING, ctx.getHorizontalPlayerFacing());
         }
         return this.getDefaultState().with(LIT, false).with(FACING, ctx.getHorizontalPlayerFacing());
@@ -80,9 +80,10 @@ public class Pan extends BlockWithEntity implements TransparentTripWire, Factory
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new PanBlockEntity(pos, state);
     }
+
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        if (!player.isSneaking() && world.getBlockEntity(pos) instanceof PanBlockEntity entity){
+        if (!player.isSneaking() && world.getBlockEntity(pos) instanceof PanBlockEntity entity) {
             entity.openGui((ServerPlayerEntity) player);
             return ActionResult.SUCCESS;
         }
@@ -127,16 +128,18 @@ public class Pan extends BlockWithEntity implements TransparentTripWire, Factory
 
     public static final class Model extends BlockModel {
         public static final ItemStack MODEL = BaseItemProvider.requestModel(Identifier.of(BorukvaFood.MOD_ID, "block/pan"));
-        public ItemDisplayElement[] items =  new ItemDisplayElement[3];
+        public ItemDisplayElement[] items = new ItemDisplayElement[3];
         public ItemDisplayElement pan;
         public ServerWorld world;
         public BlockPos pos;
         public int tickCounter = 0;
-        public Model(BlockState state, ServerWorld world, BlockPos pos){
+
+        public Model(BlockState state, ServerWorld world, BlockPos pos) {
             this.world = world;
             this.pos = pos;
             init(state);
         }
+
         public void init(BlockState state) {
             this.pan = ItemDisplayElementUtil.createSimple(MODEL);
             this.pan.setTranslation(new Vector3f(0, 0, -0.49f));
@@ -148,7 +151,7 @@ public class Pan extends BlockWithEntity implements TransparentTripWire, Factory
                 var item = ItemDisplayElementUtil.createSimple();
                 item.setDisplaySize(1, 1);
                 item.setScale(new Vector3f(0.4f));
-                item.setPitch(90f+180f);
+                item.setPitch(90f + 180f);
                 items[i] = item;
             }
 
@@ -156,19 +159,22 @@ public class Pan extends BlockWithEntity implements TransparentTripWire, Factory
             items[1].setTranslation(new Vector3f(0.2f, -0.2f, -0.4f));
             items[2].setTranslation(new Vector3f(0, 0.2f, -0.4f));
 
-            for (var item : items){
+            for (var item : items) {
                 this.addElement(item);
             }
         }
-        private void updateStatePos(BlockState state){
+
+        private void updateStatePos(BlockState state) {
             var direction = state.get(FACING);
             this.pan.setYaw(direction.asRotation());
-            this.pan.setPitch(90f+180f);
+            this.pan.setPitch(90f + 180f);
         }
+
         public void setItem(int i, ItemStack stack) {
             this.items[i].setItem(stack.copy());
             this.items[i].tick();
         }
+
         public void updateItems(DefaultedList<ItemStack> stacks) {
             for (int i = 0; i < 3; i++) {
                 setItem(i, stacks.get(i));
@@ -178,17 +184,17 @@ public class Pan extends BlockWithEntity implements TransparentTripWire, Factory
 
         @Override
         protected void onTick() {
-            if (tickCounter >= 100){
+            if (tickCounter >= 100) {
                 spawnParticles(pos);
                 tickCounter = 0;
-            }
-            else{
+            } else {
                 tickCounter++;
             }
         }
+
         private void spawnParticles(BlockPos pos) {
-            if (world.getBlockState(pos).isOf(ModBlocks.PAN)){
-                if (world.getBlockState(pos).get(LIT)){
+            if (world.getBlockState(pos).isOf(ModBlocks.PAN)) {
+                if (world.getBlockState(pos).get(LIT)) {
                     for (int i = 0; i < 5; i++) {
                         world.spawnParticles(ParticleTypes.CAMPFIRE_COSY_SMOKE,
                                 pos.getX() + 0.5,

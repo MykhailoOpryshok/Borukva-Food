@@ -6,7 +6,7 @@ import com.opryshok.block.ModBlocks;
 import com.opryshok.entity.CuttingBoardBlockEntity;
 import com.opryshok.item.ModItems;
 import com.opryshok.utils.BorukvaFoodUtil;
-import com.opryshok.utils.TransparentFlatTripWire;
+import com.opryshok.utils.TransparentBlocks.TransparentFlatTripWire;
 import eu.pb4.factorytools.api.block.FactoryBlock;
 import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.BlockModel;

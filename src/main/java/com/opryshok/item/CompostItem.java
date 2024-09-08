@@ -2,8 +2,7 @@ package com.opryshok.item;
 
 import com.opryshok.block.BetterFarmlandBlock;
 import com.opryshok.utils.ModProperties;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.SaplingBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.dispenser.DispenserBehavior;
 import net.minecraft.block.dispenser.ItemDispenserBehavior;
 import net.minecraft.item.ItemStack;
@@ -31,7 +30,8 @@ public class CompostItem extends PolyItem {
             BlockPos pos = pointer.pos().offset(direction);
             BlockState state = world.getBlockState(pos);
 
-            if (state.getBlock() instanceof SaplingBlock block) {
+            if (state.getBlock() instanceof SaplingBlock|| state.getBlock() instanceof MossBlock) {
+                Fertilizable block = (Fertilizable) state.getBlock();
                 if (block.isFertilizable(world, pos, state)) {
                     if (!world.isClient) {
                         if (block.canGrow(world, world.random, pos, state)) {
@@ -71,7 +71,8 @@ public class CompostItem extends PolyItem {
             return ActionResult.SUCCESS;
         }
 
-        if (state.getBlock() instanceof SaplingBlock block){
+        if (state.getBlock() instanceof SaplingBlock|| state.getBlock() instanceof MossBlock){
+            Fertilizable block = (Fertilizable) state.getBlock();
             if (block.isFertilizable(world, pos, state)){
                 if (!world.isClient()){
                     if (block.canGrow(world, world.random, pos, state)) {

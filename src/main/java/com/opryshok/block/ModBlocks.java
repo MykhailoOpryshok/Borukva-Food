@@ -40,6 +40,7 @@ public class ModBlocks {
     public static final Block LETTUCE = registerBlock("lettuce_crop", new LettuceCrop(Block.Settings.copy(Blocks.WHEAT)));
     public static final Block CUCUMBER = registerBlock("cucumber_crop", new CucumberCrop(Block.Settings.copy(Blocks.WHEAT)));
     public static final Block ONION = registerBlock("onion_crop", new OnionCrop(Block.Settings.copy(Blocks.WHEAT)));
+    public static final Block RICE = registerBlock("rice_crop", new RiceCrop(Block.Settings.copy(Blocks.WHEAT)));
 
     public static final Block FERTILIZER_SPRAYER = registerBlock("fertilizer_sprayer", new FertilizerSprayerBlock(Block.Settings.copy(Blocks.IRON_BLOCK)));
     public static final Block BETTER_FARMLAND = registerBlock("better_farmland", new BetterFarmlandBlock(Block.Settings.copy(Blocks.FARMLAND)));
@@ -47,6 +48,7 @@ public class ModBlocks {
     public static final Block VEGAN_PIZZA = registerBlock("vegan_pizza", new VeganPizza(Block.Settings.copy(Blocks.CAKE)));
     public static final Block STOVE = registerBlock("stove", new Stove(Block.Settings.copy(Blocks.MUD_BRICKS)));
     public static final Block PAN = registerBlock("pan", new Pan(Block.Settings.copy(Blocks.IRON_TRAPDOOR)));
+    // will be added in new update public static final Block POT = registerBlock("pot", new Pot(Block.Settings.copy(Blocks.IRON_TRAPDOOR)));
     public static final Block CUTTING_BOARD = registerBlock("cutting_board", new CuttingBoard(Block.Settings.copy(Blocks.OAK_PLANKS)));
     public static final Block BEETROOT_CRATE = registerBlock("beetroot_crate", new SimplePolyBlock(Block.Settings.copy(Blocks.COMPOSTER), "beetroot_crate"));
     public static final Block CABBAGE_CRATE = registerBlock("cabbage_crate", new SimplePolyBlock(Block.Settings.copy(Blocks.COMPOSTER), "cabbage_crate"));
@@ -57,6 +59,8 @@ public class ModBlocks {
     public static final Block LETTUCE_CRATE = registerBlock("lettuce_crate", new SimplePolyBlock(Block.Settings.copy(Blocks.COMPOSTER), "lettuce_crate"));
     public static final Block POTATO_CRATE = registerBlock("potato_crate", new SimplePolyBlock(Block.Settings.copy(Blocks.COMPOSTER), "potato_crate"));
     public static final Block TOMATO_CRATE = registerBlock("tomato_crate", new SimplePolyBlock(Block.Settings.copy(Blocks.COMPOSTER), "tomato_crate"));
+    public static final Block ONION_CRATE = registerBlock("onion_crate", new SimplePolyBlock(Block.Settings.copy(Blocks.COMPOSTER), "onion_crate"));
+    public static final Block RICE_CRATE = registerBlock("rice_crate", new SimplePolyBlock(Block.Settings.copy(Blocks.COMPOSTER), "rice_crate"));
     public static final Block BLACKCURRANTS_BUSH = registerBlock("blackcurrants_bush", new BlackcurrantsBush(Block.Settings.copy(Blocks.SWEET_BERRY_BUSH)));
     public static final Block GOOSEBERRY_BUSH = registerBlock("gooseberry_bush", new GooseberryBush(Block.Settings.copy(Blocks.SWEET_BERRY_BUSH)));
     public static final Block SALT = registerBlock("salt_block", new SimplePolyBlock(Block.Settings.copy(Blocks.STONE), "salt_block"){
@@ -119,6 +123,8 @@ public class ModBlocks {
     public static final BlockItem LETTUCE_CRATE_ITEM = registerBlockItem("lettuce_crate", new TexturedPolyBlockItem(LETTUCE_CRATE, new Item.Settings(), "block/lettuce_crate"));
     public static final BlockItem POTATO_CRATE_ITEM = registerBlockItem("potato_crate", new TexturedPolyBlockItem(POTATO_CRATE, new Item.Settings(), "block/potato_crate"));
     public static final BlockItem TOMATO_CRATE_ITEM = registerBlockItem("tomato_crate", new TexturedPolyBlockItem(TOMATO_CRATE, new Item.Settings(), "block/tomato_crate"));
+    public static final BlockItem ONION_CRATE_ITEM = registerBlockItem("onion_crate", new TexturedPolyBlockItem(ONION_CRATE, new Item.Settings(), "block/onion_crate"));
+    public static final BlockItem RICE_CRATE_ITEM = registerBlockItem("rice_crate", new TexturedPolyBlockItem(RICE_CRATE, new Item.Settings(), "block/rice_crate"));
     public static void registerBlocks() {
         ItemGroup.Builder builder = PolymerItemGroupUtils.builder();
         builder.icon(() -> new ItemStack(ModBlocks.TOMATO_CRATE_ITEM, 1));
@@ -134,6 +140,8 @@ public class ModBlocks {
             entries.add(LETTUCE_CRATE_ITEM);
             entries.add(POTATO_CRATE_ITEM);
             entries.add(TOMATO_CRATE_ITEM);
+            entries.add(ONION_CRATE_ITEM);
+            entries.add(RICE_CRATE_ITEM);
             entries.add(STOVE_ITEM);
             entries.add(PAN_ITEM);
             entries.add(CUTTING_BOARD_ITEM);

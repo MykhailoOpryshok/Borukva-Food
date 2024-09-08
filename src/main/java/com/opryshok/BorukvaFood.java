@@ -5,6 +5,7 @@ import com.opryshok.block.bushes.BlackcurrantsBush;
 import com.opryshok.block.bushes.GooseberryBush;
 import com.opryshok.block.cooking.CuttingBoard;
 import com.opryshok.block.cooking.Pan;
+import com.opryshok.block.cooking.Pot;
 import com.opryshok.block.cooking.Stove;
 import com.opryshok.block.crops.*;
 import com.opryshok.block.food.ChocolateCake;
@@ -77,6 +78,8 @@ public class BorukvaFood implements ModInitializer {
 		HoneyCake.Model.HONEY_MODEL.forEach(ItemStack::isEmpty);
 		FertilizerSprayerBlock.Model.MODEL_ON.isEmpty();
 		FertilizerSprayerBlock.Model.MODEL_OFF.isEmpty();
+		RiceCrop.Model.MODELS.forEach(ItemStack::isEmpty);
+		Pot.Model.MODEL.isEmpty();
 	}
 
 	public static Identifier id(String path) {

@@ -16,6 +16,10 @@ public class CuttingBoardRecipes {
         put(ModItems.TOMATO, new ItemStack(ModItems.TOMATO_SLICES, 2));
         put(ModItems.CUCUMBER, new ItemStack(ModItems.CUCUMBER_SLICES, 2));
         put(Items.COOKED_BEEF, new ItemStack(ModItems.COOKED_BEEF_SLICES, 2));
+        put(Items.DRIED_KELP, new ItemStack(ModItems.NORI, 2));
+        put(Items.PORKCHOP, new ItemStack(ModItems.SALO, 2));
+        put(Items.SALMON, new ItemStack(ModItems.SALMON_FILLET, 2));
+        put(Items.SUNFLOWER, new ItemStack(ModItems.SUNFLOWER_SEED, 4));
     }
     public static void put(Item ingredient, ItemStack result){
         RECIPES.put(ingredient, result);

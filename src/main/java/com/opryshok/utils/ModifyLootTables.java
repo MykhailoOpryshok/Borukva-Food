@@ -21,7 +21,7 @@ public class ModifyLootTables {
                         .conditionally(RandomChanceLootCondition.builder(1f))
                         .with(ItemEntry.builder(ModItems.CORN_SEEDS))
                         .with(ItemEntry.builder(ModItems.ONION_SEEDS))
-                        .with(ItemEntry.builder(ModItems.CHILLI_PEPPER_SEEDS));
+                        .with(ItemEntry.builder(ModItems.RICE_PANICLE));
                 tableBuilder.pool(pool);
             }
             if ((key.getValue() == LootTables.PILLAGER_OUTPOST_CHEST.getValue())){

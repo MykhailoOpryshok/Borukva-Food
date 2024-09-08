@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_sunflower": {
+    "has_sunflower_seed": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:sunflower"
+            "items": "borukva-food:sunflower_seed"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_sunflower"
+      "has_sunflower_seed"
     ]
   ],
   "rewards": {

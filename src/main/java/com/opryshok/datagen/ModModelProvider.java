@@ -27,6 +27,7 @@ public class ModModelProvider extends FabricModelProvider{
         blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.GOOSEBERRY_BUSH, BlockStateModelGenerator.TintType.NOT_TINTED, GooseberryBush.AGE, 0, 1, 2, 3);
         blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.CUCUMBER, BlockStateModelGenerator.TintType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
         blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.LETTUCE, BlockStateModelGenerator.TintType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.RICE, BlockStateModelGenerator.TintType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
         blockStateModelGenerator.registerCrop(ModBlocks.ONION, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
         generateCrate(blockStateModelGenerator, ModBlocks.BEETROOT_CRATE, "beetroot_crate");
         generateCrate(blockStateModelGenerator, ModBlocks.CABBAGE_CRATE, "cabbage_crate");
@@ -37,6 +38,8 @@ public class ModModelProvider extends FabricModelProvider{
         generateCrate(blockStateModelGenerator, ModBlocks.LETTUCE_CRATE, "lettuce_crate");
         generateCrate(blockStateModelGenerator, ModBlocks.POTATO_CRATE, "potato_crate");
         generateCrate(blockStateModelGenerator, ModBlocks.TOMATO_CRATE, "tomato_crate");
+        generateCrate(blockStateModelGenerator, ModBlocks.ONION_CRATE, "onion_crate");
+        generateCrate(blockStateModelGenerator, ModBlocks.RICE_CRATE, "rice_crate");
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SALT);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LEMON_LEAVES);
         blockStateModelGenerator.registerLog(ModBlocks.LEMON_LOG).log(ModBlocks.LEMON_LOG).wood(ModBlocks.LEMON_WOOD);
@@ -118,6 +121,19 @@ public class ModModelProvider extends FabricModelProvider{
         itemModelGenerator.register(ModItems.CUCUMBER_SLICES, Models.GENERATED);
         itemModelGenerator.register(ModBlocks.CHOCOLATE_CAKE_ITEM, Models.GENERATED);
         itemModelGenerator.register(ModBlocks.HONEY_CAKE_ITEM, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RICE_PANICLE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RICE_BOWL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SALMON_FILLET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SALMON_MAKI, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SALMON_NIGIRI, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SALMON_URAMAKI, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ONIGIRI, Models.GENERATED);
+        itemModelGenerator.register(ModItems.NORI, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SAUERKRAUT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SALO, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SUNFLOWER_SEED, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ROASTED_SUNFLOWER_SEED, Models.GENERATED);
+
     }
     public void generateCrate(BlockStateModelGenerator generator, Block generatedBlock, String path){
         generator.registerCubeWithCustomTextures(

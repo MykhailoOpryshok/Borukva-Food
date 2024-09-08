@@ -3,7 +3,7 @@ package com.opryshok.block.bushes;
 import com.mojang.serialization.MapCodec;
 import com.opryshok.BorukvaFood;
 import com.opryshok.item.ModItems;
-import com.opryshok.utils.TransparentBlock;
+import com.opryshok.utils.TransparentBlocks.TransparentPlant;
 import eu.pb4.factorytools.api.block.FactoryBlock;
 import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.BlockModel;
@@ -44,7 +44,7 @@ import org.joml.Vector3f;
 
 import java.util.ArrayList;
 
-public class BlackcurrantsBush extends PlantBlock implements Fertilizable, FactoryBlock, TransparentBlock {
+public class BlackcurrantsBush extends PlantBlock implements Fertilizable, FactoryBlock, TransparentPlant {
     public static final MapCodec<BlackcurrantsBush> CODEC = createCodec(BlackcurrantsBush::new);
     public static final IntProperty AGE;
     private static final VoxelShape SMALL_SHAPE;

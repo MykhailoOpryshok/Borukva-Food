@@ -3,7 +3,7 @@ package com.opryshok.block.food;
 import com.opryshok.BorukvaFood;
 import com.opryshok.item.ModItems;
 import com.opryshok.utils.ModProperties;
-import com.opryshok.utils.TransparentFlatTripWire;
+import com.opryshok.utils.TransparentBlocks.TransparentFlatTripWire;
 import eu.pb4.factorytools.api.block.FactoryBlock;
 import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.BlockModel;

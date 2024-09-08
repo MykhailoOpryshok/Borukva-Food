@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_salmon_fillet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "borukva-food:salmon_fillet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "borukva-food:salmon_maki"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_salmon_fillet"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "borukva-food:salmon_maki"
+    ]
+  }
+}

@@ -21,6 +21,7 @@ public class PanRecipes {
         put(Items.RABBIT, Items.COOKED_RABBIT);
         put(ModItems.BEEF_SLICES, ModItems.COOKED_BEEF_SLICES);
         put(ModItems.CORN_SEEDS, ModItems.POPCORN);
+        put(ModItems.SUNFLOWER_SEED, ModItems.ROASTED_SUNFLOWER_SEED);
     }
     public static void put(Item ingredient, Item result){
         RECIPES.put(ingredient, result);

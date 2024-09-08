@@ -40,6 +40,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         compressBlockRecipe(ModBlocks.LETTUCE_CRATE_ITEM, ModItems.LETTUCE, exporter);
         compressBlockRecipe(ModBlocks.POTATO_CRATE_ITEM, Items.POTATO, exporter);
         compressBlockRecipe(ModBlocks.TOMATO_CRATE_ITEM, ModItems.TOMATO, exporter);
+        compressBlockRecipe(ModBlocks.ONION_CRATE_ITEM, ModItems.ONION, exporter);
+        compressBlockRecipe(ModBlocks.RICE_CRATE_ITEM, ModItems.RICE, exporter);
 
         seedsRecipe(ModItems.TOMATO, ModItems.TOMATO_SEEDS, exporter);
         seedsRecipe(ModItems.CABBAGE, ModItems.CABBAGE_SEEDS, exporter);
@@ -203,7 +205,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(ModItems.ONION)
                 .input(ModItems.TOMATO)
                 .input(ModItems.CABBAGE)
-                .input(Items.PORKCHOP)
+                .input(ModItems.SALO)
                 .input(ModItems.SALT)
                 .input(Items.BOWL)
                 .criterion(hasItem(Items.BEETROOT), conditionsFromItem(Items.BEETROOT))
@@ -367,9 +369,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.BEEF_SALAD)));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.OIL, 1)
-                .input(Items.SUNFLOWER)
-                .input(Items.SUNFLOWER)
-                .criterion(hasItem(Items.SUNFLOWER), conditionsFromItem(Items.SUNFLOWER))
+                .input(ModItems.SUNFLOWER_SEED)
+                .input(ModItems.SUNFLOWER_SEED)
+                .criterion(hasItem(ModItems.SUNFLOWER_SEED), conditionsFromItem(ModItems.SUNFLOWER_SEED))
                 .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.OIL)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModBlocks.MEAT_PIZZA_ITEM, 1)
@@ -430,6 +432,61 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('I', Items.IRON_INGOT)
                 .criterion(hasItem(Items.DISPENSER), conditionsFromItem(Items.DISPENSER))
                 .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModBlocks.FERTILIZER_SPRAYER_ITEM)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.RICE, 3)
+                .input(ModItems.RICE_PANICLE)
+                .criterion(hasItem(ModItems.RICE_PANICLE), conditionsFromItem(ModItems.RICE_PANICLE))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.RICE)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.SALMON_NIGIRI, 3)
+                .input(ModItems.SALMON_FILLET)
+                .input(ModItems.RICE)
+                .input(ModItems.NORI)
+                .criterion(hasItem(ModItems.SALMON_FILLET), conditionsFromItem(ModItems.SALMON_FILLET))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.SALMON_NIGIRI)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.SALMON_MAKI, 3)
+                .input(ModItems.NORI)
+                .input(ModItems.SALMON_FILLET)
+                .input(ModItems.RICE)
+                .input(Ingredient.ofItems(ModItems.CUCUMBER_SLICES, ModItems.GUACAMOLE))
+                .criterion(hasItem(ModItems.SALMON_FILLET), conditionsFromItem(ModItems.SALMON_FILLET))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.SALMON_MAKI)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.SALMON_URAMAKI, 3)
+                .input(ModItems.NORI)
+                .input(ModItems.SALMON_FILLET)
+                .input(ModItems.RICE)
+                .input(Ingredient.ofItems(ModItems.CUCUMBER_SLICES, ModItems.GUACAMOLE))
+                .input(ModItems.MAYONNAISE)
+                .criterion(hasItem(ModItems.SALMON_FILLET), conditionsFromItem(ModItems.SALMON_FILLET))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.SALMON_URAMAKI)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.ONIGIRI, 1)
+                .input(ModItems.NORI)
+                .input(ModItems.RICE)
+                .criterion(hasItem(ModItems.RICE), conditionsFromItem(ModItems.RICE))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.ONIGIRI)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.SAUERKRAUT, 1)
+                .pattern("SGS")
+                .pattern("CJC")
+                .pattern(" B ")
+                .input('S', ModItems.SALT)
+                .input('G', Items.SUGAR)
+                .input('C', ModItems.CABBAGE)
+                .input('J', Items.CARROT)
+                .input('B', Items.BOWL)
+                .criterion(hasItem(ModItems.CABBAGE), conditionsFromItem(ModItems.CABBAGE))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.SAUERKRAUT)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.RICE_BOWL, 1)
+                .pattern("RRR")
+                .pattern(" B ")
+                .input('R', ModItems.RICE)
+                .input('B', Items.BOWL)
+                .criterion(hasItem(ModItems.RICE), conditionsFromItem(ModItems.RICE))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.RICE_BOWL)));
+
     }
     private void campfireCookingRecipe(RecipeExporter exporter, Item input, Item output) {
         CookingRecipeJsonBuilder.create(Ingredient.ofItems(input), RecipeCategory.FOOD, output, 0, 600, RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new)

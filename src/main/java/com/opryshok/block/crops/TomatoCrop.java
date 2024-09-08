@@ -2,7 +2,7 @@ package com.opryshok.block.crops;
 
 import com.opryshok.BorukvaFood;
 import com.opryshok.item.ModItems;
-import com.opryshok.utils.TransparentBlock;
+import com.opryshok.utils.TransparentBlocks.TransparentPlant;
 import eu.pb4.factorytools.api.block.FactoryBlock;
 import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.BlockModel;
@@ -31,7 +31,7 @@ import org.joml.Vector3f;
 
 import java.util.ArrayList;
 
-public class TomatoCrop extends CropBlock implements FactoryBlock, TransparentBlock {
+public class TomatoCrop extends CropBlock implements FactoryBlock, TransparentPlant {
     public static final int MAX_AGE = 7;
     public static final IntProperty AGE = Properties.AGE_7;
     public TomatoCrop(Settings settings) {
