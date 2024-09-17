@@ -198,7 +198,7 @@ public class ModItems {
         });
         ItemGroup polymerGroup = builder.build();
         PolymerItemGroupUtils.registerPolymerItemGroup(Identifier.of(BorukvaFood.MOD_ID, "items"), polymerGroup);
-
+        HarvestSickleItem.registerAttackAction();
         BorukvaFood.LOGGER.info("Register Mod Items");
     }
 }
