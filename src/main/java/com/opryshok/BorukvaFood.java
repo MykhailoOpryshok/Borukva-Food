@@ -12,6 +12,9 @@ import com.opryshok.block.food.ChocolateCake;
 import com.opryshok.block.food.HoneyCake;
 import com.opryshok.block.food.MeatPizza;
 import com.opryshok.block.food.VeganPizza;
+import com.opryshok.commands.ModCommands;
+import com.opryshok.config.ConfigManager;
+import com.opryshok.config.ModConfig;
 import com.opryshok.entity.ModEntities;
 import com.opryshok.item.CompostItem;
 import com.opryshok.item.ModItems;
@@ -34,9 +37,12 @@ public class BorukvaFood implements ModInitializer {
 
 	public static final String MOD_ID = "borukva-food";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+	public static ModConfig modConfig;
 
 	@Override
 	public void onInitialize() {
+		modConfig = ConfigManager.load();
+		ModCommands.register();
 		GuiTextures.register();
 		UiResourceCreator.setup();
 		ModItems.registerModItems();

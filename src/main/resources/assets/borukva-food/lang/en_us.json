@@ -1,5 +1,6 @@
 {
   "item.borukva-food.knife": "Knife",
+  "item.borukva-food.harvest_sickle": "Sickle",
   "item.borukva-food.soil_analizator": "Soil Analyzer",
   "item.borukva-food.fertilizer": "Fertilizer",
   "item.borukva-food.compost": "Compost",
@@ -145,5 +146,7 @@
   "item-group.borukva-food.blocks_and_tools": "BorukvaFood: Tools & Blocks",
 
   "subtitle.borukva-food.frying": "Frying",
-  "subtitle.borukva-food.spraying": "Spraying"
+  "subtitle.borukva-food.spraying": "Spraying",
+  "tooltip.borukva-food.harvest_sickle": "Harvests crops in a 3x3 area",
+  "commands.borukva-food.config_reload": "Config reloaded!"
 }

@@ -13,6 +13,7 @@ base {
 repositories {
 	maven { url 'https://maven.nucleoid.xyz' }
 	maven { url "https://api.modrinth.com/maven/" }
+	mavenCentral()
 	mavenLocal()
 }
 
@@ -37,6 +38,11 @@ dependencies {
 
 	modImplementation include ("eu.pb4:factorytools:[${factorytools_version}]")
 	modImplementation include ("eu.pb4:sgui:[${sgui_version}]")
+
+	include(modImplementation("me.lucko:fabric-permissions-api:${fabric_permissions_api}"))
+
+	compileOnly 'org.projectlombok:lombok:1.18.34'
+	annotationProcessor 'org.projectlombok:lombok:1.18.34'
 }
 
 processResources {

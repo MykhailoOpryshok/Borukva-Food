@@ -17,6 +17,7 @@ public class ModItems {
     public static Item FERTILIZER = registerItem("fertilizer", new FertilizerItem(new Item.Settings(), "fertilizer"));
     public static Item SOIL_ANALIZATOR = registerItem("soil_analizator", new SoilAnalizatorItem(new Item.Settings().maxCount(1), "soil_analizator"));
     public static Item KNIFE = registerItem("knife", new KnifeTool(new Item.Settings()));
+    public static Item HARVEST_SICKLE = registerItem("harvest_sickle", new HarvestSickleItem(new Item.Settings()));
     public static Item COMPOST = registerItem("compost", new CompostItem(new Item.Settings(), "compost"));
     public static Item RICE = registerItem("rice", new PolySeedsItem(ModBlocks.RICE, new Item.Settings(), "rice"));
     public static Item RICE_PANICLE = registerItem("rice_panicle", new PolyItem(new Item.Settings(), "rice_panicle"));

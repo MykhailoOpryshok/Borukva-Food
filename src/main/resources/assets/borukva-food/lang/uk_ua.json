@@ -1,5 +1,6 @@
 {
   "item.borukva-food.knife": "Ніж",
+  "item.borukva-food.harvest_sickle": "Серп",
   "item.borukva-food.soil_analizator": "Аналізатор ґрунту",
   "item.borukva-food.fertilizer": "Мінеральне добриво",
   "item.borukva-food.compost": "Компост",
@@ -146,5 +147,7 @@
   "item-group.borukva-food.blocks_and_tools": "BorukvaFood: Інструменти та Блоки",
 
   "subtitle.borukva-food.frying": "Смаження",
-  "subtitle.borukva-food.spraying": "Обприскування"
+  "subtitle.borukva-food.spraying": "Обприскування",
+  "tooltip.borukva-food.harvest_sickle": "Збирає рослини в радіусі 3x3 блока",
+  "commands.borukva-food.config_reload": "Конфіг перезавантажений!"
 }

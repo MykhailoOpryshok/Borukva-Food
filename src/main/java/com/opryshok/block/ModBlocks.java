@@ -146,6 +146,7 @@ public class ModBlocks {
             entries.add(PAN_ITEM);
             entries.add(CUTTING_BOARD_ITEM);
             entries.add(ModItems.KNIFE);
+            entries.add(ModItems.HARVEST_SICKLE);
             entries.add(ModItems.SOIL_ANALIZATOR);
             entries.add(ModItems.COMPOST);
             entries.add(ModItems.FERTILIZER);

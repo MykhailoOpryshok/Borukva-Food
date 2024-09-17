@@ -10,11 +10,11 @@
     }
   },
   "pattern": [
-    "I ",
-    "S "
+    "II",
+    " S"
   ],
   "result": {
     "count": 1,
-    "id": "borukva-food:knife"
+    "id": "borukva-food:harvest_sickle"
   }
 }

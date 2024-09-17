@@ -16,6 +16,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import static com.opryshok.BorukvaFood.modConfig;
+
 @Mixin(CropBlock.class)
 public abstract class CropBlockMixin {
 
@@ -82,12 +84,16 @@ public abstract class CropBlockMixin {
     }
     @Inject(method = "applyGrowth", at = @At("TAIL"))
     public void applyGrowthFertilityDecrement(World world, BlockPos pos, BlockState state, CallbackInfo ci, @Local int i){
-        FertilityDecrement(world, pos, i);
+        if(modConfig.isSoilDegradation()) {
+            FertilityDecrement(world, pos, i);
+        }
     }
     @Inject(method = "randomTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/world/ServerWorld;setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;I)Z", shift = At.Shift.AFTER))
     public void randomTickFertilityDecrement(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci){
         CropBlock crop = (CropBlock) (Object) this;
-        FertilityDecrement(world, pos, crop.getAge(state) + 1);
+        if(modConfig.isSoilDegradation()) {
+            FertilityDecrement(world, pos, crop.getAge(state) + 1);
+        }
     }
 
     @Unique

@@ -77,7 +77,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_slabs", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wooden_slabs"))))
                 .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID,  getRecipeName(ModBlocks.CUTTING_BOARD_ITEM)));
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.KNIFE, 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.KNIFE, 1)
                 .pattern("I ")
                 .pattern("S ")
                 .input('I', Items.IRON_INGOT)
@@ -86,7 +86,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
             .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.KNIFE)));
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.FERTILIZER, 4)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.HARVEST_SICKLE, 1)
+                .pattern("II")
+                .pattern(" S")
+                .input('I', Items.IRON_INGOT)
+                .input('S', Items.STICK)
+                .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+            .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.HARVEST_SICKLE)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.FERTILIZER, 4)
                 .input(Items.AMETHYST_SHARD)
                 .criterion(hasItem(Items.AMETHYST_SHARD), conditionsFromItem(Items.AMETHYST_SHARD))
                 .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.FERTILIZER)));
