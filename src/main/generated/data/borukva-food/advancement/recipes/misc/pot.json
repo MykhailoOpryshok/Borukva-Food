@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_rotten_item": {
+    "has_iron_ingot": {
       "conditions": {
         "items": [
           {
-            "items": "#borukva-food:rotten_soup_ingredients"
+            "items": "minecraft:iron_ingot"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "borukva-food:rotten_soup"
+        "recipe": "borukva-food:pot"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_rotten_item"
+      "has_iron_ingot"
     ]
   ],
   "rewards": {
     "recipes": [
-      "borukva-food:rotten_soup"
+      "borukva-food:pot"
     ]
   }
 }

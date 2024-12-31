@@ -32,7 +32,7 @@ public class ModItems {
     public static Item SALO = registerItem("salo", new PolyItem(new Item.Settings().food(ModFoodComponents.SALO), "salo"));
     public static Item SUNFLOWER_SEED = registerItem("sunflower_seed", new PolyItem(new Item.Settings().food(ModFoodComponents.SUNFLOWER_SEED), "sunflower_seed"));
     public static Item ROASTED_SUNFLOWER_SEED = registerItem("roasted_sunflower_seed", new PolyItem(new Item.Settings().food(ModFoodComponents.ROASTED_SUNFLOWER_SEED), "roasted_sunflower_seed"));
-    //public static Item BOILED_CORN = registerItem("boiled_corn", new PolyItem(new Item.Settings(), "boiled_corn"));
+    public static Item BOILED_CORN = registerItem("boiled_corn", new PolyItem(new Item.Settings(), "boiled_corn"));
 
     public static Item TOMATO_SEEDS = registerItem("tomato_seeds", new PolySeedsItem(ModBlocks.TOMATO, new Item.Settings(), "tomato_seeds"));
     public static Item CABBAGE_SEEDS = registerItem("cabbage_seeds", new PolySeedsItem(ModBlocks.CABBAGE, new Item.Settings(), "cabbage_seeds"));
@@ -61,6 +61,7 @@ public class ModItems {
     public static Item MAYONNAISE = registerItem("mayonnaise", new PolyItem(new Item.Settings(), "mayonnaise"));
     public static Item MEAT_PIZZA_SLICE = registerItem("meat_pizza_slice", new PolyItem(new Item.Settings().food(ModFoodComponents.MEAT_PIZZA), "meat_pizza_slice"));
     public static Item VEGAN_PIZZA_SLICE = registerItem("vegan_pizza_slice", new PolyItem(new Item.Settings().food(ModFoodComponents.PIZZA), "vegan_pizza_slice"));
+    public static Item FUNGUS_PIZZA_SLICE = registerItem("fungus_pizza_slice", new PolyItem(new Item.Settings(), "fungus_pizza_slice"));
     public static Item CHOCOLATE_ICE_CREAM = registerItem("chocolate_ice_cream", new PolyItem(new Item.Settings().food(ModFoodComponents.CHOCOLATE_ICE_CREAM), "chocolate_ice_cream"));
     public static Item ICE_CREAM = registerItem("ice_cream", new PolyItem(new Item.Settings().food(ModFoodComponents.ICE_CREAM), "ice_cream"));
     public static Item SWEET_BERRY_COOKIE = registerItem("sweet_berry_cookie", new PolyItem(new Item.Settings().food(ModFoodComponents.COOKIE), "sweet_berry_cookie"));
@@ -139,8 +140,10 @@ public class ModItems {
             entries.add(PICKLE);
             entries.add(ModBlocks.MEAT_PIZZA_ITEM);
             entries.add(ModBlocks.VEGAN_PIZZA_ITEM);
+            entries.add(ModBlocks.FUNGUS_PIZZA_ITEM);
             entries.add(MEAT_PIZZA_SLICE);
             entries.add(VEGAN_PIZZA_SLICE);
+            entries.add(FUNGUS_PIZZA_SLICE);
             entries.add(CHOCOLATE_ICE_CREAM);
             entries.add(ICE_CREAM);
             entries.add(WAFFLE);

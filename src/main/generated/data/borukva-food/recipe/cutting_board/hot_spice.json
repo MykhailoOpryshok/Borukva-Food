@@ -1,0 +1,12 @@
+{
+  "type": "borukva-food:cutting_board",
+  "input": {
+    "base": {
+      "item": "borukva-food:chilli_pepper"
+    }
+  },
+  "output": {
+    "count": 1,
+    "id": "borukva-food:hot_spice"
+  }
+}

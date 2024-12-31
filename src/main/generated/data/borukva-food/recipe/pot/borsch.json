@@ -1,0 +1,45 @@
+{
+  "type": "borukva-food:pot",
+  "bowl": {
+    "base": {
+      "item": "minecraft:bowl"
+    }
+  },
+  "input": [
+    {
+      "base": {
+        "item": "minecraft:carrot"
+      }
+    },
+    {
+      "base": {
+        "item": "minecraft:beetroot"
+      }
+    },
+    {
+      "base": {
+        "item": "borukva-food:onion"
+      }
+    },
+    {
+      "base": {
+        "item": "borukva-food:cabbage"
+      }
+    },
+    {
+      "base": {
+        "item": "borukva-food:salo"
+      }
+    },
+    {
+      "base": {
+        "item": "borukva-food:salt"
+      }
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "borukva-food:borsch"
+  },
+  "time": 120.0
+}

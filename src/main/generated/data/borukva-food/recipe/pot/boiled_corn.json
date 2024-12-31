@@ -1,0 +1,13 @@
+{
+  "type": "borukva-food:pot",
+  "input": {
+    "base": {
+      "item": "borukva-food:corn"
+    }
+  },
+  "output": {
+    "count": 1,
+    "id": "borukva-food:boiled_corn"
+  },
+  "time": 80.0
+}

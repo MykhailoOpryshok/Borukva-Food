@@ -1,0 +1,13 @@
+{
+  "type": "borukva-food:pan",
+  "input": {
+    "base": {
+      "item": "minecraft:rabbit"
+    }
+  },
+  "output": {
+    "count": 1,
+    "id": "minecraft:cooked_rabbit"
+  },
+  "time": 100.0
+}

@@ -3,7 +3,11 @@ package com.opryshok.datagen;
 import com.opryshok.BorukvaFood;
 import com.opryshok.block.ModBlocks;
 import com.opryshok.item.ModItems;
+import com.opryshok.recipe.cuttingBoard.CuttingBoardRecipe;
+import com.opryshok.recipe.pan.PanRecipe;
+import com.opryshok.recipe.pot.PotRecipe;
 import com.opryshok.utils.ModTags;
+import eu.pb4.factorytools.api.recipe.CountedIngredient;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Blocks;
@@ -12,9 +16,11 @@ import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.CampfireCookingRecipe;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryKeys;
@@ -22,6 +28,7 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
@@ -206,35 +213,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('S', Items.STICK)
                 .criterion(hasItem(ModItems.BEEF_SLICES), conditionsFromItem(ModItems.BEEF_SLICES))
                 .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.BEEF_BARBECUE)));
-
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.BORSCH, 1)
-                .input(Items.POTATO)
-                .input(Items.CARROT)
-                .input(Items.BEETROOT)
-                .input(ModItems.ONION)
-                .input(ModItems.TOMATO)
-                .input(ModItems.CABBAGE)
-                .input(ModItems.SALO)
-                .input(ModItems.SALT)
-                .input(Items.BOWL)
-                .criterion(hasItem(Items.BEETROOT), conditionsFromItem(Items.BEETROOT))
-                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.BORSCH)));
-
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.BROTH, 1)
-                .input(Items.CARROT)
-                .input(Items.CHICKEN)
-                .input(ModItems.ONION)
-                .input(ModItems.OIL)
-                .input(ModItems.SALT)
-                .input(Items.BOWL)
-                .criterion(hasItem(Items.CHICKEN), conditionsFromItem(Items.CHICKEN))
-                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.BROTH)));
-
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.ROTTEN_SOUP, 1)
-                .input(Ingredient.fromTag(ModTags.Items.ROTTEN_SOUP_INGREDIENTS), 4)
-                .input(Items.BOWL)
-                .criterion("has_rotten_item", conditionsFromTag(ModTags.Items.ROTTEN_SOUP_INGREDIENTS))
-                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.ROTTEN_SOUP)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.BREWING, ModItems.EMPTY_JAR, 1)
                 .pattern(" S ")
@@ -488,6 +466,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('B', Items.BOWL)
                 .criterion(hasItem(ModItems.CABBAGE), conditionsFromItem(ModItems.CABBAGE))
                 .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.SAUERKRAUT)));
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.RICE_BOWL, 1)
                 .pattern("RRR")
                 .pattern(" B ")
@@ -496,6 +475,67 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.RICE), conditionsFromItem(ModItems.RICE))
                 .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.RICE_BOWL)));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.POT_ITEM, 1)
+                .pattern("B B")
+                .pattern("I I")
+                .pattern("III")
+                .input('B', Items.BRICK)
+                .input('I', Items.IRON_INGOT)
+                .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                .offerTo(exporter, BorukvaFood.id(getRecipeName(ModBlocks.POT_ITEM)));
+
+        of(exporter,
+                PotRecipe.of("borsch", List.of(
+                        CountedIngredient.ofItems(1, Items.POTATO),
+                        CountedIngredient.ofItems(1, Items.BEETROOT),
+                        CountedIngredient.ofItems(1, ModItems.ONION),
+                        CountedIngredient.ofItems(1, ModItems.CABBAGE),
+                        CountedIngredient.ofItems(1, ModItems.SALO),
+                        CountedIngredient.ofItems(1, ModItems.SALT)),
+                        CountedIngredient.ofItems(1, Items.BOWL), new ItemStack(ModItems.BORSCH, 1), 120),
+                PotRecipe.of("broth", List.of(
+                        CountedIngredient.ofItems(1, Items.CARROT),
+                        CountedIngredient.ofItems(1, Items.CHICKEN),
+                        CountedIngredient.ofItems(1, ModItems.ONION),
+                        CountedIngredient.ofItems(1, ModItems.OIL),
+                        CountedIngredient.ofItems(1, ModItems.SALT)
+                ), CountedIngredient.ofItems(1, Items.BOWL), new ItemStack(ModItems.BROTH, 1), 120),
+                PotRecipe.of("rotten_soup", List.of(
+                        CountedIngredient.fromTag(1, ModTags.Items.ROTTEN_SOUP_INGREDIENTS),
+                        CountedIngredient.fromTag(1, ModTags.Items.ROTTEN_SOUP_INGREDIENTS),
+                        CountedIngredient.fromTag(1, ModTags.Items.ROTTEN_SOUP_INGREDIENTS),
+                        CountedIngredient.fromTag(1, ModTags.Items.ROTTEN_SOUP_INGREDIENTS)
+                ), CountedIngredient.ofItems(1, Items.BOWL), new ItemStack(ModItems.ROTTEN_SOUP, 1), 120),
+                PotRecipe.of("boiled_corn", List.of(CountedIngredient.ofItems(1, ModItems.CORN)), CountedIngredient.EMPTY, new ItemStack(ModItems.BOILED_CORN, 1), 80)
+        );
+
+        of(exporter,
+                CuttingBoardRecipe.of("tomato_slices", CountedIngredient.ofItems(1, ModItems.TOMATO), new ItemStack(ModItems.TOMATO_SLICES, 3)),
+                CuttingBoardRecipe.of("cucumber_slices", CountedIngredient.ofItems(1, ModItems.CUCUMBER), new ItemStack(ModItems.CUCUMBER_SLICES, 3)),
+                CuttingBoardRecipe.of("sunflower_seed", CountedIngredient.ofItems(1, Items.SUNFLOWER), new ItemStack(ModItems.SUNFLOWER_SEED, 4)),
+                CuttingBoardRecipe.of("salmon_fillet", CountedIngredient.ofItems(1, Items.SALMON), new ItemStack(ModItems.SALMON_FILLET, 2)),
+                CuttingBoardRecipe.of("nori", CountedIngredient.ofItems(1, Items.DRIED_KELP), new ItemStack(ModItems.NORI, 2)),
+                CuttingBoardRecipe.of("cooked_beef_slices", CountedIngredient.ofItems(1, Items.COOKED_BEEF), new ItemStack(ModItems.COOKED_BEEF_SLICES, 2)),
+                CuttingBoardRecipe.of("beef_slices", CountedIngredient.ofItems(1, Items.BEEF), new ItemStack(ModItems.BEEF_SLICES, 2)),
+                CuttingBoardRecipe.of("bread_slice", CountedIngredient.ofItems(1, Items.BREAD), new ItemStack(ModItems.BREAD_SLICE, 4)),
+                CuttingBoardRecipe.of("hot_spice", CountedIngredient.ofItems(1, ModItems.CHILLI_PEPPER), new ItemStack(ModItems.HOT_SPICE, 1)),
+                CuttingBoardRecipe.of("salo", CountedIngredient.ofItems(1, Items.PORKCHOP), new ItemStack(ModItems.SALO, 2))
+
+        );
+        of(exporter,
+                PanRecipe.of("cooked_chicken", CountedIngredient.ofItems(1, Items.CHICKEN), new ItemStack(Items.COOKED_CHICKEN), 100),
+                PanRecipe.of("dried_kelp", CountedIngredient.ofItems(1, Items.KELP), new ItemStack(Items.DRIED_KELP), 40),
+                PanRecipe.of("cooked_beef", CountedIngredient.ofItems(1, Items.BEEF), new ItemStack(Items.COOKED_BEEF), 100),
+                PanRecipe.of("cooked_mutton", CountedIngredient.ofItems(1, Items.MUTTON), new ItemStack(Items.COOKED_MUTTON), 100),
+                PanRecipe.of("cooked_porkchop", CountedIngredient.ofItems(1, Items.PORKCHOP), new ItemStack(Items.COOKED_PORKCHOP), 100),
+                PanRecipe.of("cooked_salmon", CountedIngredient.ofItems(1, Items.SALMON), new ItemStack(Items.COOKED_SALMON), 100),
+                PanRecipe.of("baked_potato", CountedIngredient.ofItems(1, Items.POTATO), new ItemStack(Items.BAKED_POTATO), 100),
+                PanRecipe.of("cooked_cod", CountedIngredient.ofItems(1, Items.COD), new ItemStack(Items.COOKED_COD), 100),
+                PanRecipe.of("cooked_rabbit", CountedIngredient.ofItems(1, Items.RABBIT), new ItemStack(Items.COOKED_RABBIT), 100),
+                PanRecipe.of("cooked_beef_slices", CountedIngredient.ofItems(1, ModItems.BEEF_SLICES), new ItemStack(ModItems.COOKED_BEEF_SLICES), 100),
+                PanRecipe.of("popcorn", CountedIngredient.ofItems(1, ModItems.CORN_SEEDS), new ItemStack(ModItems.POPCORN), 40),
+                PanRecipe.of("roasted_sunflower_seed", CountedIngredient.ofItems(1, ModItems.SUNFLOWER_SEED), new ItemStack(ModItems.ROASTED_SUNFLOWER_SEED), 100)
+        );
     }
     private void campfireCookingRecipe(RecipeExporter exporter, Item input, Item output) {
         CookingRecipeJsonBuilder.create(Ingredient.ofItems(input), RecipeCategory.FOOD, output, 0, 600, RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new)
@@ -552,5 +592,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Items.PAPER)
                 .criterion(hasItem(ModItems.POPCORN), conditionsFromItem(ModItems.POPCORN))
                 .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(item)));
+    }
+    public void of(RecipeExporter exporter, RecipeEntry<?>... recipes) {
+        for (var recipe : recipes) {
+            exporter.accept(recipe.id(), recipe.value(), null);
+        }
     }
 }

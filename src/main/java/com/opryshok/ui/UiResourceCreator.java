@@ -34,6 +34,7 @@ import java.util.function.Supplier;
 
 public class UiResourceCreator {
     public static final String BASE_MODEL = "minecraft:item/generated";
+    public static final String X32_RIGHT_MODEL = "borukva-food:sgui/button_32_right";
     private static final String ITEM_TEMPLATE = """
             {
               "parent": "|BASE|",
@@ -48,6 +49,7 @@ public class UiResourceCreator {
     private static final Char2ObjectMap<Identifier> TEXTURES = new Char2ObjectOpenHashMap<>();
     private static final List<Pair<PolymerModelData, String>> SIMPLE_MODEL = new ArrayList<>();
     private static final List<SlicedTexture> VERTICAL_PROGRESS = new ArrayList<>();
+    private static final List<SlicedTexture> HORIZONTAL_PROGRESS = new ArrayList<>();
     private static final char CHEST_SPACE0 = character++;
     private static final char CHEST_SPACE1 = character++;
 
@@ -72,6 +74,9 @@ public class UiResourceCreator {
     public static IntFunction<GuiElementBuilder> verticalProgress16(String path, int start, int stop, boolean reverse) {
         return genericProgress(path, start, stop, reverse, BASE_MODEL, VERTICAL_PROGRESS);
     }
+    public static IntFunction<GuiElementBuilder> horizontalProgress32Right(String path, int start, int stop, boolean reverse) {
+        return genericProgress(path, start, stop, reverse, X32_RIGHT_MODEL, HORIZONTAL_PROGRESS);
+    }
     public static IntFunction<GuiElementBuilder> genericProgress(String path, int start, int stop, boolean reverse, String base, List<SlicedTexture> progressType) {
 
         var models = new PolymerModelData[stop - start];
@@ -83,13 +88,13 @@ public class UiResourceCreator {
         }
         return (i) -> new GuiElementBuilder(models[i].item()).setName(Text.empty()).hideDefaultTooltip().setCustomModelData(models[i].value());
     }
-    private static void generateProgress(BiConsumer<String, byte[]> assetWriter) {
-        for (var pair : UiResourceCreator.VERTICAL_PROGRESS) {
+    private static void generateProgress(BiConsumer<String, byte[]> assetWriter, List<SlicedTexture> list, boolean horizontal) {
+        for (var pair : list) {
             var sourceImage = ResourceUtils.getTexture(elementPath(pair.path()));
 
             var image = new BufferedImage(sourceImage.getWidth(), sourceImage.getHeight(), BufferedImage.TYPE_INT_ARGB);
 
-            var xw = image.getWidth();
+            var xw = horizontal ? image.getHeight() : image.getWidth();
 
             var mult = pair.reverse ? -1 : 1;
             var offset = pair.reverse ? pair.stop + pair.start - 1 : 0;
@@ -99,7 +104,11 @@ public class UiResourceCreator {
                 var pos = offset + y * mult;
 
                 for (var x = 0; x < xw; x++) {
-                    image.setRGB(x, pos, sourceImage.getRGB(x, pos));
+                    if (horizontal) {
+                        image.setRGB(pos, x, sourceImage.getRGB(pos, x));
+                    } else {
+                        image.setRGB(x, pos, sourceImage.getRGB(x, pos));
+                    }
                 }
 
                 var out = new ByteArrayOutputStream();
@@ -113,14 +122,15 @@ public class UiResourceCreator {
             }
         }
     }
+
     public static void generateAssets(BiConsumer<String, byte[]> assetWriter) {
         for (var texture : SIMPLE_MODEL) {
             assetWriter.accept("assets/" + texture.getLeft().modelPath().getNamespace() + "/models/" + texture.getLeft().modelPath().getPath() + ".json",
                     ITEM_TEMPLATE.replace("|ID|", texture.getLeft().modelPath().toString()).replace("|BASE|", texture.getRight()).getBytes(StandardCharsets.UTF_8));
         }
 
-        generateProgress(assetWriter);
-
+        generateProgress(assetWriter, VERTICAL_PROGRESS, false);
+        generateProgress(assetWriter, HORIZONTAL_PROGRESS, true);
         var fontBase = new JsonObject();
         var providers = new JsonArray();
 

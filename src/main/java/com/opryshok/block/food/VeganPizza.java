@@ -27,6 +27,15 @@ import org.joml.Vector3f;
 import java.util.ArrayList;
 
 public class VeganPizza extends Block implements TransparentFlatTripWire, FactoryBlock {
+    public static final ArrayList<ItemStack> MODEL = new ArrayList<>();
+
+    static {
+        for (int i = 0; i <= 7; i++) {
+            MODEL.add(BaseItemProvider.requestModel(Identifier.of(BorukvaFood.MOD_ID, "vegan_pizza")
+                    .withPrefixedPath("block/")
+                    .withSuffixedPath("_slice" + i)));
+        }
+    }
 
     public VeganPizza(Settings settings) {
         super(settings.nonOpaque());

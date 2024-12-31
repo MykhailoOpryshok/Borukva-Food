@@ -1,0 +1,13 @@
+{
+  "type": "borukva-food:pan",
+  "input": {
+    "base": {
+      "item": "borukva-food:beef_slices"
+    }
+  },
+  "output": {
+    "count": 1,
+    "id": "borukva-food:cooked_beef_slices"
+  },
+  "time": 100.0
+}

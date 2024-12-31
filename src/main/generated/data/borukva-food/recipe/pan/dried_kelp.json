@@ -1,0 +1,13 @@
+{
+  "type": "borukva-food:pan",
+  "input": {
+    "base": {
+      "item": "minecraft:kelp"
+    }
+  },
+  "output": {
+    "count": 1,
+    "id": "minecraft:dried_kelp"
+  },
+  "time": 40.0
+}

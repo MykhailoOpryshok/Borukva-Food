@@ -2,12 +2,14 @@ package com.opryshok.entity;
 
 import com.opryshok.BorukvaFood;
 import com.opryshok.block.cooking.Pan;
+import com.opryshok.recipe.ModRecipeTypes;
+import com.opryshok.recipe.pan.PanInput;
+import com.opryshok.recipe.pan.PanRecipe;
 import com.opryshok.sounds.SoundRegistry;
 import com.opryshok.ui.GuiTextures;
 import com.opryshok.ui.LedgerSimpleGui;
 import com.opryshok.ui.LedgerSlot;
 import com.opryshok.utils.MinimalSidedInventory;
-import com.opryshok.utils.PanRecipes;
 import eu.pb4.factorytools.api.block.BlockEntityExtraListener;
 import eu.pb4.factorytools.api.block.entity.LockableBlockEntity;
 import eu.pb4.polymer.virtualentity.api.attachment.BlockAwareAttachment;
@@ -15,9 +17,10 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SidedInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -47,8 +50,9 @@ public class PanBlockEntity extends LockableBlockEntity implements MinimalSidedI
         slotTick.put(1, 0);
         slotTick.put(2, 0);
     }
+    @SuppressWarnings("unchecked")
+    protected RecipeEntry<PanRecipe>[] currentRecipes = (RecipeEntry<PanRecipe>[]) new RecipeEntry[3];
     private Pan.Model model;
-    private static final int COOK_TIME = 100;
     public PanBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(ModEntities.PAN, blockPos, blockState);
     }
@@ -76,19 +80,29 @@ public class PanBlockEntity extends LockableBlockEntity implements MinimalSidedI
     public static <T extends BlockEntity> void tick(World world, BlockPos pos, BlockState state, T t) {
         if (t instanceof PanBlockEntity self) {
             self.active = state.get(Properties.LIT);
-            if (self.active && !self.items.isEmpty()) {
+            boolean hasItems = self.items.stream().anyMatch(stack -> !stack.isEmpty() && !stack.isOf(Items.AIR));
+            if (self.active && hasItems) {
                 for (int i = 0; i < self.items.size(); i++) {
                     ItemStack stack = self.items.get(i);
-                    if (!stack.isEmpty() && PanRecipes.RECIPES.containsKey(stack.getItem())) {
-                        if(self.soundTicks >= 20){
-                            world.playSound(null, pos, SoundRegistry.FRYING, SoundCategory.BLOCKS, 1f, 1f);
-                            self.soundTicks = 0;
-                        }
+                    RecipeEntry<PanRecipe> currentRecipe = self.currentRecipes[i];
+
+                    if (currentRecipe == null || !currentRecipe.value().matches(new PanInput(stack, world), world)) {
+                        self.currentRecipes[i] = world.getRecipeManager()
+                                .getFirstMatch(ModRecipeTypes.PAN, new PanInput(stack, world), world)
+                                .orElse(null);
+                        self.slotTick.put(i, 0);
+                    }
+
+                    if (currentRecipe != null) {
                         int tickCount = self.slotTick.getOrDefault(i, 0);
-                        if (tickCount >= COOK_TIME * stack.getCount()) {
-                            self.items.set(i, getCookedVariant(stack));
-                            self.model.updateItems(self.getStacks());
+                        double recipeTime = currentRecipe.value().time();
+
+                        if (tickCount >= recipeTime * stack.getCount()) {
+                            ItemStack result = currentRecipe.value().craft(new PanInput(stack, world), world.getRegistryManager()).copyWithCount(stack.getCount());
+                            self.items.set(i, result);
                             self.slotTick.put(i, 0);
+                            self.currentRecipes[i] = null;
+                            self.model.updateItems(self.items);
                         } else {
                             self.slotTick.put(i, tickCount + 1);
                         }
@@ -96,13 +110,15 @@ public class PanBlockEntity extends LockableBlockEntity implements MinimalSidedI
                         self.slotTick.put(i, 0);
                     }
                 }
-                self.soundTicks++;
+
+                if (self.soundTicks >= 20) {
+                    world.playSound(null, pos, SoundRegistry.FRYING, SoundCategory.BLOCKS, 1f, 1f);
+                    self.soundTicks = 0;
+                } else {
+                    self.soundTicks++;
+                }
             }
         }
-    }
-    public static ItemStack getCookedVariant(ItemStack stack){
-        Item cookedItem = PanRecipes.RECIPES.get(stack.getItem());
-        return new ItemStack(cookedItem, stack.getCount());
     }
     @Override
     public DefaultedList<ItemStack> getStacks() {

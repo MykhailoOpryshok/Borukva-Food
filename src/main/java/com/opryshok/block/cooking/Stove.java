@@ -62,7 +62,7 @@ public class Stove extends BlockWithEntity implements FactoryBlock, BlockEntityP
         if (state.isOf(ModBlocks.STOVE) && newState.isOf(ModBlocks.STOVE)) {
             if (state.get(LIT) != newState.get(LIT)) {
                 BlockState upBlock = world.getBlockState(pos.up());
-                if (upBlock.isOf(ModBlocks.PAN)) {
+                if (upBlock.isOf(ModBlocks.PAN) || upBlock.isOf(ModBlocks.POT)) {
                     world.setBlockState(pos.up(), upBlock.with(Properties.LIT, newState.get(LIT)), 3);
                 }
             }
@@ -74,7 +74,7 @@ public class Stove extends BlockWithEntity implements FactoryBlock, BlockEntityP
     public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
         if (state.isOf(ModBlocks.STOVE)){
             BlockState upBlock = world.getBlockState(pos.up());
-            if (upBlock.isOf(ModBlocks.PAN)){
+            if (upBlock.isOf(ModBlocks.PAN) || upBlock.isOf(ModBlocks.POT)){
                 world.setBlockState(pos.up(), upBlock.with(Properties.LIT, false), 3);
             }
         }

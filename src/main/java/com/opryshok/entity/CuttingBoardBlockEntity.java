@@ -3,8 +3,10 @@ package com.opryshok.entity;
 import com.opryshok.BorukvaFood;
 import com.opryshok.block.cooking.CuttingBoard;
 import com.opryshok.item.ModItems;
+import com.opryshok.recipe.ModRecipeTypes;
+import com.opryshok.recipe.cuttingBoard.CuttingBoardInput;
+import com.opryshok.recipe.cuttingBoard.CuttingBoardRecipe;
 import com.opryshok.utils.BorukvaFoodUtil;
-import com.opryshok.utils.CuttingBoardRecipes;
 import com.opryshok.utils.MinimalSidedInventory;
 import eu.pb4.factorytools.api.block.BlockEntityExtraListener;
 import eu.pb4.factorytools.api.block.entity.LockableBlockEntity;
@@ -14,9 +16,9 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SidedInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.collection.DefaultedList;
@@ -32,6 +34,8 @@ public class CuttingBoardBlockEntity extends LockableBlockEntity implements Mini
     private static final int[] SLOTS = new int[]{0};
     private final DefaultedList<ItemStack> items = DefaultedList.ofSize(1, ItemStack.EMPTY);
     private CuttingBoard.Model model;
+    @Nullable
+    protected RecipeEntry<CuttingBoardRecipe> currentRecipe = null;
     public CuttingBoardBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(ModEntities.CUTTING_BOARD, blockPos, blockState);
     }
@@ -92,14 +96,18 @@ public class CuttingBoardBlockEntity extends LockableBlockEntity implements Mini
             return false;
         }
         if (tool.isOf(ModItems.KNIFE)){
-            Item currentItem = getItemStack().getItem();
-            if (CuttingBoardRecipes.RECIPES.containsKey(currentItem)){
+            var input = new CuttingBoardInput(getItemStack(), world);
+            if(currentRecipe == null && !getItemStack().isEmpty()){
+                currentRecipe = world.getRecipeManager().getFirstMatch(ModRecipeTypes.CUTTING_BOARD, input, world).orElse(null);
+            }
+            if(currentRecipe != null){
                 tool.damage(1, player, LivingEntity.getSlotForHand(player.getActiveHand()));
 
                 BorukvaFoodUtil.ledgerMixinInvoke();
-                
-                ItemScatterer.spawn(world, player.getX(), player.getY(), player.getZ(), CuttingBoardRecipes.RECIPES.get(currentItem).copy());
-                removeItem();
+
+                ItemScatterer.spawn(world, player.getX(), player.getY(), player.getZ(), currentRecipe.value().craft(input, world.getRegistryManager()).copy());
+                currentRecipe.value().applyRecipeUse(this, world);
+                currentRecipe = null;
                 markDirty();
             }
         }
@@ -112,12 +120,12 @@ public class CuttingBoardBlockEntity extends LockableBlockEntity implements Mini
 
     @Override
     public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
-        return true;
+        return false;
     }
 
     @Override
     public boolean canExtract(int slot, ItemStack stack, Direction dir) {
-        return true;
+        return false;
     }
     @Override
     public void onListenerUpdate(WorldChunk chunk) {

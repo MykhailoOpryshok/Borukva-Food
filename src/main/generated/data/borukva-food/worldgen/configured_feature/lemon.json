@@ -33,8 +33,9 @@
           "data": {
             "Name": "borukva-food:lemon_fruit_leaves",
             "Properties": {
-              "distance": "7",
-              "persistent": "false",
+              "distance": "1",
+              "has_fruit": "false",
+              "persistent": "true",
               "waterlogged": "false"
             }
           },

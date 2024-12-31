@@ -1,0 +1,35 @@
+{
+  "type": "borukva-food:pot",
+  "bowl": {
+    "base": {
+      "item": "minecraft:bowl"
+    }
+  },
+  "input": [
+    {
+      "base": {
+        "tag": "borukva-food:rotten_soup_ingredients"
+      }
+    },
+    {
+      "base": {
+        "tag": "borukva-food:rotten_soup_ingredients"
+      }
+    },
+    {
+      "base": {
+        "tag": "borukva-food:rotten_soup_ingredients"
+      }
+    },
+    {
+      "base": {
+        "tag": "borukva-food:rotten_soup_ingredients"
+      }
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "borukva-food:rotten_soup"
+  },
+  "time": 120.0
+}

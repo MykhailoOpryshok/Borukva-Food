@@ -1,0 +1,12 @@
+{
+  "type": "borukva-food:cutting_board",
+  "input": {
+    "base": {
+      "item": "minecraft:dried_kelp"
+    }
+  },
+  "output": {
+    "count": 2,
+    "id": "borukva-food:nori"
+  }
+}

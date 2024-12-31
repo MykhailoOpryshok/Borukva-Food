@@ -45,10 +45,16 @@ public class ModModelProvider extends FabricModelProvider{
         blockStateModelGenerator.registerLog(ModBlocks.LEMON_LOG).log(ModBlocks.LEMON_LOG).wood(ModBlocks.LEMON_WOOD);
         blockStateModelGenerator.registerTintableCross(ModBlocks.LEMON_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_LEMON_LOG).log(ModBlocks.STRIPPED_LEMON_LOG).wood(ModBlocks.STRIPPED_LEMON_WOOD);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LEMON_PLANKS);
+
+        BlockStateModelGenerator.BlockTexturePool lemonPlanksPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.LEMON_PLANKS);
+        lemonPlanksPool.slab(ModBlocks.LEMON_SLAB);
+
         blockStateModelGenerator.registerLog(ModBlocks.AVOCADO_LOG).log(ModBlocks.AVOCADO_LOG).wood(ModBlocks.AVOCADO_WOOD);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_AVOCADO_LOG).log(ModBlocks.STRIPPED_AVOCADO_LOG).wood(ModBlocks.STRIPPED_AVOCADO_WOOD);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.AVOCADO_PLANKS);
+
+        BlockStateModelGenerator.BlockTexturePool avocadoPlanksPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.AVOCADO_PLANKS);
+        avocadoPlanksPool.slab(ModBlocks.AVOCADO_SLAB);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.AVOCADO_LEAVES);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.AVOCADO_FRUIT_LEAVES);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LEMON_FRUIT_LEAVES);
@@ -61,6 +67,8 @@ public class ModModelProvider extends FabricModelProvider{
         itemModelGenerator.register(ModBlocks.MEAT_PIZZA_ITEM, Models.GENERATED);
         itemModelGenerator.register(ModItems.VEGAN_PIZZA_SLICE, Models.GENERATED);
         itemModelGenerator.register(ModBlocks.VEGAN_PIZZA_ITEM, Models.GENERATED);
+        itemModelGenerator.register(ModItems.FUNGUS_PIZZA_SLICE, Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.FUNGUS_PIZZA_ITEM, Models.GENERATED);
         itemModelGenerator.register(ModItems.FERTILIZER, Models.GENERATED);
         itemModelGenerator.register(ModItems.COMPOST, Models.GENERATED);
         itemModelGenerator.register(ModItems.TOMATO, Models.GENERATED);
@@ -134,6 +142,7 @@ public class ModModelProvider extends FabricModelProvider{
         itemModelGenerator.register(ModItems.SALO, Models.GENERATED);
         itemModelGenerator.register(ModItems.SUNFLOWER_SEED, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROASTED_SUNFLOWER_SEED, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BOILED_CORN, Models.GENERATED);
 
     }
     public void generateCrate(BlockStateModelGenerator generator, Block generatedBlock, String path){

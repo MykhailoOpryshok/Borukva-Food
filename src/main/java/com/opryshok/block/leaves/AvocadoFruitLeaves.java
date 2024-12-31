@@ -1,7 +1,6 @@
 package com.opryshok.block.leaves;
 
 import com.opryshok.BorukvaFood;
-import com.opryshok.block.ModBlocks;
 import com.opryshok.item.ModItems;
 import eu.pb4.polymer.blocks.api.BlockModelType;
 import eu.pb4.polymer.blocks.api.PolymerBlockModel;
@@ -23,11 +22,6 @@ public class AvocadoFruitLeaves extends LemonFruitLeaves{
     @Override
     public ItemStack getFruitDropStack(int count) {
         return ModItems.AVOCADO.getDefaultStack().copyWithCount(count);
-    }
-
-    @Override
-    public BlockState getBaseBlockState(BlockState state) {
-        return ModBlocks.AVOCADO_LEAVES.getDefaultState().with(Properties.WATERLOGGED, state.get(Properties.WATERLOGGED));
     }
 
     @Override

@@ -1,0 +1,13 @@
+{
+  "type": "borukva-food:pan",
+  "input": {
+    "base": {
+      "item": "minecraft:cod"
+    }
+  },
+  "output": {
+    "count": 1,
+    "id": "minecraft:cooked_cod"
+  },
+  "time": 100.0
+}

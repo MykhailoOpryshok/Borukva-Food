@@ -1,0 +1,12 @@
+{
+  "type": "borukva-food:cutting_board",
+  "input": {
+    "base": {
+      "item": "minecraft:bread"
+    }
+  },
+  "output": {
+    "count": 4,
+    "id": "borukva-food:bread_slice"
+  }
+}

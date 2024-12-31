@@ -20,7 +20,7 @@ public class ModEntities {
             BlockEntityType.Builder.create(FertilizerSprayerBlockEntity::new, ModBlocks.FERTILIZER_SPRAYER));
 
     public static final BlockEntityType<CuttingBoardBlockEntity> CUTTING_BOARD = register("cutting_board", BlockEntityType.Builder.create(CuttingBoardBlockEntity::new, ModBlocks.CUTTING_BOARD));
-    // will be added in new version public static final BlockEntityType<PotBlockEntity> POT = register("pot", BlockEntityType.Builder.create(PotBlockEntity::new, ModBlocks.POT));
+    public static final BlockEntityType<PotBlockEntity> POT = register("pot", BlockEntityType.Builder.create(PotBlockEntity::new, ModBlocks.POT));
     public static final EntityType<PickleJarEntity> CUCUMBER_JAR = register("cucumber_jar", EntityType.Builder.create(PickleJarEntity::new, SpawnGroup.MISC).dimensions(0.25F, 0.25F).maxTrackingRange(4).trackingTickInterval(1));
     public static void register() {
     }

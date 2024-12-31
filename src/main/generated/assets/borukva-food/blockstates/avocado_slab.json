@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "borukva-food:block/avocado_slab"
+    },
+    "type=double": {
+      "model": "borukva-food:block/avocado_planks"
+    },
+    "type=top": {
+      "model": "borukva-food:block/avocado_slab_top"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "borukva-food:pan",
+  "input": {
+    "base": {
+      "item": "borukva-food:sunflower_seed"
+    }
+  },
+  "output": {
+    "count": 1,
+    "id": "borukva-food:roasted_sunflower_seed"
+  },
+  "time": 100.0
+}

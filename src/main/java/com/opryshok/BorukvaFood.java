@@ -8,22 +8,18 @@ import com.opryshok.block.cooking.Pan;
 import com.opryshok.block.cooking.Pot;
 import com.opryshok.block.cooking.Stove;
 import com.opryshok.block.crops.*;
-import com.opryshok.block.food.ChocolateCake;
-import com.opryshok.block.food.HoneyCake;
-import com.opryshok.block.food.MeatPizza;
-import com.opryshok.block.food.VeganPizza;
+import com.opryshok.block.food.*;
 import com.opryshok.commands.ModCommands;
 import com.opryshok.config.ConfigManager;
 import com.opryshok.config.ModConfig;
 import com.opryshok.entity.ModEntities;
 import com.opryshok.item.CompostItem;
 import com.opryshok.item.ModItems;
+import com.opryshok.recipe.ModRecipeSerializer;
+import com.opryshok.recipe.ModRecipeTypes;
 import com.opryshok.ui.GuiTextures;
 import com.opryshok.ui.UiResourceCreator;
-import com.opryshok.utils.BorukvaFoodUtil;
-import com.opryshok.utils.CompostableItems;
-import com.opryshok.utils.ModCustomTrades;
-import com.opryshok.utils.ModifyLootTables;
+import com.opryshok.utils.*;
 import com.opryshok.world.gen.ModWorldGeneration;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import net.fabricmc.api.ModInitializer;
@@ -54,6 +50,8 @@ public class BorukvaFood implements ModInitializer {
 		BorukvaFoodUtil.registerWood();
 		ModCustomTrades.registerCustomTrades();
 		DispenserBlock.registerBehavior(ModItems.COMPOST, CompostItem.COMPOST_BEHAVIOR);
+		ModRecipeTypes.register();
+		ModRecipeSerializer.register();
 		if (PolymerResourcePackUtils.addModAssets(MOD_ID)) {
 			LOGGER.info("Successfully added mod assets for " + MOD_ID);
 		} else {
@@ -86,6 +84,7 @@ public class BorukvaFood implements ModInitializer {
 		FertilizerSprayerBlock.Model.MODEL_OFF.isEmpty();
 		RiceCrop.Model.MODELS.forEach(ItemStack::isEmpty);
 		Pot.Model.MODEL.isEmpty();
+		FungusPizza.Model.FUNGUS_MODEL.forEach(ItemStack::isEmpty);
 	}
 
 	public static Identifier id(String path) {

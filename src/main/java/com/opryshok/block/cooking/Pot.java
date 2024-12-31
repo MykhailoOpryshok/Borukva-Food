@@ -3,7 +3,7 @@ package com.opryshok.block.cooking;
 import com.mojang.serialization.MapCodec;
 import com.opryshok.BorukvaFood;
 import com.opryshok.block.ModBlocks;
-import com.opryshok.entity.PanBlockEntity;
+import com.opryshok.entity.PotBlockEntity;
 import eu.pb4.factorytools.api.block.FactoryBlock;
 import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.BlockModel;
@@ -12,6 +12,8 @@ import eu.pb4.polymer.virtualentity.api.ElementHolder;
 import eu.pb4.polymer.virtualentity.api.elements.ItemDisplayElement;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemPlacementContext;
@@ -54,7 +56,7 @@ public class Pot extends BlockWithEntity implements FactoryBlock, BlockEntityPro
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return null;
+        return new PotBlockEntity(pos, state);
     }
 
     @Override
@@ -75,7 +77,7 @@ public class Pot extends BlockWithEntity implements FactoryBlock, BlockEntityPro
 
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        if (!player.isSneaking() && world.getBlockEntity(pos) instanceof PanBlockEntity entity) {
+        if (!player.isSneaking() && world.getBlockEntity(pos) instanceof PotBlockEntity entity) {
             entity.openGui((ServerPlayerEntity) player);
             return ActionResult.SUCCESS;
         }
@@ -91,6 +93,12 @@ public class Pot extends BlockWithEntity implements FactoryBlock, BlockEntityPro
     @Override
     public @Nullable ElementHolder createElementHolder(ServerWorld world, BlockPos pos, BlockState initialBlockState) {
         return new Model(initialBlockState, world, pos);
+    }
+
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return PotBlockEntity::ticker;
     }
 
     public static final class Model extends BlockModel {

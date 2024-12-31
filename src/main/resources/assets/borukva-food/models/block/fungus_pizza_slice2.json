@@ -1,0 +1,22 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"1": "borukva-food:block/pizza_bottom_sliced2",
+		"top": "borukva-food:block/fungus_pizza_top_slice2"
+	},
+  "elements": [
+    {
+      "from": [1, 0, 1],
+      "to": [15, 1, 15],
+      "rotation": {"angle": 0, "axis": "y", "origin": [1, 0, 1]},
+      "faces": {
+        "north": {"uv": [15, 1, 1, 2], "texture": "#top"},
+        "east": {"uv": [14, 1, 15, 15], "rotation": 90, "texture": "#top"},
+        "south": {"uv": [1, 14, 15, 15], "texture": "#top"},
+        "west": {"uv": [1, 15, 2, 1], "rotation": 90, "texture": "#top"},
+        "up": {"uv": [1, 1, 15, 15], "texture": "#top"},
+        "down": {"uv": [1, 15, 15, 1], "texture": "#1"}
+      }
+    }
+  ]
+}

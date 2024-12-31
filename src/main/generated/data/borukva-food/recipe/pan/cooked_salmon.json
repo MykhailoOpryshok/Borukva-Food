@@ -1,0 +1,13 @@
+{
+  "type": "borukva-food:pan",
+  "input": {
+    "base": {
+      "item": "minecraft:salmon"
+    }
+  },
+  "output": {
+    "count": 1,
+    "id": "minecraft:cooked_salmon"
+  },
+  "time": 100.0
+}

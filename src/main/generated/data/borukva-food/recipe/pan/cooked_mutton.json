@@ -1,0 +1,13 @@
+{
+  "type": "borukva-food:pan",
+  "input": {
+    "base": {
+      "item": "minecraft:mutton"
+    }
+  },
+  "output": {
+    "count": 1,
+    "id": "minecraft:cooked_mutton"
+  },
+  "time": 100.0
+}
