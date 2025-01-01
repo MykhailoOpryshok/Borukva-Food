@@ -45,6 +45,7 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-language-kotlin:1.11.0+kotlin.2.0.0"
 
 	compileOnly 'org.projectlombok:lombok:1.18.34'
+	modCompileOnly 'maven.modrinth:polydex:1.2.4+1.21.1'
 	annotationProcessor 'org.projectlombok:lombok:1.18.34'
 }
 

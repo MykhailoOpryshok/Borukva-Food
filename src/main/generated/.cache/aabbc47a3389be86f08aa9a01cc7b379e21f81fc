@@ -1,4 +1,4 @@
-// 1.21.1	2024-12-31T17:24:33.5726611	Borukva Food/Recipes
+// 1.21.1	2025-01-01T04:02:06.9325172	Borukva Food/Recipes
 df9c5889af77414d6c8633c0efd6af8d351008e7 data\borukva-food\advancement\recipes\food\honey_candy.json
 9749d9ff62488d18303698cb4b5c728946f95ea1 data\borukva-food\advancement\recipes\food\cabbage_crate_to_cabbage.json
 1d92e3d07d1ceced171f7d89d5c9036ab731737f data\borukva-food\recipe\lettuce_crate_to_lettuce.json
@@ -140,7 +140,7 @@ a01f7252abe3fecf9c9bebbfbd0bb10a539d4bb9 data\borukva-food\recipe\vegetable_sala
 515e060f4be44db38e373d8c5394feb4f2b67eb0 data\borukva-food\advancement\recipes\food\cooked_vegan_barbecue.json
 acc7cf899cdb974c42b5c53ceaab4419984f42e8 data\borukva-food\advancement\recipes\food\corn_crate_to_corn.json
 a0bc103679a2b2ba8a84bf63f4ab575affa760d5 data\borukva-food\recipe\carrot_crate.json
-1b61222c19203fddfb571d568c245f90a75bdba1 data\borukva-food\recipe\pot\borsch.json
+fabce9e2410b123dbc84f42211f66c98ddfba072 data\borukva-food\recipe\pot\borsch.json
 1cdda3e2c705ce79b37b270c06a3cd078cf4d75d data\borukva-food\recipe\lavash.json
 5916eb6f9be43240eb5926e33229183c504797c3 data\borukva-food\advancement\recipes\building_blocks\stripped_lemon_wood.json
 abf4dc4a141ce1ad082ff27323f6e44b51f07b77 data\borukva-food\recipe\pan\cooked_mutton.json

@@ -5,12 +5,16 @@ import com.opryshok.BorukvaFood;
 import com.opryshok.block.ModBlocks;
 import com.opryshok.entity.CuttingBoardBlockEntity;
 import com.opryshok.item.ModItems;
+import com.opryshok.polydex.PolydexCompat;
+import com.opryshok.recipe.ModRecipeTypes;
 import com.opryshok.utils.BorukvaFoodUtil;
 import com.opryshok.utils.TransparentBlocks.TransparentFlatTripWire;
 import eu.pb4.factorytools.api.block.FactoryBlock;
 import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.BlockModel;
 import eu.pb4.factorytools.api.virtualentity.ItemDisplayElementUtil;
+import eu.pb4.polydex.api.v1.recipe.PolydexCategory;
+import eu.pb4.polydex.api.v1.recipe.PolydexPageUtils;
 import eu.pb4.polymer.virtualentity.api.ElementHolder;
 import eu.pb4.polymer.virtualentity.api.elements.ItemDisplayElement;
 import net.minecraft.block.*;
@@ -73,7 +77,6 @@ public class CuttingBoard extends BlockWithEntity implements TransparentFlatTrip
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         ActionResult result = ActionResult.PASS;
-
         BlockEntity blockEntity = world.getBlockEntity(pos);
         if (!(blockEntity instanceof CuttingBoardBlockEntity cuttingBoardBlockEntity)) {
             return result;
@@ -81,9 +84,16 @@ public class CuttingBoard extends BlockWithEntity implements TransparentFlatTrip
 
         ItemStack itemHeld = player.getStackInHand(player.getActiveHand());
 
+        if (cuttingBoardBlockEntity.isEmpty() && player.isSneaking()) {
+            if (PolydexCompat.IS_PRESENT) {
+                PolydexPageUtils.openCategoryUi((ServerPlayerEntity) player, PolydexCategory.of(ModRecipeTypes.CUTTING_BOARD), null);
+                return ActionResult.PASS;
+            }
+        }
         if (cuttingBoardBlockEntity.isEmpty()) {
             result = tryAddItemFromPlayerHand(world, cuttingBoardBlockEntity, player);
-        } else if (itemHeld.isOf(ModItems.KNIFE)) {
+        }
+        else if (itemHeld.isOf(ModItems.KNIFE)) {
             result = tryProcessCuttingUsingToolInHand(world, cuttingBoardBlockEntity, player);
         } else if (player.isSneaking()) {
             pullOutItemWithPlayer(world, cuttingBoardBlockEntity, player);
@@ -93,7 +103,6 @@ public class CuttingBoard extends BlockWithEntity implements TransparentFlatTrip
     }
     private ActionResult tryAddItemFromPlayerHand(World world, CuttingBoardBlockEntity cuttingBoardBlockEntity, PlayerEntity player) {
         ItemStack itemHeld = player.getMainHandStack();
-        ItemStack copy = itemHeld.copyWithCount(1);
 
         if (itemHeld.isEmpty() || itemHeld.isOf(ModItems.KNIFE) || itemHeld.isOf(ModBlocks.CUTTING_BOARD_ITEM)) {
             return ActionResult.PASS;

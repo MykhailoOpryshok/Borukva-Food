@@ -149,5 +149,11 @@
   "subtitle.borukva-food.frying": "Frying",
   "subtitle.borukva-food.spraying": "Spraying",
   "tooltip.borukva-food.harvest_sickle": "Harvests crops in a 3x3 area",
-  "commands.borukva-food.config_reload": "Config reloaded!"
+  "commands.borukva-food.config_reload": "Config reloaded!",
+
+
+  "text.borukva-food.recipes": "Recipes",
+  "recipe_type.borukva-food.cutting_board": "Cutting Board",
+  "recipe_type.borukva-food.pan": "Pan",
+  "recipe_type.borukva-food.pot": "Pot"
 }

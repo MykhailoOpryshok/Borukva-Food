@@ -150,5 +150,11 @@
   "subtitle.borukva-food.frying": "Смаження",
   "subtitle.borukva-food.spraying": "Обприскування",
   "tooltip.borukva-food.harvest_sickle": "Збирає рослини в радіусі 3x3 блока",
-  "commands.borukva-food.config_reload": "Конфіг перезавантажений!"
+  "commands.borukva-food.config_reload": "Конфіг перезавантажений!",
+
+
+  "text.borukva-food.recipes": "Рецепти",
+  "recipe_type.borukva-food.cutting_board": "Кухонна дошка",
+  "recipe_type.borukva-food.pan": "Пательня",
+  "recipe_type.borukva-food.pot": "Каструля"
 }

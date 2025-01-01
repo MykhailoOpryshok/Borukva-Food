@@ -9,8 +9,6 @@ import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import eu.pb4.sgui.api.elements.GuiElementBuilder;
 import it.unimi.dsi.fastutil.chars.Char2IntMap;
 import it.unimi.dsi.fastutil.chars.Char2IntOpenHashMap;
-import it.unimi.dsi.fastutil.chars.Char2ObjectMap;
-import it.unimi.dsi.fastutil.chars.Char2ObjectOpenHashMap;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.text.Style;
@@ -34,6 +32,7 @@ import java.util.function.Supplier;
 
 public class UiResourceCreator {
     public static final String BASE_MODEL = "minecraft:item/generated";
+    public static final String X32_MODEL = "borukva-food:sgui/button_32";
     public static final String X32_RIGHT_MODEL = "borukva-food:sgui/button_32_right";
     private static final String ITEM_TEMPLATE = """
             {
@@ -43,13 +42,13 @@ public class UiResourceCreator {
               }
             }
             """.replace(" ", "").replace("\n", "");
-    private static final Style STYLE = Style.EMPTY.withColor(0xFFFFFF).withFont(Identifier.of(BorukvaFood.MOD_ID, "gui"));
+    public static final Style STYLE = Style.EMPTY.withColor(0xFFFFFF).withFont(BorukvaFood.id("gui"));
     private static char character = 'a';
     private static final Char2IntMap SPACES = new Char2IntOpenHashMap();
-    private static final Char2ObjectMap<Identifier> TEXTURES = new Char2ObjectOpenHashMap<>();
     private static final List<Pair<PolymerModelData, String>> SIMPLE_MODEL = new ArrayList<>();
     private static final List<SlicedTexture> VERTICAL_PROGRESS = new ArrayList<>();
     private static final List<SlicedTexture> HORIZONTAL_PROGRESS = new ArrayList<>();
+    private static final List<FontTexture> FONT_TEXTURES = new ArrayList<>();
     private static final char CHEST_SPACE0 = character++;
     private static final char CHEST_SPACE1 = character++;
 
@@ -58,12 +57,18 @@ public class UiResourceCreator {
         var c = (character++);
         builder.append(c);
         builder.append(CHEST_SPACE1);
-        TEXTURES.put(c, Identifier.of(BorukvaFood.MOD_ID, "sgui/" + path));
 
+        var texture = new FontTexture(BorukvaFood.id("sgui/" + path), 13, 256, new char[][] { new char[] {c} });
+
+        FONT_TEXTURES.add(texture);
         return new TextBuilders(Text.literal(builder.toString()).setStyle(STYLE));
     }
     public static Supplier<GuiElementBuilder> icon16(String path) {
         var model = genericIconRaw(Items.ALLIUM, path, BASE_MODEL);
+        return () -> new GuiElementBuilder(model.item()).setName(Text.empty()).hideDefaultTooltip().setCustomModelData(model.value());
+    }
+    public static Supplier<GuiElementBuilder> icon32(String path) {
+        var model = genericIconRaw(Items.ALLIUM, path, X32_MODEL);
         return () -> new GuiElementBuilder(model.item()).setName(Text.empty()).hideDefaultTooltip().setCustomModelData(model.value());
     }
     public static PolymerModelData genericIconRaw(Item item, String path, String base) {
@@ -131,6 +136,7 @@ public class UiResourceCreator {
 
         generateProgress(assetWriter, VERTICAL_PROGRESS, false);
         generateProgress(assetWriter, HORIZONTAL_PROGRESS, true);
+
         var fontBase = new JsonObject();
         var providers = new JsonArray();
 
@@ -143,14 +149,23 @@ public class UiResourceCreator {
             providers.add(spaces);
         }
 
-        TEXTURES.char2ObjectEntrySet().stream().sorted(Comparator.comparing(Char2ObjectMap.Entry::getCharKey)).forEach((entry) -> {
+
+        FONT_TEXTURES.forEach((entry) -> {
             var bitmap = new JsonObject();
             bitmap.addProperty("type", "bitmap");
-            bitmap.addProperty("file", entry.getValue().toString() + ".png");
-            bitmap.addProperty("ascent", 13);
-            bitmap.addProperty("height", 256);
+            bitmap.addProperty("file", entry.path + ".png");
+            bitmap.addProperty("ascent", entry.ascent);
+            bitmap.addProperty("height", entry.height);
             var chars = new JsonArray();
-            chars.add(Character.toString(entry.getCharKey()));
+
+            for (var a : entry.chars) {
+                var builder = new StringBuilder();
+                for (var b : a) {
+                    builder.append(b);
+                }
+                chars.add(builder.toString());
+            }
+
             bitmap.add("chars", chars);
             providers.add(bitmap);
         });
@@ -166,6 +181,19 @@ public class UiResourceCreator {
             return Text.empty().append(base).append(text);
         }
     }
+    public static Pair<Text, Text> polydexBackground(String path) {
+        var c = (character++);
+        var d = (character++);
+
+        var texture = new FontTexture(BorukvaFood.id("sgui/polydex/" + path), -4, 128, new char[][] {new char[] { c }, new char[] { d } });
+
+        FONT_TEXTURES.add(texture);
+
+        return new Pair<>(
+                Text.literal(Character.toString(c)).setStyle(STYLE),
+                Text.literal(Character.toString(d)).setStyle(STYLE)
+        );
+    }
 
     public static void setup() {
         SPACES.put(CHEST_SPACE0, -8);
@@ -176,4 +204,5 @@ public class UiResourceCreator {
         return Identifier.of(BorukvaFood.MOD_ID,"item/elements/" + path);
     }
     public record SlicedTexture(String path, int start, int stop, boolean reverse) {}
+    public record FontTexture(Identifier path, int ascent, int height, char[][] chars) {}
 }

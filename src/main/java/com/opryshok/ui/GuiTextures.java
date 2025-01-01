@@ -14,6 +14,7 @@ import static com.opryshok.ui.UiResourceCreator.*;
 
 public class GuiTextures {
     public static final Supplier<GuiElementBuilder> EMPTY_BUILDER = icon16("empty");
+    public static final Supplier<GuiElementBuilder> POLYDEX_BUTTON = icon32("polydex");
     public static final GuiElement EMPTY = EMPTY_BUILDER.get().hideTooltip().build();
     public static final Function<Text, Text> STOVE = background("stove");
     public static final Function<Text, Text> PAN = background("pan");

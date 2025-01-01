@@ -15,11 +15,16 @@ import com.opryshok.config.ModConfig;
 import com.opryshok.entity.ModEntities;
 import com.opryshok.item.CompostItem;
 import com.opryshok.item.ModItems;
+import com.opryshok.polydex.PolydexCompat;
+import com.opryshok.polydex.PolydexTextures;
 import com.opryshok.recipe.ModRecipeSerializer;
 import com.opryshok.recipe.ModRecipeTypes;
 import com.opryshok.ui.GuiTextures;
 import com.opryshok.ui.UiResourceCreator;
-import com.opryshok.utils.*;
+import com.opryshok.utils.BorukvaFoodUtil;
+import com.opryshok.utils.CompostableItems;
+import com.opryshok.utils.ModCustomTrades;
+import com.opryshok.utils.ModifyLootTables;
 import com.opryshok.world.gen.ModWorldGeneration;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import net.fabricmc.api.ModInitializer;
@@ -39,8 +44,6 @@ public class BorukvaFood implements ModInitializer {
 	public void onInitialize() {
 		modConfig = ConfigManager.load();
 		ModCommands.register();
-		GuiTextures.register();
-		UiResourceCreator.setup();
 		ModItems.registerModItems();
 		ModBlocks.registerBlocks();
 		ModEntities.register();
@@ -49,6 +52,10 @@ public class BorukvaFood implements ModInitializer {
 		ModifyLootTables.modifyLootTables();
 		BorukvaFoodUtil.registerWood();
 		ModCustomTrades.registerCustomTrades();
+		UiResourceCreator.setup();
+		GuiTextures.register();
+		PolydexTextures.register();
+		PolydexCompat.register();
 		DispenserBlock.registerBehavior(ModItems.COMPOST, CompostItem.COMPOST_BEHAVIOR);
 		ModRecipeTypes.register();
 		ModRecipeSerializer.register();
