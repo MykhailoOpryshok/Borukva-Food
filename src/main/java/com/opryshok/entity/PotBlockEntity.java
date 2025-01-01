@@ -3,6 +3,7 @@ package com.opryshok.entity;
 import com.opryshok.BorukvaFood;
 import com.opryshok.block.ModBlocks;
 import com.opryshok.block.cooking.Pot;
+import com.opryshok.polydex.PolydexCompat;
 import com.opryshok.recipe.ModRecipeTypes;
 import com.opryshok.recipe.pot.PotRecipe;
 import com.opryshok.recipe.pot.PotInput;
@@ -210,7 +211,7 @@ public class PotBlockEntity extends LockableBlockEntity implements MinimalSidedI
         public Gui(ServerPlayerEntity player) {
             super(ScreenHandlerType.GENERIC_9X3, player, false);
             this.setTitle(GuiTextures.POT.apply(Text.translatable("block.borukva-food.pot")));
-
+            this.setSlot(17, PolydexCompat.getButton(ModRecipeTypes.POT));
             this.setSlotRedirect(0, new LedgerSlot(pos, player, PotBlockEntity.this, 0, 0, 0));
             this.setSlotRedirect(1, new LedgerSlot(pos, player, PotBlockEntity.this, 1, 1, 0));
             this.setSlotRedirect(2, new LedgerSlot(pos, player, PotBlockEntity.this, 2, 2, 0));

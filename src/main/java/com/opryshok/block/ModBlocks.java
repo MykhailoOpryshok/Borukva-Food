@@ -84,6 +84,7 @@ public class ModBlocks {
     public static final Block AVOCADO_LEAVES = registerBlock("avocado_leaves", new PolyLeavesBlock(Block.Settings.copy(Blocks.OAK_LEAVES), "avocado_leaves"));
     public static final Block AVOCADO_PLANKS = registerBlock("avocado_planks", new SimplePolyBlock(Block.Settings.copy(Blocks.OAK_PLANKS), "avocado_planks"));
     public static final Block AVOCADO_TRAPDOOR = registerBlock("avocado_trapdoor", new PolyTrapdoorBlock(Block.Settings.copy(Blocks.OAK_TRAPDOOR), "avocado_trapdoor"));
+    public static final Block AVOCADO_DOOR = registerBlock("avocado_door", new PolyDoorBlock(Block.Settings.copy(Blocks.OAK_DOOR), "avocado_door"));
     public static final Block AVOCADO_SLAB = registerBlock("avocado_slab", new PolySlabBlock(Block.Settings.copy(Blocks.OAK_SLAB), "avocado_slab", AVOCADO_PLANKS.getDefaultState()));
     public static final Block AVOCADO_SAPLING = registerBlock("avocado_sapling", new PolySaplingBlock(ModSaplingGenerator.AVOCADO, Block.Settings.copy(Blocks.OAK_SAPLING), "avocado_sapling"));
     public static final Block CHOCOLATE_CAKE = registerBlock("chocolate_cake", new ChocolateCake(Block.Settings.copy(Blocks.CAKE)));
@@ -110,6 +111,8 @@ public class ModBlocks {
     public static final BlockItem AVOCADO_LEAVES_ITEM = registerBlockItem("avocado_leaves", new TexturedPolyBlockItem(AVOCADO_LEAVES, new Item.Settings(), "block/avocado_leaves"));
     public static final BlockItem AVOCADO_PLANKS_ITEM = registerBlockItem("avocado_planks", new TexturedPolyBlockItem(AVOCADO_PLANKS, new Item.Settings(), "block/avocado_planks"));
     public static final BlockItem AVOCADO_SLAB_ITEM = registerBlockItem("avocado_slab", new TexturedPolyBlockItem(AVOCADO_SLAB, new Item.Settings(), "block/avocado_slab"));
+    public static final BlockItem AVOCADO_TRAPDOOR_ITEM = registerBlockItem("avocado_trapdoor", new TexturedPolyBlockItem(AVOCADO_TRAPDOOR, new Item.Settings(), "block/avocado_trapdoor_bottom"));
+    public static final BlockItem AVOCADO_DOOR_ITEM = registerBlockItem("avocado_door", new TexturedPolyBlockItem(AVOCADO_DOOR, new Item.Settings(), "block/avocado_door_north"));
     public static final BlockItem AVOCADO_SAPLING_ITEM = registerBlockItem("avocado_sapling", new TexturedPolyBlockItem(AVOCADO_SAPLING, new Item.Settings(), "item/avocado_sapling"));
     public static final BlockItem FERTILIZER_SPRAYER_ITEM = registerBlockItem("fertilizer_sprayer", new TexturedPolyBlockItem(FERTILIZER_SPRAYER, new Item.Settings(), "block/fertilizer_sprayer_off"));
     public static final BlockItem SALT_BLOCK_ITEM = registerBlockItem("salt_block", new TexturedPolyBlockItem(SALT, new Item.Settings(), "block/salt_block"));
@@ -177,6 +180,8 @@ public class ModBlocks {
             entries.add(STRIPPED_AVOCADO_WOOD_ITEM);
             entries.add(AVOCADO_PLANKS_ITEM);
             entries.add(AVOCADO_SLAB_ITEM);
+            entries.add(AVOCADO_TRAPDOOR_ITEM);
+            entries.add(AVOCADO_DOOR_ITEM);
         });
         ItemGroup polymerGroup = builder.build();
         PolymerItemGroupUtils.registerPolymerItemGroup(Identifier.of(BorukvaFood.MOD_ID, "blocks"), polymerGroup);

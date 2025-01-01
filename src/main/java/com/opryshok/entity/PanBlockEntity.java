@@ -159,7 +159,7 @@ public class PanBlockEntity extends LockableBlockEntity implements MinimalSidedI
         public Gui(ServerPlayerEntity player) {
             super(ScreenHandlerType.GENERIC_9X2, player, false);
             this.setTitle(GuiTextures.PAN.apply(Text.translatable("block.borukva-food.pan")));
-            this.setSlot(9, PolydexCompat.getButton(ModRecipeTypes.PAN));
+            this.setSlot(0, PolydexCompat.getButton(ModRecipeTypes.PAN));
             this.setSlotRedirect(3, new LedgerSlot(pos, player, PanBlockEntity.this, 0, 0, 0));
             this.setSlotRedirect(4, new LedgerSlot(pos, player, PanBlockEntity.this,  1, 1, 0));
             this.setSlotRedirect(5, new LedgerSlot(pos, player, PanBlockEntity.this, 2, 2, 0));
