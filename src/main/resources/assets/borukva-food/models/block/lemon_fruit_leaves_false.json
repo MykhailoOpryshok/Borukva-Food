@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "borukva-food:block/lemon_fruit_leaves_false"
+  }
+}

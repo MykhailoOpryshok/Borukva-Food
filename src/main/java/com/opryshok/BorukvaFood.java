@@ -25,6 +25,7 @@ import com.opryshok.utils.BorukvaFoodUtil;
 import com.opryshok.utils.CompostableItems;
 import com.opryshok.utils.ModCustomTrades;
 import com.opryshok.utils.ModifyLootTables;
+import com.opryshok.utils.DoorModels;
 import com.opryshok.world.gen.ModWorldGeneration;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import net.fabricmc.api.ModInitializer;
@@ -92,6 +93,8 @@ public class BorukvaFood implements ModInitializer {
 		RiceCrop.Model.MODELS.forEach(ItemStack::isEmpty);
 		Pot.Model.MODEL.isEmpty();
 		FungusPizza.Model.FUNGUS_MODEL.forEach(ItemStack::isEmpty);
+		NetherWheatCrop.Model.MODELS.forEach(ItemStack::isEmpty);
+		DoorModels.register();
 	}
 
 	public static Identifier id(String path) {

@@ -7,8 +7,10 @@ import eu.pb4.polymer.blocks.api.PolymerBlockResourceUtils;
 import eu.pb4.polymer.blocks.api.PolymerTexturedBlock;
 import net.minecraft.block.BlockSetType;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.TrapdoorBlock;
 import net.minecraft.block.enums.BlockHalf;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 
@@ -44,6 +46,10 @@ public class PolyTrapdoorBlock extends TrapdoorBlock implements PolymerTexturedB
     }
     public BlockState initializeModels(BlockModelType type, String typeForPath){
         return PolymerBlockResourceUtils.requestBlock(type, PolymerBlockModel.of(Identifier.of(BorukvaFood.MOD_ID, "block/" + path + "_" + typeForPath)));
+    }
+    @Override
+    public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
+        return Blocks.OAK_TRAPDOOR.getDefaultState();
     }
     @Override
     public BlockState getPolymerBlockState(BlockState state) {

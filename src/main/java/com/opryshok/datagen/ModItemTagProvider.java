@@ -20,6 +20,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        getOrCreateTagBuilder(ItemTags.HOGLIN_FOOD)
+                .add(ModItems.NETHER_WHEAT);
+
         getOrCreateTagBuilder(ModTags.Items.PLANT_FOOD)
                 .add(Items.BEETROOT)
                 .add(Items.CARROT)
@@ -64,7 +67,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(LEMON_LEAVES_ITEM)
                 .add(AVOCADO_LEAVES_ITEM)
                 .add(AVOCADO_FRUIT_LEAVES_ITEM)
-                .add(LEMON_FRUIT_LEAVE_ITEM);
+                .add(LEMON_FRUIT_LEAVES_ITEM);
 
         getOrCreateTagBuilder(ItemTags.SAPLINGS)
                 .add(LEMON_SAPLING_ITEM)

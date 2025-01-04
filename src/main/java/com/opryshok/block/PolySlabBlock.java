@@ -6,7 +6,9 @@ import eu.pb4.polymer.blocks.api.PolymerBlockModel;
 import eu.pb4.polymer.blocks.api.PolymerBlockResourceUtils;
 import eu.pb4.polymer.blocks.api.PolymerTexturedBlock;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 
 public class PolySlabBlock extends SlabBlock implements PolymerTexturedBlock {
@@ -24,7 +26,10 @@ public class PolySlabBlock extends SlabBlock implements PolymerTexturedBlock {
         BOTTOM_SLAB = PolymerBlockResourceUtils.requestBlock(BlockModelType.BOTTOM_SLAB, PolymerBlockModel.of(Identifier.of(BorukvaFood.MOD_ID, "block/" + path)));
         BOTTOM_SLAB_WATERLOGGED = PolymerBlockResourceUtils.requestBlock(BlockModelType.BOTTOM_SLAB_WATERLOGGED, PolymerBlockModel.of(Identifier.of(BorukvaFood.MOD_ID, "block/" + path)));
     }
-
+    @Override
+    public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
+        return Blocks.OAK_SLAB.getDefaultState();
+    }
     @Override
     public BlockState getPolymerBlockState(BlockState state) {
         return switch (state.get(TYPE)){

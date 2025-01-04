@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "has_fruit=false": {
       "model": "borukva-food:block/avocado_fruit_leaves"
+    },
+    "has_fruit=true": {
+      "model": "borukva-food:block/avocado_fruit_leaves_has_fruit"
     }
   }
 }

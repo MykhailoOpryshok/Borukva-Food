@@ -39,6 +39,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addCropDrop(CUCUMBER, ModItems.CUCUMBER, ModItems.CUCUMBER_SEEDS);
         addCropDrop(ONION, ModItems.ONION, ModItems.ONION_SEEDS);
         addCropDrop(RICE, ModItems.RICE_PANICLE, ModItems.RICE);
+        BlockStatePropertyLootCondition.Builder builder = BlockStatePropertyLootCondition.builder(NETHER_WHEAT)
+                .properties(StatePredicate.Builder.create().exactMatch(Properties.AGE_7, 7));
+        addDrop(NETHER_WHEAT, cropDrops(NETHER_WHEAT, ModItems.NETHER_WHEAT, ModItems.NETHER_WHEAT_SEEDS, builder));
         addDrop(ONION_CRATE);
         addDrop(RICE_CRATE);
         addDrop(FERTILIZER_SPRAYER);

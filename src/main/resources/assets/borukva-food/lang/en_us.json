@@ -86,7 +86,25 @@
   "item.borukva-food.sunflower_seed": "Sunflower Seed",
   "item.borukva-food.roasted_sunflower_seed": "Roasted Sunflower Seed",
   "item.borukva-food.boiled_corn": "Boiled Corn",
+  "item.borukva-food.nether_wheat_seeds": "Nether Wheat Seeds",
+  "item.borukva-food.nether_wheat": "Nether Wheat",
+  "item.borukva-food.nether_wheat_bun": "Nether Bun",
+  "item.borukva-food.fungus_pizza_slice": "Fungus Pizza Slice",
+  "item.borukva-food.hoglin_meat": "Hoglin Meat",
+  "item.borukva-food.cooked_hoglin_meat": "Cooked Hoglin Meat",
+  "item.borukva-food.fungus_stew": "Fungus Stew",
+  "item.borukva-food.cooked_chicken_leg": "Cooked Chicken Leg",
+  "item.borukva-food.chicken_leg": "Chicken Leg",
+  "item.borukva-food.cooked_mutton_slices": "Cooked Mutton Slices",
+  "item.borukva-food.mutton_slices": "Mutton Slices",
+  "item.borukva-food.cooked_squid_ring": "Cooked Squid Ring",
+  "item.borukva-food.squid_ring": "Squid Ring",
+  "item.borukva-food.peeled_squid_tentacles": "Peeled Squid Tentacles",
+  "item.borukva-food.squid_tentacles": "Squid Tentacles",
 
+  "block.borukva-food.nether_hay": "Nether Hay",
+  "block.borukva-food.nether_wheat_crop": "Nether Wheat",
+  "block.borukva-food.fungus_pizza": "Fungus Pizza",
   "block.borukva-food.rice_crop": "Rice",
   "block.borukva-food.rice_crate": "Rice Crate",
   "block.borukva-food.onion_crate": "Onion Crate",
@@ -135,6 +153,12 @@
   "block.borukva-food.fertilizer_sprayer": "Fertilizer Sprayer",
   "block.borukva-food.blackcurrants_bush": "Blackcurrants Bush",
   "block.borukva-food.gooseberry_bush": "Gooseberry Bush",
+  "block.borukva-food.avocado_door": "Avocado Door",
+  "block.borukva-food.avocado_trapdoor": "Avocado Trapdoor",
+  "block.borukva-food.avocado_slab": "Avocado Slab",
+  "block.borukva-food.lemon_door": "Lemon Door",
+  "block.borukva-food.lemon_trapdoor": "Lemon Trapdoor",
+  "block.borukva-food.lemon_slab": "Lemon Slab",
 
   "tooltip.borukva-food.soil_analizator": "Determines the level of fertility and acidity in the soil",
   "tooltip.borukva-food.fertilizer": "Increases the level of fertility and reduces the level of acidity",
@@ -155,5 +179,8 @@
   "text.borukva-food.recipes": "Recipes",
   "recipe_type.borukva-food.cutting_board": "Cutting Board",
   "recipe_type.borukva-food.pan": "Pan",
-  "recipe_type.borukva-food.pot": "Pot"
+  "recipe_type.borukva-food.pot": "Pot",
+
+  "tooltip.borukva-food.cutting_board_line1": "Sneak (Shift) and right-click",
+  "tooltip.borukva-food.cutting_board_line2": "on a block to view recipes."
 }

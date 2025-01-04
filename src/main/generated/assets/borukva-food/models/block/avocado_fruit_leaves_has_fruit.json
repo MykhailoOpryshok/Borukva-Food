@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "borukva-food:block/avocado_fruit_leaves_has_fruit"
+  }
+}

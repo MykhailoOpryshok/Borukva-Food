@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "borukva-food:block/nether_hay_top",
+    "side": "borukva-food:block/nether_hay"
+  }
+}

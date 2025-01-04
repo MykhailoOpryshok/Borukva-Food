@@ -1,4 +1,4 @@
-// 1.21.1	2025-01-01T13:05:03.3919085	Borukva Food/Model Definitions
+// 1.21.1	2025-01-04T01:39:42.4871039	Borukva Food/Model Definitions
 42bdd5426e82ea3e7baee3c85c3e2d45c990d1ae assets\borukva-food\models\block\cabbage_crop_stage1.json
 db8fd2a0ff722170f9e52b0faccbca5c4f8f20a3 assets\borukva-food\models\block\lettuce_crop_stage7.json
 06c407a9708bf0cf2e3b9b31a09c4c5231833b9e assets\borukva-food\blockstates\lemon_sapling.json
@@ -11,8 +11,11 @@ d75cf073bdfd2222e5a574b75a1209be5238195b assets\borukva-food\models\block\tomato
 3b2fcface10e4f57639f2c77e651e474d30b49fc assets\borukva-food\models\block\blackcurrants_bush_stage1.json
 41b2d40a3308c16fa99bff1e9cc4f27a7feecbf8 assets\borukva-food\models\block\chilli_pepper_crop_stage4.json
 23557560185584c2d555d54fd49f9aa15e3a8b18 assets\borukva-food\blockstates\avocado_wood.json
+a282ac0f9f5edbf70da5dc302bd2834cfaa485e5 assets\borukva-food\models\item\avocado_door.json
+37f9ec92fb317e20d8693bdd10386d7b64f49c1f assets\borukva-food\models\block\nether_wheat_crop_stage1.json
 a43ade81fb46600f8f0e9359acf6d10b018e7a3c assets\borukva-food\models\item\cabbage.json
 1ea8d7d00f1503362e21f61c64b12b21f4f003ce assets\borukva-food\models\item\vegetable_salad.json
+2a9bcb8d42d58004528ed573bef7923b4e5d6a45 assets\borukva-food\models\item\peeled_squid_tentacles.json
 1bedec0058f18869f6e15c5e4dc8991d955aaa31 assets\borukva-food\models\block\chilli_pepper_crop_stage2.json
 9d251d76dbd4a0707d8e7e848bae1cdb7202a3a3 assets\borukva-food\blockstates\cabbage_crate.json
 9639025a34e2f1419873dad220edb741ddc92653 assets\borukva-food\models\item\onion_seeds.json
@@ -23,7 +26,7 @@ ff29b29365e400128fa719ce1a953f91c16555f0 assets\borukva-food\models\item\boiled_
 bb686da0a45484eb97de5b6792140311f8c351c0 assets\borukva-food\models\item\fungus_pizza.json
 babbaa340048e9f41ca6eb916d1b3e2b6efd1039 assets\borukva-food\models\block\rice_crop_stage6.json
 8fdf80c11a6dc231791edc7d57d4d4711340aae2 assets\borukva-food\models\item\lemon_leaves.json
-a1dd1e15c442726ed5cc6c4869ab1e123f0d3b43 assets\borukva-food\blockstates\avocado_fruit_leaves.json
+64e226d002f99c968a97f25a3e16373119efe3bb assets\borukva-food\blockstates\avocado_fruit_leaves.json
 f5025805be9180b771f6937d79ef641b727988d5 assets\borukva-food\models\block\avocado_planks.json
 31abb3d3f82d3cc5d4457148c4cd6fe1b23d3b21 assets\borukva-food\blockstates\carrot_crate.json
 99322769bd290371474d3ce10d6142333f0292e7 assets\borukva-food\models\item\lemon_slab.json
@@ -32,9 +35,10 @@ e313b3b1ce676f63493ffd2fc51d152c6e8bef82 assets\borukva-food\models\block\stripp
 72e44ded804ad3e0742a49e645f8250d18c0f157 assets\borukva-food\models\item\mayonnaise.json
 bbe7665fc22a55d3074cddc46263ce121873d7e7 assets\borukva-food\models\block\cucumber_crate.json
 1d701c12fecd819672f79f54709ee0a56de7eb1c assets\borukva-food\models\item\pickle_jar.json
+207f61329a65d0b3dc09240aff7560b29fdc2d5f assets\borukva-food\models\item\cooked_hoglin_meat.json
 6393229027fea051e75471b39440fbb471f56563 assets\borukva-food\models\block\onion_crate.json
-abb6c839afeab0381e77af22b7a0d5f7a418df94 assets\borukva-food\models\item\salt.json
 a8da0998098f57bbcef39f37936c6f2420a76c21 assets\borukva-food\blockstates\chilli_pepper_crate.json
+abb6c839afeab0381e77af22b7a0d5f7a418df94 assets\borukva-food\models\item\salt.json
 e3cbce88444cc9d38a229f3b6a3b4aa03f4d518b assets\borukva-food\blockstates\stripped_lemon_log.json
 5b3e0919f1689eba1fc11256f38d60d456b148e6 assets\borukva-food\models\block\stripped_lemon_log.json
 feb92c0a5008dd0e7e136e2122d87141f024110e assets\borukva-food\blockstates\tomato_crop.json
@@ -45,6 +49,9 @@ fbccd405d7758a8ef6f767194d2baa7d53a0e353 assets\borukva-food\models\block\onion_
 c138953ceefaade3350c168e8245c1aaae3c81b5 assets\borukva-food\models\item\apple_pie.json
 9b46fd419b6fda78361d17b6db0bfd95597aab1e assets\borukva-food\models\block\rice_crate.json
 d132314bd2062e53c6c93f02d47e55917261a904 assets\borukva-food\models\item\cooked_vegan_barbecue.json
+fb9df9e331507e3496d34210d9c84310aea297e9 assets\borukva-food\models\block\nether_wheat_crop_stage3.json
+f490e435bca96588d8ef7f3538b290a51c2b3070 assets\borukva-food\models\item\chicken_leg.json
+d02696d27228dca443c74b2af01be301cdded903 assets\borukva-food\models\block\nether_hay.json
 80ece5b4c26d4824b6356344fc53f0a3446cb990 assets\borukva-food\blockstates\cucumber_crate.json
 85057073fb9b653f03949eac294cf48af60a4f7b assets\borukva-food\models\block\cucumber_crop_stage5.json
 de09964f09bbc32d88e7a05e3914c11d4091369b assets\borukva-food\models\item\pumpkin_candy.json
@@ -64,6 +71,7 @@ aec706e18e0e07a10b597579468eb0df54cc6f55 assets\borukva-food\blockstates\strippe
 07ab63d0bdbc18d5973a0382c2ca36a88c4dea14 assets\borukva-food\models\item\oil.json
 3678c89d3e22a026a163dc99de5612f07159c300 assets\borukva-food\models\block\tomato_crop_stage4.json
 cd6cbfb3201cc5bb3ef77d8a6158ecf9475e445a assets\borukva-food\models\item\honey_pie.json
+6df2f92b71a49440f0d1617869261caa3b84f6cb assets\borukva-food\models\item\nether_hay.json
 75ca8ab6b820c761255a9170004ee9c160a27a7a assets\borukva-food\models\block\tomato_crop_stage2.json
 e2b762fc0fadf26f5b5e9c9bfb680dfbb68681cc assets\borukva-food\models\item\avocado_sapling.json
 bfb02b120572bed44de1c5a7bd9ed8e13532e333 assets\borukva-food\models\item\tomato_sandwich.json
@@ -72,7 +80,7 @@ bfb02b120572bed44de1c5a7bd9ed8e13532e333 assets\borukva-food\models\item\tomato_
 2744a3565d015a5dfe4243696e366f26803784b1 assets\borukva-food\models\item\rice.json
 fb424f8078c35b672ac19aadf9efb31cfd96d7bd assets\borukva-food\blockstates\stripped_lemon_wood.json
 b9c18a7cf79de88212cb9a4399b0ff4272f45f48 assets\borukva-food\models\item\corn_crate.json
-55580dcc73d0c08956120329ad43d13924fd36c4 assets\borukva-food\blockstates\lemon_fruit_leaves.json
+d6318b7d55854b533fea754de169a7f9c00be1ae assets\borukva-food\blockstates\lemon_fruit_leaves.json
 46cd557dba5f3a2300fc7b6ca4451d32218f1a65 assets\borukva-food\models\item\potato_crate.json
 0244f6b489d44a892664172acb328747524aa635 assets\borukva-food\models\item\lemon_fruit_leaves.json
 ae2a49574033f09d503b9cdf5fc88de8bbe78bd3 assets\borukva-food\models\item\fertilizer.json
@@ -85,6 +93,8 @@ ff4f619280904f5f0d2b20978e482ed33fcab371 assets\borukva-food\models\block\avocad
 5cd9450fc8201198111309be669302fad47bbb57 assets\borukva-food\models\block\rice_crop_stage1.json
 7a90cd841b4aa3342c2b38903688470c247d72e3 assets\borukva-food\models\item\salmon_uramaki.json
 a0e7e0ab15b048a0eee8b320fe08f106224a8d7e assets\borukva-food\models\item\salt_block.json
+64cf91a33bfc2ebc84e65c16a4a366fa57ff7377 assets\borukva-food\models\item\cooked_squid_ring.json
+0ad0baf1890852c903c1c966af75c349c935d29f assets\borukva-food\models\item\fungus_stew.json
 2341a422c95057f9b14970aeaa2d669688605de2 assets\borukva-food\models\item\tomato.json
 f6622fed432cab33e8dc8103025d89e87a0246cd assets\borukva-food\models\block\gooseberry_bush_stage2.json
 58ac043988de8ba36e1c61b80cb318f2e298c401 assets\borukva-food\models\item\salo.json
@@ -101,8 +111,10 @@ af45b0dcb5bc8c3a78098e4ee42efcf408ddc793 assets\borukva-food\models\item\cheese.
 bb1b4f60b42efdbd8e7f5e9cb166ee52b1d4593f assets\borukva-food\models\item\honey_candy.json
 10239920c4a82a430c926c4c251a51ed29eb1c52 assets\borukva-food\models\block\stripped_avocado_log.json
 424a942c99a74e13c9ad37650900609449153e09 assets\borukva-food\models\block\tomato_crop_stage3.json
+e0028d36aecc444c086807ccea45256f2b386296 assets\borukva-food\models\item\hoglin_meat.json
 50d5f942e66ed6607360574a8e778329d560a769 assets\borukva-food\models\block\cucumber_crop_stage6.json
 feef0c626300827ea1dac02639f40b17f00c255c assets\borukva-food\models\block\lemon_log.json
+3b146644828f68c8dd7cdbd4176a7a53f286b7f2 assets\borukva-food\models\block\nether_wheat_crop_stage5.json
 48fdb91d200fca16e3f2e7bc43fb17546883b3b6 assets\borukva-food\models\item\cooked_beef_slices.json
 1b9044e7b03421acd457d8134510346507a7754c assets\borukva-food\models\item\avocado_fruit_leaves.json
 241e263b34c6cf2289f1fb39b50e6fba6a0acfbb assets\borukva-food\models\item\chilli_pepper_seeds.json
@@ -111,6 +123,7 @@ b756de3dd45eae686e979c83bbeab77a7ffb77c2 assets\borukva-food\models\item\salmon_
 8714732103591f1c7a4bd9746730da1cde4bf44c assets\borukva-food\blockstates\lemon_planks.json
 d23eee33b3bd76bcf1acdd382565f45b864de7fc assets\borukva-food\blockstates\gooseberry_bush.json
 5ff398acca38019d2ae44a9d2b52fc8e42a35a6d assets\borukva-food\models\block\cucumber_crop_stage1.json
+aa9a4b671718dae4e24dd14361f2f2f769f0a709 assets\borukva-food\blockstates\nether_wheat_crop.json
 c875c61e5ec049e5e98b36d425a673beee36c954 assets\borukva-food\models\block\chilli_pepper_crop_stage6.json
 e3c17fd35e1bbb3fa1c1a96941fadbe86bee85d1 assets\borukva-food\models\block\cabbage_crop_stage4.json
 956fbc402d6a91221a6a8f077bd2dbe413cd52ea assets\borukva-food\models\block\stripped_lemon_wood.json
@@ -127,6 +140,7 @@ fbdbb976a98f509d744603ea58af662da11b5618 assets\borukva-food\models\block\rice_c
 4c84a373340ac57ba6e35e56d0ae482a4851ae1e assets\borukva-food\models\item\vegan_barbecue.json
 565ef12a6e91b24f512723a547998488be035f73 assets\borukva-food\models\item\tomato_slices.json
 a2040e6f3c62afb3338a5429fbbb1bf843487c22 assets\borukva-food\models\block\corn_crop_stage7.json
+ca1ed219e0ae4bdfdc29eb6aa323995464c1019a assets\borukva-food\models\block\nether_wheat_crop_stage4.json
 7dbd4a1049d700debc59d2b3275430b9b602e268 assets\borukva-food\models\block\cucumber_crop_stage7.json
 94f601d7d50346e251ec355007c818ffaa318f75 assets\borukva-food\models\block\carrot_crate.json
 3393af2bc2512dd3b9a69191b6928c5e7e3125f1 assets\borukva-food\models\item\cabbage_crate.json
@@ -136,6 +150,7 @@ fd4aef74d3359b6232f47c1c200e9bd241595621 assets\borukva-food\models\item\hot_spi
 8b22c43121bfe1a2bfe287f2be9a0fda535511b8 assets\borukva-food\models\item\chocolate_popcorn.json
 a9fba0b7e4471d02d19fb0839e0a63a8366b1c8e assets\borukva-food\models\item\sweet_berry_cookie.json
 1785d28768aec4ba9ce0119ae663647f2d85a064 assets\borukva-food\models\item\honey_cake.json
+077e95842f8bd7a4f7280412db84bbe417bc0a20 assets\borukva-food\models\block\nether_hay_horizontal.json
 a834f5f0420a35d9e10d4632239000ab89dde96f assets\borukva-food\models\block\onion_crop_stage3.json
 d633d4e0c0924fbb84f1d1bb55bc462fbc0070bf assets\borukva-food\models\block\lemon_sapling.json
 3bbceaaaa0a58014842966505933b5cda6863c25 assets\borukva-food\models\block\blackcurrants_bush_stage3.json
@@ -149,6 +164,8 @@ d633d4e0c0924fbb84f1d1bb55bc462fbc0070bf assets\borukva-food\models\block\lemon_
 e29a16b1f168ce645d33e9072677016d11a8641e assets\borukva-food\models\item\blackcurrant_cookie.json
 ab01c61084c41430a42313c13ddf6a380ad3d01c assets\borukva-food\models\item\chilli_pepper.json
 b35f818f5c8595b51bdf2517c03455c0375d5a07 assets\borukva-food\models\block\blackcurrants_bush_stage2.json
+e617d5376e3bd5602969957fcd754114c2f00471 assets\borukva-food\models\item\nether_wheat_seeds.json
+e4e9a78f9239853755c31caeccb14b36ca0776c7 assets\borukva-food\blockstates\nether_hay.json
 7c86ea422ad05378af316ec0f720efa8076dc95e assets\borukva-food\models\block\chilli_pepper_crop_stage3.json
 d008c228c4f5fd5fff2ceac798acdbad71c8a4e1 assets\borukva-food\models\block\onion_crop_stage2.json
 b6750be988d09a9be337cd206a1c24c141d3c18f assets\borukva-food\models\item\roasted_sunflower_seed.json
@@ -159,17 +176,20 @@ c55dd64c4141d7f865d0b78cc90e4eb5dc077f72 assets\borukva-food\models\item\lemon_w
 a990b29e74c5f46c0e0ad0418b40b7f8a050ca8f assets\borukva-food\models\block\lemon_slab.json
 d8af623514420057c55df8b57ea2a9ba107b8125 assets\borukva-food\models\item\stripped_lemon_wood.json
 2cea1cab7e64f0a05f3146e9cf8936776c8aac8c assets\borukva-food\models\block\lettuce_crop_stage6.json
+25c5a251d2f0c400d30123dbc87c2d6e2a7b12de assets\borukva-food\models\item\squid_tentacles.json
 19d6b456c432193a9b67aa98b06fde335840981c assets\borukva-food\models\item\avocado_log.json
 53ee2605c6bdb2efa7f932425dd4a24174a4d63f assets\borukva-food\blockstates\lettuce_crate.json
 2f050a1a5864f0e3b5d29135747c8cd0d804c36f assets\borukva-food\models\item\jack_candy.json
 6cd6ed66b3e84b4721f74af722febd9f2e3770b3 assets\borukva-food\models\item\meat_pizza_slice.json
 5a5ca1447d83d85337654775b8e9b1a74baa380e assets\borukva-food\models\item\cucumber_crate.json
+08d71eef0ac45be0d004488a1a62ef11ba0faca7 assets\borukva-food\models\item\cooked_chicken_leg.json
 d7c9ec7b5f3bd2f47af94bd8f91a695523840f1f assets\borukva-food\models\block\stripped_avocado_wood.json
 acef9630b63fb5c163eb08e996b7f011a0732d44 assets\borukva-food\models\item\ice_cream.json
 b46083882f47fae28f5a4a45273d97ff91efa3b5 assets\borukva-food\models\item\beef_barbecue.json
 f869f76d0a07fdb8510121a9ba1efef4d2e06e5f assets\borukva-food\blockstates\blackcurrants_bush.json
 a488a32ef47ab9b7e259223f047932ecad4bc0de assets\borukva-food\models\item\lemon_log.json
 1f957296ac33f90a9c02b210a5698756d49fad1f assets\borukva-food\blockstates\tomato_crate.json
+45920f3d060b97b77555042a5cb4cb7c4c891416 assets\borukva-food\models\block\nether_wheat_crop_stage2.json
 28649fef643edcaf1daf195d4e54db9c6f5c3076 assets\borukva-food\models\item\lemon_pie.json
 92886a001a21595fb192a5a0841c25dae6366e2b assets\borukva-food\models\item\waffle.json
 dd948ce62936024462904fcfbee9f461f4fd36c6 assets\borukva-food\models\block\cabbage_crop_stage0.json
@@ -195,7 +215,9 @@ c70ff7ca954f403ae60ed02b4f45c82a26046331 assets\borukva-food\models\block\avocad
 53bbd3e7f1ea18642a1b710a8b303837d3b19820 assets\borukva-food\models\item\lettuce_seeds.json
 dccebd0bad8598b201a30e8f61779177241319cd assets\borukva-food\models\block\corn_crop_stage2.json
 5bf005d6e32e391ec4dce408435e783149325276 assets\borukva-food\models\block\corn_crop_stage5.json
+5543d65da9e8765a86789f1eb9972621597dd347 assets\borukva-food\models\block\nether_wheat_crop_stage0.json
 2cbbdb937fd3d34e0be79fa6b2a115ed742d91b3 assets\borukva-food\models\item\lemon.json
+4ef56203025f6cde72e9a0124516fdb39e5d0fe5 assets\borukva-food\models\block\nether_wheat_crop_stage6.json
 7013f40cb2bd36f39580aaf8910a0c41c6079ea0 assets\borukva-food\models\item\onigiri.json
 5d3de3b792acbcbba0d66d71ed0500f418af2642 assets\borukva-food\models\item\borsch.json
 5ce64e249215ae95a503b27fb0571d0a76f504a2 assets\borukva-food\models\block\avocado_fruit_leaves.json
@@ -205,6 +227,7 @@ dccebd0bad8598b201a30e8f61779177241319cd assets\borukva-food\models\block\corn_c
 eada890f1e46a681efca3e0ce6b2016837b83247 assets\borukva-food\models\item\corn.json
 f669e06940347aee1fd99fde15219b46dec92013 assets\borukva-food\models\item\chocolate_bar.json
 fe73b5abd91004de786b421338d5e0a4555949ff assets\borukva-food\models\item\sunflower_seed.json
+3bb97ee4b2dcdbfcfc187fe193072f2e9f15348c assets\borukva-food\models\block\lemon_fruit_leaves_has_fruit.json
 1da77b774b3f703aa5d074ae77c6b18e0ededc6f assets\borukva-food\models\item\stripped_lemon_log.json
 8638b307da0cde47e3a103110ba2be7b15edceaf assets\borukva-food\models\block\tomato_crop_stage7.json
 935c22bdf815f00f13d131057e06efdae10e3328 assets\borukva-food\blockstates\chilli_pepper_crop.json
@@ -221,6 +244,7 @@ f3aa7e00a05a1b8c6b38bd181f888e8a967a6fbb assets\borukva-food\models\item\salt_po
 c82fc094370aca5f5bbe471b624ff33b869449ee assets\borukva-food\models\block\corn_crop_stage4.json
 77e52bc3402ae03f1fbc8dbd2027574ebc4642b3 assets\borukva-food\models\block\lemon_log_horizontal.json
 b918346b3762c0f0a34b6f5489445d5f1e15b1ef assets\borukva-food\models\block\cucumber_crop_stage4.json
+3087eb25bedc4a77685fed57a7c43842696a043c assets\borukva-food\models\block\nether_wheat_crop_stage7.json
 dfa010af912afa2e7f6b11828aa524928d036d9f assets\borukva-food\blockstates\lemon_slab.json
 920e813d54461b3cb2f2b67e0e2d5c2e6f71e8df assets\borukva-food\models\item\pickle.json
 590a6f97a4d2dde57e7b4941b771e1cb8bddb9ef assets\borukva-food\models\item\empty_jar.json
@@ -229,14 +253,16 @@ d247d43d381ecea415f0a5ddc66b9fd0decf99a2 assets\borukva-food\blockstates\rice_cr
 501dca4eb9b4d40a293a7b295b52703f4ddde0e9 assets\borukva-food\blockstates\potato_crate.json
 f50e8fc5d9a986753d7c161d646bcb1b0d643ef2 assets\borukva-food\models\item\stripped_avocado_wood.json
 d3dd590b24cfa9912dfc6106639985d65702fd31 assets\borukva-food\models\block\lettuce_crop_stage0.json
-4c306739937e9674221d64065af3bc2ef4e18e4f assets\borukva-food\models\item\meat_pizza.json
 9a53865e1ceea6e47f54d7ea243192c705f1f9dd assets\borukva-food\models\item\beef_salad.json
+4c306739937e9674221d64065af3bc2ef4e18e4f assets\borukva-food\models\item\meat_pizza.json
 4cf458a46686c371f94b828e52fa9156edf51f55 assets\borukva-food\models\item\salmon_fillet.json
 69463aebcf7f1c691bd21e70d58de10f5c24c225 assets\borukva-food\models\block\tomato_crop_stage0.json
 f90d3ca3cd9842dcb7bf7caa7026dd9c9ef6d499 assets\borukva-food\blockstates\beetroot_crate.json
 1c55440bcbc027bdd6b2003020f103b078867514 assets\borukva-food\models\item\corn_seeds.json
 eccfd2943e022d85611cc38d316c278555c52f73 assets\borukva-food\models\block\cucumber_crop_stage3.json
 66ce70f85f1a371dea0673a150d6c8ccffc206f9 assets\borukva-food\models\block\rice_crop_stage3.json
+bbd31551b515fbc6df8295955f9691f56bd4bdc7 assets\borukva-food\models\item\cooked_mutton_slices.json
+9179439997dadf424d298a2aacdcef9e864da088 assets\borukva-food\models\item\nether_bun.json
 3b9b5857f82c8d13b1c2dabb82fc5ef0a78d2eb1 assets\borukva-food\models\item\compost.json
 ad8b20e2ab73cf391644a71bfbc6d86b66774e57 assets\borukva-food\models\item\avocado_leaves.json
 4259fb63d88bf74051d0bd356224c3dc25230893 assets\borukva-food\models\block\onion_crop_stage7.json
@@ -247,14 +273,17 @@ dd7efa1a48620b68e9dca21ca30b62df219af72b assets\borukva-food\models\block\lemon_
 6c4cd67f75047ef5d60e3dfa8569217a81298a3a assets\borukva-food\models\item\cabbage_seeds.json
 83b71cca76158e6bf29149ba768bcb75e73f9dec assets\borukva-food\models\block\stripped_avocado_log_horizontal.json
 87998877046658648bffa8758de9c98e5af84381 assets\borukva-food\models\block\avocado_sapling.json
+3192d6cde7baaf1b6613e83c4cc1a2cc22a98fbf assets\borukva-food\models\item\squid_ring.json
 11d91b3fd4c5e7577ec30ab588ee4ced14228116 assets\borukva-food\models\item\apple_candy.json
 6b711b994212536449ed239c1d57c3e14b8a2a50 assets\borukva-food\models\block\lettuce_crop_stage5.json
 2d11c3aa97e437faa6260623bed65661b2a7ec5f assets\borukva-food\models\item\cucumber_seeds.json
 1ec3c722175b4ee1729c6ca90980d5c0c34624b3 assets\borukva-food\models\item\lemon_planks.json
 0367f00fcd0849b32c87620ae73fbe9d02737057 assets\borukva-food\models\block\rice_crop_stage4.json
 3d4330cc77a4aa2eb3d1bd2b2dc6cf29c8dfc6bb assets\borukva-food\models\item\chilli_pepper_crate.json
+e8e3ce8fe61937149cbdef412948288baa9b919f assets\borukva-food\models\block\avocado_fruit_leaves_has_fruit.json
 e2d8c832612db2275840611c1122608206508112 assets\borukva-food\models\item\stripped_avocado_log.json
 82cf2eea24c145160683d9f57b71055b8e2ae0b3 assets\borukva-food\models\block\avocado_leaves.json
+ef59fb5d2869222a71b81be22dbc494895888323 assets\borukva-food\models\item\mutton_slices.json
 899a9c19c7694d8c06191783ebd3de7520dfcceb assets\borukva-food\models\item\tomato_seeds.json
 65187b487553d381fdf8b713eb388626eea3dfb1 assets\borukva-food\blockstates\rice_crop.json
 ff5094d28b274b7a0f3ebd085f124081de17908c assets\borukva-food\models\block\onion_crop_stage6.json
@@ -264,6 +293,7 @@ b6308ccff3adca4a0d4c7291363bd41c01692745 assets\borukva-food\models\item\goosebe
 4abdaa8f28521d377c3c95d0331304252511d906 assets\borukva-food\models\block\lemon_slab_top.json
 f670dc762a52be7fed9f4a0ceac8d3e6bb3c2006 assets\borukva-food\models\block\blackcurrants_bush_stage0.json
 79a391db4380ee1c653f0cc9d02843e9d7c1df3b assets\borukva-food\models\item\guacamole.json
+9ef196f9a1c9435a7ec8e3e24d7121a3b0dd0234 assets\borukva-food\models\item\nether_wheat.json
 f02a551d6de0e93cf7bbbcfe6c9c9369f5ecf9e3 assets\borukva-food\blockstates\avocado_slab.json
 bf86576365d7a59c15b883b55aa6f157194a5877 assets\borukva-food\models\block\beetroot_crate.json
 c3c00d63e60b4809c934b75946187296165e0bae assets\borukva-food\models\block\avocado_log.json

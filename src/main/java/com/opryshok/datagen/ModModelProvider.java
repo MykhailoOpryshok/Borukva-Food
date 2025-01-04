@@ -5,6 +5,7 @@ import com.opryshok.block.ModBlocks;
 import com.opryshok.block.bushes.BlackcurrantsBush;
 import com.opryshok.block.bushes.GooseberryBush;
 import com.opryshok.block.crops.TomatoCrop;
+import com.opryshok.block.leaves.LemonFruitLeaves;
 import com.opryshok.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
@@ -28,6 +29,7 @@ public class ModModelProvider extends FabricModelProvider{
         blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.CUCUMBER, BlockStateModelGenerator.TintType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
         blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.LETTUCE, BlockStateModelGenerator.TintType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
         blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.RICE, BlockStateModelGenerator.TintType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.NETHER_WHEAT, BlockStateModelGenerator.TintType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
         blockStateModelGenerator.registerCrop(ModBlocks.ONION, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
         generateCrate(blockStateModelGenerator, ModBlocks.BEETROOT_CRATE, "beetroot_crate");
         generateCrate(blockStateModelGenerator, ModBlocks.CABBAGE_CRATE, "cabbage_crate");
@@ -51,18 +53,20 @@ public class ModModelProvider extends FabricModelProvider{
 
         blockStateModelGenerator.registerLog(ModBlocks.AVOCADO_LOG).log(ModBlocks.AVOCADO_LOG).wood(ModBlocks.AVOCADO_WOOD);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_AVOCADO_LOG).log(ModBlocks.STRIPPED_AVOCADO_LOG).wood(ModBlocks.STRIPPED_AVOCADO_WOOD);
-
+        blockStateModelGenerator.registerLog(ModBlocks.NETHER_HAY).log(ModBlocks.NETHER_HAY);
         BlockStateModelGenerator.BlockTexturePool avocadoPlanksPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.AVOCADO_PLANKS);
         avocadoPlanksPool.slab(ModBlocks.AVOCADO_SLAB);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.AVOCADO_LEAVES);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.AVOCADO_FRUIT_LEAVES);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LEMON_FRUIT_LEAVES);
         blockStateModelGenerator.registerTintableCross(ModBlocks.AVOCADO_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+
+        generateFruitLeaves(blockStateModelGenerator, ModBlocks.LEMON_FRUIT_LEAVES);
+        generateFruitLeaves(blockStateModelGenerator, ModBlocks.AVOCADO_FRUIT_LEAVES);
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+        itemModelGenerator.register(ModBlocks.AVOCADO_DOOR_ITEM, Models.GENERATED);
         itemModelGenerator.register(ModItems.MEAT_PIZZA_SLICE, Models.GENERATED);
         itemModelGenerator.register(ModBlocks.MEAT_PIZZA_ITEM, Models.GENERATED);
         itemModelGenerator.register(ModItems.VEGAN_PIZZA_SLICE, Models.GENERATED);
@@ -143,9 +147,21 @@ public class ModModelProvider extends FabricModelProvider{
         itemModelGenerator.register(ModItems.SUNFLOWER_SEED, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROASTED_SUNFLOWER_SEED, Models.GENERATED);
         itemModelGenerator.register(ModItems.BOILED_CORN, Models.GENERATED);
-
+        itemModelGenerator.register(ModItems.NETHER_WHEAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.NETHER_BUN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HOGLIN_MEAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COOKED_HOGLIN_MEAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.FUNGUS_STEW, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COOKED_CHICKEN_LEG, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CHICKEN_LEG, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COOKED_MUTTON_SLICES, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUTTON_SLICES, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COOKED_SQUID_RING, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SQUID_RING, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PEELED_SQUID_TENTACLES, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SQUID_TENTAClES, Models.GENERATED);
     }
-    public void generateCrate(BlockStateModelGenerator generator, Block generatedBlock, String path){
+    private void generateCrate(BlockStateModelGenerator generator, Block generatedBlock, String path){
         generator.registerCubeWithCustomTextures(
                 generatedBlock,
                 generatedBlock,
@@ -155,5 +171,11 @@ public class ModModelProvider extends FabricModelProvider{
                         .put(TextureKey.SIDE, Identifier.of(BorukvaFood.MOD_ID, "block/" + path + "_side"))
                         .put(TextureKey.PARTICLE, Identifier.of(BorukvaFood.MOD_ID, "block/" + path + "_side"))
         );
+    }
+    private void generateFruitLeaves(BlockStateModelGenerator generator, Block leavesBlock){
+        Identifier FruitLeavesFalse = TexturedModel.CUBE_ALL.upload(leavesBlock, generator.modelCollector);
+        Identifier FruitLeavesTrue = generator.createSubModel(leavesBlock, "_has_fruit", Models.CUBE_ALL, TextureMap::all);
+        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(leavesBlock)
+                .coordinate(BlockStateModelGenerator.createBooleanModelMap(LemonFruitLeaves.HAS_FRUIT, FruitLeavesTrue, FruitLeavesFalse)));
     }
 }

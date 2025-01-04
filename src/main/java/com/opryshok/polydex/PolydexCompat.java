@@ -13,7 +13,7 @@ public class PolydexCompat {
         if (IS_PRESENT) {
             PolydexCompatImpl.register();
         } else {
-            BorukvaFood.LOGGER.warn("[PolyFactory] Polydex not found! It's highly suggested to install it!");
+            BorukvaFood.LOGGER.warn("[BorukvaFood] Polydex not found! It's highly suggested to install it!");
         }
     }
 

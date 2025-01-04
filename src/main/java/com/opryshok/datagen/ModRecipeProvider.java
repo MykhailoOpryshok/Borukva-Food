@@ -58,6 +58,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         seedsRecipe(ModItems.LETTUCE, ModItems.LETTUCE_SEEDS, exporter);
         seedsRecipe(ModItems.ONION, ModItems.ONION_SEEDS, exporter);
 
+        offerSmelting(exporter, List.of(ModItems.HOGLIN_MEAT), RecipeCategory.FOOD, ModItems.HOGLIN_MEAT, 0.35f, 200, "cooked_hoglin_meat");
+        offerSmelting(exporter, List.of(ModItems.BEEF_SLICES), RecipeCategory.FOOD, ModItems.COOKED_BEEF_SLICES, 0.35f, 200, "cooked_beef_slices");
+        offerSmelting(exporter, List.of(ModItems.MUTTON_SLICES), RecipeCategory.FOOD, ModItems.COOKED_MUTTON_SLICES, 0.35f, 200, "cooked_mutton_slices");
+        offerSmelting(exporter, List.of(ModItems.CHICKEN_LEG), RecipeCategory.FOOD, ModItems.COOKED_CHICKEN_LEG, 0.35f, 200, "cooked_chicken_leg");
+        offerSmelting(exporter, List.of(ModItems.SQUID_RING), RecipeCategory.FOOD, ModItems.COOKED_SQUID_RING, 0.35f, 200, "cooked_squid_ring");
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.STOVE_ITEM, 1)
                 .pattern("SSS")
                 .pattern("G G")
@@ -506,9 +512,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         CountedIngredient.fromTag(1, ModTags.Items.ROTTEN_SOUP_INGREDIENTS),
                         CountedIngredient.fromTag(1, ModTags.Items.ROTTEN_SOUP_INGREDIENTS)
                 ), CountedIngredient.ofItems(1, Items.BOWL), new ItemStack(ModItems.ROTTEN_SOUP, 1), 120),
-                PotRecipe.of("boiled_corn", List.of(CountedIngredient.ofItems(1, ModItems.CORN)), CountedIngredient.EMPTY, new ItemStack(ModItems.BOILED_CORN, 1), 80)
+                PotRecipe.of("boiled_corn", List.of(CountedIngredient.ofItems(1, ModItems.CORN)), CountedIngredient.EMPTY, new ItemStack(ModItems.BOILED_CORN, 1), 80),
+                PotRecipe.of("fungus_stew", List.of(
+                        CountedIngredient.ofItems(1, Items.CRIMSON_FUNGUS),
+                        CountedIngredient.ofItems(1, Items.CRIMSON_FUNGUS),
+                        CountedIngredient.ofItems(1, Items.WARPED_FUNGUS),
+                        CountedIngredient.ofItems(1, Items.WARPED_FUNGUS)
+                ), CountedIngredient.ofItems(1, Items.BOWL), new ItemStack(ModItems.FUNGUS_STEW, 1), 120)
         );
-
         of(exporter,
                 CuttingBoardRecipe.of("tomato_slices", CountedIngredient.ofItems(1, ModItems.TOMATO), new ItemStack(ModItems.TOMATO_SLICES, 3)),
                 CuttingBoardRecipe.of("cucumber_slices", CountedIngredient.ofItems(1, ModItems.CUCUMBER), new ItemStack(ModItems.CUCUMBER_SLICES, 3)),
@@ -519,8 +530,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 CuttingBoardRecipe.of("beef_slices", CountedIngredient.ofItems(1, Items.BEEF), new ItemStack(ModItems.BEEF_SLICES, 2)),
                 CuttingBoardRecipe.of("bread_slice", CountedIngredient.ofItems(1, Items.BREAD), new ItemStack(ModItems.BREAD_SLICE, 4)),
                 CuttingBoardRecipe.of("hot_spice", CountedIngredient.ofItems(1, ModItems.CHILLI_PEPPER), new ItemStack(ModItems.HOT_SPICE, 1)),
-                CuttingBoardRecipe.of("salo", CountedIngredient.ofItems(1, Items.PORKCHOP), new ItemStack(ModItems.SALO, 2))
-
+                CuttingBoardRecipe.of("salo", CountedIngredient.ofItems(1, Items.PORKCHOP), new ItemStack(ModItems.SALO, 2)),
+                CuttingBoardRecipe.of("chicken_leg", CountedIngredient.ofItems(1, Items.CHICKEN), new ItemStack(ModItems.CHICKEN_LEG, 2)),
+                CuttingBoardRecipe.of("cooked_chicken_leg", CountedIngredient.ofItems(1, Items.COOKED_CHICKEN), new ItemStack(ModItems.COOKED_CHICKEN_LEG, 2)),
+                CuttingBoardRecipe.of("mutton_slices", CountedIngredient.ofItems(1, Items.MUTTON), new ItemStack(ModItems.MUTTON_SLICES, 2)),
+                CuttingBoardRecipe.of("cooked_mutton_slices", CountedIngredient.ofItems(1, Items.COOKED_MUTTON), new ItemStack(ModItems.COOKED_MUTTON_SLICES, 2)),
+                CuttingBoardRecipe.of("peeled_squid_tentacles", CountedIngredient.ofItems(1, ModItems.SQUID_TENTAClES), new ItemStack(ModItems.PEELED_SQUID_TENTACLES))
         );
         of(exporter,
                 PanRecipe.of("cooked_chicken", CountedIngredient.ofItems(1, Items.CHICKEN), new ItemStack(Items.COOKED_CHICKEN), 100),
@@ -534,8 +549,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 PanRecipe.of("cooked_rabbit", CountedIngredient.ofItems(1, Items.RABBIT), new ItemStack(Items.COOKED_RABBIT), 100),
                 PanRecipe.of("cooked_beef_slices", CountedIngredient.ofItems(1, ModItems.BEEF_SLICES), new ItemStack(ModItems.COOKED_BEEF_SLICES), 100),
                 PanRecipe.of("popcorn", CountedIngredient.ofItems(1, ModItems.CORN_SEEDS), new ItemStack(ModItems.POPCORN), 40),
-                PanRecipe.of("roasted_sunflower_seed", CountedIngredient.ofItems(1, ModItems.SUNFLOWER_SEED), new ItemStack(ModItems.ROASTED_SUNFLOWER_SEED), 100)
+                PanRecipe.of("roasted_sunflower_seed", CountedIngredient.ofItems(1, ModItems.SUNFLOWER_SEED), new ItemStack(ModItems.ROASTED_SUNFLOWER_SEED), 100),
+                PanRecipe.of("cooked_chicken_leg", CountedIngredient.ofItems(1, ModItems.CHICKEN_LEG), new ItemStack(ModItems.COOKED_CHICKEN_LEG), 100),
+                PanRecipe.of("cooked_mutton_slices", CountedIngredient.ofItems(1, ModItems.MUTTON_SLICES), new ItemStack(ModItems.MUTTON_SLICES), 100),
+                PanRecipe.of("cooked_squid_ring", CountedIngredient.ofItems(1, ModItems.SQUID_RING), new ItemStack(ModItems.COOKED_SQUID_RING), 100),
+                PanRecipe.of("cooked_hoglin_meat", CountedIngredient.ofItems(1, ModItems.HOGLIN_MEAT), new ItemStack(ModItems.COOKED_HOGLIN_MEAT), 100)
         );
+
+        compressBlockRecipe(ModItems.NETHER_WHEAT, ModBlocks.NETHER_HAY_ITEM, exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModBlocks.FUNGUS_PIZZA_ITEM, 1)
+                .pattern("FKC")
+                .pattern("FKC")
+                .pattern("WWW")
+                .input('K', ModItems.KETCHUP)
+                .input('F', Items.WARPED_FUNGUS)
+                .input('C', Items.CRIMSON_FUNGUS)
+                .input('W', Items.WHEAT)
+                .criterion(hasItem(Items.CRIMSON_FUNGUS), conditionsFromItem(Items.CRIMSON_FUNGUS))
+                .offerTo(exporter, BorukvaFood.id(getRecipeName(ModBlocks.FUNGUS_PIZZA_ITEM)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.SQUID_RING)
+                .input(ModItems.SQUID_TENTAClES)
+                .criterion(hasItem(ModItems.SQUID_TENTAClES), conditionsFromItem(ModItems.SQUID_TENTAClES))
+                .offerTo(exporter, BorukvaFood.id(getRecipeName(ModItems.SQUID_RING)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.NETHER_BUN, 3)
+                .input(ModItems.NETHER_WHEAT, 2)
+                .criterion(hasItem(ModItems.NETHER_WHEAT), conditionsFromItem(ModItems.NETHER_WHEAT_SEEDS))
+                .offerTo(exporter, BorukvaFood.id(getRecipeName(ModItems.NETHER_BUN)));
     }
     private void campfireCookingRecipe(RecipeExporter exporter, Item input, Item output) {
         CookingRecipeJsonBuilder.create(Ingredient.ofItems(input), RecipeCategory.FOOD, output, 0, 600, RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new)

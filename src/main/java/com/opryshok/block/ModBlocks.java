@@ -21,11 +21,15 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
+
+import java.util.List;
 
 import static com.opryshok.BorukvaFood.MOD_ID;
 
@@ -39,7 +43,9 @@ public class ModBlocks {
     public static final Block CUCUMBER = registerBlock("cucumber_crop", new CucumberCrop(Block.Settings.copy(Blocks.WHEAT)));
     public static final Block ONION = registerBlock("onion_crop", new OnionCrop(Block.Settings.copy(Blocks.WHEAT)));
     public static final Block RICE = registerBlock("rice_crop", new RiceCrop(Block.Settings.copy(Blocks.WHEAT)));
+    public static final Block NETHER_WHEAT = registerBlock("nether_wheat_crop", new NetherWheatCrop(Block.Settings.copy(Blocks.WHEAT)));
 
+    public static final Block NETHER_HAY = registerBlock("nether_hay", new PolyHayBlock(Block.Settings.copy(Blocks.HAY_BLOCK)));
     public static final Block FERTILIZER_SPRAYER = registerBlock("fertilizer_sprayer", new FertilizerSprayerBlock(Block.Settings.copy(Blocks.IRON_BLOCK)));
     public static final Block BETTER_FARMLAND = registerBlock("better_farmland", new BetterFarmlandBlock(Block.Settings.copy(Blocks.FARMLAND)));
     public static final Block MEAT_PIZZA = registerBlock("meat_pizza", new MeatPizza(Block.Settings.copy(Blocks.CAKE)));
@@ -92,8 +98,9 @@ public class ModBlocks {
     public static final Block LEMON_FRUIT_LEAVES = registerBlock("lemon_fruit_leaves", new LemonFruitLeaves(Block.Settings.copy(Blocks.OAK_LEAVES)));
     public static final Block AVOCADO_FRUIT_LEAVES = registerBlock("avocado_fruit_leaves", new AvocadoFruitLeaves(Block.Settings.copy(Blocks.OAK_LEAVES)));
     // Block Items:
-    public static final BlockItem AVOCADO_FRUIT_LEAVES_ITEM = registerBlockItem("avocado_fruit_leaves", new TexturedPolyBlockItem(AVOCADO_FRUIT_LEAVES, new Item.Settings(), "block/avocado_fruit_leaves"));
-    public static final BlockItem LEMON_FRUIT_LEAVE_ITEM =registerBlockItem("lemon_fruit_leaves", new TexturedPolyBlockItem(LEMON_FRUIT_LEAVES, new Item.Settings(), "block/lemon_fruit_leaves"));
+    public static final BlockItem NETHER_HAY_ITEM = registerBlockItem("nether_hay", new TexturedPolyBlockItem(NETHER_HAY, new Item.Settings(), "block/nether_hay"));
+    public static final BlockItem AVOCADO_FRUIT_LEAVES_ITEM = registerBlockItem("avocado_fruit_leaves", new TexturedPolyBlockItem(AVOCADO_FRUIT_LEAVES, new Item.Settings(), "block/avocado_fruit_leaves_has_fruit"));
+    public static final BlockItem LEMON_FRUIT_LEAVES_ITEM =registerBlockItem("lemon_fruit_leaves", new TexturedPolyBlockItem(LEMON_FRUIT_LEAVES, new Item.Settings(), "block/lemon_fruit_leaves_has_fruit"));
     public static final BlockItem HONEY_CAKE_ITEM = registerBlockItem("honey_cake", new TexturedPolyBlockItem(HONEY_CAKE, new Item.Settings(), "item/honey_cake"));
     public static final BlockItem CHOCOLATE_CAKE_ITEM = registerBlockItem("chocolate_cake", new TexturedPolyBlockItem(CHOCOLATE_CAKE, new Item.Settings(), "item/chocolate_cake"));
     public static final BlockItem LEMON_LOG_ITEM = registerBlockItem("lemon_log", new TexturedPolyBlockItem(LEMON_LOG, new Item.Settings(), "block/lemon_log"));
@@ -111,8 +118,8 @@ public class ModBlocks {
     public static final BlockItem AVOCADO_LEAVES_ITEM = registerBlockItem("avocado_leaves", new TexturedPolyBlockItem(AVOCADO_LEAVES, new Item.Settings(), "block/avocado_leaves"));
     public static final BlockItem AVOCADO_PLANKS_ITEM = registerBlockItem("avocado_planks", new TexturedPolyBlockItem(AVOCADO_PLANKS, new Item.Settings(), "block/avocado_planks"));
     public static final BlockItem AVOCADO_SLAB_ITEM = registerBlockItem("avocado_slab", new TexturedPolyBlockItem(AVOCADO_SLAB, new Item.Settings(), "block/avocado_slab"));
-    public static final BlockItem AVOCADO_TRAPDOOR_ITEM = registerBlockItem("avocado_trapdoor", new TexturedPolyBlockItem(AVOCADO_TRAPDOOR, new Item.Settings(), "block/avocado_trapdoor_bottom"));
-    public static final BlockItem AVOCADO_DOOR_ITEM = registerBlockItem("avocado_door", new TexturedPolyBlockItem(AVOCADO_DOOR, new Item.Settings(), "block/avocado_door_north"));
+    public static final BlockItem AVOCADO_TRAPDOOR_ITEM = registerBlockItem("avocado_trapdoor", new TexturedPolyBlockItem(AVOCADO_TRAPDOOR, new Item.Settings(), "item/avocado_trapdoor"));
+    public static final BlockItem AVOCADO_DOOR_ITEM = registerBlockItem("avocado_door", new TexturedPolyBlockItem(AVOCADO_DOOR, new Item.Settings(), "item/avocado_door"));
     public static final BlockItem AVOCADO_SAPLING_ITEM = registerBlockItem("avocado_sapling", new TexturedPolyBlockItem(AVOCADO_SAPLING, new Item.Settings(), "item/avocado_sapling"));
     public static final BlockItem FERTILIZER_SPRAYER_ITEM = registerBlockItem("fertilizer_sprayer", new TexturedPolyBlockItem(FERTILIZER_SPRAYER, new Item.Settings(), "block/fertilizer_sprayer_off"));
     public static final BlockItem SALT_BLOCK_ITEM = registerBlockItem("salt_block", new TexturedPolyBlockItem(SALT, new Item.Settings(), "block/salt_block"));
@@ -121,8 +128,15 @@ public class ModBlocks {
     public static final BlockItem FUNGUS_PIZZA_ITEM = registerBlockItem("fungus_pizza", new TexturedPolyBlockItem(FUNGUS_PIZZA, new Item.Settings().maxCount(1), "item/fungus_pizza"));
     public static final BlockItem STOVE_ITEM = registerBlockItem("stove", new TexturedPolyBlockItem(STOVE, new Item.Settings(), "block/stove"));
     public static final BlockItem PAN_ITEM = registerBlockItem("pan", new TexturedPolyBlockItem(PAN, new Item.Settings(), "block/pan"));
-    public static final BlockItem POT_ITEM = registerBlockItem("pot", new TexturedPolyBlockItem(POT, new Item.Settings(), "block/pot"));
-    public static final BlockItem CUTTING_BOARD_ITEM = registerBlockItem("cutting_board", new TexturedPolyBlockItem(CUTTING_BOARD, new Item.Settings(), "item/cutting_board"));
+    public static final BlockItem POT_ITEM = registerBlockItem("pot", new TexturedPolyBlockItem(POT, new Item.Settings(), "item/pot"));
+    public static final BlockItem CUTTING_BOARD_ITEM = registerBlockItem("cutting_board", new TexturedPolyBlockItem(CUTTING_BOARD, new Item.Settings(), "item/cutting_board"){
+        @Override
+        public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+            super.appendTooltip(stack, context, tooltip, type);
+            tooltip.add(Text.translatable("tooltip.borukva-food.cutting_board_line1").formatted(Formatting.YELLOW));
+            tooltip.add(Text.translatable("tooltip.borukva-food.cutting_board_line2").formatted(Formatting.YELLOW));
+        }
+    });
     public static final BlockItem BEETROOT_CRATE_ITEM = registerBlockItem("beetroot_crate", new TexturedPolyBlockItem(BEETROOT_CRATE, new Item.Settings(), "block/beetroot_crate"));
     public static final BlockItem CABBAGE_CRATE_ITEM = registerBlockItem("cabbage_crate", new TexturedPolyBlockItem(CABBAGE_CRATE, new Item.Settings(), "block/cabbage_crate"));
     public static final BlockItem CARROT_CRATE_ITEM = registerBlockItem("carrot_crate", new TexturedPolyBlockItem(CARROT_CRATE, new Item.Settings(), "block/carrot_crate"));
@@ -164,7 +178,7 @@ public class ModBlocks {
             entries.add(SALT_BLOCK_ITEM);
             entries.add(LEMON_SAPLING_ITEM);
             entries.add(LEMON_LEAVES_ITEM);
-            entries.add(LEMON_FRUIT_LEAVE_ITEM);
+            entries.add(LEMON_FRUIT_LEAVES_ITEM);
             entries.add(LEMON_LOG_ITEM);
             entries.add(LEMON_WOOD_ITEM);
             entries.add(STRIPPED_LEMON_LOG_ITEM);

@@ -36,7 +36,7 @@ public class CompostableItems {
         put(ModBlocks.LEMON_LEAVES_ITEM, seeds);
 
         put(ModBlocks.AVOCADO_FRUIT_LEAVES_ITEM, plant);
-        put(ModBlocks.LEMON_FRUIT_LEAVE_ITEM, plant);
+        put(ModBlocks.LEMON_FRUIT_LEAVES_ITEM, plant);
     }
     private static void put(Item item, float chance){
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(item, chance);

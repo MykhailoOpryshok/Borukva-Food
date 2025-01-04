@@ -32,7 +32,6 @@ public class ModItems {
     public static Item SALO = registerItem("salo", new PolyItem(new Item.Settings().food(ModFoodComponents.SALO), "salo"));
     public static Item SUNFLOWER_SEED = registerItem("sunflower_seed", new PolyItem(new Item.Settings().food(ModFoodComponents.SUNFLOWER_SEED), "sunflower_seed"));
     public static Item ROASTED_SUNFLOWER_SEED = registerItem("roasted_sunflower_seed", new PolyItem(new Item.Settings().food(ModFoodComponents.ROASTED_SUNFLOWER_SEED), "roasted_sunflower_seed"));
-    public static Item BOILED_CORN = registerItem("boiled_corn", new PolyItem(new Item.Settings(), "boiled_corn"));
 
     public static Item TOMATO_SEEDS = registerItem("tomato_seeds", new PolySeedsItem(ModBlocks.TOMATO, new Item.Settings(), "tomato_seeds"));
     public static Item CABBAGE_SEEDS = registerItem("cabbage_seeds", new PolySeedsItem(ModBlocks.CABBAGE, new Item.Settings(), "cabbage_seeds"));
@@ -61,7 +60,6 @@ public class ModItems {
     public static Item MAYONNAISE = registerItem("mayonnaise", new PolyItem(new Item.Settings(), "mayonnaise"));
     public static Item MEAT_PIZZA_SLICE = registerItem("meat_pizza_slice", new PolyItem(new Item.Settings().food(ModFoodComponents.MEAT_PIZZA), "meat_pizza_slice"));
     public static Item VEGAN_PIZZA_SLICE = registerItem("vegan_pizza_slice", new PolyItem(new Item.Settings().food(ModFoodComponents.PIZZA), "vegan_pizza_slice"));
-    public static Item FUNGUS_PIZZA_SLICE = registerItem("fungus_pizza_slice", new PolyItem(new Item.Settings(), "fungus_pizza_slice"));
     public static Item CHOCOLATE_ICE_CREAM = registerItem("chocolate_ice_cream", new PolyItem(new Item.Settings().food(ModFoodComponents.CHOCOLATE_ICE_CREAM), "chocolate_ice_cream"));
     public static Item ICE_CREAM = registerItem("ice_cream", new PolyItem(new Item.Settings().food(ModFoodComponents.ICE_CREAM), "ice_cream"));
     public static Item SWEET_BERRY_COOKIE = registerItem("sweet_berry_cookie", new PolyItem(new Item.Settings().food(ModFoodComponents.COOKIE), "sweet_berry_cookie"));
@@ -88,7 +86,6 @@ public class ModItems {
     public static Item JACK_CANDY = registerItem("jack_candy", new PolyItem(new Item.Settings().food(ModFoodComponents.JACK_CANDY), "jack_candy"));
     public static Item PUMPKIN_CANDY = registerItem("pumpkin_candy", new PolyItem(new Item.Settings().food(ModFoodComponents.PUMPKIN_CANDY), "pumpkin_candy"));
     public static Item LEMON_CANDY = registerItem("lemon_candy", new PolyItem(new Item.Settings().food(ModFoodComponents.LEMON_CANDY), "lemon_candy"));
-
     public static Item SALT_POPCORN = registerItem("salt_popcorn", new PolyItem(new Item.Settings().food(ModFoodComponents.SALT_POPCORN), "salt_popcorn"));
     public static Item CHOCOLATE_POPCORN = registerItem("chocolate_popcorn", new PolyItem(new Item.Settings().food(ModFoodComponents.CHOCOLATE_POPCORN), "chocolate_popcorn"));
     public static Item CHEESE_POPCORN = registerItem("cheese_popcorn", new PolyItem(new Item.Settings().food(ModFoodComponents.CHEESE_POPCORN), "cheese_popcorn"));
@@ -102,6 +99,24 @@ public class ModItems {
     public static Item VEGETABLE_SALAD = registerItem("vegetable_salad", new PolyItem(new Item.Settings().food(ModFoodComponents.VEGETABLE_SALAD), "vegetable_salad"));
     public static Item COOKED_BEEF_SLICES = registerItem("cooked_beef_slices", new PolyItem(new Item.Settings().food(ModFoodComponents.COOKED_BEEF_SLICES), "cooked_beef_slices"));
     public static Item AVOCADO = registerItem("avocado", new PolyItem(new Item.Settings().food(ModFoodComponents.AVOCADO), "avocado"));
+
+    public static Item NETHER_WHEAT_SEEDS = registerItem("nether_wheat_seeds", new PolySeedsItem(ModBlocks.NETHER_WHEAT, new Item.Settings(), "nether_wheat_seeds"));
+    public static Item NETHER_WHEAT = registerItem("nether_wheat", new PolyItem(new Item.Settings(), "nether_wheat"));
+    public static Item NETHER_BUN = registerItem("nether_bun", new PolyItem(new Item.Settings(), "nether_bun"));
+    public static Item FUNGUS_PIZZA_SLICE = registerItem("fungus_pizza_slice", new PolyItem(new Item.Settings(), "fungus_pizza_slice"));
+    public static Item BOILED_CORN = registerItem("boiled_corn", new PolyItem(new Item.Settings(), "boiled_corn"));
+    public static Item HOGLIN_MEAT = registerItem("hoglin_meat", new PolyItem(new Item.Settings(), "hoglin_meat"));
+    public static Item COOKED_HOGLIN_MEAT = registerItem("cooked_hoglin_meat", new PolyItem(new Item.Settings(), "cooked_hoglin_meat"));
+    public static Item FUNGUS_STEW = registerItem("fungus_stew", new PolyItem(new Item.Settings().maxCount(1), "fungus_stew"));
+    public static Item COOKED_CHICKEN_LEG = registerItem("cooked_chicken_leg", new PolyItem(new Item.Settings(), "cooked_chicken_leg"));
+    public static Item CHICKEN_LEG = registerItem("chicken_leg", new PolyItem(new Item.Settings(), "chicken_leg"));
+    public static Item COOKED_MUTTON_SLICES = registerItem("cooked_mutton_slices", new PolyItem(new Item.Settings(), "cooked_mutton_slices"));
+    public static Item MUTTON_SLICES = registerItem("mutton_slices", new PolyItem(new Item.Settings(), "mutton_slices"));
+    public static Item COOKED_SQUID_RING = registerItem("cooked_squid_ring", new PolyItem(new Item.Settings(), "cooked_squid_ring"));
+    public static Item SQUID_RING = registerItem("squid_ring", new PolyItem(new Item.Settings(), "squid_ring"));
+    public static Item PEELED_SQUID_TENTACLES = registerItem("peeled_squid_tentacles", new PolyItem(new Item.Settings(), "peeled_squid_tentacles"));
+    public static Item SQUID_TENTAClES = registerItem("squid_tentacles", new PolyItem(new Item.Settings(), "squid_tentacles"));
+
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(BorukvaFood.MOD_ID, name), item);
@@ -120,6 +135,7 @@ public class ModItems {
             entries.add(CUCUMBER);
             entries.add(LETTUCE);
             entries.add(ONION);
+            entries.add(NETHER_WHEAT);
             entries.add(TOMATO_SEEDS);
             entries.add(CABBAGE_SEEDS);
             entries.add(CHILLI_PEPPER_SEEDS);
@@ -127,6 +143,7 @@ public class ModItems {
             entries.add(CUCUMBER_SEEDS);
             entries.add(LETTUCE_SEEDS);
             entries.add(ONION_SEEDS);
+            entries.add(NETHER_WHEAT_SEEDS);
             entries.add(LEMON);
             entries.add(AVOCADO);
             entries.add(HOT_SPICE);
@@ -153,9 +170,11 @@ public class ModItems {
             entries.add(BEEF_SANDWICH);
             entries.add(TOMATO_SANDWICH);
             entries.add(BREAD_SLICE);
+            entries.add(NETHER_BUN);
             entries.add(BORSCH);
             entries.add(BROTH);
             entries.add(ROTTEN_SOUP);
+            entries.add(FUNGUS_STEW);
             entries.add(BLACKCURRANTS);
             entries.add(GOOSEBERRY);
             entries.add(BEEF_SLICES);
@@ -194,10 +213,21 @@ public class ModItems {
             entries.add(SALMON_URAMAKI);
             entries.add(ONIGIRI);
             entries.add(NORI);
+            entries.add(SQUID_TENTAClES);
+            entries.add(PEELED_SQUID_TENTACLES);
+            entries.add(SQUID_RING);
+            entries.add(COOKED_SQUID_RING);
             entries.add(SAUERKRAUT);
             entries.add(SALO);
             entries.add(SUNFLOWER_SEED);
             entries.add(ROASTED_SUNFLOWER_SEED);
+            entries.add(BOILED_CORN);
+            entries.add(HOGLIN_MEAT);
+            entries.add(COOKED_HOGLIN_MEAT);
+            entries.add(CHICKEN_LEG);
+            entries.add(COOKED_CHICKEN_LEG);
+            entries.add(MUTTON_SLICES);
+            entries.add(COOKED_MUTTON_SLICES);
         });
         ItemGroup polymerGroup = builder.build();
         PolymerItemGroupUtils.registerPolymerItemGroup(Identifier.of(BorukvaFood.MOD_ID, "items"), polymerGroup);
