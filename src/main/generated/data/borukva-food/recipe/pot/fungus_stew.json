@@ -1,0 +1,35 @@
+{
+  "type": "borukva-food:pot",
+  "bowl": {
+    "base": {
+      "item": "minecraft:bowl"
+    }
+  },
+  "input": [
+    {
+      "base": {
+        "item": "minecraft:crimson_fungus"
+      }
+    },
+    {
+      "base": {
+        "item": "minecraft:crimson_fungus"
+      }
+    },
+    {
+      "base": {
+        "item": "minecraft:warped_fungus"
+      }
+    },
+    {
+      "base": {
+        "item": "minecraft:warped_fungus"
+      }
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "borukva-food:fungus_stew"
+  },
+  "time": 120.0
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "group": "cooked_chicken_leg",
+  "ingredient": {
+    "item": "borukva-food:chicken_leg"
+  },
+  "result": {
+    "id": "borukva-food:cooked_chicken_leg"
+  }
+}

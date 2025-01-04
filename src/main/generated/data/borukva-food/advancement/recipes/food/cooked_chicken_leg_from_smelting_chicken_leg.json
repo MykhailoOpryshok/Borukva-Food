@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chicken_leg": {
+      "conditions": {
+        "items": [
+          {
+            "items": "borukva-food:chicken_leg"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:cooked_chicken_leg_from_smelting_chicken_leg"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_chicken_leg"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:cooked_chicken_leg_from_smelting_chicken_leg"
+    ]
+  }
+}

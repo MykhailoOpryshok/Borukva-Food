@@ -8,6 +8,7 @@ import net.minecraft.item.Item;
 public class CompostableItems {
     private static final float seeds = 0.3f;
     private static final float plant = 0.65f;
+    private static final float block = 0.85f;
     public static void register(){
         put(ModItems.TOMATO_SEEDS, seeds);
         put(ModItems.CORN_SEEDS, seeds);
@@ -20,6 +21,8 @@ public class CompostableItems {
         put(ModItems.BLACKCURRANTS, seeds);
         put(ModItems.AVOCADO, seeds);
         put(ModItems.LEMON, seeds);
+        put(ModItems.RICE, seeds);
+        put(ModItems.NETHER_WHEAT_SEEDS, seeds);
 
         put(ModItems.TOMATO, plant);
         put(ModItems.CABBAGE, plant);
@@ -28,6 +31,8 @@ public class CompostableItems {
         put(ModItems.CUCUMBER, plant);
         put(ModItems.LETTUCE, plant);
         put(ModItems.ONION, plant);
+        put(ModItems.RICE_PANICLE, plant);
+        put(ModItems.NETHER_WHEAT, plant);
 
         put(ModBlocks.AVOCADO_SAPLING_ITEM, seeds);
         put(ModBlocks.LEMON_SAPLING_ITEM, seeds);
@@ -37,6 +42,9 @@ public class CompostableItems {
 
         put(ModBlocks.AVOCADO_FRUIT_LEAVES_ITEM, plant);
         put(ModBlocks.LEMON_FRUIT_LEAVES_ITEM, plant);
+
+        put(ModBlocks.NETHER_HAY_ITEM, block);
+
     }
     private static void put(Item item, float chance){
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(item, chance);

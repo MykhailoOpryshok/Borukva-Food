@@ -102,19 +102,19 @@ public class ModItems {
 
     public static Item NETHER_WHEAT_SEEDS = registerItem("nether_wheat_seeds", new PolySeedsItem(ModBlocks.NETHER_WHEAT, new Item.Settings(), "nether_wheat_seeds"));
     public static Item NETHER_WHEAT = registerItem("nether_wheat", new PolyItem(new Item.Settings(), "nether_wheat"));
-    public static Item NETHER_BUN = registerItem("nether_bun", new PolyItem(new Item.Settings(), "nether_bun"));
-    public static Item FUNGUS_PIZZA_SLICE = registerItem("fungus_pizza_slice", new PolyItem(new Item.Settings(), "fungus_pizza_slice"));
-    public static Item BOILED_CORN = registerItem("boiled_corn", new PolyItem(new Item.Settings(), "boiled_corn"));
-    public static Item HOGLIN_MEAT = registerItem("hoglin_meat", new PolyItem(new Item.Settings(), "hoglin_meat"));
-    public static Item COOKED_HOGLIN_MEAT = registerItem("cooked_hoglin_meat", new PolyItem(new Item.Settings(), "cooked_hoglin_meat"));
-    public static Item FUNGUS_STEW = registerItem("fungus_stew", new PolyItem(new Item.Settings().maxCount(1), "fungus_stew"));
-    public static Item COOKED_CHICKEN_LEG = registerItem("cooked_chicken_leg", new PolyItem(new Item.Settings(), "cooked_chicken_leg"));
-    public static Item CHICKEN_LEG = registerItem("chicken_leg", new PolyItem(new Item.Settings(), "chicken_leg"));
-    public static Item COOKED_MUTTON_SLICES = registerItem("cooked_mutton_slices", new PolyItem(new Item.Settings(), "cooked_mutton_slices"));
-    public static Item MUTTON_SLICES = registerItem("mutton_slices", new PolyItem(new Item.Settings(), "mutton_slices"));
-    public static Item COOKED_SQUID_RING = registerItem("cooked_squid_ring", new PolyItem(new Item.Settings(), "cooked_squid_ring"));
-    public static Item SQUID_RING = registerItem("squid_ring", new PolyItem(new Item.Settings(), "squid_ring"));
-    public static Item PEELED_SQUID_TENTACLES = registerItem("peeled_squid_tentacles", new PolyItem(new Item.Settings(), "peeled_squid_tentacles"));
+    public static Item NETHER_BUN = registerItem("nether_bun", new PolyItem(new Item.Settings().food(ModFoodComponents.NETHER_BUN), "nether_bun"));
+    public static Item FUNGUS_PIZZA_SLICE = registerItem("fungus_pizza_slice", new PolyItem(new Item.Settings().food(ModFoodComponents.FUNGUS_PIZZA_SLICE), "fungus_pizza_slice"));
+    public static Item BOILED_CORN = registerItem("boiled_corn", new PolyItem(new Item.Settings().food(ModFoodComponents.BOILED_CORN), "boiled_corn"));
+    public static Item HOGLIN_MEAT = registerItem("hoglin_meat", new PolyItem(new Item.Settings().food(ModFoodComponents.HOGLIN_MEAT), "hoglin_meat"));
+    public static Item COOKED_HOGLIN_MEAT = registerItem("cooked_hoglin_meat", new PolyItem(new Item.Settings().food(ModFoodComponents.COOKED_HOGLIN_MEAT), "cooked_hoglin_meat"));
+    public static Item FUNGUS_STEW = registerItem("fungus_stew", new PolyItem(new Item.Settings().maxCount(1).food(ModFoodComponents.FUNGUS_STEW), "fungus_stew"));
+    public static Item COOKED_CHICKEN_LEG = registerItem("cooked_chicken_leg", new PolyItem(new Item.Settings().food(ModFoodComponents.COOKED_CHICKEN_LEG), "cooked_chicken_leg"));
+    public static Item CHICKEN_LEG = registerItem("chicken_leg", new PolyItem(new Item.Settings().food(ModFoodComponents.CHICKEN_LEG), "chicken_leg"));
+    public static Item COOKED_MUTTON_SLICES = registerItem("cooked_mutton_slices", new PolyItem(new Item.Settings().food(ModFoodComponents.COOKED_MUTTON_SLICES), "cooked_mutton_slices"));
+    public static Item MUTTON_SLICES = registerItem("mutton_slices", new PolyItem(new Item.Settings().food(ModFoodComponents.MUTTON_SLICES), "mutton_slices"));
+    public static Item COOKED_SQUID_RING = registerItem("cooked_squid_ring", new PolyItem(new Item.Settings().food(ModFoodComponents.COOKED_SQUID_RING), "cooked_squid_ring"));
+    public static Item SQUID_RING = registerItem("squid_ring", new PolyItem(new Item.Settings().food(ModFoodComponents.SQUID_RING), "squid_ring"));
+    public static Item PEELED_SQUID_TENTACLES = registerItem("peeled_squid_tentacles", new PolyItem(new Item.Settings().food(ModFoodComponents.PEELED_SQUID_TENTACLES), "peeled_squid_tentacles"));
     public static Item SQUID_TENTAClES = registerItem("squid_tentacles", new PolyItem(new Item.Settings(), "squid_tentacles"));
 
 

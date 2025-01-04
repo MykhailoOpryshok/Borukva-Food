@@ -88,7 +88,7 @@
   "item.borukva-food.boiled_corn": "Boiled Corn",
   "item.borukva-food.nether_wheat_seeds": "Nether Wheat Seeds",
   "item.borukva-food.nether_wheat": "Nether Wheat",
-  "item.borukva-food.nether_wheat_bun": "Nether Bun",
+  "item.borukva-food.nether_bun": "Nether Bun",
   "item.borukva-food.fungus_pizza_slice": "Fungus Pizza Slice",
   "item.borukva-food.hoglin_meat": "Hoglin Meat",
   "item.borukva-food.cooked_hoglin_meat": "Cooked Hoglin Meat",
@@ -172,6 +172,7 @@
 
   "subtitle.borukva-food.frying": "Frying",
   "subtitle.borukva-food.spraying": "Spraying",
+  "subtitle.borukva-food.boiling": "Boiling",
   "tooltip.borukva-food.harvest_sickle": "Harvests crops in a 3x3 area",
   "commands.borukva-food.config_reload": "Config reloaded!",
 

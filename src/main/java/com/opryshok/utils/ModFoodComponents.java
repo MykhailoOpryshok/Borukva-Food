@@ -71,4 +71,17 @@ public class ModFoodComponents {
     public static final FoodComponent ROASTED_SUNFLOWER_SEED = new FoodComponent.Builder().nutrition(2).saturationModifier(0.3f).snack().build();
     public static final FoodComponent SALO = new FoodComponent.Builder().nutrition(4).saturationModifier(0.5f).statusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 100, 0), 1f).build();
     public static final FoodComponent ONIGIRI = new FoodComponent.Builder().nutrition(5).saturationModifier(0.3f).build();
+    public static final FoodComponent NETHER_BUN = new FoodComponent.Builder().nutrition(4).saturationModifier(0.5f).build();
+    public static final FoodComponent FUNGUS_PIZZA_SLICE = new FoodComponent.Builder().nutrition(4).saturationModifier(0.3f).statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 100, 0),  1f).build();
+    public static final FoodComponent BOILED_CORN = new FoodComponent.Builder().nutrition(4).saturationModifier(0.3f).build();
+    public static final FoodComponent HOGLIN_MEAT = new FoodComponent.Builder().nutrition(3).saturationModifier(3).build();
+    public static final FoodComponent COOKED_HOGLIN_MEAT = new FoodComponent.Builder().nutrition(9).saturationModifier(0.7f).build();
+    public static final FoodComponent FUNGUS_STEW = createStew(7).statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 400, 0),  1f).build();
+    public static final FoodComponent CHICKEN_LEG = new FoodComponent.Builder().nutrition(1).saturationModifier(0.3f).build();
+    public static final FoodComponent COOKED_CHICKEN_LEG = new FoodComponent.Builder().nutrition(6).saturationModifier(0.4f).build();
+    public static final FoodComponent MUTTON_SLICES = new FoodComponent.Builder().nutrition(1).saturationModifier(0.3f).build();
+    public static final FoodComponent COOKED_MUTTON_SLICES = new FoodComponent.Builder().nutrition(4).saturationModifier(0.9f).build();
+    public static final FoodComponent COOKED_SQUID_RING = new FoodComponent.Builder().nutrition(6).saturationModifier(0.8f).build();
+    public static final FoodComponent SQUID_RING = new FoodComponent.Builder().nutrition(3).saturationModifier(0.2f).build();
+    public static final FoodComponent PEELED_SQUID_TENTACLES = new FoodComponent.Builder().nutrition(3).saturationModifier(0.2f).build();
 }

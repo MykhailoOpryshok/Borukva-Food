@@ -47,6 +47,6 @@ public class FertilizerItem extends PolyItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.translatable("tooltip.borukva-food.fertilizer").formatted(Formatting.YELLOW));
+        tooltip.add(Text.translatable("tooltip.borukva-food.fertilizer").formatted(Formatting.GRAY));
     }
 }

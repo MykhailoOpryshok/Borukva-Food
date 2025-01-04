@@ -7,6 +7,7 @@ import com.opryshok.polydex.PolydexCompat;
 import com.opryshok.recipe.ModRecipeTypes;
 import com.opryshok.recipe.pot.PotRecipe;
 import com.opryshok.recipe.pot.PotInput;
+import com.opryshok.sounds.SoundRegistry;
 import com.opryshok.ui.GuiTextures;
 import com.opryshok.ui.LedgerSimpleGui;
 import com.opryshok.ui.LedgerSlot;
@@ -29,6 +30,7 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.FurnaceOutputSlot;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
@@ -52,6 +54,7 @@ public class PotBlockEntity extends LockableBlockEntity implements MinimalSidedI
     private Pot.Model model;
     private ItemStack delayedOutput;
     private boolean inventoryChanged = true;
+    private int soundTicks = 20;
     @Nullable
     protected RecipeEntry<PotRecipe> currentRecipe = null;
     private final List<ItemStack> stacks = new InventoryList(this, INPUT_FIRST, 6);
@@ -166,6 +169,12 @@ public class PotBlockEntity extends LockableBlockEntity implements MinimalSidedI
                         }
                     }
                 }
+            }
+            if (self.soundTicks >= 20) {
+                world.playSound(null, pos, SoundRegistry.BOILING, SoundCategory.BLOCKS, 1f, 1f);
+                self.soundTicks = 0;
+            } else {
+                self.soundTicks++;
             }
         }
     }

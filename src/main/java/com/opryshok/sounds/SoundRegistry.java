@@ -9,6 +9,7 @@ import net.minecraft.util.Identifier;
 public class SoundRegistry {
     public static SoundEvent FRYING = registerSoundEvent("frying", SoundEvents.BLOCK_CAMPFIRE_CRACKLE);
     public static SoundEvent SPRAYING = registerSoundEvent("spraying", null);
+    public static SoundEvent BOILING = registerSoundEvent("boiling", null);
 
     private static SoundEvent registerSoundEvent(String name, SoundEvent soundEvent) {
         Identifier id = Identifier.of(BorukvaFood.MOD_ID, name);

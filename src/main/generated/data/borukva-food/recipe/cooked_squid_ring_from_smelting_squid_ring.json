@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "group": "cooked_squid_ring",
+  "ingredient": {
+    "item": "borukva-food:squid_ring"
+  },
+  "result": {
+    "id": "borukva-food:cooked_squid_ring"
+  }
+}

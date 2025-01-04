@@ -15,6 +15,11 @@ public class ModifyLootTables {
 
     public static void modifyLootTables(){
         LootTableEvents.MODIFY.register((key, tableBuilder, source) -> {
+            if ((key.getValue() == LootTables.BASTION_OTHER_CHEST.getValue())){
+                tableBuilder.modifyPools(builder -> builder.with(ItemEntry.builder(ModItems.NETHER_WHEAT_SEEDS)
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2, 4), false))
+                        .weight(2)));
+            }
             if ((key.getValue() == LootTables.SNIFFER_DIGGING_GAMEPLAY.getValue())) {
                 LootPool.Builder pool = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))

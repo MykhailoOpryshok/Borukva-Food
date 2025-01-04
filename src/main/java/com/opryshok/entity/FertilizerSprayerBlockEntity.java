@@ -62,7 +62,9 @@ public class FertilizerSprayerBlockEntity extends LockableBlockEntity implements
 
     @Override
     public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
-        return true;
+        if(slot == 0 && stack.isOf(ModItems.FERTILIZER)){
+            return true;
+        } else return slot == 1 && stack.isOf(ModItems.COMPOST);
     }
 
     @Override

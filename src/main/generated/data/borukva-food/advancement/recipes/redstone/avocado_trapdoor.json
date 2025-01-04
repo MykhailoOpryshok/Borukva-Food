@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_avocado_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "borukva-food:avocado_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "borukva-food:avocado_trapdoor"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_avocado_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "borukva-food:avocado_trapdoor"
+    ]
+  }
+}

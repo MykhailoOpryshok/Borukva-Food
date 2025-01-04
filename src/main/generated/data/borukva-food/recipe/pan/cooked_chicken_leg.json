@@ -1,0 +1,13 @@
+{
+  "type": "borukva-food:pan",
+  "input": {
+    "base": {
+      "item": "borukva-food:chicken_leg"
+    }
+  },
+  "output": {
+    "count": 1,
+    "id": "borukva-food:cooked_chicken_leg"
+  },
+  "time": 100.0
+}

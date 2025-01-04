@@ -58,7 +58,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         seedsRecipe(ModItems.LETTUCE, ModItems.LETTUCE_SEEDS, exporter);
         seedsRecipe(ModItems.ONION, ModItems.ONION_SEEDS, exporter);
 
-        offerSmelting(exporter, List.of(ModItems.HOGLIN_MEAT), RecipeCategory.FOOD, ModItems.HOGLIN_MEAT, 0.35f, 200, "cooked_hoglin_meat");
+        offerSmelting(exporter, List.of(ModItems.HOGLIN_MEAT), RecipeCategory.FOOD, ModItems.COOKED_HOGLIN_MEAT, 0.35f, 200, "cooked_hoglin_meat");
         offerSmelting(exporter, List.of(ModItems.BEEF_SLICES), RecipeCategory.FOOD, ModItems.COOKED_BEEF_SLICES, 0.35f, 200, "cooked_beef_slices");
         offerSmelting(exporter, List.of(ModItems.MUTTON_SLICES), RecipeCategory.FOOD, ModItems.COOKED_MUTTON_SLICES, 0.35f, 200, "cooked_mutton_slices");
         offerSmelting(exporter, List.of(ModItems.CHICKEN_LEG), RecipeCategory.FOOD, ModItems.COOKED_CHICKEN_LEG, 0.35f, 200, "cooked_chicken_leg");
@@ -577,6 +577,19 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(ModItems.NETHER_WHEAT, 2)
                 .criterion(hasItem(ModItems.NETHER_WHEAT), conditionsFromItem(ModItems.NETHER_WHEAT_SEEDS))
                 .offerTo(exporter, BorukvaFood.id(getRecipeName(ModItems.NETHER_BUN)));
+        offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.AVOCADO_SLAB_ITEM, ModBlocks.AVOCADO_PLANKS_ITEM);
+        offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.LEMON_SLAB_ITEM, ModBlocks.LEMON_PLANKS_ITEM);
+        offerTrapdoorRecipe(exporter, ModBlocks.AVOCADO_TRAPDOOR_ITEM, ModBlocks.AVOCADO_PLANKS_ITEM);
+        offerTrapdoorRecipe(exporter, ModBlocks.LEMON_TRAPDOOR_ITEM, ModBlocks.LEMON_PLANKS_ITEM);
+        offerDoorRecipe(exporter, ModBlocks.AVOCADO_DOOR_ITEM, ModBlocks.AVOCADO_PLANKS_ITEM);
+        offerDoorRecipe(exporter, ModBlocks.LEMON_DOOR_ITEM, ModBlocks.LEMON_PLANKS_ITEM);
+    }
+
+    private void offerDoorRecipe(RecipeExporter exporter, Item output, Item input) {
+        createDoorRecipe(output, Ingredient.ofItems(input)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter, BorukvaFood.id(getRecipeName(output)));
+    }
+    private void offerTrapdoorRecipe(RecipeExporter exporter, Item output, Item input){
+        createTrapdoorRecipe(output, Ingredient.ofItems(input)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter, BorukvaFood.id(getRecipeName(output)));
     }
     private void campfireCookingRecipe(RecipeExporter exporter, Item input, Item output) {
         CookingRecipeJsonBuilder.create(Ingredient.ofItems(input), RecipeCategory.FOOD, output, 0, 600, RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new)

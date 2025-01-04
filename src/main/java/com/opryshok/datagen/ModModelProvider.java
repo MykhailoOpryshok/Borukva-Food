@@ -67,6 +67,7 @@ public class ModModelProvider extends FabricModelProvider{
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModBlocks.AVOCADO_DOOR_ITEM, Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.LEMON_DOOR_ITEM, Models.GENERATED);
         itemModelGenerator.register(ModItems.MEAT_PIZZA_SLICE, Models.GENERATED);
         itemModelGenerator.register(ModBlocks.MEAT_PIZZA_ITEM, Models.GENERATED);
         itemModelGenerator.register(ModItems.VEGAN_PIZZA_SLICE, Models.GENERATED);

@@ -69,6 +69,18 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(AVOCADO_FRUIT_LEAVES_ITEM)
                 .add(LEMON_FRUIT_LEAVES_ITEM);
 
+        getOrCreateTagBuilder(ItemTags.WOODEN_SLABS)
+                .add(AVOCADO_SLAB_ITEM)
+                .add(LEMON_SLAB_ITEM);
+
+        getOrCreateTagBuilder(ItemTags.WOODEN_DOORS)
+                .add(AVOCADO_DOOR_ITEM)
+                .add(LEMON_DOOR_ITEM);
+
+        getOrCreateTagBuilder(ItemTags.WOODEN_TRAPDOORS)
+                .add(AVOCADO_TRAPDOOR_ITEM)
+                .add(LEMON_TRAPDOOR_ITEM);
+
         getOrCreateTagBuilder(ItemTags.SAPLINGS)
                 .add(LEMON_SAPLING_ITEM)
                 .add(AVOCADO_SAPLING_ITEM);

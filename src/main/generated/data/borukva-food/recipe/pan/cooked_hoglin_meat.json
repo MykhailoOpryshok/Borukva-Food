@@ -1,0 +1,13 @@
+{
+  "type": "borukva-food:pan",
+  "input": {
+    "base": {
+      "item": "borukva-food:hoglin_meat"
+    }
+  },
+  "output": {
+    "count": 1,
+    "id": "borukva-food:cooked_hoglin_meat"
+  },
+  "time": 100.0
+}

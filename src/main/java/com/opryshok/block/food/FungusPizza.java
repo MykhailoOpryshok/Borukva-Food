@@ -1,6 +1,7 @@
 package com.opryshok.block.food;
 
 import com.opryshok.BorukvaFood;
+import com.opryshok.item.ModItems;
 import com.opryshok.utils.ModProperties;
 import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.ItemDisplayElementUtil;
@@ -28,7 +29,7 @@ public class FungusPizza extends MeatPizza{
 
     @Override
     public Item getSlice() {
-        return super.getSlice();
+        return ModItems.FUNGUS_PIZZA_SLICE;
     }
 
     public static final class Model extends VeganPizza.Model {

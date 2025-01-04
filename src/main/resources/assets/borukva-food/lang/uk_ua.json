@@ -149,6 +149,7 @@
 
   "subtitle.borukva-food.frying": "Смаження",
   "subtitle.borukva-food.spraying": "Обприскування",
+  "subtitle.borukva-food.boiling": "Кипіння",
   "tooltip.borukva-food.harvest_sickle": "Збирає рослини в радіусі 3x3 блока",
   "commands.borukva-food.config_reload": "Конфіг перезавантажений!",
 
@@ -160,7 +161,7 @@
 
   "item.borukva-food.nether_wheat_seeds": "Насіння пекельної пшениці",
   "item.borukva-food.nether_wheat": "Пекельна пшениця",
-  "item.borukva-food.nether_wheat_bun": "Пекельна булочка",
+  "item.borukva-food.nether_bun": "Пекельна булочка",
   "item.borukva-food.fungus_pizza_slice": "Шматок грибної піци",
   "item.borukva-food.hoglin_meat": "М'ясо гоґліна",
   "item.borukva-food.cooked_hoglin_meat": "Смажене м'ясо гоґліна",

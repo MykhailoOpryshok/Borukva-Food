@@ -17,6 +17,7 @@ import eu.pb4.polymer.core.api.item.PolymerItemGroupUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -28,6 +29,8 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 import java.util.List;
 
@@ -45,7 +48,12 @@ public class ModBlocks {
     public static final Block RICE = registerBlock("rice_crop", new RiceCrop(Block.Settings.copy(Blocks.WHEAT)));
     public static final Block NETHER_WHEAT = registerBlock("nether_wheat_crop", new NetherWheatCrop(Block.Settings.copy(Blocks.WHEAT)));
 
-    public static final Block NETHER_HAY = registerBlock("nether_hay", new PolyHayBlock(Block.Settings.copy(Blocks.HAY_BLOCK)));
+    public static final Block NETHER_HAY = registerBlock("nether_hay", new PolyLogBlock(Block.Settings.copy(Blocks.HAY_BLOCK)){
+        @Override
+        public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {return Blocks.HAY_BLOCK.getDefaultState();}
+        @Override
+        public void onLandedUpon(World world, BlockState state, BlockPos pos, Entity entity, float fallDistance) {entity.handleFallDamage(fallDistance, 0.2F, world.getDamageSources().fall());}
+    });
     public static final Block FERTILIZER_SPRAYER = registerBlock("fertilizer_sprayer", new FertilizerSprayerBlock(Block.Settings.copy(Blocks.IRON_BLOCK)));
     public static final Block BETTER_FARMLAND = registerBlock("better_farmland", new BetterFarmlandBlock(Block.Settings.copy(Blocks.FARMLAND)));
     public static final Block MEAT_PIZZA = registerBlock("meat_pizza", new MeatPizza(Block.Settings.copy(Blocks.CAKE)));
@@ -83,6 +91,7 @@ public class ModBlocks {
     public static final Block LEMON_SLAB = registerBlock("lemon_slab", new PolySlabBlock(Block.Settings.copy(Blocks.OAK_SLAB), "lemon_slab", LEMON_PLANKS.getDefaultState()));
     public static final Block LEMON_TRAPDOOR = registerBlock("lemon_trapdoor", new PolyTrapdoorBlock(Block.Settings.copy(Blocks.OAK_TRAPDOOR), "lemon_trapdoor"));
     public static final Block LEMON_SAPLING = registerBlock("lemon_sapling", new PolySaplingBlock(ModSaplingGenerator.LEMON, Block.Settings.copy(Blocks.OAK_SAPLING), "lemon_sapling"));
+    public static final Block LEMON_DOOR = registerBlock("lemon_door", new PolyDoorBlock(Block.Settings.copy(Blocks.OAK_DOOR), "lemon_door"));
     public static final Block AVOCADO_LOG = registerBlock("avocado_log", new PolyLogBlock(Block.Settings.copy(Blocks.OAK_LOG)));
     public static final Block AVOCADO_WOOD = registerBlock("avocado_wood", new PolyLogBlock(Block.Settings.copy(Blocks.OAK_WOOD)));
     public static final Block STRIPPED_AVOCADO_LOG = registerBlock("stripped_avocado_log", new PolyLogBlock(Block.Settings.copy(Blocks.OAK_LOG)));
@@ -110,6 +119,8 @@ public class ModBlocks {
     public static final BlockItem LEMON_LEAVES_ITEM = registerBlockItem("lemon_leaves", new TexturedPolyBlockItem(LEMON_LEAVES, new Item.Settings(), "block/lemon_leaves"));
     public static final BlockItem LEMON_PLANKS_ITEM = registerBlockItem("lemon_planks", new TexturedPolyBlockItem(LEMON_PLANKS, new Item.Settings(), "block/lemon_planks"));
     public static final BlockItem LEMON_SLAB_ITEM = registerBlockItem("lemon_slab", new TexturedPolyBlockItem(LEMON_SLAB, new Item.Settings(), "block/lemon_slab"));
+    public static final BlockItem LEMON_TRAPDOOR_ITEM = registerBlockItem("lemon_trapdoor", new TexturedPolyBlockItem(LEMON_TRAPDOOR, new Item.Settings(), "item/lemon_trapdoor"));
+    public static final BlockItem LEMON_DOOR_ITEM = registerBlockItem("lemon_door", new TexturedPolyBlockItem(LEMON_DOOR, new Item.Settings(), "item/lemon_door"));
     public static final BlockItem LEMON_SAPLING_ITEM = registerBlockItem("lemon_sapling", new TexturedPolyBlockItem(LEMON_SAPLING, new Item.Settings(), "item/lemon_sapling"));
     public static final BlockItem AVOCADO_LOG_ITEM = registerBlockItem("avocado_log", new TexturedPolyBlockItem(AVOCADO_LOG, new Item.Settings(), "block/avocado_log"));
     public static final BlockItem AVOCADO_WOOD_ITEM = registerBlockItem("avocado_wood", new TexturedPolyBlockItem(AVOCADO_WOOD, new Item.Settings(), "block/avocado_wood"));
@@ -133,8 +144,8 @@ public class ModBlocks {
         @Override
         public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
             super.appendTooltip(stack, context, tooltip, type);
-            tooltip.add(Text.translatable("tooltip.borukva-food.cutting_board_line1").formatted(Formatting.YELLOW));
-            tooltip.add(Text.translatable("tooltip.borukva-food.cutting_board_line2").formatted(Formatting.YELLOW));
+            tooltip.add(Text.translatable("tooltip.borukva-food.cutting_board_line1").formatted(Formatting.GRAY));
+            tooltip.add(Text.translatable("tooltip.borukva-food.cutting_board_line2").formatted(Formatting.GRAY));
         }
     });
     public static final BlockItem BEETROOT_CRATE_ITEM = registerBlockItem("beetroot_crate", new TexturedPolyBlockItem(BEETROOT_CRATE, new Item.Settings(), "block/beetroot_crate"));
@@ -165,6 +176,7 @@ public class ModBlocks {
             entries.add(TOMATO_CRATE_ITEM);
             entries.add(ONION_CRATE_ITEM);
             entries.add(RICE_CRATE_ITEM);
+            entries.add(NETHER_HAY);
             entries.add(STOVE_ITEM);
             entries.add(PAN_ITEM);
             entries.add(POT_ITEM);
@@ -185,6 +197,8 @@ public class ModBlocks {
             entries.add(STRIPPED_LEMON_WOOD_ITEM);
             entries.add(LEMON_PLANKS_ITEM);
             entries.add(LEMON_SLAB_ITEM);
+            entries.add(LEMON_TRAPDOOR_ITEM);
+            entries.add(LEMON_DOOR_ITEM);
             entries.add(AVOCADO_SAPLING_ITEM);
             entries.add(AVOCADO_LEAVES_ITEM);
             entries.add(AVOCADO_FRUIT_LEAVES_ITEM);

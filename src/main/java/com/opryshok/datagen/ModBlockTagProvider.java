@@ -39,6 +39,21 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(SALT)
                 .add(FERTILIZER_SPRAYER);
 
+        getOrCreateTagBuilder(BlockTags.WOODEN_DOORS)
+                .add(AVOCADO_DOOR)
+                .add(LEMON_DOOR);
+
+        getOrCreateTagBuilder(BlockTags.WOODEN_TRAPDOORS)
+                .add(AVOCADO_TRAPDOOR)
+                .add(LEMON_TRAPDOOR);
+
+        getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
+                .add(NETHER_HAY);
+
+        getOrCreateTagBuilder(BlockTags.WOODEN_SLABS)
+                .add(AVOCADO_SLAB)
+                .add(LEMON_SLAB);
+
         getOrCreateTagBuilder(ModTags.Blocks.LEMON_LOGS)
                 .add(LEMON_LOG)
                 .add(LEMON_WOOD)

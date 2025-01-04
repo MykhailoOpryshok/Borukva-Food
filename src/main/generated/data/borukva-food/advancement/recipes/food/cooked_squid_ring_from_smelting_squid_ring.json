@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_squid_ring": {
+      "conditions": {
+        "items": [
+          {
+            "items": "borukva-food:squid_ring"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:cooked_squid_ring_from_smelting_squid_ring"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_squid_ring"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:cooked_squid_ring_from_smelting_squid_ring"
+    ]
+  }
+}

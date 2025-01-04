@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "group": "cooked_beef_slices",
+  "ingredient": {
+    "item": "borukva-food:beef_slices"
+  },
+  "result": {
+    "id": "borukva-food:cooked_beef_slices"
+  }
+}
