@@ -13,16 +13,21 @@ import net.minecraft.block.enums.BlockHalf;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Direction;
 
 public class PolyTrapdoorBlock extends TrapdoorBlock implements PolymerTexturedBlock {
-    private final BlockState TOP_TRAPDOOR;
-    private final BlockState BOTTOM_TRAPDOOR;
+    private final BlockState TOP_TRAPDOOR_NORTH;
+    private final BlockState BOTTOM_TRAPDOOR_NORTH;
+    private final BlockState TOP_TRAPDOOR_WEST;
+    private final BlockState BOTTOM_TRAPDOOR_WEST;
     private final BlockState NORTH_TRAPDOOR;
     private final BlockState EAST_TRAPDOOR;
     private final BlockState SOUTH_TRAPDOOR;
     private final BlockState WEST_TRAPDOOR;
-    private final BlockState TOP_TRAPDOOR_WATERLOGGED;
-    private final BlockState BOTTOM_TRAPDOOR_WATERLOGGED;
+    private final BlockState TOP_TRAPDOOR_NORTH_WATERLOGGED;
+    private final BlockState BOTTOM_TRAPDOOR_NORTH_WATERLOGGED;
+    private final BlockState TOP_TRAPDOOR_WEST_WATERLOGGED;
+    private final BlockState BOTTOM_TRAPDOOR_WEST_WATERLOGGED;
     private final BlockState NORTH_TRAPDOOR_WATERLOGGED;
     private final BlockState EAST_TRAPDOOR_WATERLOGGED;
     private final BlockState SOUTH_TRAPDOOR_WATERLOGGED;
@@ -31,14 +36,18 @@ public class PolyTrapdoorBlock extends TrapdoorBlock implements PolymerTexturedB
     public PolyTrapdoorBlock(Settings settings, String path) {
         super(BlockSetType.OAK, settings);
         this.path = path;
-        TOP_TRAPDOOR = initializeModels(BlockModelType.TOP_TRAPDOOR, "top");
-        BOTTOM_TRAPDOOR = initializeModels(BlockModelType.BOTTOM_TRAPDOOR, "bottom");
+        TOP_TRAPDOOR_NORTH = initializeModels(BlockModelType.TOP_TRAPDOOR, "top_north");
+        BOTTOM_TRAPDOOR_NORTH = initializeModels(BlockModelType.BOTTOM_TRAPDOOR, "bottom_north");
+        TOP_TRAPDOOR_WEST = initializeModels(BlockModelType.TOP_TRAPDOOR, "top_west");
+        BOTTOM_TRAPDOOR_WEST = initializeModels(BlockModelType.BOTTOM_TRAPDOOR, "bottom_west");
         NORTH_TRAPDOOR = initializeModels(BlockModelType.NORTH_TRAPDOOR, "north");
         EAST_TRAPDOOR = initializeModels(BlockModelType.EAST_TRAPDOOR, "east");
         SOUTH_TRAPDOOR = initializeModels(BlockModelType.SOUTH_TRAPDOOR, "south");
         WEST_TRAPDOOR = initializeModels(BlockModelType.WEST_TRAPDOOR, "west");
-        TOP_TRAPDOOR_WATERLOGGED = initializeModels(BlockModelType.TOP_TRAPDOOR_WATERLOGGED, "top");
-        BOTTOM_TRAPDOOR_WATERLOGGED = initializeModels(BlockModelType.BOTTOM_TRAPDOOR_WATERLOGGED, "bottom");
+        TOP_TRAPDOOR_NORTH_WATERLOGGED = initializeModels(BlockModelType.TOP_TRAPDOOR_WATERLOGGED, "top_north");
+        BOTTOM_TRAPDOOR_NORTH_WATERLOGGED = initializeModels(BlockModelType.BOTTOM_TRAPDOOR_WATERLOGGED, "bottom_north");
+        TOP_TRAPDOOR_WEST_WATERLOGGED = initializeModels(BlockModelType.TOP_TRAPDOOR_WATERLOGGED, "top_west");
+        BOTTOM_TRAPDOOR_WEST_WATERLOGGED = initializeModels(BlockModelType.BOTTOM_TRAPDOOR_WATERLOGGED, "bottom_west");
         NORTH_TRAPDOOR_WATERLOGGED = initializeModels(BlockModelType.NORTH_TRAPDOOR_WATERLOGGED, "north");
         EAST_TRAPDOOR_WATERLOGGED = initializeModels(BlockModelType.EAST_TRAPDOOR_WATERLOGGED, "east");
         SOUTH_TRAPDOOR_WATERLOGGED = initializeModels(BlockModelType.SOUTH_TRAPDOOR_WATERLOGGED, "south");
@@ -64,9 +73,17 @@ public class PolyTrapdoorBlock extends TrapdoorBlock implements PolymerTexturedB
             };
         }else {
             if(state.get(Properties.BLOCK_HALF) == BlockHalf.TOP){
-                return waterlogged ? TOP_TRAPDOOR_WATERLOGGED : TOP_TRAPDOOR;
+                if (state.get(FACING) == Direction.NORTH || state.get(FACING) == Direction.SOUTH){
+                    return waterlogged ? TOP_TRAPDOOR_NORTH_WATERLOGGED : TOP_TRAPDOOR_NORTH;
+                } else {
+                    return waterlogged ? TOP_TRAPDOOR_WEST_WATERLOGGED : TOP_TRAPDOOR_WEST;
+                }
             } else{
-                return waterlogged ? BOTTOM_TRAPDOOR_WATERLOGGED : BOTTOM_TRAPDOOR;
+                if (state.get(FACING) == Direction.NORTH || state.get(FACING) == Direction.SOUTH){
+                    return waterlogged ? BOTTOM_TRAPDOOR_NORTH_WATERLOGGED : BOTTOM_TRAPDOOR_NORTH;
+                } else {
+                    return waterlogged ? BOTTOM_TRAPDOOR_WEST_WATERLOGGED : BOTTOM_TRAPDOOR_WEST;
+                }
             }
         }
     }

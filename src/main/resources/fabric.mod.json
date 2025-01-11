@@ -30,9 +30,9 @@
 		"minecraft": "~1.21",
 		"java": ">=21",
 		"fabric-api": "*",
-		"polymer-core": ">=0.7.5",
-		"polymer-resource-pack": ">=0.9.11",
-		"polymer-virtual-entity": ">=0.9.11"
+		"polymer-core": ">=0.9.18",
+		"polymer-resource-pack": ">=0.9.18",
+		"polymer-virtual-entity": ">=0.9.18"
 	},
 	"suggests": {
 		"another-mod": "*"

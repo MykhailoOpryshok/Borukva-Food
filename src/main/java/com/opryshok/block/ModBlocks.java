@@ -60,9 +60,9 @@ public class ModBlocks {
     public static final Block VEGAN_PIZZA = registerBlock("vegan_pizza", new VeganPizza(Block.Settings.copy(Blocks.CAKE)));
     public static final Block FUNGUS_PIZZA = registerBlock("fungus_pizza", new FungusPizza(Block.Settings.copy(Blocks.CAKE)));
     public static final Block STOVE = registerBlock("stove", new Stove(Block.Settings.copy(Blocks.MUD_BRICKS)));
-    public static final Block PAN = registerBlock("pan", new Pan(Block.Settings.copy(Blocks.IRON_TRAPDOOR)));
-    public static final Block POT = registerBlock("pot", new Pot(Block.Settings.copy(Blocks.IRON_TRAPDOOR)));
-    public static final Block CUTTING_BOARD = registerBlock("cutting_board", new CuttingBoard(Block.Settings.copy(Blocks.OAK_PLANKS)));
+    public static final Block PAN = registerBlock("pan", new Pan(Block.Settings.copy(Blocks.OAK_PRESSURE_PLATE)));
+    public static final Block POT = registerBlock("pot", new Pot(Block.Settings.copy(Blocks.OAK_PRESSURE_PLATE)));
+    public static final Block CUTTING_BOARD = registerBlock("cutting_board", new CuttingBoard(Block.Settings.copy(Blocks.OAK_PRESSURE_PLATE)));
     public static final Block BEETROOT_CRATE = registerBlock("beetroot_crate", new SimplePolyBlock(Block.Settings.copy(Blocks.COMPOSTER), "beetroot_crate"));
     public static final Block CABBAGE_CRATE = registerBlock("cabbage_crate", new SimplePolyBlock(Block.Settings.copy(Blocks.COMPOSTER), "cabbage_crate"));
     public static final Block CARROT_CRATE = registerBlock("carrot_crate", new SimplePolyBlock(Block.Settings.copy(Blocks.COMPOSTER), "carrot_crate"));
