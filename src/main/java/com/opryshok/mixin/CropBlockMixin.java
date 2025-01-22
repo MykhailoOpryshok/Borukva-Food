@@ -16,6 +16,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.Objects;
+
 import static com.opryshok.BorukvaFood.modConfig;
 
 @Mixin(CropBlock.class)
@@ -68,15 +70,25 @@ public abstract class CropBlockMixin {
 
         if(world.getBlockState(pos.down()).isOf(ModBlocks.BETTER_FARMLAND)){
             BlockState farmlandState = world.getBlockState(pos.down());
-            float x = farmlandState.get(ModProperties.FERTILITY);
-            edited = f * (2* (x / 10));
 
-            var acidity = farmlandState.get(ModProperties.ACIDITY);
-            if (acidity < 3 || acidity > 7){
-                edited /= 3;
+            float acidity = farmlandState.get(ModProperties.ACIDITY);
+
+            if(Objects.equals(modConfig.getAcidityEffects(), "fertility")){
+                edited *= (modConfig.getFertilityGrowthModifier() * (acidity / 10));
+            } else if(!Objects.equals(modConfig.getAcidityEffects(), "disabled")) {
+                if (acidity < 3 || acidity > 7) {
+                    edited /= 3;
+                }
             }
+
+            float x = farmlandState.get(ModProperties.FERTILITY);
+            edited *= (modConfig.getFertilityGrowthModifier() * (x / 10));
+
             if (x == 0){
                 edited = 0.00001f;
+            }
+            if (modConfig.isOnlyGoodEffects() && edited < f){
+                edited = f;
             }
         }
         cir.setReturnValue(edited);
@@ -100,7 +112,7 @@ public abstract class CropBlockMixin {
     public void FertilityDecrement(World world, BlockPos pos, int i){
         if (world.getBlockState(pos.down()).isOf(ModBlocks.BETTER_FARMLAND)){
             var random = new java.util.Random();
-            if (random.nextBoolean()) {
+            if (random.nextDouble() < (modConfig.getSoilDegradationChance() / 100)) {
                 CropBlock crop = (CropBlock) (Object) this;
                 if (i == crop.getMaxAge()) {
                     BlockState farmlandState = world.getBlockState(pos.down());
