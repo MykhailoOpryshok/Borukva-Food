@@ -11,6 +11,10 @@ public class ModTags {
     public static class Blocks{
         public static final TagKey<Block> LEMON_LOGS = createTag("lemon_logs");
         public static final TagKey<Block> AVOCADO_LOGS = createTag("avocado_logs");
+
+        public static final TagKey<Block> CONVENTIONAL_FARMLAND = TagKey.of(RegistryKeys.BLOCK, Identifier.of("c", "farmland"));
+        public static final TagKey<Block> CONVENTIONAL_FARMLANDS = TagKey.of(RegistryKeys.BLOCK, Identifier.of("c", "farmlands"));
+
         private static TagKey<Block> createTag(String name){
             return  TagKey.of(RegistryKeys.BLOCK, Identifier.of(BorukvaFood.MOD_ID, name));
         }
