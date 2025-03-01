@@ -535,7 +535,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 CuttingBoardRecipe.of("cooked_chicken_leg", CountedIngredient.ofItems(1, Items.COOKED_CHICKEN), new ItemStack(ModItems.COOKED_CHICKEN_LEG, 2)),
                 CuttingBoardRecipe.of("mutton_slices", CountedIngredient.ofItems(1, Items.MUTTON), new ItemStack(ModItems.MUTTON_SLICES, 2)),
                 CuttingBoardRecipe.of("cooked_mutton_slices", CountedIngredient.ofItems(1, Items.COOKED_MUTTON), new ItemStack(ModItems.COOKED_MUTTON_SLICES, 2)),
-                CuttingBoardRecipe.of("peeled_squid_tentacles", CountedIngredient.ofItems(1, ModItems.SQUID_TENTAClES), new ItemStack(ModItems.PEELED_SQUID_TENTACLES))
+                CuttingBoardRecipe.of("peeled_squid_tentacles", CountedIngredient.ofItems(1, ModItems.SQUID_TENTAClES), new ItemStack(ModItems.PEELED_SQUID_TENTACLES)),
+                CuttingBoardRecipe.of("squid_ring", CountedIngredient.ofItems(1, ModItems.PEELED_SQUID_TENTACLES), new ItemStack(ModItems.SQUID_RING, 3))
         );
         of(exporter,
                 PanRecipe.of("cooked_chicken", CountedIngredient.ofItems(1, Items.CHICKEN), new ItemStack(Items.COOKED_CHICKEN), 100),
@@ -567,11 +568,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('W', Items.WHEAT)
                 .criterion(hasItem(Items.CRIMSON_FUNGUS), conditionsFromItem(Items.CRIMSON_FUNGUS))
                 .offerTo(exporter, BorukvaFood.id(getRecipeName(ModBlocks.FUNGUS_PIZZA_ITEM)));
-
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.SQUID_RING)
-                .input(ModItems.SQUID_TENTAClES)
-                .criterion(hasItem(ModItems.SQUID_TENTAClES), conditionsFromItem(ModItems.SQUID_TENTAClES))
-                .offerTo(exporter, BorukvaFood.id(getRecipeName(ModItems.SQUID_RING)));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.NETHER_BUN, 3)
                 .input(ModItems.NETHER_WHEAT, 2)
