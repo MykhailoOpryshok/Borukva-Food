@@ -1,16 +1,16 @@
-// 1.21.1	2025-02-28T20:22:08.2703464	Borukva Food/Tags for minecraft:block
-37d43e735da3bd138d8fdd1b9a83227ffb021fcc data\c\tags\block\farmland.json
-0868e18d641edc1b0592bc275291913deeb0e6c3 data\minecraft\tags\block\wooden_trapdoors.json
-6a1a2a50214881ca812efcb68adc75ab8e1aacf8 data\minecraft\tags\block\planks.json
-ee0c6d48776cc1524cf6ec63029bd03444c895bb data\minecraft\tags\block\logs_that_burn.json
-3c844e3857aaae33449a4c657ab8fb8e095ad8bb data\minecraft\tags\block\leaves.json
-1be05a6208402a2951941ebc7722d476c99d1bc4 data\minecraft\tags\block\wooden_doors.json
-97bf48458f6d9a80f0fd54fe2477feb6772821eb data\borukva-food\tags\block\lemon_logs.json
-84a9bd37f1485570250b500f5b949d909567eb38 data\minecraft\tags\block\saplings.json
-836ea0cb1d3b3746fe71a51712170bc592ac1af0 data\borukva-food\tags\block\avocado_logs.json
-0233048249706ef013f2cea01b32e61a811d28c8 data\minecraft\tags\block\wooden_slabs.json
-36499468ef607db73552bd305d73a4072e12b485 data\minecraft\tags\block\mineable\axe.json
-7c56d93a711c07c5b540a83e4f9b3af66470b2b1 data\minecraft\tags\block\mineable\hoe.json
-e3078cafe5fe83192f6eb4a146a4800a563b5237 data\minecraft\tags\block\mineable\pickaxe.json
-37d43e735da3bd138d8fdd1b9a83227ffb021fcc data\minecraft\tags\block\mineable\shovel.json
-37d43e735da3bd138d8fdd1b9a83227ffb021fcc data\c\tags\block\farmlands.json
+// 1.21.1	2025-03-01T03:09:56.908380941	Borukva Food/Tags for minecraft:block
+e3078cafe5fe83192f6eb4a146a4800a563b5237 data/minecraft/tags/block/mineable/pickaxe.json
+37d43e735da3bd138d8fdd1b9a83227ffb021fcc data/c/tags/block/farmlands.json
+0868e18d641edc1b0592bc275291913deeb0e6c3 data/minecraft/tags/block/wooden_trapdoors.json
+6a1a2a50214881ca812efcb68adc75ab8e1aacf8 data/minecraft/tags/block/planks.json
+3c844e3857aaae33449a4c657ab8fb8e095ad8bb data/minecraft/tags/block/leaves.json
+37d43e735da3bd138d8fdd1b9a83227ffb021fcc data/minecraft/tags/block/mineable/shovel.json
+36499468ef607db73552bd305d73a4072e12b485 data/minecraft/tags/block/mineable/axe.json
+1be05a6208402a2951941ebc7722d476c99d1bc4 data/minecraft/tags/block/wooden_doors.json
+7c56d93a711c07c5b540a83e4f9b3af66470b2b1 data/minecraft/tags/block/mineable/hoe.json
+0233048249706ef013f2cea01b32e61a811d28c8 data/minecraft/tags/block/wooden_slabs.json
+97bf48458f6d9a80f0fd54fe2477feb6772821eb data/borukva-food/tags/block/lemon_logs.json
+ee0c6d48776cc1524cf6ec63029bd03444c895bb data/minecraft/tags/block/logs_that_burn.json
+84a9bd37f1485570250b500f5b949d909567eb38 data/minecraft/tags/block/saplings.json
+37d43e735da3bd138d8fdd1b9a83227ffb021fcc data/c/tags/block/farmland.json
+836ea0cb1d3b3746fe71a51712170bc592ac1af0 data/borukva-food/tags/block/avocado_logs.json
