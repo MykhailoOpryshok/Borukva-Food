@@ -3,6 +3,7 @@ package com.opryshok.item;
 import com.github.quiltservertools.ledger.callbacks.BlockBreakCallback;
 import com.github.quiltservertools.ledger.callbacks.BlockPlaceCallback;
 import com.opryshok.BorukvaFood;
+import com.opryshok.utils.ModTags;
 import eu.pb4.polymer.core.api.item.PolymerItem;
 import eu.pb4.polymer.resourcepack.api.PolymerModelData;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
@@ -39,28 +40,27 @@ public class HarvestSickleItem extends ToolItem implements PolymerItem {
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         World world = context.getWorld();
-        BlockPos centerPos = context.getBlockPos();
+        BlockPos placeAt = context.getBlockPos().offset(context.getSide());
         PlayerEntity player = context.getPlayer();
 //        ItemStack sickleStack = context.getStack();
 
         if (!world.isClient && player != null) {
         ItemStack offHandStack = player.getOffHandStack();
-
-            BlockState targetedBlockState = world.getBlockState(centerPos);
-            Block targetedBlock = targetedBlockState.getBlock();
-
             boolean actionPerformed = false;
 
-            // Check if right-clicked block is farmland and player holds seeds in off-hand
-            if (targetedBlock instanceof FarmlandBlock && offHandStack.getItem() instanceof AliasedBlockItem seedItem) {
+            // Check if the offhand item can be planted at the specified position.
+            if (offHandStack.getItem() instanceof BlockItem seedItem
+                && offHandStack.isIn(ModTags.Items.CONVENTIONAL_SEEDS)
+                && seedItem.getBlock() instanceof CropBlock cropBlock
+                && cropBlock.getDefaultState().canPlaceAt(world, placeAt)
+            ) {
                 // Plant seeds in a 3x3 area
                 for (int dx = -1; dx <= 1; dx++) {
                     for (int dz = -1; dz <= 1; dz++) {
-                        BlockPos pos = centerPos.add(dx, 1, dz); // Position above farmland
-                        BlockState stateBelow = world.getBlockState(pos.down());
+                        BlockPos pos = placeAt.add(dx, 0, dz);
                         BlockState stateAtPos = world.getBlockState(pos);
 
-                        if (stateBelow.getBlock() instanceof FarmlandBlock && stateAtPos.isAir() && offHandStack.getCount() > 0) {
+                        if (stateAtPos.isAir() && cropBlock.getDefaultState().canPlaceAt(world, pos) && offHandStack.getCount() > 0) {
                             BlockState seedBlockState = seedItem.getBlock().getDefaultState();
                             world.setBlockState(pos, seedBlockState);
                             offHandStack.decrement(1);
@@ -74,7 +74,7 @@ public class HarvestSickleItem extends ToolItem implements PolymerItem {
 
                 if (actionPerformed) {
                     // Play planting sound
-                    world.playSound(null, centerPos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                    world.playSound(null, placeAt, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 }
 
                 return ActionResult.SUCCESS;

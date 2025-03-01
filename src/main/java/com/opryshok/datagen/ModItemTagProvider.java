@@ -85,5 +85,18 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(LEMON_SAPLING_ITEM)
                 .add(AVOCADO_SAPLING_ITEM);
 
+        getOrCreateTagBuilder(ModTags.Items.CONVENTIONAL_SEEDS)
+            .addOptionalTag(ItemTags.VILLAGER_PLANTABLE_SEEDS)
+            .add(ModItems.RICE)
+            .add(ModItems.TOMATO_SEEDS)
+            .add(ModItems.CABBAGE_SEEDS)
+            .add(ModItems.CORN_SEEDS)
+            .add(ModItems.CHILLI_PEPPER_SEEDS)
+            .add(ModItems.CUCUMBER_SEEDS)
+            .add(ModItems.LETTUCE_SEEDS)
+            .add(ModItems.ONION_SEEDS)
+            .add(ModItems.BLACKCURRANTS)
+            .add(ModItems.GOOSEBERRY)
+            .add(ModItems.NETHER_WHEAT_SEEDS);
     }
 }

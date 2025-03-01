@@ -83,5 +83,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.SAPLINGS)
                 .add(LEMON_SAPLING)
                 .add(AVOCADO_SAPLING);
+
+        getOrCreateTagBuilder(ModTags.Blocks.CONVENTIONAL_FARMLAND).add(BETTER_FARMLAND);
+        getOrCreateTagBuilder(ModTags.Blocks.CONVENTIONAL_FARMLANDS).add(BETTER_FARMLAND);
     }
 }
