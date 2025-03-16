@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "borukva-food:lemon"
-    },
-    {
-      "item": "minecraft:sugar"
-    }
+    "borukva-food:lemon",
+    "minecraft:sugar"
   ],
   "result": {
     "count": 3,

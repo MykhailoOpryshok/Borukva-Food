@@ -9,7 +9,6 @@ import com.opryshok.utils.BorukvaFoodUtil;
 import com.opryshok.utils.MinimalSidedInventory;
 import eu.pb4.factorytools.api.advancement.TriggerCriterion;
 import eu.pb4.factorytools.api.block.entity.LockableBlockEntity;
-import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.FurnaceBlockEntity;
@@ -64,8 +63,8 @@ public class StoveBlockEntity extends LockableBlockEntity implements MinimalSide
                 var stack = self.getStack(i);
 
                 if (!stack.isEmpty()) {
-                    var value = FuelRegistry.INSTANCE.get(stack.getItem());
-                    if (value != null) {
+                    var value = world.getFuelRegistry().getFuelTicks(stack);
+                    if (value != 0) {
                         var remainder = stack.getRecipeRemainder();
                         stack.decrement(1);
                         self.fuelTicks = value * 10;
@@ -105,7 +104,7 @@ public class StoveBlockEntity extends LockableBlockEntity implements MinimalSide
 
     @Override
     public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
-        return FurnaceBlockEntity.canUseAsFuel(stack);
+        return world.getFuelRegistry().isFuel(stack);
     }
 
     @Override

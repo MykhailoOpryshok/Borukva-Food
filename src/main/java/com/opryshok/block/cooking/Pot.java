@@ -5,7 +5,6 @@ import com.opryshok.BorukvaFood;
 import com.opryshok.block.ModBlocks;
 import com.opryshok.entity.PotBlockEntity;
 import eu.pb4.factorytools.api.block.FactoryBlock;
-import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.BlockModel;
 import eu.pb4.factorytools.api.virtualentity.ItemDisplayElementUtil;
 import eu.pb4.polymer.virtualentity.api.ElementHolder;
@@ -22,21 +21,23 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
+import xyz.nucleoid.packettweaker.PacketContext;
 
 public class Pot extends BlockWithEntity implements FactoryBlock, BlockEntityProvider, InventoryProvider {
     public static final BooleanProperty LIT = Properties.LIT;
-    public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+    public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
     public static final MapCodec<Pot> CODEC = createCodec(Pot::new);
 
     public Pot(Settings settings) {
@@ -45,7 +46,7 @@ public class Pot extends BlockWithEntity implements FactoryBlock, BlockEntityPro
     }
 
     @Override
-    public BlockState getPolymerBlockState(BlockState state) {
+    public BlockState getPolymerBlockState(BlockState state, PacketContext context) {
         return Blocks.BARRIER.getDefaultState();
     }
 
@@ -107,7 +108,7 @@ public class Pot extends BlockWithEntity implements FactoryBlock, BlockEntityPro
     }
 
     public static final class Model extends BlockModel {
-        public static final ItemStack MODEL = BaseItemProvider.requestModel(Identifier.of(BorukvaFood.MOD_ID, "block/pot"));
+        public static final ItemStack MODEL = ItemDisplayElementUtil.getModel(Identifier.of(BorukvaFood.MOD_ID, "block/pot"));
         public ItemDisplayElement pot;
         public ServerWorld world;
         public BlockPos pos;
@@ -129,7 +130,7 @@ public class Pot extends BlockWithEntity implements FactoryBlock, BlockEntityPro
 
         private void updateStatePos(BlockState state) {
             var direction = state.get(FACING);
-            this.pot.setYaw(direction.asRotation());
+            this.pot.setYaw(direction.getPositiveHorizontalDegrees());
             this.pot.setPitch(90f + 180f);
         }
     }

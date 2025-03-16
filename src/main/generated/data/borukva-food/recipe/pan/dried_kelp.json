@@ -1,9 +1,7 @@
 {
   "type": "borukva-food:pan",
   "input": {
-    "base": {
-      "item": "minecraft:kelp"
-    }
+    "base": "minecraft:kelp"
   },
   "output": {
     "count": 1,

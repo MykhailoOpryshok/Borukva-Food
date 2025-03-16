@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "minecraft:pumpkin"
-    },
-    {
-      "item": "minecraft:sugar"
-    }
+    "minecraft:pumpkin",
+    "minecraft:sugar"
   ],
   "result": {
     "count": 3,

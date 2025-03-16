@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "S": {
-      "item": "borukva-food:nether_hay"
-    }
+    "S": "borukva-food:nether_hay"
   },
   "pattern": [
     "SSS",

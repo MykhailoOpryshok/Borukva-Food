@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "borukva-food:sunflower_seed"
-    },
-    {
-      "item": "borukva-food:sunflower_seed"
-    }
+    "borukva-food:sunflower_seed",
+    "borukva-food:sunflower_seed"
   ],
   "result": {
     "count": 1,

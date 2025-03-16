@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "borukva-food:oil"
-    },
-    {
-      "item": "minecraft:egg"
-    },
-    {
-      "item": "borukva-food:lemon"
-    }
+    "borukva-food:oil",
+    "minecraft:egg",
+    "borukva-food:lemon"
   ],
   "result": {
     "count": 1,

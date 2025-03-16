@@ -1,7 +1,6 @@
 package com.opryshok.block.food;
 
 import com.opryshok.BorukvaFood;
-import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.ItemDisplayElementUtil;
 import eu.pb4.polymer.virtualentity.api.ElementHolder;
 import net.minecraft.block.BlockState;
@@ -29,8 +28,7 @@ public class HoneyCake extends ChocolateCake{
 
         static {
             for (int i = 0; i <= 6; i++) {
-                HONEY_MODEL.add(BaseItemProvider.requestModel(Identifier.of(BorukvaFood.MOD_ID, "honey_cake")
-                        .withPrefixedPath("block/")
+                HONEY_MODEL.add(ItemDisplayElementUtil.getModel(Identifier.of(BorukvaFood.MOD_ID, "block/honey_cake")
                         .withSuffixedPath("_slice" + i)));
             }
         }

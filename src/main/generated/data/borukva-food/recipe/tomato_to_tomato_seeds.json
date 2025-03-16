@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "borukva-food:tomato"
-    }
+    "borukva-food:tomato"
   ],
   "result": {
     "count": 3,

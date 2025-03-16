@@ -11,7 +11,7 @@ public record CuttingBoardInput (ItemStack input, World world) implements Recipe
     }
 
     @Override
-    public int getSize() {
+    public int size() {
         return 1;
     }
 }

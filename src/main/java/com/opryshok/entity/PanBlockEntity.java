@@ -25,6 +25,7 @@ import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
@@ -79,7 +80,7 @@ public class PanBlockEntity extends LockableBlockEntity implements MinimalSidedI
         }
     }
     public static <T extends BlockEntity> void tick(World world, BlockPos pos, BlockState state, T t) {
-        if (t instanceof PanBlockEntity self) {
+        if (t instanceof PanBlockEntity self && world instanceof ServerWorld serverWorld) {
             self.active = state.get(Properties.LIT);
             boolean hasItems = self.items.stream().anyMatch(stack -> !stack.isEmpty() && !stack.isOf(Items.AIR));
             if (self.active && hasItems) {
@@ -88,7 +89,7 @@ public class PanBlockEntity extends LockableBlockEntity implements MinimalSidedI
                     RecipeEntry<PanRecipe> currentRecipe = self.currentRecipes[i];
 
                     if (currentRecipe == null || !currentRecipe.value().matches(new PanInput(stack, world), world)) {
-                        self.currentRecipes[i] = world.getRecipeManager()
+                        self.currentRecipes[i] = serverWorld.getRecipeManager()
                                 .getFirstMatch(ModRecipeTypes.PAN, new PanInput(stack, world), world)
                                 .orElse(null);
                         self.slotTick.put(i, 0);

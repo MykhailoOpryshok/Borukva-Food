@@ -1,42 +1,32 @@
 package com.opryshok.item;
 
-import com.opryshok.BorukvaFood;
 import com.opryshok.block.food.VeganPizza;
 import com.opryshok.utils.BorukvaFoodUtil;
 import com.opryshok.utils.ModProperties;
+import com.opryshok.utils.ModTags;
 import eu.pb4.polymer.core.api.item.PolymerItem;
-import eu.pb4.polymer.resourcepack.api.PolymerModelData;
-import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
+import xyz.nucleoid.packettweaker.PacketContext;
 
-public class KnifeTool extends ToolItem implements PolymerItem {
-    private final PolymerModelData polymerModel;
+public class KnifeTool extends MiningToolItem implements PolymerItem {
 
-    public KnifeTool(Settings settings) {
-        super(ToolMaterials.IRON, settings);
-
-        polymerModel = PolymerResourcePackUtils.requestModel(Items.IRON_SWORD, Identifier.of(BorukvaFood.MOD_ID, "item/knife"));
+    public KnifeTool(Item.Settings settings) {
+        super(ToolMaterial.IRON, ModTags.Blocks.KNIFE_MINEABLE, 6.0F, -3.1F, settings);
     }
 
     @Override
-    public Item getPolymerItem(ItemStack itemStack, @Nullable ServerPlayerEntity player) {
-        return polymerModel.item();
-    }
-    @Override
-    public int getPolymerCustomModelData(ItemStack itemStack, @Nullable ServerPlayerEntity player) {
-        return polymerModel.value();
+    public Item getPolymerItem(ItemStack itemStack, @Nullable PacketContext context) {
+        return Items.IRON_SWORD;
     }
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {

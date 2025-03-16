@@ -4,9 +4,7 @@
   "cookingtime": 200,
   "experience": 0.35,
   "group": "cooked_mutton_slices",
-  "ingredient": {
-    "item": "borukva-food:mutton_slices"
-  },
+  "ingredient": "borukva-food:mutton_slices",
   "result": {
     "id": "borukva-food:cooked_mutton_slices"
   }

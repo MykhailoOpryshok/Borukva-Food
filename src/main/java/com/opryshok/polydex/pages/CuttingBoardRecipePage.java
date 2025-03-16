@@ -15,16 +15,23 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 public class CuttingBoardRecipePage extends PrioritizedRecipePage<CuttingBoardRecipe>{
     private static final ItemStack ICON = ModBlocks.CUTTING_BOARD_ITEM.getDefaultStack();
-    private final PolydexIngredient<?> ingredients;
+    private final Optional<PolydexIngredient<?>> ingredients;
     private final PolydexStack<?> output;
     public CuttingBoardRecipePage(RecipeEntry<CuttingBoardRecipe> recipe) {
         super(recipe);
-        this.ingredients = PolydexIngredient.of(this.recipe.input().ingredient());
+        this.ingredients = this.recipe.input().ingredient().map(PolydexIngredient::of);
         this.output = PolydexStack.of(this.recipe.output());
+    }
+
+    @Override
+    public ItemStack getOutput(@Nullable PolydexEntry polydexEntry, MinecraftServer minecraftServer) {
+        return this.recipe.output().copy();
     }
 
     @Override
@@ -49,12 +56,13 @@ public class CuttingBoardRecipePage extends PrioritizedRecipePage<CuttingBoardRe
 
     @Override
     public List<PolydexIngredient<?>> ingredients() {
-        return List.of(ingredients);
+        Optional<List<PolydexIngredient<?>>> polydexIngredients = ingredients.map(List::of);
+        return polydexIngredients.orElse(Collections.emptyList());
     }
 
     @Override
     public void createPage(@Nullable PolydexEntry polydexEntry, ServerPlayerEntity serverPlayerEntity, PageBuilder pageBuilder) {
-        pageBuilder.setIngredient(3, 2, this.ingredients);
+        ingredients.ifPresent(ingredient -> pageBuilder.setIngredient(3, 2, ingredient));
         pageBuilder.setIngredient(4, 2, ModItems.KNIFE.getDefaultStack());
         pageBuilder.setOutput(5, 2, this.output);
     }

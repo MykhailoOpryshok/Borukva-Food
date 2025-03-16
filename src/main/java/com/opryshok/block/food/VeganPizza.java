@@ -5,7 +5,6 @@ import com.opryshok.item.ModItems;
 import com.opryshok.utils.ModProperties;
 import com.opryshok.utils.TransparentBlocks.TransparentFlatTripWire;
 import eu.pb4.factorytools.api.block.FactoryBlock;
-import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.BlockModel;
 import eu.pb4.factorytools.api.virtualentity.ItemDisplayElementUtil;
 import eu.pb4.polymer.virtualentity.api.ElementHolder;
@@ -27,15 +26,6 @@ import org.joml.Vector3f;
 import java.util.ArrayList;
 
 public class VeganPizza extends Block implements TransparentFlatTripWire, FactoryBlock {
-    public static final ArrayList<ItemStack> MODEL = new ArrayList<>();
-
-    static {
-        for (int i = 0; i <= 7; i++) {
-            MODEL.add(BaseItemProvider.requestModel(Identifier.of(BorukvaFood.MOD_ID, "vegan_pizza")
-                    .withPrefixedPath("block/")
-                    .withSuffixedPath("_slice" + i)));
-        }
-    }
 
     public VeganPizza(Settings settings) {
         super(settings.nonOpaque());
@@ -67,8 +57,7 @@ public class VeganPizza extends Block implements TransparentFlatTripWire, Factor
 
         static {
             for (int i = 0; i <= 7; i++) {
-                MODEL.add(BaseItemProvider.requestModel(Identifier.of(BorukvaFood.MOD_ID, "vegan_pizza")
-                        .withPrefixedPath("block/")
+                MODEL.add(ItemDisplayElementUtil.getModel(Identifier.of(BorukvaFood.MOD_ID, "block/vegan_pizza")
                         .withSuffixedPath("_slice" + i)));
             }
         }

@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "borukva-food:cabbage"
-    }
+    "borukva-food:cabbage"
   ],
   "result": {
     "count": 3,

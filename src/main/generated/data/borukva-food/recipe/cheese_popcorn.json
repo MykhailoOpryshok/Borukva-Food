@@ -2,18 +2,10 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "borukva-food:popcorn"
-    },
-    {
-      "item": "borukva-food:popcorn"
-    },
-    {
-      "item": "borukva-food:cheese"
-    },
-    {
-      "item": "minecraft:paper"
-    }
+    "borukva-food:popcorn",
+    "borukva-food:popcorn",
+    "borukva-food:cheese",
+    "minecraft:paper"
   ],
   "result": {
     "count": 1,

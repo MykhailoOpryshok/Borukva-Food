@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "borukva-food:nether_wheat"
-    }
+    "borukva-food:nether_wheat"
   ],
   "result": {
     "count": 9,

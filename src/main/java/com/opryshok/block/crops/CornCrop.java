@@ -2,7 +2,6 @@ package com.opryshok.block.crops;
 
 import com.opryshok.BorukvaFood;
 import com.opryshok.item.ModItems;
-import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.ItemDisplayElementUtil;
 import eu.pb4.polymer.virtualentity.api.ElementHolder;
 import net.minecraft.block.BlockState;
@@ -33,7 +32,7 @@ public class CornCrop extends TomatoCrop {
         public static final ArrayList<ItemStack> MODELS = new ArrayList<>();
         static{
             for (int i = 0; i <= 4; i++){
-                MODELS.add(BaseItemProvider.requestModel(Identifier.of(BorukvaFood.MOD_ID, "block/corn_crop_stage"+i)));
+                MODELS.add(ItemDisplayElementUtil.getModel(Identifier.of(BorukvaFood.MOD_ID, "block/corn_crop_stage"+i)));
             }
         }
 

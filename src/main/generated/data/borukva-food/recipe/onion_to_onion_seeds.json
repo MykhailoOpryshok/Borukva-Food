@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "borukva-food:onion"
-    }
+    "borukva-food:onion"
   ],
   "result": {
     "count": 3,

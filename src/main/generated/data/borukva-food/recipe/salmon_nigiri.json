@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "borukva-food:salmon_fillet"
-    },
-    {
-      "item": "borukva-food:rice"
-    },
-    {
-      "item": "borukva-food:nori"
-    }
+    "borukva-food:salmon_fillet",
+    "borukva-food:rice",
+    "borukva-food:nori"
   ],
   "result": {
     "count": 3,
