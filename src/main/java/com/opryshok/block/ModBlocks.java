@@ -3,6 +3,7 @@ package com.opryshok.block;
 import com.opryshok.BorukvaFood;
 import com.opryshok.block.bushes.BlackcurrantsBush;
 import com.opryshok.block.bushes.GooseberryBush;
+import com.opryshok.block.bushes.GrapeCrop;
 import com.opryshok.block.cooking.CuttingBoard;
 import com.opryshok.block.cooking.Pan;
 import com.opryshok.block.cooking.Pot;
@@ -18,13 +19,11 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -47,12 +46,20 @@ public class ModBlocks {
     public static final Block ONION = registerBlock("onion_crop", new OnionCrop(Block.Settings.copy(Blocks.WHEAT)));
     public static final Block RICE = registerBlock("rice_crop", new RiceCrop(Block.Settings.copy(Blocks.WHEAT)));
     public static final Block NETHER_WHEAT = registerBlock("nether_wheat_crop", new NetherWheatCrop(Block.Settings.copy(Blocks.WHEAT)));
-
+    public static final Block ENDER_INFECTED_ONION = registerBlock("ender_infected_onion", new EnderInfectedOnionCrop(Block.Settings.copy(Blocks.WHEAT)));
     public static final Block NETHER_HAY = registerBlock("nether_hay", new PolyLogBlock(Block.Settings.copy(Blocks.HAY_BLOCK)){
         @Override
         public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {return Blocks.HAY_BLOCK.getDefaultState();}
         @Override
         public void onLandedUpon(World world, BlockState state, BlockPos pos, Entity entity, float fallDistance) {entity.handleFallDamage(fallDistance, 0.2F, world.getDamageSources().fall());}
+    });
+    public static final Block WORMWOOD_GRASS = registerBlock("wormwood_grass", new WormwoodGrass(Block.Settings.copy(Blocks.GRASS_BLOCK)));
+    public static final Item WORMWOOD = registerBlockItem("wormwood", new TexturedPolyBlockItem(WORMWOOD_GRASS, new Item.Settings(), "item/wormwood"){
+        protected boolean canPlace(ItemPlacementContext context, BlockState state) {
+            BlockPos posBelow = context.getBlockPos().down();
+            BlockState stateBelow = context.getWorld().getBlockState(posBelow);
+            return stateBelow.isIn(BlockTags.DIRT) && super.canPlace(context, state);
+        }
     });
     public static final Block FERTILIZER_SPRAYER = registerBlock("fertilizer_sprayer", new FertilizerSprayerBlock(Block.Settings.copy(Blocks.IRON_BLOCK)));
     public static final Block BETTER_FARMLAND = registerBlock("better_farmland", new BetterFarmlandBlock(Block.Settings.copy(Blocks.FARMLAND)));
@@ -76,6 +83,8 @@ public class ModBlocks {
     public static final Block RICE_CRATE = registerBlock("rice_crate", new SimplePolyBlock(Block.Settings.copy(Blocks.COMPOSTER), "rice_crate"));
     public static final Block BLACKCURRANTS_BUSH = registerBlock("blackcurrants_bush", new BlackcurrantsBush(Block.Settings.copy(Blocks.SWEET_BERRY_BUSH)));
     public static final Block GOOSEBERRY_BUSH = registerBlock("gooseberry_bush", new GooseberryBush(Block.Settings.copy(Blocks.SWEET_BERRY_BUSH)));
+    public static final Block GRAPE = registerBlock("grape_crop", new GrapeCrop(Block.Settings.copy(Blocks.SWEET_BERRY_BUSH)));
+    public static final Block CHORUS_CRATE = registerBlock("chorus_crate", new SimplePolyBlock(Block.Settings.copy(Blocks.COMPOSTER), "chorus_crate"));
     public static final Block SALT = registerBlock("salt_block", new SimplePolyBlock(Block.Settings.copy(Blocks.STONE), "salt_block"){
         @Override
         public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
@@ -159,6 +168,8 @@ public class ModBlocks {
     public static final BlockItem TOMATO_CRATE_ITEM = registerBlockItem("tomato_crate", new TexturedPolyBlockItem(TOMATO_CRATE, new Item.Settings(), "block/tomato_crate"));
     public static final BlockItem ONION_CRATE_ITEM = registerBlockItem("onion_crate", new TexturedPolyBlockItem(ONION_CRATE, new Item.Settings(), "block/onion_crate"));
     public static final BlockItem RICE_CRATE_ITEM = registerBlockItem("rice_crate", new TexturedPolyBlockItem(RICE_CRATE, new Item.Settings(), "block/rice_crate"));
+    public static final BlockItem CHORUS_CRATE_ITEM = registerBlockItem("chorus_crate", new TexturedPolyBlockItem(CHORUS_CRATE, new Item.Settings(), "block/chorus_crate"));
+
     public static void registerBlocks() {
         ItemGroup.Builder builder = PolymerItemGroupUtils.builder();
         builder.icon(() -> new ItemStack(ModBlocks.TOMATO_CRATE_ITEM, 1));
@@ -176,6 +187,7 @@ public class ModBlocks {
             entries.add(TOMATO_CRATE_ITEM);
             entries.add(ONION_CRATE_ITEM);
             entries.add(RICE_CRATE_ITEM);
+            entries.add(CHORUS_CRATE_ITEM);
             entries.add(NETHER_HAY);
             entries.add(STOVE_ITEM);
             entries.add(PAN_ITEM);
@@ -210,6 +222,7 @@ public class ModBlocks {
             entries.add(AVOCADO_SLAB_ITEM);
             entries.add(AVOCADO_TRAPDOOR_ITEM);
             entries.add(AVOCADO_DOOR_ITEM);
+            entries.add(ModItems.GRAPE_SAPLING);
         });
         ItemGroup polymerGroup = builder.build();
         PolymerItemGroupUtils.registerPolymerItemGroup(Identifier.of(BorukvaFood.MOD_ID, "blocks"), polymerGroup);

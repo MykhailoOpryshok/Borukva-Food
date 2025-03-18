@@ -13,7 +13,6 @@ import org.jetbrains.annotations.Nullable;
 
 public class PolyItem extends Item implements PolymerItem {
     private final PolymerModelData polymerModel;
-
     public PolyItem(Settings settings, String modelId) {
         super(settings);
 

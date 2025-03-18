@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "borukva-food:nether_bun_slice"
+    },
+    "H": {
+      "item": "borukva-food:cooked_hoglin_meat"
+    }
+  },
+  "pattern": [
+    " B ",
+    " H ",
+    " B "
+  ],
+  "result": {
+    "count": 1,
+    "id": "borukva-food:hoglin_sandwich"
+  }
+}

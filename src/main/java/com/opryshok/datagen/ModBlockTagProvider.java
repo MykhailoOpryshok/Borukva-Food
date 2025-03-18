@@ -30,7 +30,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(TOMATO_CRATE)
                 .add(CUTTING_BOARD)
                 .add(ONION_CRATE)
-                .add(RICE_CRATE);
+                .add(RICE_CRATE)
+                .add(CHORUS_CRATE);
 
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(BETTER_FARMLAND);
 
