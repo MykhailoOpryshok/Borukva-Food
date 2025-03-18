@@ -48,6 +48,7 @@ public class ModItems {
     public static Item CUCUMBER_SEEDS = registerItem("cucumber_seeds", settings -> new PolymerBlockItem(ModBlocks.CUCUMBER, settings));
     public static Item LETTUCE_SEEDS = registerItem("lettuce_seeds", settings -> new PolymerBlockItem(ModBlocks.LETTUCE, settings));
     public static Item ONION_SEEDS = registerItem("onion_seeds", settings -> new PolymerBlockItem(ModBlocks.ONION, settings));
+    public static Item ENDER_INFECTED_ONION_SEEDS = registerItem("ender_infected_onion_seeds", settings -> new PolymerBlockItem(ModBlocks.ENDER_INFECTED_ONION, settings));
     public static Item TOMATO = registerItem("tomato", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.TOMATO));
     public static Item CABBAGE = registerItem("cabbage", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.CABBAGE));
     public static Item CHILLI_PEPPER = registerItem("chilli_pepper", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.CHILLI_PEPPER, ModConsumableComponents.CHILLI_PEPPER));
@@ -58,6 +59,8 @@ public class ModItems {
     public static Item BLACKCURRANTS = registerItem("blackcurrants", settings -> new PolymerBlockItem(ModBlocks.BLACKCURRANTS_BUSH, settings), new Item.Settings().food(FoodComponents.SWEET_BERRIES));
     public static Item GOOSEBERRY = registerItem("gooseberry", settings -> new PolymerBlockItem(ModBlocks.GOOSEBERRY_BUSH, settings), new Item.Settings().food(FoodComponents.SWEET_BERRIES));
     public static Item ONION = registerItem("onion", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.ONION, ModConsumableComponents.ONION));
+    public static Item GRAPE_SAPLING = registerItem("grape_sapling", settings -> new PolymerBlockItem(ModBlocks.GRAPE, settings));
+    public static Item ENDER_INFECTED_ONION = registerItem("ender_infected_onion", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.ENDER_INFECTED_ONION));
     public static Item SALT = registerItem("salt", SimplePolymerItem::new);
     public static Item WAFFLE = registerItem("waffle", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.WAFFLE));
     public static Item CHOCOLATE_BAR = registerItem("chocolate_bar", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.CHOCOLATE_BAR));
@@ -125,6 +128,19 @@ public class ModItems {
     public static Item PEELED_SQUID_TENTACLES = registerItem("peeled_squid_tentacles", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.PEELED_SQUID_TENTACLES));
     public static Item SQUID_TENTAClES = registerItem("squid_tentacles", SimplePolymerItem::new);
 
+    public static Item CHORUS_FRUIT_IN_CHOCOLATE_ON_A_STICK = registerItem("chorus_fruit_in_chocolate_on_a_stick", ChorusPolyItem::new, new Item.Settings().food(ModFoodComponents.CHORUS_FRUIT_IN_CHOCOLATE_ON_A_STICK));
+    public static Item CHORUS_FRUITS_WITH_ENDER_JAM = registerItem("chorus_fruits_with_ender_jam", ChorusPolyItem::new, new Item.Settings().food(ModFoodComponents.CHORUS_FRUITS_WITH_ENDER_JAM));
+    public static Item ENDER_JAM = registerItem("ender_jam", SimplePolymerItem::new);
+    public static Item ENDER_JAM_STEW_WITH_CHORUS_FRUIT = registerItem("ender_jam_stew_with_chorus_fruit", ChorusPolyItem::new, new Item.Settings().food(ModFoodComponents.ENDER_JAM_STEW_WITH_CHORUS_FRUIT));
+    public static Item ENDER_PIE = registerItem("ender_pie", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.ENDER_PIE));
+    public static Item GOLDEN_CHORUS_FRUIT = registerItem("golden_chorus_fruit", ChorusPolyItem::new, new Item.Settings().food(ModFoodComponents.GOLDEN_CHORUS_FRUIT, ModConsumableComponents.GOLDEN_CHORUS_FRUIT));
+    public static Item BREAD_SLICE_WITH_HONEY = registerItem("bread_slice_with_honey", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.BREAD_SLICE_WITH_HONEY));
+    public static Item BUTTER = registerItem("butter", SimplePolymerItem::new);
+    public static Item CROISSANT = registerItem("croissant", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.CROISSANT));
+    public static Item GOLDEN_BREAD = registerItem("golden_bread", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.GOLDEN_BREAD, ModConsumableComponents.GOLDEN_BREAD));
+    public static Item GRAPE = registerItem("grape", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.GRAPE));
+    public static Item HOGLIN_SANDWICH = registerItem("hoglin_sandwich", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.HOGLIN_SANDWICH));
+    public static Item NETHER_BUN_SLICE = registerItem("nether_bun_slice", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.NETHER_BUN_SLICE));
 
     private static Item registerItem(String name, Function<Item.Settings, Item> factory) {
         return registerItem(name, factory, new Item.Settings());
@@ -151,6 +167,7 @@ public class ModItems {
             entries.add(LETTUCE);
             entries.add(ONION);
             entries.add(NETHER_WHEAT);
+            entries.add(ENDER_INFECTED_ONION);
             entries.add(TOMATO_SEEDS);
             entries.add(CABBAGE_SEEDS);
             entries.add(CHILLI_PEPPER_SEEDS);
@@ -159,6 +176,7 @@ public class ModItems {
             entries.add(LETTUCE_SEEDS);
             entries.add(ONION_SEEDS);
             entries.add(NETHER_WHEAT_SEEDS);
+            entries.add(ENDER_INFECTED_ONION_SEEDS);
             entries.add(LEMON);
             entries.add(AVOCADO);
             entries.add(HOT_SPICE);
@@ -243,6 +261,19 @@ public class ModItems {
             entries.add(COOKED_CHICKEN_LEG);
             entries.add(MUTTON_SLICES);
             entries.add(COOKED_MUTTON_SLICES);
+            entries.add(CHORUS_FRUIT_IN_CHOCOLATE_ON_A_STICK);
+            entries.add(CHORUS_FRUITS_WITH_ENDER_JAM);
+            entries.add(ENDER_JAM);
+            entries.add(ENDER_JAM_STEW_WITH_CHORUS_FRUIT);
+            entries.add(ENDER_PIE);
+            entries.add(GOLDEN_CHORUS_FRUIT);
+            entries.add(BREAD_SLICE_WITH_HONEY);
+            entries.add(BUTTER);
+            entries.add(CROISSANT);
+            entries.add(GOLDEN_BREAD);
+            entries.add(GRAPE);
+            entries.add(HOGLIN_SANDWICH);
+            entries.add(NETHER_BUN_SLICE);
         });
         ItemGroup polymerGroup = builder.build();
         PolymerItemGroupUtils.registerPolymerItemGroup(Identifier.of(BorukvaFood.MOD_ID, "items"), polymerGroup);

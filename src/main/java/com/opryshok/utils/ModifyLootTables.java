@@ -81,6 +81,15 @@ public class ModifyLootTables {
                             .with(ItemEntry.builder(ModItems.TOMATO_SEEDS).weight(2))
                             .with(ItemEntry.builder(ModItems.LETTUCE_SEEDS).weight(2)));
             }
+            if((key.getValue() == LootTables.END_CITY_TREASURE_CHEST.getValue())){
+                LootPool.Builder pool = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(1f))
+                        .with(ItemEntry.builder(ModItems.ENDER_INFECTED_ONION_SEEDS))
+                        .with(ItemEntry.builder(ModBlocks.WORMWOOD))
+                        .with(ItemEntry.builder(ModItems.GRAPE_SAPLING));
+                tableBuilder.pool(pool);
+            }
         });
     }
 }

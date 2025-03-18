@@ -1,0 +1,10 @@
+{
+  "type": "borukva-food:cutting_board",
+  "input": {
+    "base": "borukva-food:nether_bun"
+  },
+  "output": {
+    "count": 2,
+    "id": "borukva-food:nether_bun_slice"
+  }
+}

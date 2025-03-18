@@ -1,0 +1,22 @@
+{
+  "type": "borukva-food:pot",
+  "bowl": {
+    "base": "minecraft:bowl"
+  },
+  "input": [
+    {
+      "base": "borukva-food:ender_jam"
+    },
+    {
+      "base": "borukva-food:ender_infected_onion"
+    },
+    {
+      "base": "minecraft:chorus_fruit"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "borukva-food:ender_jam_stew_with_chorus_fruit"
+  },
+  "time": 120.0
+}

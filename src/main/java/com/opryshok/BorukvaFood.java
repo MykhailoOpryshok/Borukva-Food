@@ -3,6 +3,7 @@ package com.opryshok;
 import com.opryshok.block.ModBlocks;
 import com.opryshok.block.bushes.BlackcurrantsBush;
 import com.opryshok.block.bushes.GooseberryBush;
+import com.opryshok.block.bushes.GrapeCrop;
 import com.opryshok.block.cooking.CuttingBoard;
 import com.opryshok.block.cooking.Pan;
 import com.opryshok.block.cooking.Pot;
@@ -21,11 +22,7 @@ import com.opryshok.recipe.ModRecipeSerializer;
 import com.opryshok.recipe.ModRecipeTypes;
 import com.opryshok.ui.GuiTextures;
 import com.opryshok.ui.UiResourceCreator;
-import com.opryshok.utils.BorukvaFoodUtil;
-import com.opryshok.utils.CompostableItems;
-import com.opryshok.utils.ModCustomTrades;
-import com.opryshok.utils.ModifyLootTables;
-import com.opryshok.utils.DoorModels;
+import com.opryshok.utils.*;
 import com.opryshok.world.gen.ModWorldGeneration;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import eu.pb4.polymer.resourcepack.extras.api.ResourcePackExtras;
@@ -96,6 +93,8 @@ public class BorukvaFood implements ModInitializer {
 		Pot.Model.MODEL.isEmpty();
 		FungusPizza.Model.FUNGUS_MODEL.forEach(ItemStack::isEmpty);
 		NetherWheatCrop.Model.MODELS.forEach(ItemStack::isEmpty);
+		EnderInfectedOnionCrop.Model.MODELS.forEach(ItemStack::isEmpty);
+		GrapeCrop.Model.MODELS.forEach(ItemStack::isEmpty);
 		DoorModels.register();
 	}
 

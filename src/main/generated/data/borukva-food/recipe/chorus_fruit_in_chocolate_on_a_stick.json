@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:stick",
+    "minecraft:chorus_fruit",
+    "borukva-food:chocolate_bar"
+  ],
+  "result": {
+    "count": 1,
+    "id": "borukva-food:chorus_fruit_in_chocolate_on_a_stick"
+  }
+}

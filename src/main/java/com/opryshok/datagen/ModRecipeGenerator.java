@@ -515,7 +515,12 @@ public class ModRecipeGenerator extends RecipeGenerator {
                 CountedIngredient.ofItems(1, Items.CRIMSON_FUNGUS),
                 CountedIngredient.ofItems(1, Items.WARPED_FUNGUS),
                 CountedIngredient.ofItems(1, Items.WARPED_FUNGUS)
-            ), CountedIngredient.ofItems(1, Items.BOWL), new ItemStack(ModItems.FUNGUS_STEW, 1), 120)
+            ), CountedIngredient.ofItems(1, Items.BOWL), new ItemStack(ModItems.FUNGUS_STEW, 1), 120),
+            PotRecipe.of("ender_jam_stew_with_chorus_fruit", List.of(
+                CountedIngredient.ofItems(1, ModItems.ENDER_JAM),
+                CountedIngredient.ofItems(1, ModItems.ENDER_INFECTED_ONION),
+                CountedIngredient.ofItems(1, Items.CHORUS_FRUIT)
+            ), CountedIngredient.ofItems(1, Items.BOWL), new ItemStack(ModItems.ENDER_JAM_STEW_WITH_CHORUS_FRUIT, 1), 120)
         );
         of(exporter,
             CuttingBoardRecipe.of("tomato_slices", CountedIngredient.ofItems(1, ModItems.TOMATO), new ItemStack(ModItems.TOMATO_SLICES, 3)),
@@ -533,7 +538,8 @@ public class ModRecipeGenerator extends RecipeGenerator {
             CuttingBoardRecipe.of("mutton_slices", CountedIngredient.ofItems(1, Items.MUTTON), new ItemStack(ModItems.MUTTON_SLICES, 2)),
             CuttingBoardRecipe.of("cooked_mutton_slices", CountedIngredient.ofItems(1, Items.COOKED_MUTTON), new ItemStack(ModItems.COOKED_MUTTON_SLICES, 2)),
             CuttingBoardRecipe.of("peeled_squid_tentacles", CountedIngredient.ofItems(1, ModItems.SQUID_TENTAClES), new ItemStack(ModItems.PEELED_SQUID_TENTACLES)),
-            CuttingBoardRecipe.of("squid_ring", CountedIngredient.ofItems(1, ModItems.PEELED_SQUID_TENTACLES), new ItemStack(ModItems.SQUID_RING, 3))
+            CuttingBoardRecipe.of("squid_ring", CountedIngredient.ofItems(1, ModItems.PEELED_SQUID_TENTACLES), new ItemStack(ModItems.SQUID_RING, 3)),
+            CuttingBoardRecipe.of("nether_bun_slice", CountedIngredient.ofItems(1, ModItems.NETHER_BUN), new ItemStack(ModItems.NETHER_BUN_SLICE, 2))
         );
         of(exporter,
             PanRecipe.of("cooked_chicken", CountedIngredient.ofItems(1, Items.CHICKEN), new ItemStack(Items.COOKED_CHICKEN), 100),
@@ -576,6 +582,77 @@ public class ModRecipeGenerator extends RecipeGenerator {
         offerTrapdoorRecipe(exporter, ModBlocks.LEMON_TRAPDOOR_ITEM, ModBlocks.LEMON_PLANKS_ITEM);
         offerDoorRecipe(exporter, ModBlocks.AVOCADO_DOOR_ITEM, ModBlocks.AVOCADO_PLANKS_ITEM);
         offerDoorRecipe(exporter, ModBlocks.LEMON_DOOR_ITEM, ModBlocks.LEMON_PLANKS_ITEM);
+
+        
+        createShapeless(RecipeCategory.FOOD, ModItems.CHORUS_FRUIT_IN_CHOCOLATE_ON_A_STICK, 1)
+            .input(Items.STICK)
+            .input(Items.CHORUS_FRUIT)
+            .input(ModItems.CHOCOLATE_BAR)
+            .criterion(hasItem(Items.CHORUS_FRUIT), conditionsFromItem(Items.CHORUS_FRUIT))
+            .offerTo(exporter);
+
+        createShapeless(RecipeCategory.FOOD, ModItems.CHORUS_FRUITS_WITH_ENDER_JAM, 1)
+            .input(Items.BOWL)
+            .input(Items.CHORUS_FRUIT)
+            .input(ModItems.ENDER_JAM)
+            .criterion(hasItem(ModItems.ENDER_JAM), conditionsFromItem(ModItems.ENDER_JAM))
+            .offerTo(exporter);
+
+        createShapeless(RecipeCategory.FOOD, ModItems.ENDER_PIE, 1)
+            .input(Items.WHEAT)
+            .input(Items.EGG)
+            .input(ModItems.ENDER_JAM)
+            .criterion(hasItem(ModItems.ENDER_JAM), conditionsFromItem(ModItems.ENDER_JAM))
+            .offerTo(exporter);
+
+        createShaped(RecipeCategory.FOOD, ModItems.GOLDEN_CHORUS_FRUIT, 1)
+            .pattern("GGG")
+            .pattern("GCG")
+            .pattern("GGG")
+            .input('G', Items.GOLD_INGOT)
+            .input('C', Items.CHORUS_FRUIT)
+            .criterion(hasItem(Items.CHORUS_FRUIT), conditionsFromItem(Items.CHORUS_FRUIT))
+            .offerTo(exporter);
+
+        createShaped(RecipeCategory.FOOD, ModItems.BREAD_SLICE_WITH_HONEY, 1)
+            .pattern(" H ")
+            .pattern(" B ")
+            .input('H', Items.HONEY_BOTTLE)
+            .input('B', ModItems.BREAD_SLICE)
+            .criterion(hasItem(ModItems.BREAD_SLICE), conditionsFromItem(ModItems.BREAD_SLICE))
+            .offerTo(exporter);
+
+        createShapeless(RecipeCategory.FOOD, ModItems.BUTTER, 1)
+            .input(Items.MILK_BUCKET)
+            .criterion(hasItem(Items.MILK_BUCKET), conditionsFromItem(Items.MILK_BUCKET))
+            .offerTo(exporter);
+
+        createShapeless(RecipeCategory.FOOD, ModItems.CROISSANT, 1)
+            .input(ModItems.BUTTER)
+            .input(Items.WHEAT)
+            .input(Items.EGG)
+            .input(Items.SUGAR)
+            .criterion(hasItem(ModItems.BUTTER), conditionsFromItem(ModItems.BUTTER))
+            .offerTo(exporter);
+
+        createShaped(RecipeCategory.FOOD, ModItems.GOLDEN_BREAD, 1)
+            .pattern("GGG")
+            .pattern("GBG")
+            .pattern("GGG")
+            .input('G', Items.GOLD_INGOT)
+            .input('B', Items.BREAD)
+            .criterion(hasItem(Items.BREAD), conditionsFromItem(Items.BREAD))
+            .offerTo(exporter);
+
+        createShaped(RecipeCategory.FOOD, ModItems.HOGLIN_SANDWICH, 1)
+            .pattern(" B ")
+            .pattern(" H ")
+            .pattern(" B ")
+            .input('B', ModItems.NETHER_BUN_SLICE)
+            .input('H', ModItems.COOKED_HOGLIN_MEAT)
+            .criterion(hasItem(ModItems.NETHER_BUN_SLICE), conditionsFromItem(ModItems.NETHER_BUN_SLICE))
+            .offerTo(exporter);
+        seedsRecipe(ModItems.ENDER_INFECTED_ONION, ModItems.ENDER_INFECTED_ONION_SEEDS, exporter);
     }
     private void offerDoorRecipe(RecipeExporter exporter, Item output, Item input) {
         createDoorRecipe(output, Ingredient.ofItems(input)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);

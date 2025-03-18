@@ -10,6 +10,8 @@
     "borukva-food:lettuce",
     "borukva-food:cucumber",
     "borukva-food:chilli_pepper",
-    "borukva-food:cabbage"
+    "borukva-food:cabbage",
+    "borukva-food:nether_wheat",
+    "borukva-food:ender_infected_onion"
   ]
 }

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "borukva-food:ender_infected_onion"
+  ],
+  "result": {
+    "count": 3,
+    "id": "borukva-food:ender_infected_onion_seeds"
+  }
+}

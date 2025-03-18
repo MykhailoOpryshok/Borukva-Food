@@ -68,7 +68,7 @@ public class ModFoodComponents {
     public static final FoodComponent NETHER_BUN = new FoodComponent.Builder().nutrition(4).saturationModifier(0.5f).build();
     public static final FoodComponent FUNGUS_PIZZA_SLICE = new FoodComponent.Builder().nutrition(4).saturationModifier(0.3f).build();
     public static final FoodComponent BOILED_CORN = new FoodComponent.Builder().nutrition(4).saturationModifier(0.3f).build();
-    public static final FoodComponent HOGLIN_MEAT = new FoodComponent.Builder().nutrition(3).saturationModifier(3).build();
+    public static final FoodComponent HOGLIN_MEAT = new FoodComponent.Builder().nutrition(3).saturationModifier(0.3f).build();
     public static final FoodComponent COOKED_HOGLIN_MEAT = new FoodComponent.Builder().nutrition(9).saturationModifier(0.7f).build();
     public static final FoodComponent FUNGUS_STEW = createStew(7).build();
     public static final FoodComponent CHICKEN_LEG = new FoodComponent.Builder().nutrition(1).saturationModifier(0.3f).build();
@@ -78,4 +78,16 @@ public class ModFoodComponents {
     public static final FoodComponent COOKED_SQUID_RING = new FoodComponent.Builder().nutrition(6).saturationModifier(0.8f).build();
     public static final FoodComponent SQUID_RING = new FoodComponent.Builder().nutrition(3).saturationModifier(0.2f).build();
     public static final FoodComponent PEELED_SQUID_TENTACLES = new FoodComponent.Builder().nutrition(3).saturationModifier(0.2f).build();
+    public static final FoodComponent CHORUS_FRUIT_IN_CHOCOLATE_ON_A_STICK = new FoodComponent.Builder().nutrition(5).saturationModifier(0.6f).build();
+    public static final FoodComponent CHORUS_FRUITS_WITH_ENDER_JAM = new FoodComponent.Builder().nutrition(7).saturationModifier(0.8f).build();
+    public static final FoodComponent ENDER_INFECTED_ONION = new FoodComponent.Builder().nutrition(3).saturationModifier(0.3f).build();
+    public static final FoodComponent ENDER_JAM_STEW_WITH_CHORUS_FRUIT = new FoodComponent.Builder().nutrition(8).saturationModifier(0.7f).build();
+    public static final FoodComponent ENDER_PIE = new FoodComponent.Builder().nutrition(9).saturationModifier(0.9f).build();
+    public static final FoodComponent GOLDEN_CHORUS_FRUIT = new FoodComponent.Builder().nutrition(6).saturationModifier(1.2f).alwaysEdible().build();
+    public static final FoodComponent BREAD_SLICE_WITH_HONEY = new FoodComponent.Builder().nutrition(5).saturationModifier(0.7f).build();
+    public static final FoodComponent CROISSANT = new FoodComponent.Builder().nutrition(6).saturationModifier(0.6f).build();
+    public static final FoodComponent GOLDEN_BREAD = new FoodComponent.Builder().nutrition(8).saturationModifier(1.2f).alwaysEdible().build();
+    public static final FoodComponent GRAPE = new FoodComponent.Builder().nutrition(3).saturationModifier(0.4f).build();
+    public static final FoodComponent HOGLIN_SANDWICH = new FoodComponent.Builder().nutrition(10).saturationModifier(1.0f).build();
+    public static final FoodComponent NETHER_BUN_SLICE = new FoodComponent.Builder().nutrition(4).saturationModifier(0.5f).build();
 }

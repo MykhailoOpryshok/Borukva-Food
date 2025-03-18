@@ -15,12 +15,15 @@ b6dc615d23bf39f4c043f8e1cdb635c0be9cb708 data/borukva-food/loot_table/blocks/bet
 8f88c6ee381de848f6c05aa6420ff6bee867ec32 data/borukva-food/loot_table/blocks/carrot_crate.json
 e694c99a2009e582c99547b840a176409b1b311b data/borukva-food/loot_table/blocks/chilli_pepper_crate.json
 aafbd5a417541dd1052550a074de14ce2ff20640 data/borukva-food/loot_table/blocks/chilli_pepper_crop.json
+ab5625b00576c9a9f8540496bdcae94109551dad data/borukva-food/loot_table/blocks/chorus_crate.json
 b6fab353de07c4f0f1ee715b861f3f32fef3d947 data/borukva-food/loot_table/blocks/corn_crate.json
 b1aebaa2d888f3d9577bae09e2b93760596be22d data/borukva-food/loot_table/blocks/corn_crop.json
 33c830b7ac4043f5ffeb58455bed977ad4e6ed71 data/borukva-food/loot_table/blocks/cucumber_crate.json
 de2ec15d9afc9ba9b3b2c268084fd07d1449e8b7 data/borukva-food/loot_table/blocks/cucumber_crop.json
 09a987d10dba6fd58c80a25860f2dd1feef425f2 data/borukva-food/loot_table/blocks/cutting_board.json
+a0fca70968cc08b8841dc809bdac33ea81ae2c87 data/borukva-food/loot_table/blocks/ender_infected_onion.json
 ec1ffa336853faaa1f7911074f792167586bf3a9 data/borukva-food/loot_table/blocks/fertilizer_sprayer.json
+cf57557af3441c07d27fc17bb5a8ba2befdf5824 data/borukva-food/loot_table/blocks/grape_crop.json
 c932a9c188b57e7ddcbeac480434fab45cd10281 data/borukva-food/loot_table/blocks/lemon_door.json
 668b55262d482b03c9ad4d10345409102b68308c data/borukva-food/loot_table/blocks/lemon_fruit_leaves.json
 3c09254a411db2e082b5a2623d64e972a6bcf929 data/borukva-food/loot_table/blocks/lemon_leaves.json
@@ -49,3 +52,4 @@ e08f5646f50ac46b5124f9fa5287c50096953de1 data/borukva-food/loot_table/blocks/ric
 5f5308679e6427b2b6e4dd80d5729dff96bb6edd data/borukva-food/loot_table/blocks/stripped_lemon_wood.json
 8152299328131474df9345eae724b1d9ffcc013e data/borukva-food/loot_table/blocks/tomato_crate.json
 5293298f4a200a83739aa86c4dd5ff7db14ae455 data/borukva-food/loot_table/blocks/tomato_crop.json
+f7048e1fbef089630e84ed4e52ed2e0be5a9539a data/borukva-food/loot_table/blocks/wormwood_grass.json

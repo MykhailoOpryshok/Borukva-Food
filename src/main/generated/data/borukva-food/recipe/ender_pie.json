@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:wheat",
+    "minecraft:egg",
+    "borukva-food:ender_jam"
+  ],
+  "result": {
+    "count": 1,
+    "id": "borukva-food:ender_pie"
+  }
+}

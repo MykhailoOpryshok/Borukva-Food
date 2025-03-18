@@ -34,7 +34,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.LETTUCE)
                 .add(ModItems.CUCUMBER)
                 .add(ModItems.CHILLI_PEPPER)
-                .add(ModItems.CABBAGE);
+                .add(ModItems.CABBAGE)
+                .add(ModItems.NETHER_WHEAT)
+                .add(ModItems.ENDER_INFECTED_ONION);
 
         getOrCreateTagBuilder(ModTags.Items.ROTTEN_SOUP_INGREDIENTS)
                 .add(Items.ROTTEN_FLESH)

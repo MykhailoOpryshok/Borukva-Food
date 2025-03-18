@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": "borukva-food:bread_slice",
+    "H": "minecraft:honey_bottle"
+  },
+  "pattern": [
+    " H ",
+    " B "
+  ],
+  "result": {
+    "count": 1,
+    "id": "borukva-food:bread_slice_with_honey"
+  }
+}

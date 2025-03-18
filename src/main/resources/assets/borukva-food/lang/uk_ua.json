@@ -174,6 +174,22 @@
   "item.borukva-food.squid_ring": "Кільце кальмара",
   "item.borukva-food.peeled_squid_tentacles": "Очищені щупальця кальмара",
   "item.borukva-food.squid_tentacles": "Щупальця кальмара",
+  "item.borukva-food.grape": "Виноград",
+  "item.borukva-food.chorus_fruit_in_chocolate_on_a_stick": "Хорус у шоколаді на палиці",
+  "item.borukva-food.chorus_fruits_with_ender_jam": "Хорус з ендер-джемом",
+  "item.borukva-food.ender_jam": "Ендер-джем",
+  "item.borukva-food.ender_jam_stew_with_chorus_fruit": "Тушкований ендер-джем з хорусом",
+  "item.borukva-food.ender_pie": "Ендер-пиріг",
+  "item.borukva-food.golden_chorus_fruit": "Золотий хорус",
+  "item.borukva-food.bread_slice_with_honey": "Скибка хліба з медом",
+  "item.borukva-food.butter": "Масло",
+  "item.borukva-food.croissant": "Круасан",
+  "item.borukva-food.golden_bread": "Золотий хліб",
+  "item.borukva-food.hoglin_sandwich": "Сендвіч з гоґліном",
+  "item.borukva-food.nether_bun_slice": "Скибка незер-булочки",
+  "item.borukva-food.ender_infected_onion_seeds": "Насіння ендер-зараженої цибулі",
+  "item.borukva-food.ender_infected_onion": "Ендер-заражена цибуля",
+
   "block.borukva-food.nether_hay": "Пекельне сіно",
   "block.borukva-food.nether_wheat_crop": "Пекельна пшениця",
   "block.borukva-food.fungus_pizza": "Грибна піца",
@@ -183,7 +199,12 @@
   "block.borukva-food.lemon_door": "Двері з лимону",
   "block.borukva-food.lemon_trapdoor": "Люк з лимону",
   "block.borukva-food.lemon_slab": "Плита з лимону",
+  "block.borukva-food.wormwood_grass": "Полин",
+  "block.borukva-food.ender_infected_onion": "Ендер-заражена Цибуля",
+  "block.borukva-food.chorus_fruit_crate": "Ящик хоруса",
+  "block.borukva-food.grape_crop": "Виноград",
 
   "tooltip.borukva-food.cutting_board_line1": "Присядьте (Shift) та натисніть ПКМ",
-  "tooltip.borukva-food.cutting_board_line2": "по блоку, щоб побачити рецепти."
+  "tooltip.borukva-food.cutting_board_line2": "по блоку, щоб побачити рецепти.",
+  "item.borukva-food.grape_sapling": "Саджанець винограду"
 }

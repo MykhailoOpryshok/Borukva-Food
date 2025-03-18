@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "borukva-food:item/chorus_fruit_in_chocolate_on_a_stick"
+  }
+}

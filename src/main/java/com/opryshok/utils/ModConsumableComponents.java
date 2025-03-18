@@ -146,6 +146,23 @@ public class ModConsumableComponents {
         .build();
     public static final ConsumableComponent ROASTED_SUNFLOWER_SEED = snack()
         .build();
+    public static final ConsumableComponent GOLDEN_CHORUS_FRUIT = food()
+        .consumeEffect(
+            new ApplyEffectsConsumeEffect(
+                List.of(
+                    new StatusEffectInstance(StatusEffects.REGENERATION, 200, 1),
+                    new StatusEffectInstance(StatusEffects.ABSORPTION, 600, 0)
+                )
+            )
+        )
+        .build();
+    public static final ConsumableComponent GOLDEN_BREAD = food()
+        .consumeEffect(
+            new ApplyEffectsConsumeEffect(
+                new StatusEffectInstance(StatusEffects.REGENERATION, 200, 0)
+            )
+        )
+        .build();
 
     public static ConsumableComponent.Builder snack() {
         return ConsumableComponent.builder().consumeSeconds(0.8f);

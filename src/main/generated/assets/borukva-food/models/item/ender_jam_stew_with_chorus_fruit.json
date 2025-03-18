@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "borukva-food:item/ender_jam_stew_with_chorus_fruit"
+  }
+}

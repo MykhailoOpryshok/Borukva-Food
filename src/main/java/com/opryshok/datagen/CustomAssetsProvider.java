@@ -58,7 +58,7 @@ public class CustomAssetsProvider implements DataProvider {
             // seeds
             ModItems.TOMATO_SEEDS, ModItems.CABBAGE_SEEDS, ModItems.CHILLI_PEPPER_SEEDS, ModItems.CORN_SEEDS,
             ModItems.CUCUMBER_SEEDS, ModItems.LETTUCE_SEEDS, ModItems.ONION_SEEDS, ModItems.NETHER_WHEAT_SEEDS,
-            ModItems.RICE,
+            ModItems.ENDER_INFECTED_ONION_SEEDS, ModItems.RICE, ModItems.GRAPE_SAPLING,
 
             // pizza / cake
             ModBlocks.MEAT_PIZZA_ITEM, ModBlocks.VEGAN_PIZZA_ITEM, ModBlocks.FUNGUS_PIZZA_ITEM,

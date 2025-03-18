@@ -38,12 +38,14 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addCropDrop(LETTUCE, ModItems.LETTUCE, ModItems.LETTUCE_SEEDS);
         addCropDrop(CUCUMBER, ModItems.CUCUMBER, ModItems.CUCUMBER_SEEDS);
         addCropDrop(ONION, ModItems.ONION, ModItems.ONION_SEEDS);
+        addCropDrop(ENDER_INFECTED_ONION, ModItems.ENDER_INFECTED_ONION, ModItems.ENDER_INFECTED_ONION_SEEDS);
         addCropDrop(RICE, ModItems.RICE_PANICLE, ModItems.RICE);
         BlockStatePropertyLootCondition.Builder builder = BlockStatePropertyLootCondition.builder(NETHER_WHEAT)
                 .properties(StatePredicate.Builder.create().exactMatch(Properties.AGE_7, 7));
         addDrop(NETHER_WHEAT, cropDrops(NETHER_WHEAT, ModItems.NETHER_WHEAT, ModItems.NETHER_WHEAT_SEEDS, builder));
         addDrop(ONION_CRATE);
         addDrop(RICE_CRATE);
+        addDrop(CHORUS_CRATE);
         addDrop(FERTILIZER_SPRAYER);
         addDrop(BETTER_FARMLAND, Blocks.DIRT.asItem());
         addDrop(STOVE);
@@ -83,6 +85,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(AVOCADO_TRAPDOOR);
         addDrop(POT);
         addDrop(NETHER_HAY);
+        addDrop(GRAPE, ModItems.GRAPE_SAPLING);
+        addDrop(WORMWOOD_GRASS, WORMWOOD);
     }
     private void addCropDrop(Block cropBlock, Item cropItem, Item seedItem) {
         BlockStatePropertyLootCondition.Builder builder = BlockStatePropertyLootCondition.builder(cropBlock)

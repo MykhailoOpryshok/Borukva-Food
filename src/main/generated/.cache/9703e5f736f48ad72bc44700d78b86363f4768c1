@@ -1,7 +1,7 @@
 // 1.21.4	-999999999-01-01T00:00:00	Borukva Food/Tags for minecraft:item
 836ea0cb1d3b3746fe71a51712170bc592ac1af0 data/borukva-food/tags/item/avocado_logs.json
 97bf48458f6d9a80f0fd54fe2477feb6772821eb data/borukva-food/tags/item/lemon_logs.json
-0a327faec7607aa72fc28d05fc589c2d88419339 data/borukva-food/tags/item/plant_food.json
+62ee5ae2aa3b2279564682d347cfd4ed2bc7cb82 data/borukva-food/tags/item/plant_food.json
 3af8b8e8c003e4b8d8c6a4ef6faa6571f6d512cd data/borukva-food/tags/item/rotten_soup_ingredients.json
 17f9e4559f17d0468206669818593e05f69de311 data/c/tags/item/seeds.json
 bfdf373db9ad69439bf5458e7729bbd733701de7 data/minecraft/tags/item/hoglin_food.json
