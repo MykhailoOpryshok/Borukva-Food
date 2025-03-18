@@ -1,9 +1,7 @@
 {
   "type": "borukva-food:pan",
   "input": {
-    "base": {
-      "item": "borukva-food:chicken_leg"
-    }
+    "base": "borukva-food:chicken_leg"
   },
   "output": {
     "count": 1,

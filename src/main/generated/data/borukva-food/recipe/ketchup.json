@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "borukva-food:tomato"
-    },
-    {
-      "item": "borukva-food:salt"
-    },
-    {
-      "item": "minecraft:sugar"
-    }
+    "borukva-food:tomato",
+    "borukva-food:salt",
+    "minecraft:sugar"
   ],
   "result": {
     "count": 1,

@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "S": {
-      "item": "borukva-food:cabbage"
-    }
+    "S": "borukva-food:cabbage"
   },
   "pattern": [
     "SSS",

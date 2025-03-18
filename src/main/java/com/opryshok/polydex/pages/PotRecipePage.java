@@ -9,6 +9,7 @@ import eu.pb4.polydex.api.v1.recipe.PolydexEntry;
 import eu.pb4.polydex.api.v1.recipe.PolydexIngredient;
 import eu.pb4.polydex.api.v1.recipe.PolydexStack;
 import net.minecraft.item.ItemStack;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -16,17 +17,23 @@ import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Optional;
 
 public class PotRecipePage extends PrioritizedRecipePage<PotRecipe>{
     private static final ItemStack ICON = ModBlocks.POT_ITEM.getDefaultStack();
     private final List<PolydexIngredient<?>> ingredients;
-    private final PolydexIngredient<?> bowl;
+    private final Optional<PolydexIngredient<?>> bowl;
     private final PolydexStack<?> output;
     public PotRecipePage(RecipeEntry<PotRecipe> recipe) {
         super(recipe);
         this.ingredients = PolydexCompatImpl.createIngredients(recipe.value().input());
-        this.bowl = PolydexIngredient.of(recipe.value().bowl().ingredient());
+        this.bowl = recipe.value().bowl().ingredient().map(PolydexIngredient::of);
         this.output = PolydexStack.of(this.recipe.output());
+    }
+
+    @Override
+    public ItemStack getOutput(@Nullable PolydexEntry polydexEntry, MinecraftServer minecraftServer) {
+        return this.recipe.output().copy();
     }
 
     @Override
@@ -61,9 +68,11 @@ public class PotRecipePage extends PrioritizedRecipePage<PotRecipe>{
             int row = 1 + i / 3;
             pageBuilder.setIngredient(column, row, ingredients.get(i));
         }
-        if(!bowl.isEmpty()){
-            pageBuilder.setIngredient(7, 1, bowl);
-        }
+        bowl.ifPresent(ingredient -> {
+            if(!ingredient.isEmpty()){
+                pageBuilder.setIngredient(7, 1, ingredient);
+            }
+        });
         pageBuilder.setOutput(7, 3, output);
     }
 }

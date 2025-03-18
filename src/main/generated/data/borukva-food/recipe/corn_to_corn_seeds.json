@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "borukva-food:corn"
-    }
+    "borukva-food:corn"
   ],
   "result": {
     "count": 3,

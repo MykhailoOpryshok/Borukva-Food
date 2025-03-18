@@ -3,9 +3,7 @@
   "category": "food",
   "cookingtime": 600,
   "experience": 0.0,
-  "ingredient": {
-    "item": "borukva-food:vegan_barbecue"
-  },
+  "ingredient": "borukva-food:vegan_barbecue",
   "result": {
     "id": "borukva-food:cooked_vegan_barbecue"
   }

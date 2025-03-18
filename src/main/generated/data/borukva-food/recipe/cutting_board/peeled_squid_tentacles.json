@@ -1,9 +1,7 @@
 {
   "type": "borukva-food:cutting_board",
   "input": {
-    "base": {
-      "item": "borukva-food:squid_tentacles"
-    }
+    "base": "borukva-food:squid_tentacles"
   },
   "output": {
     "count": 1,

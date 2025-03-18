@@ -1,9 +1,7 @@
 {
   "type": "borukva-food:cutting_board",
   "input": {
-    "base": {
-      "item": "borukva-food:tomato"
-    }
+    "base": "borukva-food:tomato"
   },
   "output": {
     "count": 3,

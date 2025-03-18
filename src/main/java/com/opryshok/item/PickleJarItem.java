@@ -1,6 +1,7 @@
 package com.opryshok.item;
 
 import com.opryshok.entity.PickleJarEntity;
+import eu.pb4.polymer.core.api.item.SimplePolymerItem;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.Item;
@@ -9,9 +10,9 @@ import net.minecraft.item.ProjectileItem;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Position;
 import net.minecraft.util.math.Vec3d;
@@ -19,12 +20,12 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class PickleJarItem extends PolyItem implements ProjectileItem {
-    public PickleJarItem(Item.Settings settings, String modelId) {
-        super(settings, modelId);
+public class PickleJarItem extends SimplePolymerItem implements ProjectileItem {
+    public PickleJarItem(Item.Settings settings) {
+        super(settings);
     }
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+    public ActionResult use(World world, PlayerEntity user, Hand hand) {
         var stack = user.getStackInHand(hand);
 
         PickleJarEntity.spawn(user.getRotationVector(), user.getEyePos(), world, stack.copyWithCount(1), user);
@@ -37,7 +38,7 @@ public class PickleJarItem extends PolyItem implements ProjectileItem {
             stack.decrement(1);
         }
 
-        return TypedActionResult.success(stack);
+        return ActionResult.SUCCESS_SERVER;
     }
     public ProjectileEntity createEntity(World world, Position pos, ItemStack stack, Direction direction) {
         return PickleJarEntity.create(Vec3d.of(direction.getVector()), pos, world, stack.copyWithCount(1));

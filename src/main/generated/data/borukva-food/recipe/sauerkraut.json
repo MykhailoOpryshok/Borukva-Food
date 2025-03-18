@@ -2,21 +2,11 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "minecraft:bowl"
-    },
-    "C": {
-      "item": "borukva-food:cabbage"
-    },
-    "G": {
-      "item": "minecraft:sugar"
-    },
-    "J": {
-      "item": "minecraft:carrot"
-    },
-    "S": {
-      "item": "borukva-food:salt"
-    }
+    "B": "minecraft:bowl",
+    "C": "borukva-food:cabbage",
+    "G": "minecraft:sugar",
+    "J": "minecraft:carrot",
+    "S": "borukva-food:salt"
   },
   "pattern": [
     "SGS",

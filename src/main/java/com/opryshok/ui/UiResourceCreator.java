@@ -3,14 +3,13 @@ package com.opryshok.ui;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.opryshok.BorukvaFood;
+import eu.pb4.factorytools.api.virtualentity.ItemDisplayElementUtil;
 import eu.pb4.polymer.resourcepack.api.AssetPaths;
-import eu.pb4.polymer.resourcepack.api.PolymerModelData;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import eu.pb4.sgui.api.elements.GuiElementBuilder;
 import it.unimi.dsi.fastutil.chars.Char2IntMap;
 import it.unimi.dsi.fastutil.chars.Char2IntOpenHashMap;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -45,7 +44,7 @@ public class UiResourceCreator {
     public static final Style STYLE = Style.EMPTY.withColor(0xFFFFFF).withFont(BorukvaFood.id("gui"));
     private static char character = 'a';
     private static final Char2IntMap SPACES = new Char2IntOpenHashMap();
-    private static final List<Pair<PolymerModelData, String>> SIMPLE_MODEL = new ArrayList<>();
+    private static final List<Pair<Identifier, String>> SIMPLE_MODEL = new ArrayList<>();
     private static final List<SlicedTexture> VERTICAL_PROGRESS = new ArrayList<>();
     private static final List<SlicedTexture> HORIZONTAL_PROGRESS = new ArrayList<>();
     private static final List<FontTexture> FONT_TEXTURES = new ArrayList<>();
@@ -64,17 +63,17 @@ public class UiResourceCreator {
         return new TextBuilders(Text.literal(builder.toString()).setStyle(STYLE));
     }
     public static Supplier<GuiElementBuilder> icon16(String path) {
-        var model = genericIconRaw(Items.ALLIUM, path, BASE_MODEL);
-        return () -> new GuiElementBuilder(model.item()).setName(Text.empty()).hideDefaultTooltip().setCustomModelData(model.value());
+        var stack = genericIconRaw(path, BASE_MODEL);
+        return () -> new GuiElementBuilder(stack).setName(Text.empty()).hideDefaultTooltip();
     }
     public static Supplier<GuiElementBuilder> icon32(String path) {
-        var model = genericIconRaw(Items.ALLIUM, path, X32_MODEL);
-        return () -> new GuiElementBuilder(model.item()).setName(Text.empty()).hideDefaultTooltip().setCustomModelData(model.value());
+        var stack = genericIconRaw(path, X32_MODEL);
+        return () -> new GuiElementBuilder(stack).setName(Text.empty()).hideDefaultTooltip();
     }
-    public static PolymerModelData genericIconRaw(Item item, String path, String base) {
-        var model = PolymerResourcePackUtils.requestModel(item, elementPath(path));
-        SIMPLE_MODEL.add(new Pair<>(model, base));
-        return model;
+    public static ItemStack genericIconRaw(String path, String base) {
+        var elementPath = elementPath(path);
+        SIMPLE_MODEL.add(new Pair<>(elementPath, base));
+        return ItemDisplayElementUtil.getModel(elementPath);
     }
     public static IntFunction<GuiElementBuilder> verticalProgress16(String path, int start, int stop, boolean reverse) {
         return genericProgress(path, start, stop, reverse, BASE_MODEL, VERTICAL_PROGRESS);
@@ -84,14 +83,14 @@ public class UiResourceCreator {
     }
     public static IntFunction<GuiElementBuilder> genericProgress(String path, int start, int stop, boolean reverse, String base, List<SlicedTexture> progressType) {
 
-        var models = new PolymerModelData[stop - start];
+        var models = new ItemStack[stop - start];
 
         progressType.add(new SlicedTexture(path, start, stop, reverse));
 
         for (var i = start; i < stop; i++) {
-            models[i - start] = genericIconRaw(Items.ALLIUM,  "gen/" + path + "_" + i, base);
+            models[i - start] = genericIconRaw("gen/" + path + "_" + i, base);
         }
-        return (i) -> new GuiElementBuilder(models[i].item()).setName(Text.empty()).hideDefaultTooltip().setCustomModelData(models[i].value());
+        return (i) -> new GuiElementBuilder(models[i]).setName(Text.empty()).hideDefaultTooltip();
     }
     private static void generateProgress(BiConsumer<String, byte[]> assetWriter, List<SlicedTexture> list, boolean horizontal) {
         for (var pair : list) {
@@ -130,8 +129,8 @@ public class UiResourceCreator {
 
     public static void generateAssets(BiConsumer<String, byte[]> assetWriter) {
         for (var texture : SIMPLE_MODEL) {
-            assetWriter.accept("assets/" + texture.getLeft().modelPath().getNamespace() + "/models/" + texture.getLeft().modelPath().getPath() + ".json",
-                    ITEM_TEMPLATE.replace("|ID|", texture.getLeft().modelPath().toString()).replace("|BASE|", texture.getRight()).getBytes(StandardCharsets.UTF_8));
+            assetWriter.accept("assets/" + texture.getLeft().getNamespace() + "/models/" + texture.getLeft().getPath() + ".json",
+                ITEM_TEMPLATE.replace("|ID|", texture.getLeft().toString()).replace("|BASE|", texture.getRight()).getBytes(StandardCharsets.UTF_8));
         }
 
         generateProgress(assetWriter, VERTICAL_PROGRESS, false);

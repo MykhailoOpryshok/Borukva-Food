@@ -20,6 +20,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -92,20 +93,20 @@ public class CuttingBoardBlockEntity extends LockableBlockEntity implements Mini
         }
     }
     public boolean processItemUsingTool(World world, ItemStack tool, PlayerEntity player) {
-        if (world == null) {
+        if (!(world instanceof ServerWorld serverWorld)) {
             return false;
         }
         if (tool.isOf(ModItems.KNIFE)){
             var input = new CuttingBoardInput(getItemStack(), world);
             if(currentRecipe == null && !getItemStack().isEmpty()){
-                currentRecipe = world.getRecipeManager().getFirstMatch(ModRecipeTypes.CUTTING_BOARD, input, world).orElse(null);
+                currentRecipe = serverWorld.getRecipeManager().getFirstMatch(ModRecipeTypes.CUTTING_BOARD, input, world).orElse(null);
             }
             if(currentRecipe != null){
                 tool.damage(1, player, LivingEntity.getSlotForHand(player.getActiveHand()));
 
                 BorukvaFoodUtil.ledgerMixinInvoke();
 
-                ItemScatterer.spawn(world, player.getX(), player.getY(), player.getZ(), currentRecipe.value().craft(input, world.getRegistryManager()).copy());
+                ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), currentRecipe.value().craft(input, world.getRegistryManager()).copy());
                 currentRecipe.value().applyRecipeUse(this, world);
                 currentRecipe = null;
                 markDirty();

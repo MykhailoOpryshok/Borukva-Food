@@ -1,35 +1,23 @@
 {
   "type": "borukva-food:pot",
   "bowl": {
-    "base": {
-      "item": "minecraft:bowl"
-    }
+    "base": "minecraft:bowl"
   },
   "input": [
     {
-      "base": {
-        "item": "minecraft:carrot"
-      }
+      "base": "minecraft:carrot"
     },
     {
-      "base": {
-        "item": "minecraft:chicken"
-      }
+      "base": "minecraft:chicken"
     },
     {
-      "base": {
-        "item": "borukva-food:onion"
-      }
+      "base": "borukva-food:onion"
     },
     {
-      "base": {
-        "item": "borukva-food:oil"
-      }
+      "base": "borukva-food:oil"
     },
     {
-      "base": {
-        "item": "borukva-food:salt"
-      }
+      "base": "borukva-food:salt"
     }
   ],
   "output": {

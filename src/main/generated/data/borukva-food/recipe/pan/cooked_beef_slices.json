@@ -1,9 +1,7 @@
 {
   "type": "borukva-food:pan",
   "input": {
-    "base": {
-      "item": "borukva-food:beef_slices"
-    }
+    "base": "borukva-food:beef_slices"
   },
   "output": {
     "count": 1,

@@ -5,7 +5,6 @@ import com.opryshok.BorukvaFood;
 import com.opryshok.block.ModBlocks;
 import com.opryshok.entity.StoveBlockEntity;
 import eu.pb4.factorytools.api.block.FactoryBlock;
-import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.BlockModel;
 import eu.pb4.factorytools.api.virtualentity.ItemDisplayElementUtil;
 import eu.pb4.polymer.virtualentity.api.ElementHolder;
@@ -24,22 +23,24 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
+import xyz.nucleoid.packettweaker.PacketContext;
 
 public class Stove extends BlockWithEntity implements FactoryBlock, BlockEntityProvider, InventoryProvider {
     public static final MapCodec<Stove> CODEC;
     public static final BooleanProperty LIT;
-    public static final DirectionProperty FACING;
+    public static final EnumProperty<Direction> FACING;
 
     static{
         FACING = Properties.HORIZONTAL_FACING;
@@ -52,7 +53,7 @@ public class Stove extends BlockWithEntity implements FactoryBlock, BlockEntityP
     }
 
     @Override
-    public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
+    public BlockState getPolymerBreakEventBlockState(BlockState state, PacketContext context) {
         return Blocks.MUD_BRICKS.getDefaultState();
     }
 
@@ -136,13 +137,13 @@ public class Stove extends BlockWithEntity implements FactoryBlock, BlockEntityP
     }
 
     @Override
-    public BlockState getPolymerBlockState(BlockState state) {
+    public BlockState getPolymerBlockState(BlockState state, PacketContext context) {
         return Blocks.BARRIER.getDefaultState();
     }
 
     public static final class Model extends BlockModel{
-        public static final ItemStack LIT_FALSE = BaseItemProvider.requestModel(Identifier.of(BorukvaFood.MOD_ID, "block/stove"));
-        public static final ItemStack LIT_TRUE = BaseItemProvider.requestModel(Identifier.of(BorukvaFood.MOD_ID, "block/stove_on"));
+        public static final ItemStack LIT_FALSE = ItemDisplayElementUtil.getModel(Identifier.of(BorukvaFood.MOD_ID, "block/stove"));
+        public static final ItemStack LIT_TRUE = ItemDisplayElementUtil.getModel(Identifier.of(BorukvaFood.MOD_ID, "block/stove_on"));
 
         public ItemDisplayElement stove;
         public Model(BlockState state){
@@ -156,7 +157,7 @@ public class Stove extends BlockWithEntity implements FactoryBlock, BlockEntityP
         }
         private void updateStatePos(BlockState state){
             var direction = state.get(FACING);
-            this.stove.setYaw(direction.asRotation());
+            this.stove.setYaw(direction.getPositiveHorizontalDegrees());
         }
 
         private void updateItem(BlockState state) {

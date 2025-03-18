@@ -1,6 +1,5 @@
 package com.opryshok.ui;
 
-import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
@@ -14,7 +13,7 @@ public class FuelSlot extends LedgerSlot {
     }
 
     public boolean canInsert(ItemStack stack) {
-        return FuelRegistry.INSTANCE.get(stack.getItem()) != null || isBucket(stack);
+        return player.getWorld().getFuelRegistry().isFuel(stack) || isBucket(stack);
     }
 
     public int getMaxItemCount(ItemStack stack) {

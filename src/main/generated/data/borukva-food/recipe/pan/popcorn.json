@@ -1,9 +1,7 @@
 {
   "type": "borukva-food:pan",
   "input": {
-    "base": {
-      "item": "borukva-food:corn_seeds"
-    }
+    "base": "borukva-food:corn_seeds"
   },
   "output": {
     "count": 1,

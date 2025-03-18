@@ -2,7 +2,6 @@ package com.opryshok.block.bushes;
 
 import com.opryshok.BorukvaFood;
 import com.opryshok.item.ModItems;
-import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.BlockModel;
 import eu.pb4.factorytools.api.virtualentity.ItemDisplayElementUtil;
 import eu.pb4.polymer.virtualentity.api.ElementHolder;
@@ -48,7 +47,7 @@ public class GooseberryBush extends BlackcurrantsBush {
             BlockState blockState = state.with(AGE, 1);
             world.setBlockState(pos, blockState, 2);
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
-            return ActionResult.success(world.isClient);
+            return ActionResult.SUCCESS_SERVER;
         } else {
             return super.onUse(state, world, pos, player, hit);
         }
@@ -62,7 +61,7 @@ public class GooseberryBush extends BlackcurrantsBush {
         public static final ArrayList<ItemStack> MODELS = new ArrayList<>();
         static{
             for (int i = 0; i <= 3; i++){
-                MODELS.add(BaseItemProvider.requestModel(Identifier.of(BorukvaFood.MOD_ID, "block/gooseberry_bush_stage"+i)));
+                MODELS.add(ItemDisplayElementUtil.getModel(Identifier.of(BorukvaFood.MOD_ID, "block/gooseberry_bush_stage"+i)));
             }
         }
         public ItemDisplayElement main;

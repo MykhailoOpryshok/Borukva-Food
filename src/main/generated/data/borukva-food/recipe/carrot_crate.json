@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "S": {
-      "item": "minecraft:carrot"
-    }
+    "S": "minecraft:carrot"
   },
   "pattern": [
     "SSS",

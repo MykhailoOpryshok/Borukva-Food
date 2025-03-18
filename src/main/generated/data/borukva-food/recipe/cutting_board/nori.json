@@ -1,9 +1,7 @@
 {
   "type": "borukva-food:cutting_board",
   "input": {
-    "base": {
-      "item": "minecraft:dried_kelp"
-    }
+    "base": "minecraft:dried_kelp"
   },
   "output": {
     "count": 2,

@@ -3,19 +3,11 @@
   "category": "misc",
   "key": {
     "L": [
-      {
-        "item": "borukva-food:cucumber_slices"
-      },
-      {
-        "item": "borukva-food:tomato_slices"
-      }
+      "borukva-food:cucumber_slices",
+      "borukva-food:tomato_slices"
     ],
-    "P": {
-      "tag": "borukva-food:plant_food"
-    },
-    "S": {
-      "item": "minecraft:stick"
-    }
+    "P": "#borukva-food:plant_food",
+    "S": "minecraft:stick"
   },
   "pattern": [
     "P  ",

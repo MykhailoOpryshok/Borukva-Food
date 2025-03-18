@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "borukva-food:lemon_planks"
-    }
+    "#": "borukva-food:lemon_planks"
   },
   "pattern": [
     "###"

@@ -10,7 +10,6 @@ import com.opryshok.recipe.ModRecipeTypes;
 import com.opryshok.utils.BorukvaFoodUtil;
 import com.opryshok.utils.TransparentBlocks.TransparentFlatTripWire;
 import eu.pb4.factorytools.api.block.FactoryBlock;
-import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.BlockModel;
 import eu.pb4.factorytools.api.virtualentity.ItemDisplayElementUtil;
 import eu.pb4.polydex.api.v1.recipe.PolydexCategory;
@@ -28,20 +27,22 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
+import xyz.nucleoid.packettweaker.PacketContext;
 
 public class CuttingBoard extends BlockWithEntity implements TransparentFlatTripWire, FactoryBlock, BlockEntityProvider, InventoryProvider {
-    public static DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+    public static EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
     public static final MapCodec<CuttingBoard> CODEC = createCodec(CuttingBoard::new);
     private Model model;
     public CuttingBoard(Settings settings) {
@@ -55,7 +56,7 @@ public class CuttingBoard extends BlockWithEntity implements TransparentFlatTrip
     }
 
     @Override
-    public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
+    public BlockState getPolymerBreakEventBlockState(BlockState state, PacketContext context) {
         return Blocks.OAK_TRAPDOOR.getDefaultState();
     }
     @Override
@@ -163,7 +164,7 @@ public class CuttingBoard extends BlockWithEntity implements TransparentFlatTrip
     }
 
     public static class Model extends BlockModel {
-        public static final ItemStack MODEL = BaseItemProvider.requestModel(Identifier.of(BorukvaFood.MOD_ID, "block/cutting_board"));
+        public static final ItemStack MODEL = ItemDisplayElementUtil.getModel(Identifier.of(BorukvaFood.MOD_ID, "block/cutting_board"));
         public ItemDisplayElement item;
         public ItemDisplayElement main;
         public Model(BlockState state){
@@ -172,7 +173,7 @@ public class CuttingBoard extends BlockWithEntity implements TransparentFlatTrip
         public void init(BlockState state){
             main = ItemDisplayElementUtil.createSimple(MODEL);
             var direction = state.get(FACING);
-            main.setYaw(direction.asRotation());
+            main.setYaw(direction.getPositiveHorizontalDegrees());
             main.setScale(new Vector3f(1));
             addElement(main);
 
@@ -181,7 +182,7 @@ public class CuttingBoard extends BlockWithEntity implements TransparentFlatTrip
             item.setScale(new Vector3f(0.6f));
             item.setTranslation(new Vector3f(0, 0.1f, -0.45f));
             item.setPitch(90f+180f);
-            item.setYaw(direction.asRotation());
+            item.setYaw(direction.getPositiveHorizontalDegrees());
             addElement(item);
         }
         public void updateItem(ItemStack stack) {

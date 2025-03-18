@@ -1,9 +1,7 @@
 {
   "type": "borukva-food:pan",
   "input": {
-    "base": {
-      "item": "minecraft:salmon"
-    }
+    "base": "minecraft:salmon"
   },
   "output": {
     "count": 1,

@@ -1,9 +1,7 @@
 {
   "type": "borukva-food:pan",
   "input": {
-    "base": {
-      "item": "borukva-food:sunflower_seed"
-    }
+    "base": "borukva-food:sunflower_seed"
   },
   "output": {
     "count": 1,

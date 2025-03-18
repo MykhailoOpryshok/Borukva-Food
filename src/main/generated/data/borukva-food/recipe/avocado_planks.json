@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    {
-      "tag": "borukva-food:avocado_logs"
-    }
+    "#borukva-food:avocado_logs"
   ],
   "result": {
     "count": 4,

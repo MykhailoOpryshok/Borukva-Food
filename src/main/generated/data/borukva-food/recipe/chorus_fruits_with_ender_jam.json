@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "minecraft:bowl"
-    },
-    {
-      "item": "minecraft:chorus_fruit"
-    },
-    {
-      "item": "borukva-food:ender_jam"
-    }
+    "minecraft:bowl",
+    "minecraft:chorus_fruit",
+    "borukva-food:ender_jam"
   ],
   "result": {
     "count": 1,

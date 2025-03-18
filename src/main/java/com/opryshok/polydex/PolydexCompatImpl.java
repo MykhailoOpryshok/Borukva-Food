@@ -43,10 +43,11 @@ public class PolydexCompatImpl {
                     GuiUtils.playClickSound(gui.getPlayer());
                 }).build();
     }
+
     public static List<PolydexIngredient<?>> createIngredients(List<CountedIngredient> input) {
         var list = new ArrayList<PolydexIngredient<?>>(input.size());
         for (var x : input) {
-            list.add(PolydexIngredient.of(x.ingredient(), Math.max(x.count(), 1), 1));
+            list.add(PolydexIngredient.of(x.ingredient().orElse(null), Math.max(x.count(), 1), 1));
         }
         return list;
     }

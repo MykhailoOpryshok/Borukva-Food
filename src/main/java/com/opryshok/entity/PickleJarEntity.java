@@ -3,7 +3,6 @@ package com.opryshok.entity;
 import com.opryshok.item.ModItems;
 import eu.pb4.polymer.core.api.entity.PolymerEntity;
 import eu.pb4.polymer.virtualentity.api.tracker.DisplayTrackedData;
-import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MovementType;
@@ -14,6 +13,7 @@ import net.minecraft.entity.mob.PhantomEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ModelTransformationMode;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
@@ -27,6 +27,7 @@ import net.minecraft.util.math.Position;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.joml.Vector3f;
+import xyz.nucleoid.packettweaker.PacketContext;
 
 import java.util.List;
 
@@ -42,12 +43,12 @@ public class PickleJarEntity extends ProjectileEntity implements PolymerEntity {
     }
 
     @Override
-    public EntityType<?> getPolymerEntityType(ServerPlayerEntity player) {
+    public EntityType<?> getPolymerEntityType(PacketContext context) {
         return EntityType.ITEM_DISPLAY;
     }
 
     public void tick() {
-        if (!(this.getWorld() instanceof ServerWorld)) {
+        if (!(this.getWorld() instanceof ServerWorld serverWorld)) {
             return;
         }
         super.tick();
@@ -72,7 +73,7 @@ public class PickleJarEntity extends ProjectileEntity implements PolymerEntity {
         if (!entities.isEmpty()) {
             for (Entity entity : entities) {
                 int damage = entity instanceof PhantomEntity ? 100 : 0;
-                entity.damage(this.getDamageSources().thrown(this, this.getOwner()), damage);
+                entity.damage(serverWorld, this.getDamageSources().thrown(this, this.getOwner()), damage);
             }
             Break();
         }
@@ -112,10 +113,6 @@ public class PickleJarEntity extends ProjectileEntity implements PolymerEntity {
         entity.setPosition(new Vec3d(pos.getX(), pos.getY(), pos.getZ()));
         entity.setVelocity(vector);
         return entity;
-    }
-    @Override
-    public Vec3d getClientSidePosition(Vec3d vec3d) {
-        return vec3d.add(0, this.getHeight() / 2, 0);
     }
     @Override
     public Packet<ClientPlayPacketListener> createSpawnPacket(EntityTrackerEntry entityTrackerEntry) {

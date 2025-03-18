@@ -24,6 +24,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import xyz.nucleoid.packettweaker.PacketContext;
 
 public class LemonFruitLeaves extends LeavesBlock implements PolymerTexturedBlock {
     public static final BooleanProperty HAS_FRUIT = BooleanProperty.of("has_fruit");
@@ -78,7 +79,7 @@ public class LemonFruitLeaves extends LeavesBlock implements PolymerTexturedBloc
     }
 
     @Override
-    public BlockState getPolymerBlockState(BlockState state) {
+    public BlockState getPolymerBlockState(BlockState state, PacketContext context) {
         if (state.get(Properties.WATERLOGGED)) return state.get(HAS_FRUIT) ? modelWaterlogged_true : modelWaterlogged_false;
         return state.get(HAS_FRUIT) ?  model_true : model_false;
     }

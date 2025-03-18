@@ -8,6 +8,7 @@ import eu.pb4.polymer.blocks.api.PolymerTexturedBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.Identifier;
+import xyz.nucleoid.packettweaker.PacketContext;
 
 public class SimplePolyBlock extends Block implements PolymerTexturedBlock {
     private final BlockState model;
@@ -17,7 +18,7 @@ public class SimplePolyBlock extends Block implements PolymerTexturedBlock {
     }
 
     @Override
-    public BlockState getPolymerBlockState(BlockState state) {
+    public BlockState getPolymerBlockState(BlockState state, PacketContext context) {
         return model;
     }
 }

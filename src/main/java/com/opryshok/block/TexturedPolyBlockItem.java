@@ -1,9 +1,6 @@
 package com.opryshok.block;
 
-import com.opryshok.BorukvaFood;
-import eu.pb4.polymer.core.api.item.PolymerItem;
-import eu.pb4.polymer.resourcepack.api.PolymerModelData;
-import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
+import eu.pb4.polymer.core.api.item.PolymerBlockItem;
 import net.minecraft.block.Block;
 import net.minecraft.item.*;
 import net.minecraft.network.packet.s2c.play.PlaySoundS2CPacket;
@@ -11,21 +8,12 @@ import net.minecraft.registry.Registries;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
-import org.jetbrains.annotations.Nullable;
 
-public class TexturedPolyBlockItem extends BlockItem implements PolymerItem {
-    private final PolymerModelData polymerModel;
+public class TexturedPolyBlockItem extends PolymerBlockItem {
 
-    public TexturedPolyBlockItem(Block block, Settings settings, String modelId) {
+    public TexturedPolyBlockItem(Block block, Settings settings) {
         super(block, settings);
-        polymerModel = PolymerResourcePackUtils.requestModel(Items.FLINT, Identifier.of(BorukvaFood.MOD_ID, modelId ));
-    }
-
-    @Override
-    public Item getPolymerItem(ItemStack itemStack, @Nullable ServerPlayerEntity player) {
-        return this.polymerModel.item();
     }
 
     @Override
@@ -40,10 +28,5 @@ public class TexturedPolyBlockItem extends BlockItem implements PolymerItem {
             return ActionResult.SUCCESS;
         }
         return x;
-    }
-
-    @Override
-    public int getPolymerCustomModelData(ItemStack itemStack, @Nullable ServerPlayerEntity player) {
-        return this.polymerModel.value();
     }
 }

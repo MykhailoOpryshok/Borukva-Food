@@ -1,9 +1,7 @@
 {
   "type": "borukva-food:pan",
   "input": {
-    "base": {
-      "item": "borukva-food:hoglin_meat"
-    }
+    "base": "borukva-food:hoglin_meat"
   },
   "output": {
     "count": 1,

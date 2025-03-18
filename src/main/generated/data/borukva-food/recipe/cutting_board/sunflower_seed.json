@@ -1,9 +1,7 @@
 {
   "type": "borukva-food:cutting_board",
   "input": {
-    "base": {
-      "item": "minecraft:sunflower"
-    }
+    "base": "minecraft:sunflower"
   },
   "output": {
     "count": 4,

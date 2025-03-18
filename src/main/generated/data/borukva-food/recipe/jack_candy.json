@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "borukva-food:waffle"
-    },
-    {
-      "item": "borukva-food:chocolate_bar"
-    }
+    "borukva-food:waffle",
+    "borukva-food:chocolate_bar"
   ],
   "result": {
     "count": 3,

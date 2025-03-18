@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "minecraft:sweet_berries"
-    },
-    "W": {
-      "item": "minecraft:wheat"
-    }
+    "B": "minecraft:sweet_berries",
+    "W": "minecraft:wheat"
   },
   "pattern": [
     "WBW"

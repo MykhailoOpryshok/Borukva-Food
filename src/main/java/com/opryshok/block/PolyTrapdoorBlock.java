@@ -14,6 +14,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
+import xyz.nucleoid.packettweaker.PacketContext;
 
 public class PolyTrapdoorBlock extends TrapdoorBlock implements PolymerTexturedBlock {
     private final BlockState TOP_TRAPDOOR_NORTH;
@@ -57,11 +58,11 @@ public class PolyTrapdoorBlock extends TrapdoorBlock implements PolymerTexturedB
         return PolymerBlockResourceUtils.requestBlock(type, PolymerBlockModel.of(Identifier.of(BorukvaFood.MOD_ID, "block/" + path + "_" + typeForPath)));
     }
     @Override
-    public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
+    public BlockState getPolymerBreakEventBlockState(BlockState state, PacketContext context) {
         return Blocks.OAK_TRAPDOOR.getDefaultState();
     }
     @Override
-    public BlockState getPolymerBlockState(BlockState state) {
+    public BlockState getPolymerBlockState(BlockState state, PacketContext context) {
         boolean waterlogged = state.get(WATERLOGGED);
 
         if(state.get(Properties.OPEN)){

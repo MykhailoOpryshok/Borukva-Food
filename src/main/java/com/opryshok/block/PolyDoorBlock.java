@@ -19,6 +19,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
+import xyz.nucleoid.packettweaker.PacketContext;
 
 public class PolyDoorBlock extends DoorBlock implements FactoryBlock, PolymerTexturedBlock{
     private final BlockState NORTH_DOOR;
@@ -36,11 +37,11 @@ public class PolyDoorBlock extends DoorBlock implements FactoryBlock, PolymerTex
     }
 
     @Override
-    public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
+    public BlockState getPolymerBreakEventBlockState(BlockState state, PacketContext context) {
         return Blocks.OAK_DOOR.getDefaultState();
     }
     @Override
-    public BlockState getPolymerBlockState(BlockState state) {
+    public BlockState getPolymerBlockState(BlockState state, PacketContext context) {
         if(!state.get(DoorBlock.OPEN)){
             return switch (state.get(DoorBlock.FACING)){
                 case EAST -> EAST_DOOR;
@@ -98,7 +99,7 @@ public class PolyDoorBlock extends DoorBlock implements FactoryBlock, PolymerTex
         }
 
         private void updateStatePos(BlockState state) {
-            var rotation = state.get(FACING).asRotation() + 180;
+            var rotation = state.get(FACING).getPositiveHorizontalDegrees() + 180;
             var open = state.get(OPEN);
             if(state.get(PolyDoorBlock.HINGE).equals(DoorHinge.LEFT)){
                 rotation += open ? 90 : 0;

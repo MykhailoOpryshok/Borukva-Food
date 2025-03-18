@@ -2,6 +2,7 @@ package com.opryshok.item;
 
 import com.opryshok.block.BetterFarmlandBlock;
 import com.opryshok.block.ModBlocks;
+import eu.pb4.polymer.core.api.item.SimplePolymerItem;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -17,9 +18,9 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class SoilAnalizatorItem extends PolyItem {
-    public SoilAnalizatorItem(Settings settings, String modelId) {
-        super(settings, modelId);
+public class SoilAnalizatorItem extends SimplePolymerItem {
+    public SoilAnalizatorItem(Settings settings) {
+        super(settings);
     }
 
     @Override

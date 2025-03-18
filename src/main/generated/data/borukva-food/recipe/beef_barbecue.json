@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "borukva-food:beef_slices"
-    },
-    "S": {
-      "item": "minecraft:stick"
-    }
+    "B": "borukva-food:beef_slices",
+    "S": "minecraft:stick"
   },
   "pattern": [
     "B  ",

@@ -3,7 +3,6 @@ package com.opryshok.block.crops;
 import com.opryshok.BorukvaFood;
 import com.opryshok.item.ModItems;
 import com.opryshok.utils.TransparentBlocks.TransparentPlantWatterlogged;
-import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.BlockModel;
 import eu.pb4.factorytools.api.virtualentity.ItemDisplayElementUtil;
 import eu.pb4.polymer.virtualentity.api.ElementHolder;
@@ -27,11 +26,14 @@ import net.minecraft.state.StateManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
+import net.minecraft.world.tick.ScheduledTickView;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
+import xyz.nucleoid.packettweaker.PacketContext;
 
 import java.util.ArrayList;
 
@@ -56,7 +58,7 @@ public class RiceCrop extends TomatoCrop implements TransparentPlantWatterlogged
     }
 
     @Override
-    public BlockState getPolymerBlockState(BlockState state) {
+    public BlockState getPolymerBlockState(BlockState state, PacketContext context) {
         return TransparentPlantWatterlogged.TRANSPARENT_WATTERLOGGED;
     }
     @Override
@@ -70,7 +72,7 @@ public class RiceCrop extends TomatoCrop implements TransparentPlantWatterlogged
     }
 
     @Override
-    protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+    protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
         return !state.canPlaceAt(world, pos) ? Blocks.WATER.getDefaultState() : state;
     }
 
@@ -97,7 +99,7 @@ public class RiceCrop extends TomatoCrop implements TransparentPlantWatterlogged
         public static final ArrayList<ItemStack> MODELS = new ArrayList<>();
         static{
             for (int i = 0; i <= 3; i++){
-                MODELS.add(BaseItemProvider.requestModel(Identifier.of(BorukvaFood.MOD_ID, "block/rice_crop_stage"+i)));
+                MODELS.add(ItemDisplayElementUtil.getModel(Identifier.of(BorukvaFood.MOD_ID, "block/rice_crop_stage"+i)));
             }
         }
         public ItemDisplayElement main;

@@ -1,9 +1,7 @@
 {
   "type": "borukva-food:pan",
   "input": {
-    "base": {
-      "item": "borukva-food:squid_ring"
-    }
+    "base": "borukva-food:squid_ring"
   },
   "output": {
     "count": 1,

@@ -2,7 +2,7 @@ package com.opryshok.block.crops;
 
 import com.opryshok.BorukvaFood;
 import com.opryshok.item.ModItems;
-import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
+import eu.pb4.factorytools.api.virtualentity.ItemDisplayElementUtil;
 import eu.pb4.polymer.virtualentity.api.ElementHolder;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
@@ -34,7 +34,7 @@ public class EnderInfectedOnionCrop extends TomatoCrop {
         public static final ArrayList<ItemStack> MODELS = new ArrayList<>();
         static{
             for (int i = 0; i <= 3; i++){
-                MODELS.add(BaseItemProvider.requestModel(Identifier.of(BorukvaFood.MOD_ID, "block/ender_infected_onion_stage"+i)));
+                MODELS.add(ItemDisplayElementUtil.getModel(Identifier.of(BorukvaFood.MOD_ID, "block/ender_infected_onion_stage"+i)));
             }
         }
 

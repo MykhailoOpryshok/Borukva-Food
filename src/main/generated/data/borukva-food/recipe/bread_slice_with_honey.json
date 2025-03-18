@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "borukva-food:bread_slice"
-    },
-    "H": {
-      "item": "minecraft:honey_bottle"
-    }
+    "B": "borukva-food:bread_slice",
+    "H": "minecraft:honey_bottle"
   },
   "pattern": [
     " H ",

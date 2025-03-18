@@ -8,12 +8,14 @@ import com.opryshok.recipe.ModRecipeSerializer;
 import com.opryshok.recipe.ModRecipeTypes;
 import eu.pb4.factorytools.api.recipe.CountedIngredient;
 import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.RecipeEntry;
-import net.minecraft.recipe.RecipeSerializer;
-import net.minecraft.recipe.RecipeType;
+import net.minecraft.recipe.*;
+import net.minecraft.recipe.book.RecipeBookCategory;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.world.World;
+
+import static net.minecraft.recipe.book.RecipeBookCategories.CRAFTING_MISC;
 
 public record PanRecipe (String group, CountedIngredient input, ItemStack output, double time) implements Recipe<PanInput> {
     public static final MapCodec<PanRecipe> CODEC = RecordCodecBuilder.mapCodec(x -> x.group(
@@ -24,7 +26,7 @@ public record PanRecipe (String group, CountedIngredient input, ItemStack output
             ).apply(x, PanRecipe::new)
     );
     public static RecipeEntry<PanRecipe> of(String string, CountedIngredient ingredient, ItemStack output, double time) {
-        return new RecipeEntry<>(BorukvaFood.id("pan/" + string), new PanRecipe("", ingredient, output, time));
+        return new RecipeEntry<>(RegistryKey.of(RegistryKeys.RECIPE, BorukvaFood.id("pan/" + string)), new PanRecipe("", ingredient, output, time));
     }
     @Override
     public boolean matches(PanInput input, World world) {
@@ -40,22 +42,22 @@ public record PanRecipe (String group, CountedIngredient input, ItemStack output
     }
 
     @Override
-    public boolean fits(int width, int height) {
-        return true;
-    }
-
-    @Override
-    public ItemStack getResult(RegistryWrapper.WrapperLookup registriesLookup) {
-        return output;
-    }
-
-    @Override
-    public RecipeSerializer<?> getSerializer() {
+    public RecipeSerializer<? extends Recipe<PanInput>> getSerializer() {
         return ModRecipeSerializer.PAN;
     }
 
     @Override
-    public RecipeType<?> getType() {
+    public RecipeType<? extends Recipe<PanInput>> getType() {
         return ModRecipeTypes.PAN;
+    }
+
+    @Override
+    public IngredientPlacement getIngredientPlacement() {
+        return IngredientPlacement.NONE;
+    }
+
+    @Override
+    public RecipeBookCategory getRecipeBookCategory() {
+        return CRAFTING_MISC;
     }
 }

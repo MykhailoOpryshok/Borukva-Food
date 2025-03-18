@@ -11,6 +11,7 @@ import net.minecraft.block.SaplingBlock;
 import net.minecraft.block.SaplingGenerator;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
+import xyz.nucleoid.packettweaker.PacketContext;
 
 public class PolySaplingBlock extends SaplingBlock implements PolymerTexturedBlock {
     private final BlockState model;
@@ -20,12 +21,12 @@ public class PolySaplingBlock extends SaplingBlock implements PolymerTexturedBlo
     }
 
     @Override
-    public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
+    public BlockState getPolymerBreakEventBlockState(BlockState state, PacketContext context) {
         return Blocks.OAK_SAPLING.getDefaultState();
     }
 
     @Override
-    public BlockState getPolymerBlockState(BlockState state) {
+    public BlockState getPolymerBlockState(BlockState state, PacketContext context) {
         return model;
     }
 }

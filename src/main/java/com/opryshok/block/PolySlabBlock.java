@@ -10,6 +10,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
+import xyz.nucleoid.packettweaker.PacketContext;
 
 public class PolySlabBlock extends SlabBlock implements PolymerTexturedBlock {
     private final BlockState TOP_SLAB;
@@ -27,11 +28,11 @@ public class PolySlabBlock extends SlabBlock implements PolymerTexturedBlock {
         BOTTOM_SLAB_WATERLOGGED = PolymerBlockResourceUtils.requestBlock(BlockModelType.BOTTOM_SLAB_WATERLOGGED, PolymerBlockModel.of(Identifier.of(BorukvaFood.MOD_ID, "block/" + path)));
     }
     @Override
-    public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
+    public BlockState getPolymerBreakEventBlockState(BlockState state, PacketContext context) {
         return Blocks.OAK_SLAB.getDefaultState();
     }
     @Override
-    public BlockState getPolymerBlockState(BlockState state) {
+    public BlockState getPolymerBlockState(BlockState state, PacketContext context) {
         return switch (state.get(TYPE)){
             case TOP -> state.get(WATERLOGGED) ? TOP_SLAB_WATERLOGGED : TOP_SLAB;
             case BOTTOM -> state.get(WATERLOGGED) ? BOTTOM_SLAB_WATERLOGGED : BOTTOM_SLAB;

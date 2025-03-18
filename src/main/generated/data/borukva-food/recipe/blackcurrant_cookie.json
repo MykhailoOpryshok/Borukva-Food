@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "borukva-food:blackcurrants"
-    },
-    "W": {
-      "item": "minecraft:wheat"
-    }
+    "B": "borukva-food:blackcurrants",
+    "W": "minecraft:wheat"
   },
   "pattern": [
     "WBW"

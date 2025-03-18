@@ -105,9 +105,9 @@ public class PotBlockEntity extends LockableBlockEntity implements MinimalSidedI
 
         var input = new PotInput(self.stacks, self.getStack(6), world);
 
-        if (self.inventoryChanged && (self.currentRecipe == null || !self.currentRecipe.value().matches(input, world))) {
+        if (world instanceof ServerWorld serverWorld && self.inventoryChanged && (self.currentRecipe == null || !self.currentRecipe.value().matches(input, world))) {
             self.process = 0;
-            self.currentRecipe = world.getRecipeManager().getFirstMatch(ModRecipeTypes.POT, input, world).orElse(null);
+            self.currentRecipe = serverWorld.getRecipeManager().getFirstMatch(ModRecipeTypes.POT, input, world).orElse(null);
 
             if (self.currentRecipe == null) {
                 self.model.tick();

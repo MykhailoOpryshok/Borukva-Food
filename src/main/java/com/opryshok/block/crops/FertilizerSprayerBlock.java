@@ -4,7 +4,6 @@ import com.mojang.serialization.MapCodec;
 import com.opryshok.BorukvaFood;
 import com.opryshok.entity.FertilizerSprayerBlockEntity;
 import eu.pb4.factorytools.api.block.FactoryBlock;
-import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.BlockModel;
 import eu.pb4.factorytools.api.virtualentity.ItemDisplayElementUtil;
 import eu.pb4.polymer.virtualentity.api.ElementHolder;
@@ -30,8 +29,10 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
+import net.minecraft.world.block.WireOrientation;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
+import xyz.nucleoid.packettweaker.PacketContext;
 
 public class FertilizerSprayerBlock extends BlockWithEntity implements FactoryBlock, BlockEntityProvider, InventoryProvider {
     public static BooleanProperty POWERED = Properties.POWERED;
@@ -56,8 +57,8 @@ public class FertilizerSprayerBlock extends BlockWithEntity implements FactoryBl
     }
 
     @Override
-    protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
-        super.neighborUpdate(state, world, pos, sourceBlock, sourcePos, notify);
+    protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, @Nullable WireOrientation wireOrientation, boolean notify) {
+        super.neighborUpdate(state, world, pos, sourceBlock, wireOrientation, notify);
         world.setBlockState(pos, state.with(POWERED, world.isReceivingRedstonePower(pos)));
     }
 
@@ -74,7 +75,7 @@ public class FertilizerSprayerBlock extends BlockWithEntity implements FactoryBl
     }
 
     @Override
-    public BlockState getPolymerBlockState(BlockState state) {
+    public BlockState getPolymerBlockState(BlockState state, PacketContext context) {
         return Blocks.BARRIER.getDefaultState();
     }
 
@@ -91,7 +92,7 @@ public class FertilizerSprayerBlock extends BlockWithEntity implements FactoryBl
     }
 
     @Override
-    public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
+    public BlockState getPolymerBreakEventBlockState(BlockState state, PacketContext context) {
         return Blocks.DISPENSER.getDefaultState();
     }
 
@@ -107,8 +108,8 @@ public class FertilizerSprayerBlock extends BlockWithEntity implements FactoryBl
     }
 
     public static class Model extends BlockModel {
-        public static final ItemStack MODEL_ON = BaseItemProvider.requestModel(Identifier.of(BorukvaFood.MOD_ID, "block/fertilizer_sprayer_on"));
-        public static final ItemStack MODEL_OFF = BaseItemProvider.requestModel(Identifier.of(BorukvaFood.MOD_ID, "block/fertilizer_sprayer_off"));
+        public static final ItemStack MODEL_ON = ItemDisplayElementUtil.getModel(Identifier.of(BorukvaFood.MOD_ID, "block/fertilizer_sprayer_on"));
+        public static final ItemStack MODEL_OFF = ItemDisplayElementUtil.getModel(Identifier.of(BorukvaFood.MOD_ID, "block/fertilizer_sprayer_off"));
         public ItemDisplayElement main;
 
         public Model(BlockState state){

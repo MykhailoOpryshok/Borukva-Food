@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "borukva-food:potato_crate"
-    }
+    "borukva-food:potato_crate"
   ],
   "result": {
     "count": 9,
