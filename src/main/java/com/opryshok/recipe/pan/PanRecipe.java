@@ -42,6 +42,11 @@ public record PanRecipe (String group, CountedIngredient input, ItemStack output
     }
 
     @Override
+    public boolean isIgnoredInRecipeBook() {
+        return true;
+    }
+
+    @Override
     public RecipeSerializer<? extends Recipe<PanInput>> getSerializer() {
         return ModRecipeSerializer.PAN;
     }

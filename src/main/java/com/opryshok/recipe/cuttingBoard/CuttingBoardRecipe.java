@@ -43,6 +43,11 @@ public record CuttingBoardRecipe (String group, CountedIngredient input, ItemSta
     }
 
     @Override
+    public boolean isIgnoredInRecipeBook() {
+        return true;
+    }
+
+    @Override
     public RecipeSerializer<? extends Recipe<CuttingBoardInput>> getSerializer() {
         return ModRecipeSerializer.CUTTING_BOARD;
     }

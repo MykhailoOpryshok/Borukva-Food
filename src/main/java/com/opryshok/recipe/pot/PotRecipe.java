@@ -89,6 +89,11 @@ public record PotRecipe(String group, List<CountedIngredient> input, CountedIngr
     }
 
     @Override
+    public boolean isIgnoredInRecipeBook() {
+        return true;
+    }
+
+    @Override
     public RecipeSerializer<? extends Recipe<PotInput>> getSerializer() {
         return ModRecipeSerializer.POT;
     }
