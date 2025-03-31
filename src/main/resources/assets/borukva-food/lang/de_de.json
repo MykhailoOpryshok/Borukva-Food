@@ -177,7 +177,7 @@
   "block.borukva-food.lemon_slab": "Zitronenstufe",
   "block.borukva-food.wormwood_grass": "Wermut-Gras",
   "block.borukva-food.ender_infected_onion": "Ender-Infizierte Zwiebel",
-  "block.borukva-food.chorus_fruit_crate": "Chorusfruchtkiste",
+  "block.borukva-food.chorus_crate": "Chorusfruchtkiste",
   "block.borukva-food.grape_crop": "Weinstock",
 
   "tooltip.borukva-food.soil_analizator": "Ermittelt die Fruchtbarkeit und Säurehaltigkeit des Bodens",
