@@ -57,10 +57,8 @@ public class Stove extends BlockWithEntity implements FactoryBlock, BlockEntityP
         return Blocks.MUD_BRICKS.getDefaultState();
     }
 
-    @Override
-    protected void onStateReplaced(BlockState state, ServerWorld world, BlockPos pos, boolean moved) {
-        BlockState newState = world.getBlockState(pos);
-        ItemScatterer.onStateReplaced(state, world, pos);
+    public void onStateReplaced(BlockState state, ServerWorld world, BlockPos pos, BlockState newState, boolean moved) {
+        ItemScatterer.onStateReplaced(newState, world, pos);
         if (state.isOf(ModBlocks.STOVE) && newState.isOf(ModBlocks.STOVE)) {
             if (state.get(LIT) != newState.get(LIT)) {
                 BlockState upBlock = world.getBlockState(pos.up());
@@ -69,7 +67,7 @@ public class Stove extends BlockWithEntity implements FactoryBlock, BlockEntityP
                 }
             }
         }
-        super.onStateReplaced(state, world, pos, moved);
+        super.onStateReplaced(newState, world, pos, moved);
     }
 
     @Override

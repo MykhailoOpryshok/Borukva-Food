@@ -70,7 +70,7 @@ public class ModBlocks {
     public static final Block MEAT_PIZZA = registerBlock("meat_pizza", MeatPizza::new, Block.Settings.copy(Blocks.CAKE));
     public static final Block VEGAN_PIZZA = registerBlock("vegan_pizza", VeganPizza::new, Block.Settings.copy(Blocks.CAKE));
     public static final Block FUNGUS_PIZZA = registerBlock("fungus_pizza", FungusPizza::new, Block.Settings.copy(Blocks.CAKE));
-    public static final Block STOVE = registerBlock("stove", Stove::new, Block.Settings.copy(Blocks.MUD_BRICKS));
+    public static final Stove STOVE = (Stove) registerBlock("stove", Stove::new, Block.Settings.copy(Blocks.MUD_BRICKS));
     public static final Block PAN = registerBlock("pan", Pan::new, Block.Settings.copy(Blocks.OAK_PRESSURE_PLATE));
     public static final Block POT = registerBlock("pot", Pot::new, Block.Settings.copy(Blocks.OAK_PRESSURE_PLATE));
     public static final Block CUTTING_BOARD = registerBlock("cutting_board", CuttingBoard::new, Block.Settings.copy(Blocks.OAK_PRESSURE_PLATE));
