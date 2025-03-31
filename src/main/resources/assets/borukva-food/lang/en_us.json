@@ -203,5 +203,19 @@
   "recipe_type.borukva-food.pot": "Pot",
 
   "tooltip.borukva-food.cutting_board_line1": "Sneak (Shift) and right-click",
-  "tooltip.borukva-food.cutting_board_line2": "on a block to view recipes."
+  "tooltip.borukva-food.cutting_board_line2": "on a block to view recipes.",
+
+  "borukva-food.midnightconfig.title": "Borukva Food",
+  "borukva-food.midnightconfig.fertilityGrowthModifier": "Fertility Growth Modifier",
+  "borukva-food.midnightconfig.soilDegradation": "Enable Soil Degradation",
+  "borukva-food.midnightconfig.soilDegradationChance": "Soil Degradation Chance",
+  "borukva-food.midnightconfig.onlyGoodEffects": "Only Positive Soil Influence",
+  "borukva-food.midnightconfig.acidityEffects": "Acidity Effects",
+  "borukva-food.midnightconfig.replaceCompostOutputWithFertilizer": "Replace Compost Output with Fertilizer",
+  "borukva-food.midnightconfig.enum.AcidityEffects.DEFAULT": "Default",
+  "borukva-food.midnightconfig.enum.AcidityEffects.FERTILITY": "Fertility",
+  "borukva-food.midnightconfig.enum.AcidityEffects.DISABLED": "§cDisabled",
+  "borukva-food.midnightconfig.soilDegradationChance.tooltip": "Soil degradation chance when crop is grown (in percent)",
+  "borukva-food.midnightconfig.onlyGoodEffects.tooltip": "Soil with low fertility doesn't reduce vanilla grown speed if true",
+  "borukva-food.midnightconfig.acidityEffects.tooltip": "Changes acidity behaviour. \nDefault - if acidity lower than 3 or greater than 7 crops grown divided by 3. \nFertility - works same as fertility, in this case uses fertility growth modifier. \nDisabled - disabled."
 }

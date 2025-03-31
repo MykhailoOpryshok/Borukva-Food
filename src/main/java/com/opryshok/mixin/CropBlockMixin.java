@@ -2,6 +2,7 @@ package com.opryshok.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import com.opryshok.block.ModBlocks;
+import com.opryshok.config.ModConfig;
 import com.opryshok.utils.ModProperties;
 import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
@@ -17,8 +18,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Objects;
-
-import static com.opryshok.BorukvaFood.modConfig;
 
 @Mixin(CropBlock.class)
 public abstract class CropBlockMixin {
@@ -73,21 +72,21 @@ public abstract class CropBlockMixin {
 
             float acidity = farmlandState.get(ModProperties.ACIDITY);
 
-            if(Objects.equals(modConfig.getAcidityEffects(), "fertility")){
-                edited *= (modConfig.getFertilityGrowthModifier() * (acidity / 10));
-            } else if(!Objects.equals(modConfig.getAcidityEffects(), "disabled")) {
+            if(Objects.equals(ModConfig.acidityEffects, "fertility")){
+                edited *= (ModConfig.fertilityGrowthModifier * (acidity / 10));
+            } else if(!Objects.equals(ModConfig.acidityEffects, "disabled")) {
                 if (acidity < 3 || acidity > 7) {
                     edited /= 3;
                 }
             }
 
             float x = farmlandState.get(ModProperties.FERTILITY);
-            edited *= (modConfig.getFertilityGrowthModifier() * (x / 10));
+            edited *= (ModConfig.fertilityGrowthModifier * (x / 10));
 
             if (x == 0){
                 edited = 0.00001f;
             }
-            if (modConfig.isOnlyGoodEffects() && edited < f){
+            if (ModConfig.onlyGoodEffects && edited < f){
                 edited = f;
             }
         }
@@ -96,14 +95,14 @@ public abstract class CropBlockMixin {
     }
     @Inject(method = "applyGrowth", at = @At("TAIL"))
     public void applyGrowthFertilityDecrement(World world, BlockPos pos, BlockState state, CallbackInfo ci, @Local int i){
-        if(modConfig.isSoilDegradation()) {
+        if(ModConfig.soilDegradation) {
             FertilityDecrement(world, pos, i);
         }
     }
     @Inject(method = "randomTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/world/ServerWorld;setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;I)Z", shift = At.Shift.AFTER))
     public void randomTickFertilityDecrement(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci){
         CropBlock crop = (CropBlock) (Object) this;
-        if(modConfig.isSoilDegradation()) {
+        if(ModConfig.soilDegradation) {
             FertilityDecrement(world, pos, crop.getAge(state) + 1);
         }
     }
@@ -112,7 +111,7 @@ public abstract class CropBlockMixin {
     public void FertilityDecrement(World world, BlockPos pos, int i){
         if (world.getBlockState(pos.down()).isOf(ModBlocks.BETTER_FARMLAND)){
             var random = new java.util.Random();
-            if (random.nextDouble() < (modConfig.getSoilDegradationChance() / 100)) {
+            if (random.nextDouble() < (ModConfig.soilDegradationChance / 100)) {
                 CropBlock crop = (CropBlock) (Object) this;
                 if (i == crop.getMaxAge()) {
                     BlockState farmlandState = world.getBlockState(pos.down());
