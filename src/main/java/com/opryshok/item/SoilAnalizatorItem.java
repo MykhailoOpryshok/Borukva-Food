@@ -4,6 +4,7 @@ import com.opryshok.block.BetterFarmlandBlock;
 import com.opryshok.block.ModBlocks;
 import eu.pb4.polymer.core.api.item.SimplePolymerItem;
 import net.minecraft.block.BlockState;
+import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
@@ -17,6 +18,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public class SoilAnalizatorItem extends SimplePolymerItem {
     public SoilAnalizatorItem(Settings settings) {
@@ -53,7 +55,7 @@ public class SoilAnalizatorItem extends SimplePolymerItem {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.translatable("tooltip.borukva-food.soil_analizator").formatted(Formatting.GRAY));
+    public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> tooltip, TooltipType type) {
+        tooltip.accept(Text.translatable("tooltip.borukva-food.soil_analizator").formatted(Formatting.GRAY));
     }
 }

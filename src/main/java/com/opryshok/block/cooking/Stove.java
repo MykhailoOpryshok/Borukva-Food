@@ -58,8 +58,9 @@ public class Stove extends BlockWithEntity implements FactoryBlock, BlockEntityP
     }
 
     @Override
-    protected void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-        ItemScatterer.onStateReplaced(state, newState, world, pos);
+    protected void onStateReplaced(BlockState state, ServerWorld world, BlockPos pos, boolean moved) {
+        BlockState newState = world.getBlockState(pos);
+        ItemScatterer.onStateReplaced(state, world, pos);
         if (state.isOf(ModBlocks.STOVE) && newState.isOf(ModBlocks.STOVE)) {
             if (state.get(LIT) != newState.get(LIT)) {
                 BlockState upBlock = world.getBlockState(pos.up());
@@ -68,7 +69,7 @@ public class Stove extends BlockWithEntity implements FactoryBlock, BlockEntityP
                 }
             }
         }
-        super.onStateReplaced(state, world, pos, newState, moved);
+        super.onStateReplaced(state, world, pos, moved);
     }
 
     @Override

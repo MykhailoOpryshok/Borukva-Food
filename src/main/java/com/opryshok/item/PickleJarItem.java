@@ -2,6 +2,7 @@ package com.opryshok.item;
 
 import com.opryshok.entity.PickleJarEntity;
 import eu.pb4.polymer.core.api.item.SimplePolymerItem;
+import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.Item;
@@ -19,6 +20,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public class PickleJarItem extends SimplePolymerItem implements ProjectileItem {
     public PickleJarItem(Item.Settings settings) {
@@ -45,7 +47,7 @@ public class PickleJarItem extends SimplePolymerItem implements ProjectileItem {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.translatable("tooltip.borukva-food.pickle_jar").formatted(Formatting.YELLOW));
+    public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> tooltip, TooltipType type) {
+        tooltip.accept(Text.translatable("tooltip.borukva-food.pickle_jar").formatted(Formatting.YELLOW));
     }
 }

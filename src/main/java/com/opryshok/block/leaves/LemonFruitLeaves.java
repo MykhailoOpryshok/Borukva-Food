@@ -11,6 +11,7 @@ import eu.pb4.polymer.blocks.api.PolymerTexturedBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LeavesBlock;
+import net.minecraft.block.TintedParticleLeavesBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
@@ -26,7 +27,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import xyz.nucleoid.packettweaker.PacketContext;
 
-public class LemonFruitLeaves extends LeavesBlock implements PolymerTexturedBlock {
+public class LemonFruitLeaves extends TintedParticleLeavesBlock implements PolymerTexturedBlock {
     public static final BooleanProperty HAS_FRUIT = BooleanProperty.of("has_fruit");
 
     protected BlockState model_true;
@@ -35,7 +36,7 @@ public class LemonFruitLeaves extends LeavesBlock implements PolymerTexturedBloc
     protected BlockState modelWaterlogged_false;
 
     public LemonFruitLeaves(Settings settings) {
-        super(settings);
+        super(1.f, settings);
         this.model_true = PolymerBlockResourceUtils.requestBlock(BlockModelType.TRANSPARENT_BLOCK, PolymerBlockModel.of(Identifier.of(BorukvaFood.MOD_ID, "block/lemon_fruit_leaves_has_fruit")));
         this.modelWaterlogged_true = PolymerBlockResourceUtils.requestBlock(BlockModelType.TRANSPARENT_BLOCK_WATERLOGGED, PolymerBlockModel.of(Identifier.of(BorukvaFood.MOD_ID, "block/lemon_fruit_leaves_has_fruit")));
         this.model_false = PolymerBlockResourceUtils.requestBlock(BlockModelType.TRANSPARENT_BLOCK, PolymerBlockModel.of(Identifier.of(BorukvaFood.MOD_ID, "block/lemon_fruit_leaves")));

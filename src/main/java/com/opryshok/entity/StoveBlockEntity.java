@@ -134,9 +134,9 @@ public class StoveBlockEntity extends LockableBlockEntity implements MinimalSide
     @Override
     public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup lookup) {
         Inventories.readNbt(nbt, items, lookup);
-        this.fuelInitial = nbt.getInt("FuelInitial");
-        this.fuelTicks = nbt.getInt("FuelTicks");
-        this.state = nbt.getFloat("State");
+        this.fuelInitial = nbt.getInt("FuelInitial").orElse(0);
+        this.fuelTicks = nbt.getInt("FuelTicks").orElse(0);
+        this.state = nbt.getFloat("State").orElse(0f);
         super.readNbt(nbt, lookup);
     }
 
