@@ -205,6 +205,11 @@
   "tooltip.borukva-food.cutting_board_line1": "Sneak (Shift) and right-click",
   "tooltip.borukva-food.cutting_board_line2": "on a block to view recipes.",
 
+  "tag.item.borukva-food.plant_food": "Edible Plants",
+  "tag.item.borukva-food.rotten_soup_ingredients": "Rotten Soup Ingredients",
+  "tag.item.borukva-food.lemon_logs": "Lemon Logs",
+  "tag.item.borukva-food.avocado_logs": "Avocado Logs",
+
   "borukva-food.midnightconfig.title": "Borukva Food",
   "borukva-food.midnightconfig.fertilityGrowthModifier": "Fertility Growth Modifier",
   "borukva-food.midnightconfig.soilDegradation": "Enable Soil Degradation",

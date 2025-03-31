@@ -205,6 +205,11 @@
   "tooltip.borukva-food.cutting_board_line1": "Schleiche (Umschalt) und rechtsklicke",
   "tooltip.borukva-food.cutting_board_line2": "auf einen Block, um Rezepte anzuzeigen.",
 
+  "tag.item.borukva-food.plant_food": "Essbare Pflanzen",
+  "tag.item.borukva-food.rotten_soup_ingredients": "Zutaten für Verdorbene Suppe",
+  "tag.item.borukva-food.lemon_logs": "Zitronenstämme",
+  "tag.item.borukva-food.avocado_logs": "Avocadostämme",
+
   "borukva-food.midnightconfig.title": "Borukva Food",
   "borukva-food.midnightconfig.fertilityGrowthModifier": "Fruchtbarkeits-Wachstumseffekt",
   "borukva-food.midnightconfig.soilDegradation": "Aktiviere Bodendegration",
