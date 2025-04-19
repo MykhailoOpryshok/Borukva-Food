@@ -201,6 +201,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.EGG), conditionsFromItem(Items.EGG))
                 .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.MAYONNAISE)));
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.ENDER_JAM, 1)
+                .input(Items.ENDER_PEARL)
+                .input(Items.ENDER_PEARL)
+                .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                .offerTo(exporter, Identifier.of(BorukvaFood.MOD_ID, getRecipeName(ModItems.ENDER_JAM)));
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.VEGAN_BARBECUE, 1)
                 .pattern("P  ")
                 .pattern("L  ")
@@ -563,7 +569,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 PanRecipe.of("cooked_hoglin_meat", CountedIngredient.ofItems(1, ModItems.HOGLIN_MEAT), new ItemStack(ModItems.COOKED_HOGLIN_MEAT), 100)
         );
 
-        compressBlockRecipe(ModItems.NETHER_WHEAT, ModBlocks.NETHER_HAY_ITEM, exporter);
+        compressBlockRecipe(ModBlocks.NETHER_HAY_ITEM, ModItems.NETHER_WHEAT, exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModBlocks.FUNGUS_PIZZA_ITEM, 1)
                 .pattern("FKC")
                 .pattern("FKC")

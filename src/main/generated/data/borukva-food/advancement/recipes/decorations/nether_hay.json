@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "borukva-food:nether_wheat_to_nether_hay"
+        "recipe": "borukva-food:nether_hay"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "borukva-food:nether_wheat_to_nether_hay"
+      "borukva-food:nether_hay"
     ]
   }
 }

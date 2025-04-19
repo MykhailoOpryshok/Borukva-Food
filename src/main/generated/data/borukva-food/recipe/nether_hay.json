@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "S": {
-      "item": "borukva-food:nether_hay"
+      "item": "borukva-food:nether_wheat"
     }
   },
   "pattern": [
@@ -13,6 +13,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "borukva-food:nether_wheat"
+    "id": "borukva-food:nether_hay"
   }
 }
