@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "borukva-food:nether_wheat"
+      "item": "borukva-food:nether_hay"
     }
   ],
   "result": {
     "count": 9,
-    "id": "borukva-food:nether_hay"
+    "id": "borukva-food:nether_wheat"
   }
 }
