@@ -25,6 +25,7 @@ import com.opryshok.ui.UiResourceCreator;
 import com.opryshok.utils.*;
 import com.opryshok.world.gen.ModWorldGeneration;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
+import eu.pb4.polymer.resourcepack.extras.api.ResourcePackExtras;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.item.ItemStack;
@@ -58,6 +59,7 @@ public class BorukvaFood implements ModInitializer {
 		ModRecipeTypes.register();
 		ModRecipeSerializer.register();
 		if (PolymerResourcePackUtils.addModAssets(MOD_ID)) {
+			ResourcePackExtras.forDefault().addBridgedModelsFolder(id("block"), id("item"), id("sgui"));
 			LOGGER.info("Successfully added mod assets for " + MOD_ID);
 		} else {
 			LOGGER.error("Failed to add mod assets for " + MOD_ID);

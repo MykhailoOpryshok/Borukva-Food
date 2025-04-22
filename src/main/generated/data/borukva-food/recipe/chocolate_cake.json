@@ -2,18 +2,10 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "borukva-food:blackcurrants"
-    },
-    "C": {
-      "item": "borukva-food:chocolate_bar"
-    },
-    "M": {
-      "item": "minecraft:milk_bucket"
-    },
-    "W": {
-      "item": "minecraft:wheat"
-    }
+    "B": "borukva-food:blackcurrants",
+    "C": "borukva-food:chocolate_bar",
+    "M": "minecraft:milk_bucket",
+    "W": "minecraft:wheat"
   },
   "pattern": [
     "MMM",

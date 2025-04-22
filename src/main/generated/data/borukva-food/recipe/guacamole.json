@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "borukva-food:avocado"
-    },
-    {
-      "item": "minecraft:bowl"
-    }
+    "borukva-food:avocado",
+    "minecraft:bowl"
   ],
   "result": {
     "count": 1,

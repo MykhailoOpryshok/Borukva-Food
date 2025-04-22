@@ -1,14 +1,15 @@
 package com.opryshok.item;
 
+import eu.pb4.polymer.core.api.item.SimplePolymerItem;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.world.World;
 
-public class ChorusPolyItem extends PolyItem{
+public class ChorusPolyItem extends SimplePolymerItem {
 
-    public ChorusPolyItem(Settings settings, String modelId) {
-        super(settings, modelId);
+    public ChorusPolyItem(Settings settings) {
+        super(settings);
     }
 
     @Override

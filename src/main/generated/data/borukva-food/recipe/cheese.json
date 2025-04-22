@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "minecraft:milk_bucket"
-    },
-    {
-      "item": "borukva-food:salt"
-    },
-    {
-      "item": "minecraft:egg"
-    }
+    "minecraft:milk_bucket",
+    "borukva-food:salt",
+    "minecraft:egg"
   ],
   "result": {
     "count": 1,

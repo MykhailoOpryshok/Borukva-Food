@@ -5,7 +5,6 @@ import com.opryshok.BorukvaFood;
 import com.opryshok.item.ModItems;
 import com.opryshok.utils.TransparentBlocks.TransparentPlant;
 import eu.pb4.factorytools.api.block.FactoryBlock;
-import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.BlockModel;
 import eu.pb4.factorytools.api.virtualentity.ItemDisplayElementUtil;
 import eu.pb4.polymer.virtualentity.api.ElementHolder;
@@ -19,7 +18,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -29,7 +27,6 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -41,6 +38,7 @@ import net.minecraft.world.WorldView;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
+import xyz.nucleoid.packettweaker.PacketContext;
 
 import java.util.ArrayList;
 
@@ -63,7 +61,7 @@ public class BlackcurrantsBush extends PlantBlock implements Fertilizable, Facto
     }
 
     @Override
-    public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
+    public BlockState getPolymerBreakEventBlockState(BlockState state, PacketContext context) {
         return Blocks.SWEET_BERRY_BUSH.getDefaultState();
     }
 
@@ -92,21 +90,21 @@ public class BlackcurrantsBush extends PlantBlock implements Fertilizable, Facto
     protected void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         if (entity instanceof LivingEntity && entity.getType() != EntityType.FOX && entity.getType() != EntityType.BEE) {
             entity.slowMovement(state, new Vec3d(0.800000011920929, 0.75, 0.800000011920929));
-            if (!world.isClient && state.get(AGE) > 0 && (entity.lastRenderX != entity.getX() || entity.lastRenderZ != entity.getZ())) {
+            if (world instanceof ServerWorld serverWorld && state.get(AGE) > 0 && (entity.lastRenderX != entity.getX() || entity.lastRenderZ != entity.getZ())) {
                 double d = Math.abs(entity.getX() - entity.lastRenderX);
                 double e = Math.abs(entity.getZ() - entity.lastRenderZ);
                 if (d >= 0.003000000026077032 || e >= 0.003000000026077032) {
-                    entity.damage(world.getDamageSources().sweetBerryBush(), 1.0F);
+                    entity.damage(serverWorld, world.getDamageSources().sweetBerryBush(), 1.0F);
                 }
             }
 
         }
     }
 
-    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         int i = state.get(AGE);
         boolean bl = i == 3;
-        return !bl && stack.isOf(Items.BONE_MEAL) ? ItemActionResult.SKIP_DEFAULT_BLOCK_INTERACTION : super.onUseWithItem(stack, state, world, pos, player, hand, hit);
+        return !bl && stack.isOf(Items.BONE_MEAL) ? ActionResult.SUCCESS_SERVER : super.onUseWithItem(stack, state, world, pos, player, hand, hit);
     }
 
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
@@ -119,7 +117,7 @@ public class BlackcurrantsBush extends PlantBlock implements Fertilizable, Facto
             BlockState blockState = state.with(AGE, 1);
             world.setBlockState(pos, blockState, 2);
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
-            return ActionResult.success(world.isClient);
+            return ActionResult.SUCCESS_SERVER;
         } else {
             return super.onUse(state, world, pos, player, hit);
         }
@@ -156,7 +154,7 @@ public class BlackcurrantsBush extends PlantBlock implements Fertilizable, Facto
         public static final ArrayList<ItemStack> MODELS = new ArrayList<>();
         static{
             for (int i = 0; i <= 3; i++){
-                MODELS.add(BaseItemProvider.requestModel(Identifier.of(BorukvaFood.MOD_ID, "block/blackcurrants_bush_stage"+i)));
+                MODELS.add(ItemDisplayElementUtil.getModel(Identifier.of(BorukvaFood.MOD_ID, "block/blackcurrants_bush_stage"+i)));
             }
         }
         public ItemDisplayElement main;

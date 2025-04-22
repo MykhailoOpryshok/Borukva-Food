@@ -2,11 +2,8 @@ package com.opryshok.item;
 
 import com.github.quiltservertools.ledger.callbacks.BlockBreakCallback;
 import com.github.quiltservertools.ledger.callbacks.BlockPlaceCallback;
-import com.opryshok.BorukvaFood;
 import com.opryshok.utils.ModTags;
 import eu.pb4.polymer.core.api.item.PolymerItem;
-import eu.pb4.polymer.resourcepack.api.PolymerModelData;
-import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.*;
@@ -21,20 +18,17 @@ import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import xyz.nucleoid.packettweaker.PacketContext;
 
 import java.util.List;
 
-public class HarvestSickleItem extends ToolItem implements PolymerItem {
-    private final PolymerModelData polymerModel;
+public class HarvestSickleItem extends MiningToolItem implements PolymerItem {
 
     public HarvestSickleItem(Settings settings) {
-        super(ToolMaterials.IRON, settings);
-
-        polymerModel = PolymerResourcePackUtils.requestModel(Items.IRON_SWORD, Identifier.of(BorukvaFood.MOD_ID, "item/harvest_sickle"));
+        super(ToolMaterial.IRON, ModTags.Blocks.SICKLE_MINEABLE, -2.0F, -1.0F, settings);
     }
 
     @Override
@@ -125,11 +119,7 @@ public class HarvestSickleItem extends ToolItem implements PolymerItem {
     }
 
     @Override
-    public Item getPolymerItem(ItemStack itemStack, @Nullable ServerPlayerEntity player) {
-        return polymerModel.item();
-    }
-    @Override
-    public int getPolymerCustomModelData(ItemStack itemStack, @Nullable ServerPlayerEntity player) {
-        return polymerModel.value();
+    public Item getPolymerItem(ItemStack itemStack, @Nullable PacketContext context) {
+        return Items.IRON_SWORD;
     }
 }

@@ -11,6 +11,8 @@ public class ModTags {
     public static class Blocks{
         public static final TagKey<Block> LEMON_LOGS = createTag("lemon_logs");
         public static final TagKey<Block> AVOCADO_LOGS = createTag("avocado_logs");
+        public static final TagKey<Block> KNIFE_MINEABLE = createTag("mineable/knife");
+        public static final TagKey<Block> SICKLE_MINEABLE = createTag("mineable/sickle");
 
         public static final TagKey<Block> CONVENTIONAL_FARMLAND = TagKey.of(RegistryKeys.BLOCK, Identifier.of("c", "farmland"));
         public static final TagKey<Block> CONVENTIONAL_FARMLANDS = TagKey.of(RegistryKeys.BLOCK, Identifier.of("c", "farmlands"));

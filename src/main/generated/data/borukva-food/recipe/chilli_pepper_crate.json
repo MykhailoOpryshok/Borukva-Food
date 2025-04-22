@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "S": {
-      "item": "borukva-food:chilli_pepper"
-    }
+    "S": "borukva-food:chilli_pepper"
   },
   "pattern": [
     "SSS",

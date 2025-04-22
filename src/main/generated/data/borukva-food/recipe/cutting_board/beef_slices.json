@@ -1,9 +1,7 @@
 {
   "type": "borukva-food:cutting_board",
   "input": {
-    "base": {
-      "item": "minecraft:beef"
-    }
+    "base": "minecraft:beef"
   },
   "output": {
     "count": 2,

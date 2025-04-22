@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "borukva-food:rice_crate"
-    }
+    "borukva-food:rice_crate"
   ],
   "result": {
     "count": 9,

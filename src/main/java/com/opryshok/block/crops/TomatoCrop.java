@@ -4,7 +4,6 @@ import com.opryshok.BorukvaFood;
 import com.opryshok.item.ModItems;
 import com.opryshok.utils.TransparentBlocks.TransparentPlant;
 import eu.pb4.factorytools.api.block.FactoryBlock;
-import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.BlockModel;
 import eu.pb4.factorytools.api.virtualentity.ItemDisplayElementUtil;
 import eu.pb4.polymer.virtualentity.api.ElementHolder;
@@ -28,6 +27,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
+import xyz.nucleoid.packettweaker.PacketContext;
 
 import java.util.ArrayList;
 
@@ -39,7 +39,7 @@ public class TomatoCrop extends CropBlock implements FactoryBlock, TransparentPl
     }
 
     @Override
-    public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
+    public BlockState getPolymerBreakEventBlockState(BlockState state, PacketContext context) {
         return Blocks.WHEAT.getDefaultState();
     }
 
@@ -72,11 +72,12 @@ public class TomatoCrop extends CropBlock implements FactoryBlock, TransparentPl
     public @Nullable ElementHolder createElementHolder(ServerWorld world, BlockPos pos, BlockState initialBlockState) {
         return new Model(initialBlockState);
     }
+
     public static class Model extends BlockModel {
         public static final ArrayList<ItemStack> MODELS = new ArrayList<>();
         static{
             for (int i = 0; i <= 3; i++){
-                MODELS.add(BaseItemProvider.requestModel(Identifier.of(BorukvaFood.MOD_ID, "block/tomato_crop_stage"+i)));
+                MODELS.add(ItemDisplayElementUtil.getModel(Identifier.of(BorukvaFood.MOD_ID, "block/tomato_crop_stage"+i)));
             }
         }
         public ItemDisplayElement main;

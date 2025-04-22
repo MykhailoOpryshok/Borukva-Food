@@ -11,7 +11,7 @@ public record PanInput (ItemStack input, World world) implements RecipeInput {
     }
 
     @Override
-    public int getSize() {
+    public int size() {
         return 1;
     }
 }

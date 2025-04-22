@@ -11,6 +11,7 @@ import net.minecraft.block.LeavesBlock;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
+import xyz.nucleoid.packettweaker.PacketContext;
 
 public class PolyLeavesBlock extends LeavesBlock implements PolymerTexturedBlock {
     public final BlockState model;
@@ -22,11 +23,11 @@ public class PolyLeavesBlock extends LeavesBlock implements PolymerTexturedBlock
     }
 
     @Override
-    public BlockState getPolymerBreakEventBlockState(BlockState state, ServerPlayerEntity player) {
+    public BlockState getPolymerBreakEventBlockState(BlockState state, PacketContext context) {
         return Blocks.OAK_LEAVES.getDefaultState();
     }
     @Override
-    public BlockState getPolymerBlockState(BlockState state) {
+    public BlockState getPolymerBlockState(BlockState state, PacketContext context) {
         if (state.get(Properties.WATERLOGGED)) return modelWaterlogged;
         else return model;
     }

@@ -11,6 +11,7 @@ import net.minecraft.item.Items;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
+import xyz.nucleoid.packettweaker.PacketContext;
 
 public class BetterFarmlandBlock extends FarmlandBlock implements PolymerBlock {
     public static final IntProperty FERTILITY;
@@ -31,7 +32,7 @@ public class BetterFarmlandBlock extends FarmlandBlock implements PolymerBlock {
     }
 
     @Override
-    public BlockState getPolymerBlockState(BlockState state) {
+    public BlockState getPolymerBlockState(BlockState state, PacketContext context) {
         return Blocks.FARMLAND.getDefaultState().with(Properties.MOISTURE, state.get(MOISTURE));
     }
 

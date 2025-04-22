@@ -2,38 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "C": {
-      "item": "borukva-food:cheese"
-    },
+    "C": "borukva-food:cheese",
     "J": [
-      {
-        "item": "minecraft:cooked_beef"
-      },
-      {
-        "item": "minecraft:cooked_porkchop"
-      },
-      {
-        "item": "minecraft:cooked_chicken"
-      },
-      {
-        "item": "minecraft:cooked_rabbit"
-      },
-      {
-        "item": "minecraft:cooked_mutton"
-      }
+      "minecraft:cooked_beef",
+      "minecraft:cooked_porkchop",
+      "minecraft:cooked_chicken",
+      "minecraft:cooked_rabbit",
+      "minecraft:cooked_mutton"
     ],
-    "K": {
-      "item": "borukva-food:ketchup"
-    },
-    "M": {
-      "item": "borukva-food:mayonnaise"
-    },
-    "S": {
-      "item": "borukva-food:tomato_slices"
-    },
-    "W": {
-      "item": "minecraft:wheat"
-    }
+    "K": "borukva-food:ketchup",
+    "M": "borukva-food:mayonnaise",
+    "S": "borukva-food:tomato_slices",
+    "W": "minecraft:wheat"
   },
   "pattern": [
     "KMS",

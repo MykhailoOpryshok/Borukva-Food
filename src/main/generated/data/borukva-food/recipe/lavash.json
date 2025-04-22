@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "minecraft:wheat"
-    },
-    {
-      "item": "borukva-food:salt"
-    },
-    {
-      "item": "minecraft:wheat"
-    }
+    "minecraft:wheat",
+    "borukva-food:salt",
+    "minecraft:wheat"
   ],
   "result": {
     "count": 2,

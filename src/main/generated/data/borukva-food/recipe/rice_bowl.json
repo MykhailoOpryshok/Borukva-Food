@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "minecraft:bowl"
-    },
-    "R": {
-      "item": "borukva-food:rice"
-    }
+    "B": "minecraft:bowl",
+    "R": "borukva-food:rice"
   },
   "pattern": [
     "RRR",

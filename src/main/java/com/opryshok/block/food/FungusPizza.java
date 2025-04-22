@@ -3,7 +3,6 @@ package com.opryshok.block.food;
 import com.opryshok.BorukvaFood;
 import com.opryshok.item.ModItems;
 import com.opryshok.utils.ModProperties;
-import eu.pb4.factorytools.api.resourcepack.BaseItemProvider;
 import eu.pb4.factorytools.api.virtualentity.ItemDisplayElementUtil;
 import eu.pb4.polymer.virtualentity.api.ElementHolder;
 import net.minecraft.block.BlockState;
@@ -36,8 +35,7 @@ public class FungusPizza extends MeatPizza{
         public static final ArrayList<ItemStack> FUNGUS_MODEL = new ArrayList<>();
         static {
             for (int i = 0; i <= 7; i++) {
-                FUNGUS_MODEL.add(BaseItemProvider.requestModel(Identifier.of(BorukvaFood.MOD_ID, "fungus_pizza")
-                        .withPrefixedPath("block/")
+                FUNGUS_MODEL.add(ItemDisplayElementUtil.getModel(Identifier.of(BorukvaFood.MOD_ID, "block/fungus_pizza")
                         .withSuffixedPath("_slice" + i)));
             }
         }

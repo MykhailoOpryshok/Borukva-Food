@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "S": {
-      "item": "borukva-food:avocado_log"
-    }
+    "S": "borukva-food:avocado_log"
   },
   "pattern": [
     "SS",

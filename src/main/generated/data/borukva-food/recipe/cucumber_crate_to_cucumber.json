@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "borukva-food:cucumber_crate"
-    }
+    "borukva-food:cucumber_crate"
   ],
   "result": {
     "count": 9,

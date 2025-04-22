@@ -4,9 +4,7 @@
   "cookingtime": 200,
   "experience": 0.35,
   "group": "cooked_hoglin_meat",
-  "ingredient": {
-    "item": "borukva-food:hoglin_meat"
-  },
+  "ingredient": "borukva-food:hoglin_meat",
   "result": {
     "id": "borukva-food:cooked_hoglin_meat"
   }

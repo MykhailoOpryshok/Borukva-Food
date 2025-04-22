@@ -1,9 +1,7 @@
 {
   "type": "borukva-food:cutting_board",
   "input": {
-    "base": {
-      "item": "minecraft:mutton"
-    }
+    "base": "minecraft:mutton"
   },
   "output": {
     "count": 2,

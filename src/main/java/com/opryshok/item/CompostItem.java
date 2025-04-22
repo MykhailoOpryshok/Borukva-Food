@@ -2,6 +2,7 @@ package com.opryshok.item;
 
 import com.opryshok.block.BetterFarmlandBlock;
 import com.opryshok.utils.ModProperties;
+import eu.pb4.polymer.core.api.item.SimplePolymerItem;
 import net.minecraft.block.*;
 import net.minecraft.block.dispenser.DispenserBehavior;
 import net.minecraft.block.dispenser.ItemDispenserBehavior;
@@ -21,7 +22,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class CompostItem extends PolyItem {
+public class CompostItem extends SimplePolymerItem {
     public static final DispenserBehavior COMPOST_BEHAVIOR = new ItemDispenserBehavior(){
         @Override
         protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
@@ -46,8 +47,8 @@ public class CompostItem extends PolyItem {
             return stack;
         }
     };
-    public CompostItem(Settings settings, String modelId) {
-        super(settings, modelId);
+    public CompostItem(Settings settings) {
+        super(settings);
     }
 
     @Override

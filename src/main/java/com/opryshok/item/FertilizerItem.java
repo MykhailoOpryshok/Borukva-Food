@@ -2,6 +2,7 @@ package com.opryshok.item;
 
 import com.opryshok.block.BetterFarmlandBlock;
 import com.opryshok.utils.ModProperties;
+import eu.pb4.polymer.core.api.item.SimplePolymerItem;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
@@ -16,9 +17,9 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class FertilizerItem extends PolyItem {
-    public FertilizerItem(Settings settings, String modelId) {
-        super(settings, modelId);
+public class FertilizerItem extends SimplePolymerItem {
+    public FertilizerItem(Settings settings) {
+        super(settings);
     }
 
     @Override

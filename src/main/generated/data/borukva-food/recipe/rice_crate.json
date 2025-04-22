@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "S": {
-      "item": "borukva-food:rice"
-    }
+    "S": "borukva-food:rice"
   },
   "pattern": [
     "SSS",

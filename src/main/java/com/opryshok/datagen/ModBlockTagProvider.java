@@ -67,6 +67,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(STRIPPED_AVOCADO_LOG)
                 .add(STRIPPED_AVOCADO_WOOD);
 
+        getOrCreateTagBuilder(ModTags.Blocks.KNIFE_MINEABLE);
+
+        getOrCreateTagBuilder(ModTags.Blocks.SICKLE_MINEABLE);
+
         getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
                 .forceAddTag(ModTags.Blocks.AVOCADO_LOGS)
                 .forceAddTag(ModTags.Blocks.LEMON_LOGS);

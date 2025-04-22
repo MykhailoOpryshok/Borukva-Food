@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "borukva-food:salt_block"
-    }
+    "borukva-food:salt_block"
   ],
   "result": {
     "count": 4,

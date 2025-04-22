@@ -7,29 +7,29 @@ import com.opryshok.block.bushes.GooseberryBush;
 import com.opryshok.block.crops.TomatoCrop;
 import com.opryshok.block.leaves.LemonFruitLeaves;
 import com.opryshok.item.ModItems;
+import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
-import net.minecraft.data.client.*;
+import net.minecraft.client.data.*;
 import net.minecraft.util.Identifier;
 
-public class ModModelProvider extends FabricModelProvider{
+public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
         super(output);
     }
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.TOMATO, BlockStateModelGenerator.TintType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
-        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.CABBAGE, BlockStateModelGenerator.TintType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
-        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.CORN, BlockStateModelGenerator.TintType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
-        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.CHILLI_PEPPER, BlockStateModelGenerator.TintType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
-        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.BLACKCURRANTS_BUSH, BlockStateModelGenerator.TintType.NOT_TINTED, BlackcurrantsBush.AGE, 0, 1, 2, 3);
-        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.GOOSEBERRY_BUSH, BlockStateModelGenerator.TintType.NOT_TINTED, GooseberryBush.AGE, 0, 1, 2, 3);
-        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.CUCUMBER, BlockStateModelGenerator.TintType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
-        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.LETTUCE, BlockStateModelGenerator.TintType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
-        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.RICE, BlockStateModelGenerator.TintType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
-        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.NETHER_WHEAT, BlockStateModelGenerator.TintType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.TOMATO, BlockStateModelGenerator.CrossType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.CABBAGE, BlockStateModelGenerator.CrossType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.CORN, BlockStateModelGenerator.CrossType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.CHILLI_PEPPER, BlockStateModelGenerator.CrossType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.BLACKCURRANTS_BUSH, BlockStateModelGenerator.CrossType.NOT_TINTED, BlackcurrantsBush.AGE, 0, 1, 2, 3);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.GOOSEBERRY_BUSH, BlockStateModelGenerator.CrossType.NOT_TINTED, GooseberryBush.AGE, 0, 1, 2, 3);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.CUCUMBER, BlockStateModelGenerator.CrossType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.LETTUCE, BlockStateModelGenerator.CrossType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.RICE, BlockStateModelGenerator.CrossType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.NETHER_WHEAT, BlockStateModelGenerator.CrossType.NOT_TINTED, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
         blockStateModelGenerator.registerCrop(ModBlocks.ONION, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
         blockStateModelGenerator.registerCrop(ModBlocks.ENDER_INFECTED_ONION, TomatoCrop.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
         generateCrate(blockStateModelGenerator, ModBlocks.BEETROOT_CRATE, "beetroot_crate");
@@ -47,7 +47,7 @@ public class ModModelProvider extends FabricModelProvider{
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SALT);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LEMON_LEAVES);
         blockStateModelGenerator.registerLog(ModBlocks.LEMON_LOG).log(ModBlocks.LEMON_LOG).wood(ModBlocks.LEMON_WOOD);
-        blockStateModelGenerator.registerTintableCross(ModBlocks.LEMON_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.LEMON_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_LEMON_LOG).log(ModBlocks.STRIPPED_LEMON_LOG).wood(ModBlocks.STRIPPED_LEMON_WOOD);
 
         BlockStateModelGenerator.BlockTexturePool lemonPlanksPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.LEMON_PLANKS);
@@ -60,7 +60,7 @@ public class ModModelProvider extends FabricModelProvider{
         avocadoPlanksPool.slab(ModBlocks.AVOCADO_SLAB);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.AVOCADO_LEAVES);
-        blockStateModelGenerator.registerTintableCross(ModBlocks.AVOCADO_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.AVOCADO_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
 
         generateFruitLeaves(blockStateModelGenerator, ModBlocks.LEMON_FRUIT_LEAVES);
         generateFruitLeaves(blockStateModelGenerator, ModBlocks.AVOCADO_FRUIT_LEAVES);

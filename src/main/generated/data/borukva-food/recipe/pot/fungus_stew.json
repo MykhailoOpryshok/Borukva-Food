@@ -1,30 +1,20 @@
 {
   "type": "borukva-food:pot",
   "bowl": {
-    "base": {
-      "item": "minecraft:bowl"
-    }
+    "base": "minecraft:bowl"
   },
   "input": [
     {
-      "base": {
-        "item": "minecraft:crimson_fungus"
-      }
+      "base": "minecraft:crimson_fungus"
     },
     {
-      "base": {
-        "item": "minecraft:crimson_fungus"
-      }
+      "base": "minecraft:crimson_fungus"
     },
     {
-      "base": {
-        "item": "minecraft:warped_fungus"
-      }
+      "base": "minecraft:warped_fungus"
     },
     {
-      "base": {
-        "item": "minecraft:warped_fungus"
-      }
+      "base": "minecraft:warped_fungus"
     }
   ],
   "output": {
