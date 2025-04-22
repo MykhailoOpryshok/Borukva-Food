@@ -1,6 +1,7 @@
 package com.opryshok.entity;
 
 import com.opryshok.BorukvaFood;
+import com.opryshok.block.ModBlocks;
 import com.opryshok.block.cooking.Stove;
 import com.opryshok.ui.FuelSlot;
 import com.opryshok.ui.GuiTextures;
@@ -19,6 +20,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.ItemScatterer;
@@ -54,6 +56,7 @@ public class StoveBlockEntity extends LockableBlockEntity implements MinimalSide
             self.state = (float) Math.min(self.state + 0.005, 1);
 
             if (!state.get(Stove.LIT)) {
+                ModBlocks.STOVE.onStateReplaced(state, (ServerWorld) world,  pos, state.with(Stove.LIT, true), false);
                 world.setBlockState(pos, state.with(Stove.LIT, true));
             }
             self.markDirty();
@@ -91,6 +94,7 @@ public class StoveBlockEntity extends LockableBlockEntity implements MinimalSide
                 self.markDirty();
             }
             if (state.get(Stove.LIT)) {
+                ModBlocks.STOVE.onStateReplaced(state, (ServerWorld) world,  pos, state.with(Stove.LIT, false), false);
                 world.setBlockState(pos, state.with(Stove.LIT, false));
             }
         }
@@ -134,9 +138,9 @@ public class StoveBlockEntity extends LockableBlockEntity implements MinimalSide
     @Override
     public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup lookup) {
         Inventories.readNbt(nbt, items, lookup);
-        this.fuelInitial = nbt.getInt("FuelInitial");
-        this.fuelTicks = nbt.getInt("FuelTicks");
-        this.state = nbt.getFloat("State");
+        this.fuelInitial = nbt.getInt("FuelInitial").orElse(0);
+        this.fuelTicks = nbt.getInt("FuelTicks").orElse(0);
+        this.state = nbt.getFloat("State").orElse(0f);
         super.readNbt(nbt, lookup);
     }
 

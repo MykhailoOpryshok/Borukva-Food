@@ -19,6 +19,7 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.*;
 import net.minecraft.item.tooltip.TooltipType;
@@ -35,6 +36,7 @@ import net.minecraft.world.World;
 import xyz.nucleoid.packettweaker.PacketContext;
 
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class ModBlocks {
@@ -53,7 +55,7 @@ public class ModBlocks {
         @Override
         public BlockState getPolymerBreakEventBlockState(BlockState state, PacketContext context) {return Blocks.HAY_BLOCK.getDefaultState();}
         @Override
-        public void onLandedUpon(World world, BlockState state, BlockPos pos, Entity entity, float fallDistance) {entity.handleFallDamage(fallDistance, 0.2F, world.getDamageSources().fall());}
+        public void onLandedUpon(World world, BlockState state, BlockPos pos, Entity entity, double fallDistance) {entity.handleFallDamage(fallDistance, 0.2F, world.getDamageSources().fall());}
     }, Block.Settings.copy(Blocks.HAY_BLOCK));
     public static final Block WORMWOOD_GRASS = registerBlock("wormwood_grass", WormwoodGrass::new, Block.Settings.copy(Blocks.GRASS_BLOCK));
     public static final Item WORMWOOD = registerBlockItem("wormwood", settings -> new TexturedPolyBlockItem(WORMWOOD_GRASS, settings){
@@ -68,7 +70,7 @@ public class ModBlocks {
     public static final Block MEAT_PIZZA = registerBlock("meat_pizza", MeatPizza::new, Block.Settings.copy(Blocks.CAKE));
     public static final Block VEGAN_PIZZA = registerBlock("vegan_pizza", VeganPizza::new, Block.Settings.copy(Blocks.CAKE));
     public static final Block FUNGUS_PIZZA = registerBlock("fungus_pizza", FungusPizza::new, Block.Settings.copy(Blocks.CAKE));
-    public static final Block STOVE = registerBlock("stove", Stove::new, Block.Settings.copy(Blocks.MUD_BRICKS));
+    public static final Stove STOVE = (Stove) registerBlock("stove", Stove::new, Block.Settings.copy(Blocks.MUD_BRICKS));
     public static final Block PAN = registerBlock("pan", Pan::new, Block.Settings.copy(Blocks.OAK_PRESSURE_PLATE));
     public static final Block POT = registerBlock("pot", Pot::new, Block.Settings.copy(Blocks.OAK_PRESSURE_PLATE));
     public static final Block CUTTING_BOARD = registerBlock("cutting_board", CuttingBoard::new, Block.Settings.copy(Blocks.OAK_PRESSURE_PLATE));
@@ -153,10 +155,10 @@ public class ModBlocks {
     public static final BlockItem POT_ITEM = registerBlockItem("pot", settings -> new TexturedPolyBlockItem(POT, settings), new Item.Settings());
     public static final BlockItem CUTTING_BOARD_ITEM = registerBlockItem("cutting_board", settings -> new TexturedPolyBlockItem(CUTTING_BOARD, settings){
         @Override
-        public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-            super.appendTooltip(stack, context, tooltip, type);
-            tooltip.add(Text.translatable("tooltip.borukva-food.cutting_board_line1").formatted(Formatting.GRAY));
-            tooltip.add(Text.translatable("tooltip.borukva-food.cutting_board_line2").formatted(Formatting.GRAY));
+        public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> tooltip, TooltipType type) {
+            super.appendTooltip(stack, context, displayComponent, tooltip, type);
+            tooltip.accept(Text.translatable("tooltip.borukva-food.cutting_board_line1").formatted(Formatting.GRAY));
+            tooltip.accept(Text.translatable("tooltip.borukva-food.cutting_board_line2").formatted(Formatting.GRAY));
         }
     }, new Item.Settings());
     public static final BlockItem BEETROOT_CRATE_ITEM = registerBlockItem("beetroot_crate", settings -> new TexturedPolyBlockItem(BEETROOT_CRATE, settings), new Item.Settings());

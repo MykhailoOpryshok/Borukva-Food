@@ -98,9 +98,9 @@ public class Pan extends BlockWithEntity implements TransparentTripWire, Factory
     }
 
     @Override
-    protected void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-        ItemScatterer.onStateReplaced(state, newState, world, pos);
-        super.onStateReplaced(state, world, pos, newState, moved);
+    protected void onStateReplaced(BlockState state, ServerWorld world, BlockPos pos, boolean moved) {
+        ItemScatterer.onStateReplaced(state, world, pos);
+        super.onStateReplaced(state, world, pos, moved);
     }
 
     @Override

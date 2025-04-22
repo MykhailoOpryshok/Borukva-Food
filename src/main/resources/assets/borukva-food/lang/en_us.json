@@ -177,7 +177,7 @@
   "block.borukva-food.lemon_slab": "Lemon Slab",
   "block.borukva-food.wormwood_grass": "Wormwood Grass",
   "block.borukva-food.ender_infected_onion": "Ender Infected Onion",
-  "block.borukva-food.chorus_fruit_crate": "Chorus Fruit Crate",
+  "block.borukva-food.chorus_crate": "Chorus Fruit Crate",
   "block.borukva-food.grape_crop": "Grape",
 
   "tooltip.borukva-food.soil_analizator": "Determines the level of fertility and acidity in the soil",
@@ -203,5 +203,24 @@
   "recipe_type.borukva-food.pot": "Pot",
 
   "tooltip.borukva-food.cutting_board_line1": "Sneak (Shift) and right-click",
-  "tooltip.borukva-food.cutting_board_line2": "on a block to view recipes."
+  "tooltip.borukva-food.cutting_board_line2": "on a block to view recipes.",
+
+  "tag.item.borukva-food.plant_food": "Edible Plants",
+  "tag.item.borukva-food.rotten_soup_ingredients": "Rotten Soup Ingredients",
+  "tag.item.borukva-food.lemon_logs": "Lemon Logs",
+  "tag.item.borukva-food.avocado_logs": "Avocado Logs",
+
+  "borukva-food.midnightconfig.title": "Borukva Food",
+  "borukva-food.midnightconfig.fertilityGrowthModifier": "Fertility Growth Modifier",
+  "borukva-food.midnightconfig.soilDegradation": "Enable Soil Degradation",
+  "borukva-food.midnightconfig.soilDegradationChance": "Soil Degradation Chance",
+  "borukva-food.midnightconfig.onlyGoodEffects": "Only Positive Soil Influence",
+  "borukva-food.midnightconfig.acidityEffects": "Acidity Effects",
+  "borukva-food.midnightconfig.replaceCompostOutputWithFertilizer": "Replace Compost Output with Fertilizer",
+  "borukva-food.midnightconfig.enum.AcidityEffects.DEFAULT": "Default",
+  "borukva-food.midnightconfig.enum.AcidityEffects.FERTILITY": "Fertility",
+  "borukva-food.midnightconfig.enum.AcidityEffects.DISABLED": "§cDisabled",
+  "borukva-food.midnightconfig.soilDegradationChance.tooltip": "Soil degradation chance when crop is grown (in percent)",
+  "borukva-food.midnightconfig.onlyGoodEffects.tooltip": "Soil with low fertility doesn't reduce vanilla grown speed if true",
+  "borukva-food.midnightconfig.acidityEffects.tooltip": "Changes acidity behaviour. \nDefault - if acidity lower than 3 or greater than 7 crops grown divided by 3. \nFertility - works same as fertility, in this case uses fertility growth modifier. \nDisabled - disabled."
 }

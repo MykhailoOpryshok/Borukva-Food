@@ -17,9 +17,9 @@ import java.util.List;
 
 @Mixin(SecondaryPointsOfInterestSensor.class)
 public class SecondaryPointsOfInterestSensorMixin {
-    @Inject(method = "sense(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/entity/passive/VillagerEntity;)V", at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableSet;contains(Ljava/lang/Object;)Z"))
+    @Inject(method = "sense(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/entity/passive/VillagerEntity;)V", at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableSet;contains(Ljava/lang/Object;)Z", remap = false))
     public void betterFarmlandSensor(ServerWorld serverWorld, VillagerEntity villagerEntity, CallbackInfo ci, @Local (ordinal = 1) BlockPos pos, @Local List<GlobalPos> list){
-        if (villagerEntity.getVillagerData().getProfession().equals(VillagerProfession.FARMER)){
+        if (villagerEntity.getVillagerData().profession().getKey().isPresent() && villagerEntity.getVillagerData().profession().getKey().get().equals(VillagerProfession.FARMER)){
             if (serverWorld.getBlockState(pos).getBlock() == ModBlocks.BETTER_FARMLAND){
                 list.add(GlobalPos.create(serverWorld.getRegistryKey(), pos));
             }

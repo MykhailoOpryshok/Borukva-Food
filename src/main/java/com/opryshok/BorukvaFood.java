@@ -11,7 +11,6 @@ import com.opryshok.block.cooking.Stove;
 import com.opryshok.block.crops.*;
 import com.opryshok.block.food.*;
 import com.opryshok.commands.ModCommands;
-import com.opryshok.config.ConfigManager;
 import com.opryshok.config.ModConfig;
 import com.opryshok.entity.ModEntities;
 import com.opryshok.item.CompostItem;
@@ -37,11 +36,10 @@ public class BorukvaFood implements ModInitializer {
 
 	public static final String MOD_ID = "borukva-food";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-	public static ModConfig modConfig;
 
 	@Override
 	public void onInitialize() {
-		modConfig = ConfigManager.load();
+		ModConfig.init(MOD_ID, ModConfig.class);
 		ModCommands.register();
 		ModItems.registerModItems();
 		ModBlocks.registerBlocks();

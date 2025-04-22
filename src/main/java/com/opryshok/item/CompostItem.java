@@ -6,6 +6,7 @@ import eu.pb4.polymer.core.api.item.SimplePolymerItem;
 import net.minecraft.block.*;
 import net.minecraft.block.dispenser.DispenserBehavior;
 import net.minecraft.block.dispenser.ItemDispenserBehavior;
+import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.tooltip.TooltipType;
@@ -21,6 +22,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public class CompostItem extends SimplePolymerItem {
     public static final DispenserBehavior COMPOST_BEHAVIOR = new ItemDispenserBehavior(){
@@ -89,7 +91,7 @@ public class CompostItem extends SimplePolymerItem {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.translatable("tooltip.borukva-food.compost").formatted(Formatting.GRAY));
+    public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> tooltip, TooltipType type) {
+        tooltip.accept(Text.translatable("tooltip.borukva-food.compost").formatted(Formatting.GRAY));
     }
 }

@@ -3,6 +3,7 @@ package com.opryshok.entity;
 import com.opryshok.item.ModItems;
 import eu.pb4.polymer.core.api.entity.PolymerEntity;
 import eu.pb4.polymer.virtualentity.api.tracker.DisplayTrackedData;
+import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MovementType;
@@ -13,7 +14,6 @@ import net.minecraft.entity.mob.PhantomEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ModelTransformationMode;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
@@ -98,7 +98,7 @@ public class PickleJarEntity extends ProjectileEntity implements PolymerEntity {
             data.add(DataTracker.SerializedEntry.of(DisplayTrackedData.SCALE, new Vector3f(0.6f)));
             data.add(DataTracker.SerializedEntry.of(DisplayTrackedData.BILLBOARD, (byte) DisplayEntity.BillboardMode.CENTER.ordinal()));
             data.add(DataTracker.SerializedEntry.of(DisplayTrackedData.Item.ITEM, this.itemStack));
-            data.add(DataTracker.SerializedEntry.of(DisplayTrackedData.Item.ITEM_DISPLAY, ModelTransformationMode.FIXED.getIndex()));
+            //data.add(DataTracker.SerializedEntry.of(DisplayTrackedData.Item.ITEM_DISPLAY, ModelTransformation.NONE.fixed().hashCode()));
         }
     }
     public static void spawn(Vec3d vector, Position pos, World world, ItemStack stack, PlayerEntity owner) {

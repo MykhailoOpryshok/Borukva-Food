@@ -2,14 +2,13 @@ package com.opryshok.commands;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
-import com.opryshok.config.ConfigManager;
+import com.opryshok.BorukvaFood;
+import com.opryshok.config.ModConfig;
 import me.lucko.fabric.api.permissions.v0.Permissions;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
-
-import static com.opryshok.BorukvaFood.modConfig;
 
 public class ModCommands {
     public static void register(){
@@ -27,9 +26,9 @@ public class ModCommands {
     }
 
     private static int executeReloadConfigsCommand(CommandContext<ServerCommandSource> context) {
-        modConfig = ConfigManager.load();
+        ModConfig.loadValuesFromJson(BorukvaFood.MOD_ID);
         context.getSource().sendFeedback(() -> Text.translatable("commands.borukva-food.config_reload"), false);
-        System.out.println(modConfig.isReplaceCompostOutputWithFertilizer());
+        System.out.println(ModConfig.replaceCompostOutputWithFertilizer);
         return 1;
     }
 }

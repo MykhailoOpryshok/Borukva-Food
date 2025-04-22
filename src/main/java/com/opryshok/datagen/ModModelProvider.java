@@ -10,8 +10,12 @@ import com.opryshok.item.ModItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.client.data.*;
+import net.minecraft.client.render.model.json.ModelVariant;
+import net.minecraft.client.render.model.json.WeightedVariant;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.collection.Pool;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -46,16 +50,16 @@ public class ModModelProvider extends FabricModelProvider {
         generateCrate(blockStateModelGenerator, ModBlocks.CHORUS_CRATE, "chorus_crate");
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SALT);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LEMON_LEAVES);
-        blockStateModelGenerator.registerLog(ModBlocks.LEMON_LOG).log(ModBlocks.LEMON_LOG).wood(ModBlocks.LEMON_WOOD);
+        blockStateModelGenerator.createLogTexturePool(ModBlocks.LEMON_LOG).log(ModBlocks.LEMON_LOG).wood(ModBlocks.LEMON_WOOD);
         blockStateModelGenerator.registerTintableCross(ModBlocks.LEMON_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
-        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_LEMON_LOG).log(ModBlocks.STRIPPED_LEMON_LOG).wood(ModBlocks.STRIPPED_LEMON_WOOD);
+        blockStateModelGenerator.createLogTexturePool(ModBlocks.STRIPPED_LEMON_LOG).log(ModBlocks.STRIPPED_LEMON_LOG).wood(ModBlocks.STRIPPED_LEMON_WOOD);
 
         BlockStateModelGenerator.BlockTexturePool lemonPlanksPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.LEMON_PLANKS);
         lemonPlanksPool.slab(ModBlocks.LEMON_SLAB);
 
-        blockStateModelGenerator.registerLog(ModBlocks.AVOCADO_LOG).log(ModBlocks.AVOCADO_LOG).wood(ModBlocks.AVOCADO_WOOD);
-        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_AVOCADO_LOG).log(ModBlocks.STRIPPED_AVOCADO_LOG).wood(ModBlocks.STRIPPED_AVOCADO_WOOD);
-        blockStateModelGenerator.registerLog(ModBlocks.NETHER_HAY).log(ModBlocks.NETHER_HAY);
+        blockStateModelGenerator.createLogTexturePool(ModBlocks.AVOCADO_LOG).log(ModBlocks.AVOCADO_LOG).wood(ModBlocks.AVOCADO_WOOD);
+        blockStateModelGenerator.createLogTexturePool(ModBlocks.STRIPPED_AVOCADO_LOG).log(ModBlocks.STRIPPED_AVOCADO_LOG).wood(ModBlocks.STRIPPED_AVOCADO_WOOD);
+        blockStateModelGenerator.createLogTexturePool(ModBlocks.NETHER_HAY).log(ModBlocks.NETHER_HAY);
         BlockStateModelGenerator.BlockTexturePool avocadoPlanksPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.AVOCADO_PLANKS);
         avocadoPlanksPool.slab(ModBlocks.AVOCADO_SLAB);
 
@@ -194,7 +198,7 @@ public class ModModelProvider extends FabricModelProvider {
     private void generateFruitLeaves(BlockStateModelGenerator generator, Block leavesBlock){
         Identifier FruitLeavesFalse = TexturedModel.CUBE_ALL.upload(leavesBlock, generator.modelCollector);
         Identifier FruitLeavesTrue = generator.createSubModel(leavesBlock, "_has_fruit", Models.CUBE_ALL, TextureMap::all);
-        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(leavesBlock)
-                .coordinate(BlockStateModelGenerator.createBooleanModelMap(LemonFruitLeaves.HAS_FRUIT, FruitLeavesTrue, FruitLeavesFalse)));
+        generator.blockStateCollector.accept(VariantsBlockModelDefinitionCreator.of(leavesBlock)
+                .with(BlockStateModelGenerator.createBooleanModelMap(LemonFruitLeaves.HAS_FRUIT, new WeightedVariant(Pool.<ModelVariant>builder().add(new ModelVariant(FruitLeavesTrue)).build()), new WeightedVariant(Pool.<ModelVariant>builder().add(new ModelVariant(FruitLeavesFalse)).build()))));
     }
 }

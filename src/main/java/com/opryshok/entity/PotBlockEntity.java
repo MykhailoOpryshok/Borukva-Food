@@ -76,7 +76,7 @@ public class PotBlockEntity extends LockableBlockEntity implements MinimalSidedI
     @Override
     public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup lookup) {
         Inventories.readNbt(nbt, items, lookup);
-        this.process = nbt.getDouble("Progress");
+        this.process = nbt.getDouble("Progress").orElse(0d);
         super.readNbt(nbt, lookup);
     }
     private boolean isInputEmpty() {
