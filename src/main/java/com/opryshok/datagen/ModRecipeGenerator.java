@@ -198,6 +198,12 @@ public class ModRecipeGenerator extends RecipeGenerator {
             .criterion(hasItem(Items.EGG), conditionsFromItem(Items.EGG))
             .offerTo(exporter);
 
+        createShapeless(RecipeCategory.FOOD, ModItems.ENDER_JAM, 1)
+            .input(Items.ENDER_PEARL)
+            .input(Items.ENDER_PEARL)
+            .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+            .offerTo(exporter);
+
         createShaped(RecipeCategory.FOOD, ModItems.VEGAN_BARBECUE, 1)
             .pattern("P  ")
             .pattern("L  ")
@@ -560,7 +566,7 @@ public class ModRecipeGenerator extends RecipeGenerator {
             PanRecipe.of("cooked_hoglin_meat", CountedIngredient.ofItems(1, ModItems.HOGLIN_MEAT), new ItemStack(ModItems.COOKED_HOGLIN_MEAT), 100)
         );
 
-        compressBlockRecipe(ModItems.NETHER_WHEAT, ModBlocks.NETHER_HAY_ITEM, exporter);
+        compressBlockRecipe(ModBlocks.NETHER_HAY_ITEM, ModItems.NETHER_WHEAT, exporter);
         createShaped(RecipeCategory.FOOD, ModBlocks.FUNGUS_PIZZA_ITEM, 1)
             .pattern("FKC")
             .pattern("FKC")

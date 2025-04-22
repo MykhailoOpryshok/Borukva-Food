@@ -2,10 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "borukva-food:nether_wheat"
+    "minecraft:ender_pearl",
+    "minecraft:ender_pearl"
   ],
   "result": {
-    "count": 9,
-    "id": "borukva-food:nether_hay"
+    "count": 1,
+    "id": "borukva-food:ender_jam"
   }
 }

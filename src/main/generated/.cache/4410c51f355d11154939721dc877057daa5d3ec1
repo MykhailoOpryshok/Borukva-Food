@@ -16,7 +16,7 @@ c5fd8949bb5d62e76da81abc7f6aac09e9cb69cb data/borukva-food/advancement/recipes/d
 3f551844e3e6aa7ff0d3f886ca645155b5325b81 data/borukva-food/advancement/recipes/decorations/corn_crate.json
 e8684fcd45e175a951258d55131ae0fecd1f1029 data/borukva-food/advancement/recipes/decorations/cucumber_crate.json
 50cce1eada70704fa960d43fe1087e57f35f9113 data/borukva-food/advancement/recipes/decorations/lettuce_crate.json
-c6a95121f9b6fe2efbf7698f5c52ce2e089f9f68 data/borukva-food/advancement/recipes/decorations/nether_wheat.json
+60266672d23c8da641616c2ae01127dde334e6bb data/borukva-food/advancement/recipes/decorations/nether_hay.json
 041f8d921e64e05add0d3c4e4a5409bdbeeff257 data/borukva-food/advancement/recipes/decorations/onion_crate.json
 f2ec71c2e3e3107235b21c0820762ee1ff3e2069 data/borukva-food/advancement/recipes/decorations/potato_crate.json
 4c8d8f6d71ab08e015634ff4caaa7cb55b7bc31a data/borukva-food/advancement/recipes/decorations/rice_crate.json
@@ -56,6 +56,7 @@ acc7cf899cdb974c42b5c53ceaab4419984f42e8 data/borukva-food/advancement/recipes/f
 d9ddfa92adaf6110c6fa4ecec1b439e79a2657c0 data/borukva-food/advancement/recipes/food/cucumber_crate_to_cucumber.json
 4deba92dc88f6a79e210fb9affeb8fcca7a0023d data/borukva-food/advancement/recipes/food/cucumber_to_cucumber_seeds.json
 4132ac6c25fa87e1722520521afedc08efec5d8a data/borukva-food/advancement/recipes/food/ender_infected_onion_to_ender_infected_onion_seeds.json
+96d06cbd233ef20dcc5b9fb2f82d225c8d65930c data/borukva-food/advancement/recipes/food/ender_jam.json
 395d98631de6c323cc9dd6a3904649c212134bff data/borukva-food/advancement/recipes/food/ender_pie.json
 73fc4ff5d5980968ffde6685e19ff2b14f728472 data/borukva-food/advancement/recipes/food/fungus_pizza.json
 7e627b5b090de1bc3e423b3fbb24c7894cfc118f data/borukva-food/advancement/recipes/food/golden_bread.json
@@ -76,7 +77,7 @@ f3612a95a1e1648a969e013f3755d048b3438933 data/borukva-food/advancement/recipes/f
 1fd43e6df84a5d83485eb6f7de581afc2f86b59b data/borukva-food/advancement/recipes/food/mayonnaise.json
 57ced201ad664efe3050dfc692c5acba84619b2e data/borukva-food/advancement/recipes/food/meat_pizza.json
 8b30e672e0ab27d420c7a0d4a2c339e31f071aab data/borukva-food/advancement/recipes/food/nether_bun.json
-e96cc5f94143387532cbeacbad17fb95a6e8d978 data/borukva-food/advancement/recipes/food/nether_wheat_to_nether_hay.json
+5951fe46afc031385eb4866ea86368911bd6519d data/borukva-food/advancement/recipes/food/nether_hay_to_nether_wheat.json
 a52f6a821c1f2cf0653c8ac9c768144c3a4fe24e data/borukva-food/advancement/recipes/food/oil.json
 579171a7dce8ee3368954450c71ffb700803a856 data/borukva-food/advancement/recipes/food/onigiri.json
 1f2232094f88cb50854e0843735f80ab7dea7055 data/borukva-food/advancement/recipes/food/onion_crate_to_onion.json
@@ -180,6 +181,7 @@ a80ca4e41105598c410092a0c71a6af4dea28681 data/borukva-food/recipe/cutting_board/
 132788013c009b919a587a0fb15b90b374194659 data/borukva-food/recipe/cutting_board/tomato_slices.json
 ad28e42fc218003c19b08023be292e140134faba data/borukva-food/recipe/empty_jar.json
 7a5f1705b4e1b8392235973164e35c14f1eeeb23 data/borukva-food/recipe/ender_infected_onion_to_ender_infected_onion_seeds.json
+98c830ea034e52c850c4c7b1614cf285420b3b52 data/borukva-food/recipe/ender_jam.json
 cf09deb2e19e7565071678e8561f774933fc01db data/borukva-food/recipe/ender_pie.json
 12701e51c288ad44536a7a7ce46c849f49762c28 data/borukva-food/recipe/fertilizer.json
 08f19030f0f336c8089f248cd81e09f32e10ded6 data/borukva-food/recipe/fertilizer_sprayer.json
@@ -210,8 +212,8 @@ d92e4b458e400f91b8e037290ce45793c265524f data/borukva-food/recipe/lemon_wood.jso
 6c9805e435bbbff3f32f32bb729829b54b5feab8 data/borukva-food/recipe/mayonnaise.json
 809dcccaf2c50c3a785220ea33d26459078204db data/borukva-food/recipe/meat_pizza.json
 183d637a85e76a965d2bd6c0bb47ae0dbbb223fb data/borukva-food/recipe/nether_bun.json
-84f91efeb19181413acc8a02d1f772b118834d72 data/borukva-food/recipe/nether_wheat.json
-ee939580ee50f144b357a23fb336fa9306f6e3ad data/borukva-food/recipe/nether_wheat_to_nether_hay.json
+764955954495629f174792fb39c43be2e1b7193f data/borukva-food/recipe/nether_hay.json
+6ff9204f02ce0e5eb915da55c56259ebe912149d data/borukva-food/recipe/nether_hay_to_nether_wheat.json
 3191d6f9357ac59150dce3aa61ad305a55a4840d data/borukva-food/recipe/oil.json
 d8bc0eae487695bb25b19849b9564fff28344287 data/borukva-food/recipe/onigiri.json
 f8e16268f6707a7c6a97541fde867e5d9c3b2d0c data/borukva-food/recipe/onion_crate.json
