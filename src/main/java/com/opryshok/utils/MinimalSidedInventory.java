@@ -16,7 +16,7 @@ public interface MinimalSidedInventory extends SidedInventory{
 
     @Override
     default boolean isEmpty() {
-        Iterator var1 = (Iterator) this.getStacks().iterator();
+        java.util.Iterator<ItemStack> var1 = this.getStacks().iterator();
         
         ItemStack itemStack;
         do {
