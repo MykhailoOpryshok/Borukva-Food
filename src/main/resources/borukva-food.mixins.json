@@ -8,6 +8,7 @@
     "CropBlockMixin",
     "FullComposterInventoryMixin",
     "HoeItemMixin",
+    "LootPoolBuilderMixin",
     "PitcherCropBlockMixin",
     "PlantBlockMixin",
     "SecondaryPointsOfInterestSensorMixin",
