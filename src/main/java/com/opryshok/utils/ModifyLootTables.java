@@ -111,7 +111,6 @@ public class ModifyLootTables {
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(1f))
                         .with(ItemEntry.builder(ModItems.ENDER_INFECTED_ONION_SEEDS))
-                        .with(ItemEntry.builder(ModBlocks.WORMWOOD))
                         .with(ItemEntry.builder(ModItems.GRAPE_SAPLING));
                 tableBuilder.pool(pool);
             }
