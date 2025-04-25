@@ -46,6 +46,7 @@ public class ModRecipeGenerator extends RecipeGenerator {
         compressBlockRecipe(ModBlocks.TOMATO_CRATE_ITEM, ModItems.TOMATO, exporter);
         compressBlockRecipe(ModBlocks.ONION_CRATE_ITEM, ModItems.ONION, exporter);
         compressBlockRecipe(ModBlocks.RICE_CRATE_ITEM, ModItems.RICE, exporter);
+        compressBlockRecipe(ModBlocks.CHORUS_CRATE_ITEM, Items.CHORUS_FRUIT, exporter);
 
         seedsRecipe(ModItems.TOMATO, ModItems.TOMATO_SEEDS, exporter);
         seedsRecipe(ModItems.CABBAGE, ModItems.CABBAGE_SEEDS, exporter);
