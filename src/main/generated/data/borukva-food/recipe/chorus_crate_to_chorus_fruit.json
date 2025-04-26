@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "borukva-food:chorus_crate"
+  ],
+  "result": {
+    "count": 9,
+    "id": "minecraft:chorus_fruit"
+  }
+}
