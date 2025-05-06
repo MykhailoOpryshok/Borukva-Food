@@ -1,1 +1,6 @@
-{"model":{"model":"borukva-food:block/lemon_sapling","type":"minecraft:model"}}
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "borukva-food:item/lemon_sapling"
+  }
+}
