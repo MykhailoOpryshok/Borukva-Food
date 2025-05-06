@@ -75,14 +75,14 @@ public class VeganPizza extends Block implements TransparentFlatTripWire, Factor
         }
 
         protected void updateItem(BlockState state) {
-            this.removeElement(this.pizza);
-            init(state);
+            this.pizza.setItem(MODEL.get(state.get(ModProperties.SLICES)));
         }
 
         @Override
         public void notifyUpdate(HolderAttachment.UpdateType updateType) {
             if (updateType == BlockBoundAttachment.BLOCK_STATE_UPDATE) {
                 updateItem(this.blockState());
+                this.tick();
             }
             super.notifyUpdate(updateType);
         }

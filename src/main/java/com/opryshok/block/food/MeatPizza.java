@@ -53,8 +53,7 @@ public class MeatPizza extends VeganPizza {
 
         @Override
         protected void updateItem(BlockState state) {
-            this.removeElement(this.pizza);
-            init(state);
+            this.pizza.setItem(MEAT_MODEL.get(state.get(ModProperties.SLICES)));
         }
     }
 }

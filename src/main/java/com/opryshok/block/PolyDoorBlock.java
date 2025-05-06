@@ -15,7 +15,6 @@ import net.minecraft.block.*;
 import net.minecraft.block.enums.DoorHinge;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
@@ -85,15 +84,10 @@ public class PolyDoorBlock extends DoorBlock implements FactoryBlock, PolymerTex
         }
 
         public void init(BlockState state) {
-            if(state.get(OPEN)){
-                main = state.get(HINGE).equals(DoorHinge.LEFT)
-                        ? ItemDisplayElementUtil.createSimple(MODEL_RIGHT)
-                        : ItemDisplayElementUtil.createSimple(MODEL_LEFT);
-            } else{
-                main = state.get(HINGE).equals(DoorHinge.LEFT)
-                        ? ItemDisplayElementUtil.createSimple(MODEL_LEFT)
-                        : ItemDisplayElementUtil.createSimple(MODEL_RIGHT);
-            }
+            main = ItemDisplayElementUtil.createSimple();
+            main.setTeleportDuration(0);
+            main.setInterpolationDuration(0);
+            this.updateItem(state);
             updateStatePos(state);
             addElement(main);
         }
@@ -109,13 +103,17 @@ public class PolyDoorBlock extends DoorBlock implements FactoryBlock, PolymerTex
             main.setYaw(rotation);
         }
         private void updateItem(BlockState state) {
-            this.removeElement(this.main);
-            init(state);
+            if (state.get(OPEN))
+                main.setItem(state.get(HINGE).equals(DoorHinge.LEFT) ? MODEL_RIGHT : MODEL_LEFT);
+            else
+                main.setItem(state.get(HINGE).equals(DoorHinge.LEFT) ? MODEL_LEFT : MODEL_RIGHT);
         }
         @Override
         public void notifyUpdate(HolderAttachment.UpdateType updateType) {
             if (updateType == BlockBoundAttachment.BLOCK_STATE_UPDATE){
+                updateStatePos(this.blockState());
                 updateItem(this.blockState());
+                this.tick();
             }
             super.notifyUpdate(updateType);
         }

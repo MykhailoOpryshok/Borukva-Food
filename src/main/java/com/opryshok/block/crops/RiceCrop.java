@@ -14,7 +14,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FluidFillable;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -109,25 +108,25 @@ public class RiceCrop extends TomatoCrop implements TransparentPlantWatterlogged
             init(state);
         }
         public void init(BlockState state){
-            this.main = ItemDisplayElementUtil.createSimple(
-                    switch (state.get(AGE)) {
-                        case 2, 3 -> getModels().get(1);
-                        case 4, 5, 6 -> getModels().get(2);
-                        case 7 -> getModels().get(3);
-                        default -> getModels().getFirst();
-                    });
+            this.main = ItemDisplayElementUtil.createSimple();
+            this.updateItem(state);
             this.main.setScale(new Vector3f(1f, 2f, 1f));
             this.main.setTranslation(new Vector3f(0f, 0.5f, 0f));
             this.addElement(main);
         }
         private void updateItem(BlockState state) {
-            this.removeElement(this.main);
-            init(state);
+            this.main.setItem(switch (state.get(AGE)) {
+                case 2, 3 -> getModels().get(1);
+                case 4, 5, 6 -> getModels().get(2);
+                case 7 -> getModels().get(3);
+                default -> getModels().getFirst();
+            });
         }
         @Override
         public void notifyUpdate(HolderAttachment.UpdateType updateType) {
             if (updateType == BlockBoundAttachment.BLOCK_STATE_UPDATE){
                 updateItem(this.blockState());
+                this.tick();
             }
             super.notifyUpdate(updateType);
         }

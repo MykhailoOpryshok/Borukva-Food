@@ -1,27 +1,24 @@
 package com.opryshok.block;
 
-import eu.pb4.factorytools.api.block.FactoryBlock;
-import eu.pb4.factorytools.api.virtualentity.BlockModel;
-import eu.pb4.factorytools.api.virtualentity.ItemDisplayElementUtil;
-import eu.pb4.polymer.virtualentity.api.ElementHolder;
-import eu.pb4.polymer.virtualentity.api.attachment.BlockBoundAttachment;
-import eu.pb4.polymer.virtualentity.api.attachment.HolderAttachment;
-import eu.pb4.polymer.virtualentity.api.elements.ItemDisplayElement;
+import eu.pb4.polymer.blocks.api.BlockModelType;
+import eu.pb4.polymer.blocks.api.PolymerBlockModel;
+import eu.pb4.polymer.blocks.api.PolymerBlockResourceUtils;
+import eu.pb4.polymer.blocks.api.PolymerTexturedBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.PillarBlock;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.math.BlockPos;
-import org.jetbrains.annotations.Nullable;
-import org.joml.Vector3f;
 import xyz.nucleoid.packettweaker.PacketContext;
 
-public class PolyLogBlock extends PillarBlock implements FactoryBlock {
+import static com.opryshok.BorukvaFood.id;
 
-    public PolyLogBlock(Settings settings) {
+public class PolyLogBlock extends PillarBlock implements PolymerTexturedBlock {
+    private final BlockState[] model = new BlockState[3];
+
+    public PolyLogBlock(Settings settings, String path) {
         super(settings.nonOpaque());
+        model[0] = PolymerBlockResourceUtils.requestBlock(BlockModelType.FULL_BLOCK, PolymerBlockModel.of(id("block/"+path), 90, 90));
+        model[1] = PolymerBlockResourceUtils.requestBlock(BlockModelType.FULL_BLOCK, PolymerBlockModel.of(id("block/"+path), 0, 0));
+        model[2] = PolymerBlockResourceUtils.requestBlock(BlockModelType.FULL_BLOCK, PolymerBlockModel.of(id("block/"+path), 90, 0));
     }
 
     @Override
@@ -31,49 +28,10 @@ public class PolyLogBlock extends PillarBlock implements FactoryBlock {
 
     @Override
     public BlockState getPolymerBlockState(BlockState state, PacketContext context) {
-        return Blocks.BARRIER.getDefaultState();
-    }
-
-    @Override
-    public @Nullable ElementHolder createElementHolder(ServerWorld world, BlockPos pos, BlockState initialBlockState) {
-        return new Model(initialBlockState);
-    }
-
-    public static class Model extends BlockModel {
-        private ItemDisplayElement main;
-
-        public Model(BlockState state) {
-            init(state);
-        }
-
-        private void init(BlockState state) {
-            main = ItemDisplayElementUtil.createSimple(state.getBlock().asItem());
-            switch (state.get(Properties.AXIS)){
-                case X:{
-                    main.setYaw(90);
-                    main.setPitch(90);
-                    break;
-                }
-                case Z:{
-                    main.setPitch(90);
-                    break;
-                }
-            }
-            main.setScale(new Vector3f(2f));
-            addElement(main);
-        }
-
-        private void updateItem(BlockState state) {
-            this.removeElement(main);
-            init(state);
-        }
-
-        @Override
-        public void notifyUpdate(HolderAttachment.UpdateType updateType) {
-            if (updateType == BlockBoundAttachment.BLOCK_STATE_UPDATE) {
-                updateItem(this.blockState());
-            }
-            super.notifyUpdate(updateType);
-        }
+        return switch (state.get(PillarBlock.AXIS)) {
+            case X -> model[0];
+            case Y -> model[1];
+            case Z -> model[2];
+        };
     }
 }

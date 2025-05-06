@@ -53,8 +53,7 @@ public class FungusPizza extends MeatPizza{
 
         @Override
         protected void updateItem(BlockState state) {
-            this.removeElement(this.pizza);
-            init(state);
+            this.pizza.setItem(FUNGUS_MODEL.get(state.get(ModProperties.SLICES)));
         }
     }
 }

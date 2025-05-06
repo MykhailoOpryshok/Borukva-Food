@@ -30,14 +30,15 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import xyz.nucleoid.packettweaker.PacketContext;
 
-import java.util.List;
+import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
+
+import static com.opryshok.BorukvaFood.id;
 
 public class ModBlocks {
     // Blocks:
@@ -51,7 +52,7 @@ public class ModBlocks {
     public static final Block RICE = registerBlock("rice_crop", RiceCrop::new, Block.Settings.copy(Blocks.WHEAT));
     public static final Block NETHER_WHEAT = registerBlock("nether_wheat_crop", NetherWheatCrop::new, Block.Settings.copy(Blocks.WHEAT));
     public static final Block ENDER_INFECTED_ONION = registerBlock("ender_infected_onion", EnderInfectedOnionCrop::new, Block.Settings.copy(Blocks.WHEAT));
-    public static final Block NETHER_HAY = registerBlock("nether_hay", settings -> new PolyLogBlock(settings){
+    public static final Block NETHER_HAY = registerBlock("nether_hay", (settings, path) -> new PolyLogBlock(settings, path){
         @Override
         public BlockState getPolymerBreakEventBlockState(BlockState state, PacketContext context) {return Blocks.HAY_BLOCK.getDefaultState();}
         @Override
@@ -74,21 +75,21 @@ public class ModBlocks {
     public static final Block PAN = registerBlock("pan", Pan::new, Block.Settings.copy(Blocks.OAK_PRESSURE_PLATE));
     public static final Block POT = registerBlock("pot", Pot::new, Block.Settings.copy(Blocks.OAK_PRESSURE_PLATE));
     public static final Block CUTTING_BOARD = registerBlock("cutting_board", CuttingBoard::new, Block.Settings.copy(Blocks.OAK_PRESSURE_PLATE));
-    public static final Block BEETROOT_CRATE = registerBlock("beetroot_crate", settings -> new SimplePolyBlock(settings, "beetroot_crate"), Block.Settings.copy(Blocks.COMPOSTER));
-    public static final Block CABBAGE_CRATE = registerBlock("cabbage_crate", settings -> new SimplePolyBlock(settings, "cabbage_crate"), Block.Settings.copy(Blocks.COMPOSTER));
-    public static final Block CARROT_CRATE = registerBlock("carrot_crate", settings -> new SimplePolyBlock(settings, "carrot_crate"), Block.Settings.copy(Blocks.COMPOSTER));
-    public static final Block CHILLI_PEPPER_CRATE = registerBlock("chilli_pepper_crate", settings -> new SimplePolyBlock(settings, "chilli_pepper_crate"), Block.Settings.copy(Blocks.COMPOSTER));
-    public static final Block CORN_CRATE = registerBlock("corn_crate", settings -> new SimplePolyBlock(settings, "corn_crate"), Block.Settings.copy(Blocks.COMPOSTER));
-    public static final Block CUCUMBER_CRATE = registerBlock("cucumber_crate", settings -> new SimplePolyBlock(settings, "cucumber_crate"), Block.Settings.copy(Blocks.COMPOSTER));
-    public static final Block LETTUCE_CRATE = registerBlock("lettuce_crate", settings -> new SimplePolyBlock(settings, "lettuce_crate"), Block.Settings.copy(Blocks.COMPOSTER));
-    public static final Block POTATO_CRATE = registerBlock("potato_crate", settings -> new SimplePolyBlock(settings, "potato_crate"), Block.Settings.copy(Blocks.COMPOSTER));
-    public static final Block TOMATO_CRATE = registerBlock("tomato_crate", settings -> new SimplePolyBlock(settings, "tomato_crate"), Block.Settings.copy(Blocks.COMPOSTER));
-    public static final Block ONION_CRATE = registerBlock("onion_crate", settings -> new SimplePolyBlock(settings, "onion_crate"), Block.Settings.copy(Blocks.COMPOSTER));
-    public static final Block RICE_CRATE = registerBlock("rice_crate", settings -> new SimplePolyBlock(settings, "rice_crate"), Block.Settings.copy(Blocks.COMPOSTER));
+    public static final Block BEETROOT_CRATE = registerBlock("beetroot_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
+    public static final Block CABBAGE_CRATE = registerBlock("cabbage_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
+    public static final Block CARROT_CRATE = registerBlock("carrot_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
+    public static final Block CHILLI_PEPPER_CRATE = registerBlock("chilli_pepper_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
+    public static final Block CORN_CRATE = registerBlock("corn_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
+    public static final Block CUCUMBER_CRATE = registerBlock("cucumber_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
+    public static final Block LETTUCE_CRATE = registerBlock("lettuce_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
+    public static final Block POTATO_CRATE = registerBlock("potato_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
+    public static final Block TOMATO_CRATE = registerBlock("tomato_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
+    public static final Block ONION_CRATE = registerBlock("onion_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
+    public static final Block RICE_CRATE = registerBlock("rice_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
     public static final Block BLACKCURRANTS_BUSH = registerBlock("blackcurrants_bush", BlackcurrantsBush::new, Block.Settings.copy(Blocks.SWEET_BERRY_BUSH));
     public static final Block GOOSEBERRY_BUSH = registerBlock("gooseberry_bush", GooseberryBush::new, Block.Settings.copy(Blocks.SWEET_BERRY_BUSH));
     public static final Block GRAPE = registerBlock("grape_crop", GrapeCrop::new, Block.Settings.copy(Blocks.SWEET_BERRY_BUSH));
-    public static final Block CHORUS_CRATE = registerBlock("chorus_crate", settings -> new SimplePolyBlock(settings, "chorus_crate"), Block.Settings.copy(Blocks.COMPOSTER));
+    public static final Block CHORUS_CRATE = registerBlock("chorus_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
     public static final Block SALT = registerBlock("salt_block", settings -> new SimplePolyBlock(settings, "salt_block"){
         @Override
         public BlockState getPolymerBreakEventBlockState(BlockState state, PacketContext context) {
@@ -99,20 +100,20 @@ public class ModBlocks {
     public static final Block LEMON_WOOD = registerBlock("lemon_wood", PolyLogBlock::new, Block.Settings.copy(Blocks.OAK_WOOD));
     public static final Block STRIPPED_LEMON_LOG = registerBlock("stripped_lemon_log", PolyLogBlock::new, Block.Settings.copy(Blocks.OAK_LOG));
     public static final Block STRIPPED_LEMON_WOOD = registerBlock("stripped_lemon_wood", PolyLogBlock::new, Block.Settings.copy(Blocks.OAK_WOOD));
-    public static final Block LEMON_LEAVES = registerBlock("lemon_leaves", settings -> new PolyLeavesBlock(settings, "lemon_leaves"), Block.Settings.copy(Blocks.OAK_LEAVES));
-    public static final Block LEMON_PLANKS = registerBlock("lemon_planks", settings -> new SimplePolyBlock(settings, "lemon_planks"), Block.Settings.copy(Blocks.OAK_PLANKS));
+    public static final Block LEMON_LEAVES = registerBlock("lemon_leaves", PolyLeavesBlock::new, Block.Settings.copy(Blocks.OAK_LEAVES));
+    public static final Block LEMON_PLANKS = registerBlock("lemon_planks", SimplePolyBlock::new, Block.Settings.copy(Blocks.OAK_PLANKS));
     public static final Block LEMON_SLAB = registerBlock("lemon_slab", settings -> new PolySlabBlock(settings, "lemon_slab", LEMON_PLANKS.getDefaultState()), Block.Settings.copy(Blocks.OAK_SLAB));
-    public static final Block LEMON_TRAPDOOR = registerBlock("lemon_trapdoor", settings -> new PolyTrapdoorBlock(settings, "lemon_trapdoor"), Block.Settings.copy(Blocks.OAK_TRAPDOOR));
+    public static final Block LEMON_TRAPDOOR = registerBlock("lemon_trapdoor", PolyTrapdoorBlock::new, Block.Settings.copy(Blocks.OAK_TRAPDOOR));
     public static final Block LEMON_SAPLING = registerBlock("lemon_sapling", settings -> new PolySaplingBlock(ModSaplingGenerator.LEMON, settings, "lemon_sapling"), Block.Settings.copy(Blocks.OAK_SAPLING));
-    public static final Block LEMON_DOOR = registerBlock("lemon_door", settings -> new PolyDoorBlock(settings, "lemon_door"), Block.Settings.copy(Blocks.OAK_DOOR));
+    public static final Block LEMON_DOOR = registerBlock("lemon_door", PolyDoorBlock::new, Block.Settings.copy(Blocks.OAK_DOOR));
     public static final Block AVOCADO_LOG = registerBlock("avocado_log", PolyLogBlock::new, Block.Settings.copy(Blocks.OAK_LOG));
     public static final Block AVOCADO_WOOD = registerBlock("avocado_wood", PolyLogBlock::new, Block.Settings.copy(Blocks.OAK_WOOD));
     public static final Block STRIPPED_AVOCADO_LOG = registerBlock("stripped_avocado_log", PolyLogBlock::new, Block.Settings.copy(Blocks.OAK_LOG));
     public static final Block STRIPPED_AVOCADO_WOOD = registerBlock("stripped_avocado_wood", PolyLogBlock::new, Block.Settings.copy(Blocks.OAK_WOOD));
-    public static final Block AVOCADO_LEAVES = registerBlock("avocado_leaves", settings -> new PolyLeavesBlock(settings, "avocado_leaves"), Block.Settings.copy(Blocks.OAK_LEAVES));
-    public static final Block AVOCADO_PLANKS = registerBlock("avocado_planks", settings -> new SimplePolyBlock(settings, "avocado_planks"), Block.Settings.copy(Blocks.OAK_PLANKS));
-    public static final Block AVOCADO_TRAPDOOR = registerBlock("avocado_trapdoor", settings -> new PolyTrapdoorBlock(settings, "avocado_trapdoor"), Block.Settings.copy(Blocks.OAK_TRAPDOOR));
-    public static final Block AVOCADO_DOOR = registerBlock("avocado_door", settings -> new PolyDoorBlock(settings, "avocado_door"), Block.Settings.copy(Blocks.OAK_DOOR));
+    public static final Block AVOCADO_LEAVES = registerBlock("avocado_leaves", PolyLeavesBlock::new, Block.Settings.copy(Blocks.OAK_LEAVES));
+    public static final Block AVOCADO_PLANKS = registerBlock("avocado_planks", SimplePolyBlock::new, Block.Settings.copy(Blocks.OAK_PLANKS));
+    public static final Block AVOCADO_TRAPDOOR = registerBlock("avocado_trapdoor", PolyTrapdoorBlock::new, Block.Settings.copy(Blocks.OAK_TRAPDOOR));
+    public static final Block AVOCADO_DOOR = registerBlock("avocado_door", PolyDoorBlock::new, Block.Settings.copy(Blocks.OAK_DOOR));
     public static final Block AVOCADO_SLAB = registerBlock("avocado_slab", settings -> new PolySlabBlock(settings, "avocado_slab", AVOCADO_PLANKS.getDefaultState()), Block.Settings.copy(Blocks.OAK_SLAB));
     public static final Block AVOCADO_SAPLING = registerBlock("avocado_sapling", settings -> new PolySaplingBlock(ModSaplingGenerator.AVOCADO, settings, "avocado_sapling"), Block.Settings.copy(Blocks.OAK_SAPLING));
     public static final Block CHOCOLATE_CAKE = registerBlock("chocolate_cake", ChocolateCake::new, Block.Settings.copy(Blocks.CAKE));
@@ -229,18 +230,21 @@ public class ModBlocks {
             entries.add(ModItems.GRAPE_SAPLING);
         });
         ItemGroup polymerGroup = builder.build();
-        PolymerItemGroupUtils.registerPolymerItemGroup(Identifier.of(BorukvaFood.MOD_ID, "blocks"), polymerGroup);
+        PolymerItemGroupUtils.registerPolymerItemGroup(id("blocks"), polymerGroup);
 
         BorukvaFood.LOGGER.info("Blocks register");
     }
     public static Block registerBlock(String name, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings){
-        var key = RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(BorukvaFood.MOD_ID, name));
-        Block block = factory.apply(settings.registryKey(key));
+        return registerBlock(name, (set, id) -> factory.apply(settings), settings);
+    }
+    public static Block registerBlock(String name, BiFunction<AbstractBlock.Settings, String, Block> factory, AbstractBlock.Settings settings){
+        var key = RegistryKey.of(RegistryKeys.BLOCK, id(name));
+        Block block = factory.apply(settings.registryKey(key), name);
 
         return Registry.register(Registries.BLOCK, key, block);
     }
     public static BlockItem registerBlockItem(String name, Function<Item.Settings, BlockItem> factory, Item.Settings settings){
-        var key = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(BorukvaFood.MOD_ID, name));
+        var key = RegistryKey.of(RegistryKeys.ITEM, id(name));
         BlockItem item = factory.apply(settings.registryKey(key).useBlockPrefixedTranslationKey());
 
         return Registry.register(Registries.ITEM, key, item);

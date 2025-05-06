@@ -10,7 +10,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.TrapdoorBlock;
 import net.minecraft.block.enums.BlockHalf;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
