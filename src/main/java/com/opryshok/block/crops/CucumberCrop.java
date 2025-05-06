@@ -43,13 +43,8 @@ public class CucumberCrop extends TomatoCrop{
         }
         @Override
         public void init(BlockState state){
-            this.main = ItemDisplayElementUtil.createSimple(
-                    switch (state.get(AGE)) {
-                        case 2, 3 -> getModels().get(1);
-                        case 4, 5, 6 -> getModels().get(2);
-                        case 7 -> getModels().get(3);
-                        default -> getModels().getFirst();
-                    });
+            this.main = ItemDisplayElementUtil.createSimple();
+            this.updateItem(state);
             this.main.setScale(new Vector3f(1f, 2f, 1f));
             this.main.setTranslation(new Vector3f(0f, 0.5f, 0f));
             this.addElement(main);
@@ -57,6 +52,16 @@ public class CucumberCrop extends TomatoCrop{
         @Override
         public ArrayList<ItemStack> getModels() {
             return MODELS;
+        }
+
+        @Override
+        protected void updateItem(BlockState state) {
+            this.main.setItem(switch (state.get(AGE)) {
+                        case 2, 3 -> getModels().get(1);
+                        case 4, 5, 6 -> getModels().get(2);
+                        case 7 -> getModels().get(3);
+                        default -> getModels().getFirst();
+                    });
         }
     }
 }

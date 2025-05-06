@@ -51,7 +51,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SALT);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LEMON_LEAVES);
         blockStateModelGenerator.createLogTexturePool(ModBlocks.LEMON_LOG).log(ModBlocks.LEMON_LOG).wood(ModBlocks.LEMON_WOOD);
-        blockStateModelGenerator.registerTintableCross(ModBlocks.LEMON_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
+        generateSapling(blockStateModelGenerator, ModBlocks.LEMON_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
         blockStateModelGenerator.createLogTexturePool(ModBlocks.STRIPPED_LEMON_LOG).log(ModBlocks.STRIPPED_LEMON_LOG).wood(ModBlocks.STRIPPED_LEMON_WOOD);
 
         BlockStateModelGenerator.BlockTexturePool lemonPlanksPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.LEMON_PLANKS);
@@ -64,7 +64,7 @@ public class ModModelProvider extends FabricModelProvider {
         avocadoPlanksPool.slab(ModBlocks.AVOCADO_SLAB);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.AVOCADO_LEAVES);
-        blockStateModelGenerator.registerTintableCross(ModBlocks.AVOCADO_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
+        generateSapling(blockStateModelGenerator, ModBlocks.AVOCADO_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
 
         generateFruitLeaves(blockStateModelGenerator, ModBlocks.LEMON_FRUIT_LEAVES);
         generateFruitLeaves(blockStateModelGenerator, ModBlocks.AVOCADO_FRUIT_LEAVES);
@@ -200,5 +200,9 @@ public class ModModelProvider extends FabricModelProvider {
         Identifier FruitLeavesTrue = generator.createSubModel(leavesBlock, "_has_fruit", Models.CUBE_ALL, TextureMap::all);
         generator.blockStateCollector.accept(VariantsBlockModelDefinitionCreator.of(leavesBlock)
                 .with(BlockStateModelGenerator.createBooleanModelMap(LemonFruitLeaves.HAS_FRUIT, new WeightedVariant(Pool.<ModelVariant>builder().add(new ModelVariant(FruitLeavesTrue)).build()), new WeightedVariant(Pool.<ModelVariant>builder().add(new ModelVariant(FruitLeavesFalse)).build()))));
+    }
+    private void generateSapling(BlockStateModelGenerator generator, Block block, BlockStateModelGenerator.CrossType crossType) {
+        generator.registerItemModel(block.asItem(), crossType.registerItemModel(generator, block));
+        generator.registerTintableCrossBlockState(block, crossType);
     }
 }

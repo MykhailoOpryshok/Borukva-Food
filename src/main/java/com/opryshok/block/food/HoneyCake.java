@@ -46,8 +46,7 @@ public class HoneyCake extends ChocolateCake{
 
         @Override
         protected void updateItem(BlockState state) {
-            this.removeElement(main);
-            init(state);
+            this.main.setItem(HONEY_MODEL.get(state.get(Properties.BITES)));
         }
     }
 }

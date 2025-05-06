@@ -72,14 +72,14 @@ public class ChocolateCake extends CakeBlock implements FactoryBlock {
         }
 
         protected void updateItem(BlockState state) {
-            this.removeElement(this.main);
-            init(state);
+            this.main.setItem(CHOCOLATE_MODEL.get(state.get(Properties.BITES)));
         }
 
         @Override
         public void notifyUpdate(HolderAttachment.UpdateType updateType) {
             if (updateType == BlockBoundAttachment.BLOCK_STATE_UPDATE) {
                 updateItem(this.blockState());
+                this.tick();
             }
             super.notifyUpdate(updateType);
         }

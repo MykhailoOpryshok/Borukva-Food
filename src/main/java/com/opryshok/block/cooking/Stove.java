@@ -160,13 +160,14 @@ public class Stove extends BlockWithEntity implements FactoryBlock, BlockEntityP
         }
 
         private void updateItem(BlockState state) {
-            this.removeElement(this.stove);
-            init(state);
+            this.stove.setItem(state.get(LIT) ? LIT_TRUE : LIT_FALSE);
         }
         @Override
         public void notifyUpdate(HolderAttachment.UpdateType updateType) {
             if (updateType == BlockBoundAttachment.BLOCK_STATE_UPDATE){
+                updateStatePos(this.blockState());
                 updateItem(this.blockState());
+                this.tick();
             }
             super.notifyUpdate(updateType);
         }

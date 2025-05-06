@@ -74,13 +74,13 @@ public class GooseberryBush extends BlackcurrantsBush {
             this.addElement(main);
         }
         private void updateItem(BlockState state) {
-            this.removeElement(this.main);
-            init(state);
+            this.main.setItem(MODELS.get(state.get(AGE)));
         }
         @Override
         public void notifyUpdate(HolderAttachment.UpdateType updateType) {
             if (updateType == BlockBoundAttachment.BLOCK_STATE_UPDATE){
                 updateItem(this.blockState());
+                this.tick();
             }
             super.notifyUpdate(updateType);
         }

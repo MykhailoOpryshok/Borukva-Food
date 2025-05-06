@@ -174,7 +174,7 @@ public class CuttingBoard extends BlockWithEntity implements TransparentFlatTrip
             main = ItemDisplayElementUtil.createSimple(MODEL);
             var direction = state.get(FACING);
             main.setYaw(direction.getPositiveHorizontalDegrees());
-            main.setScale(new Vector3f(1));
+            main.setScale(new Vector3f(2));
             addElement(main);
 
             item = ItemDisplayElementUtil.createSimple();

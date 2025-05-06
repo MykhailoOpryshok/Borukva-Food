@@ -41,17 +41,22 @@ public class CornCrop extends TomatoCrop {
         }
         @Override
         public void init(BlockState state){
-            main = ItemDisplayElementUtil.createSimple(
-                    switch (state.get(AGE)) {
+            main = ItemDisplayElementUtil.createSimple();
+            this.updateItem(state);
+            main.setScale(new Vector3f(1f, 2f, 1f));
+            main.setTranslation(new Vector3f(0f, 0.5f, 0f));
+            addElement(main);
+        }
+
+        @Override
+        public void updateItem(BlockState state) {
+            this.main.setItem(switch (state.get(AGE)) {
                         case 1, 2 -> MODELS.get(1);
                         case 3, 4 -> MODELS.get(2);
                         case 5, 6 -> MODELS.get(3);
                         case 7 -> MODELS.get(4);
                         default -> MODELS.getFirst();
                     });
-            main.setScale(new Vector3f(1f, 2f, 1f));
-            main.setTranslation(new Vector3f(0f, 0.5f, 0f));
-            addElement(main);
         }
     }
 }
