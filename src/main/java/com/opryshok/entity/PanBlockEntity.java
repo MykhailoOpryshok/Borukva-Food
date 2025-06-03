@@ -43,8 +43,9 @@ import java.util.Objects;
 
 public class PanBlockEntity extends LockableBlockEntity implements MinimalSidedInventory, BlockEntityExtraListener, SidedInventory{
     private static final int[] SLOTS =  new int[]{0, 1, 2};
-    public boolean active;
+    public boolean active = false;
     private int soundTicks = 20;
+    private static final int SOUND_PLAY_INTERVAL = 15;
     private final DefaultedList<ItemStack> items = DefaultedList.ofSize(3, ItemStack.EMPTY);
     private final HashMap<Integer, Integer> slotTick = new HashMap<>();
     {
@@ -113,11 +114,27 @@ public class PanBlockEntity extends LockableBlockEntity implements MinimalSidedI
                     }
                 }
 
-                if (self.soundTicks >= 20) {
-                    world.playSound(null, pos, SoundRegistry.FRYING, SoundCategory.BLOCKS, 1f, 1f);
-                    self.soundTicks = 0;
-                } else {
+                if (self.active) {
                     self.soundTicks++;
+
+                    if (self.soundTicks >= SOUND_PLAY_INTERVAL) {
+                        float pitch = 0.95f + world.getRandom().nextFloat() * 0.1f;
+                        float volume = 0.9f + world.getRandom().nextFloat() * 0.1f;
+
+                        world.playSound(
+                                null,
+                                pos,
+                                SoundRegistry.FRYING,
+                                SoundCategory.BLOCKS,
+                                volume,
+                                pitch
+                        );
+                        self.soundTicks = 0;
+                    }
+                } else {
+                    if (self.soundTicks > 0) {
+                        self.soundTicks = 0;
+                    }
                 }
             }
         }
