@@ -84,7 +84,7 @@ public class ModRecipeGenerator extends RecipeGenerator {
 
 
         createShapeless(RecipeCategory.MISC, ModBlocks.CUTTING_BOARD_ITEM, 1)
-            .input(Ingredient.fromTag(itemLookup.getOrThrow(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wooden_slabs")))))
+            .input(Ingredient.ofTag(itemLookup.getOrThrow(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wooden_slabs")))))
             .criterion("has_slabs", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wooden_slabs"))))
             .offerTo(exporter);
 
@@ -562,7 +562,7 @@ public class ModRecipeGenerator extends RecipeGenerator {
             PanRecipe.of("popcorn", CountedIngredient.ofItems(1, ModItems.CORN_SEEDS), new ItemStack(ModItems.POPCORN), 40),
             PanRecipe.of("roasted_sunflower_seed", CountedIngredient.ofItems(1, ModItems.SUNFLOWER_SEED), new ItemStack(ModItems.ROASTED_SUNFLOWER_SEED), 100),
             PanRecipe.of("cooked_chicken_leg", CountedIngredient.ofItems(1, ModItems.CHICKEN_LEG), new ItemStack(ModItems.COOKED_CHICKEN_LEG), 100),
-            PanRecipe.of("cooked_mutton_slices", CountedIngredient.ofItems(1, ModItems.MUTTON_SLICES), new ItemStack(ModItems.MUTTON_SLICES), 100),
+            PanRecipe.of("cooked_mutton_slices", CountedIngredient.ofItems(1, ModItems.MUTTON_SLICES), new ItemStack(ModItems.COOKED_MUTTON_SLICES), 100),
             PanRecipe.of("cooked_squid_ring", CountedIngredient.ofItems(1, ModItems.SQUID_RING), new ItemStack(ModItems.COOKED_SQUID_RING), 100),
             PanRecipe.of("cooked_hoglin_meat", CountedIngredient.ofItems(1, ModItems.HOGLIN_MEAT), new ItemStack(ModItems.COOKED_HOGLIN_MEAT), 100)
         );

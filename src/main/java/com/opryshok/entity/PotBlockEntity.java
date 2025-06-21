@@ -32,6 +32,8 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.property.Properties;
+import net.minecraft.storage.ReadView;
+import net.minecraft.storage.WriteView;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -66,19 +68,24 @@ public class PotBlockEntity extends LockableBlockEntity implements MinimalSidedI
     public DefaultedList<ItemStack> getStacks() {
         return items;
     }
+
     @Override
-    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup lookup) {
-        Inventories.writeNbt(nbt, items, lookup);
-        nbt.putDouble("Progress", this.process);
-        super.writeNbt(nbt, lookup);
+    protected void writeData(WriteView view) {
+        super.writeData(view);
+        Inventories.writeData(view, this.items);
+        view.putDouble("Progress", this.process);
     }
 
     @Override
-    public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup lookup) {
-        Inventories.readNbt(nbt, items, lookup);
-        this.process = nbt.getDouble("Progress").orElse(0d);
-        super.readNbt(nbt, lookup);
+    public void readData(ReadView view) {
+        super.readData(view);
+        Inventories.readData(view, this.items);
+        this.process = view.getDouble("Progress", 0d);
+        if (this.model != null) {
+            this.model.tick();
+        }
     }
+
     private boolean isInputEmpty() {
         for (int i = 0; i < 6; i++) {
             if (!this.getStack(i).isEmpty()) {

@@ -18,7 +18,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+        valueLookupBuilder(BlockTags.AXE_MINEABLE)
                 .add(BEETROOT_CRATE)
                 .add(CABBAGE_CRATE)
                 .add(CARROT_CRATE)
@@ -33,63 +33,63 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(RICE_CRATE)
                 .add(CHORUS_CRATE);
 
-        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(BETTER_FARMLAND);
+        valueLookupBuilder(BlockTags.SHOVEL_MINEABLE).add(BETTER_FARMLAND);
 
-        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+        valueLookupBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(STOVE)
                 .add(SALT)
                 .add(FERTILIZER_SPRAYER);
 
-        getOrCreateTagBuilder(BlockTags.WOODEN_DOORS)
+        valueLookupBuilder(BlockTags.WOODEN_DOORS)
                 .add(AVOCADO_DOOR)
                 .add(LEMON_DOOR);
 
-        getOrCreateTagBuilder(BlockTags.WOODEN_TRAPDOORS)
+        valueLookupBuilder(BlockTags.WOODEN_TRAPDOORS)
                 .add(AVOCADO_TRAPDOOR)
                 .add(LEMON_TRAPDOOR);
 
-        getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
+        valueLookupBuilder(BlockTags.HOE_MINEABLE)
                 .add(NETHER_HAY);
 
-        getOrCreateTagBuilder(BlockTags.WOODEN_SLABS)
+        valueLookupBuilder(BlockTags.WOODEN_SLABS)
                 .add(AVOCADO_SLAB)
                 .add(LEMON_SLAB);
 
-        getOrCreateTagBuilder(ModTags.Blocks.LEMON_LOGS)
+        valueLookupBuilder(ModTags.Blocks.LEMON_LOGS)
                 .add(LEMON_LOG)
                 .add(LEMON_WOOD)
                 .add(STRIPPED_LEMON_LOG)
                 .add(STRIPPED_LEMON_WOOD);
 
-        getOrCreateTagBuilder(ModTags.Blocks.AVOCADO_LOGS)
+        valueLookupBuilder(ModTags.Blocks.AVOCADO_LOGS)
                 .add(AVOCADO_LOG)
                 .add(AVOCADO_WOOD)
                 .add(STRIPPED_AVOCADO_LOG)
                 .add(STRIPPED_AVOCADO_WOOD);
 
-        getOrCreateTagBuilder(ModTags.Blocks.KNIFE_MINEABLE);
+        valueLookupBuilder(ModTags.Blocks.KNIFE_MINEABLE);
 
-        getOrCreateTagBuilder(ModTags.Blocks.SICKLE_MINEABLE);
+        valueLookupBuilder(ModTags.Blocks.SICKLE_MINEABLE);
 
-        getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
+        valueLookupBuilder(BlockTags.LOGS_THAT_BURN)
                 .forceAddTag(ModTags.Blocks.AVOCADO_LOGS)
                 .forceAddTag(ModTags.Blocks.LEMON_LOGS);
 
-        getOrCreateTagBuilder(BlockTags.PLANKS)
+        valueLookupBuilder(BlockTags.PLANKS)
                 .add(AVOCADO_PLANKS)
                 .add(LEMON_PLANKS);
 
-        getOrCreateTagBuilder(BlockTags.LEAVES)
+        valueLookupBuilder(BlockTags.LEAVES)
                 .add(LEMON_LEAVES)
                 .add(AVOCADO_LEAVES)
                 .add(AVOCADO_FRUIT_LEAVES)
                 .add(LEMON_FRUIT_LEAVES);
 
-        getOrCreateTagBuilder(BlockTags.SAPLINGS)
+        valueLookupBuilder(BlockTags.SAPLINGS)
                 .add(LEMON_SAPLING)
                 .add(AVOCADO_SAPLING);
 
-        getOrCreateTagBuilder(ModTags.Blocks.CONVENTIONAL_FARMLAND).add(BETTER_FARMLAND);
-        getOrCreateTagBuilder(ModTags.Blocks.CONVENTIONAL_FARMLANDS).add(BETTER_FARMLAND);
+        valueLookupBuilder(ModTags.Blocks.CONVENTIONAL_FARMLAND).add(BETTER_FARMLAND);
+        valueLookupBuilder(ModTags.Blocks.CONVENTIONAL_FARMLANDS).add(BETTER_FARMLAND);
     }
 }

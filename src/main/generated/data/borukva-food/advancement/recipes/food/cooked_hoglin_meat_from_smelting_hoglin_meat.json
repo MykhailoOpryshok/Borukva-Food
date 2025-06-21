@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cooked_hoglin_meat_from_smelting_hoglin_meat"
+        "recipe": "borukva-food:cooked_hoglin_meat_from_smelting_hoglin_meat"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cooked_hoglin_meat_from_smelting_hoglin_meat"
+      "borukva-food:cooked_hoglin_meat_from_smelting_hoglin_meat"
     ]
   }
 }
