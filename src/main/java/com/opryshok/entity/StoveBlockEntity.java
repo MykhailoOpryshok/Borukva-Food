@@ -21,6 +21,8 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.storage.ReadView;
+import net.minecraft.storage.WriteView;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.ItemScatterer;
@@ -127,21 +129,21 @@ public class StoveBlockEntity extends LockableBlockEntity implements MinimalSide
     }
 
     @Override
-    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup lookup) {
-        Inventories.writeNbt(nbt, this.items, lookup);
-        nbt.putInt("FuelTicks", this.fuelTicks);
-        nbt.putInt("FuelInitial", this.fuelInitial);
-        nbt.putFloat("State", this.state);
-        super.writeNbt(nbt, lookup);
+    protected void writeData(WriteView view) {
+        super.writeData(view);
+        Inventories.writeData(view, this.items);
+        view.putInt("FuelTicks", this.fuelTicks);
+        view.putInt("FuelInitial", this.fuelInitial);
+        view.putFloat("State", this.state);
     }
 
     @Override
-    public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup lookup) {
-        Inventories.readNbt(nbt, items, lookup);
-        this.fuelInitial = nbt.getInt("FuelInitial").orElse(0);
-        this.fuelTicks = nbt.getInt("FuelTicks").orElse(0);
-        this.state = nbt.getFloat("State").orElse(0f);
-        super.readNbt(nbt, lookup);
+    public void readData(ReadView view) {
+        super.readData(view);
+        Inventories.readData(view, items);
+        this.fuelInitial = view.getInt("FuelInitial", 0);
+        this.fuelTicks = view.getInt("FuelTicks", 0);
+        this.state = view.getFloat("State", 0f);
     }
 
     @Override
