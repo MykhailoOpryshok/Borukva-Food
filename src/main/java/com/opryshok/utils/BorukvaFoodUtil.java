@@ -61,6 +61,14 @@ public class BorukvaFoodUtil {
         addFlammable(ModBlocks.LEMON_TRAPDOOR, 5, 20);
         addFlammable(ModBlocks.AVOCADO_SLAB, 5, 20);
         addFlammable(ModBlocks.LEMON_SLAB, 5, 20);
+        addFlammable(ModBlocks.AVOCADO_STAIRS, 5, 20);
+        addFlammable(ModBlocks.LEMON_STAIRS, 5, 20);
+        addFlammable(ModBlocks.AVOCADO_BUTTON, 5, 20);
+        addFlammable(ModBlocks.LEMON_BUTTON, 5, 20);
+        addFlammable(ModBlocks.AVOCADO_FENCE_GATE, 5, 20);
+        addFlammable(ModBlocks.LEMON_FENCE_GATE, 5, 20);
+        addFlammable(ModBlocks.AVOCADO_PRESSURE_PLATE, 5, 20);
+        addFlammable(ModBlocks.LEMON_PRESSURE_PLATE, 5, 20);
         addFlammable(ModBlocks.NETHER_HAY, 5, 20);
     }
     private static void addFlammable(Block block, int burn, int spread){

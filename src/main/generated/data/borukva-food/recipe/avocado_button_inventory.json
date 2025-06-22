@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    "borukva-food:avocado_planks"
+  ],
+  "result": {
+    "count": 1,
+    "id": "borukva-food:avocado_button_inventory"
+  }
+}

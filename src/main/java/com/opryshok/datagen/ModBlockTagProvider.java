@@ -79,6 +79,30 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(AVOCADO_PLANKS)
                 .add(LEMON_PLANKS);
 
+        valueLookupBuilder(BlockTags.STAIRS)
+                .add(AVOCADO_STAIRS)
+                .add(LEMON_STAIRS);
+
+        valueLookupBuilder(BlockTags.BUTTONS)
+                .add(AVOCADO_BUTTON)
+                .add(LEMON_BUTTON);
+
+        valueLookupBuilder(BlockTags.PRESSURE_PLATES)
+                .add(AVOCADO_PRESSURE_PLATE)
+                .add(LEMON_PRESSURE_PLATE);
+
+        valueLookupBuilder(BlockTags.FENCE_GATES)
+                .add(AVOCADO_FENCE_GATE)
+                .add(LEMON_FENCE_GATE);
+
+        valueLookupBuilder(BlockTags.FENCES)
+                .add(AVOCADO_FENCE)
+                .add(LEMON_FENCE);
+
+        valueLookupBuilder(BlockTags.WOODEN_FENCES)
+                .add(AVOCADO_FENCE)
+                .add(LEMON_FENCE);
+
         valueLookupBuilder(BlockTags.LEAVES)
                 .add(LEMON_LEAVES)
                 .add(AVOCADO_LEAVES)

@@ -15,10 +15,7 @@ import com.opryshok.block.leaves.LemonFruitLeaves;
 import com.opryshok.item.ModItems;
 import com.opryshok.world.tree.ModSaplingGenerator;
 import eu.pb4.polymer.core.api.item.PolymerItemGroupUtils;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
+import net.minecraft.block.*;
 import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.*;
@@ -102,6 +99,11 @@ public class ModBlocks {
     public static final Block STRIPPED_LEMON_WOOD = registerBlock("stripped_lemon_wood", PolyLogBlock::new, Block.Settings.copy(Blocks.OAK_WOOD));
     public static final Block LEMON_LEAVES = registerBlock("lemon_leaves", PolyLeavesBlock::new, Block.Settings.copy(Blocks.OAK_LEAVES));
     public static final Block LEMON_PLANKS = registerBlock("lemon_planks", SimplePolyBlock::new, Block.Settings.copy(Blocks.OAK_PLANKS));
+    public static final Block LEMON_STAIRS = registerBlock("lemon_stairs", settings -> new PolyStairsBlock(LEMON_PLANKS.getDefaultState(), settings, LEMON_PLANKS), Block.Settings.copy(Blocks.OAK_STAIRS));
+    public static final Block LEMON_FENCE = registerBlock("lemon_fence", settings -> new PolyFenceBlock(settings, Blocks.OAK_FENCE), Block.Settings.copy(Blocks.OAK_FENCE));
+    public static final Block LEMON_FENCE_GATE = registerBlock("lemon_fence_gate", settings -> new PolyFenceGateBlock(WoodType.OAK, settings, Blocks.OAK_FENCE_GATE), Block.Settings.copy(Blocks.OAK_FENCE_GATE));
+    public static final Block LEMON_BUTTON = registerBlock("lemon_button", settings -> new PolyButtonBlock(BlockSetType.OAK, 30, settings, Blocks.OAK_BUTTON), Block.Settings.copy(Blocks.OAK_BUTTON));
+    public static final Block LEMON_PRESSURE_PLATE = registerBlock("lemon_pressure_plate", settings -> new PolyPressurePlate(BlockSetType.OAK, settings, Blocks.OAK_PRESSURE_PLATE), Block.Settings.copy(Blocks.OAK_PRESSURE_PLATE));
     public static final Block LEMON_SLAB = registerBlock("lemon_slab", settings -> new PolySlabBlock(settings, "lemon_slab", LEMON_PLANKS.getDefaultState()), Block.Settings.copy(Blocks.OAK_SLAB));
     public static final Block LEMON_TRAPDOOR = registerBlock("lemon_trapdoor", PolyTrapdoorBlock::new, Block.Settings.copy(Blocks.OAK_TRAPDOOR));
     public static final Block LEMON_SAPLING = registerBlock("lemon_sapling", settings -> new PolySaplingBlock(ModSaplingGenerator.LEMON, settings, "lemon_sapling"), Block.Settings.copy(Blocks.OAK_SAPLING));
@@ -112,6 +114,11 @@ public class ModBlocks {
     public static final Block STRIPPED_AVOCADO_WOOD = registerBlock("stripped_avocado_wood", PolyLogBlock::new, Block.Settings.copy(Blocks.OAK_WOOD));
     public static final Block AVOCADO_LEAVES = registerBlock("avocado_leaves", PolyLeavesBlock::new, Block.Settings.copy(Blocks.OAK_LEAVES));
     public static final Block AVOCADO_PLANKS = registerBlock("avocado_planks", SimplePolyBlock::new, Block.Settings.copy(Blocks.OAK_PLANKS));
+    public static final Block AVOCADO_STAIRS = registerBlock("avocado_stairs", settings -> new PolyStairsBlock(AVOCADO_PLANKS.getDefaultState(), settings, AVOCADO_PLANKS), Block.Settings.copy(Blocks.OAK_STAIRS));
+    public static final Block AVOCADO_FENCE = registerBlock("avocado_fence", settings -> new PolyFenceBlock(settings, Blocks.OAK_FENCE), Block.Settings.copy(Blocks.OAK_FENCE));
+    public static final Block AVOCADO_FENCE_GATE = registerBlock("avocado_fence_gate", settings -> new PolyFenceGateBlock(WoodType.OAK, settings, Blocks.OAK_FENCE_GATE), Block.Settings.copy(Blocks.OAK_FENCE_GATE));
+    public static final Block AVOCADO_BUTTON = registerBlock("avocado_button", settings -> new PolyButtonBlock(BlockSetType.OAK, 30, settings, Blocks.OAK_BUTTON), Block.Settings.copy(Blocks.OAK_BUTTON));
+    public static final Block AVOCADO_PRESSURE_PLATE = registerBlock("avocado_pressure_plate", settings -> new PolyPressurePlate(BlockSetType.OAK, settings, Blocks.OAK_PRESSURE_PLATE), Block.Settings.copy(Blocks.OAK_PRESSURE_PLATE));
     public static final Block AVOCADO_TRAPDOOR = registerBlock("avocado_trapdoor", PolyTrapdoorBlock::new, Block.Settings.copy(Blocks.OAK_TRAPDOOR));
     public static final Block AVOCADO_DOOR = registerBlock("avocado_door", PolyDoorBlock::new, Block.Settings.copy(Blocks.OAK_DOOR));
     public static final Block AVOCADO_SLAB = registerBlock("avocado_slab", settings -> new PolySlabBlock(settings, "avocado_slab", AVOCADO_PLANKS.getDefaultState()), Block.Settings.copy(Blocks.OAK_SLAB));
@@ -120,7 +127,7 @@ public class ModBlocks {
     public static final Block HONEY_CAKE = registerBlock("honey_cake", HoneyCake::new, Block.Settings.copy(Blocks.CAKE));
     public static final Block LEMON_FRUIT_LEAVES = registerBlock("lemon_fruit_leaves", LemonFruitLeaves::new, Block.Settings.copy(Blocks.OAK_LEAVES));
     public static final Block AVOCADO_FRUIT_LEAVES = registerBlock("avocado_fruit_leaves", AvocadoFruitLeaves::new, Block.Settings.copy(Blocks.OAK_LEAVES));
-    // Block Items:
+
     public static final BlockItem NETHER_HAY_ITEM = registerBlockItem("nether_hay", settings -> new TexturedPolyBlockItem(NETHER_HAY, settings), new Item.Settings());
     public static final BlockItem AVOCADO_FRUIT_LEAVES_ITEM = registerBlockItem("avocado_fruit_leaves", settings -> new TexturedPolyBlockItem(AVOCADO_FRUIT_LEAVES, settings), new Item.Settings());
     public static final BlockItem LEMON_FRUIT_LEAVES_ITEM =registerBlockItem("lemon_fruit_leaves", settings -> new TexturedPolyBlockItem(LEMON_FRUIT_LEAVES, settings), new Item.Settings());
@@ -132,6 +139,11 @@ public class ModBlocks {
     public static final BlockItem STRIPPED_LEMON_WOOD_ITEM = registerBlockItem("stripped_lemon_wood", settings -> new TexturedPolyBlockItem(STRIPPED_LEMON_WOOD, settings), new Item.Settings());
     public static final BlockItem LEMON_LEAVES_ITEM = registerBlockItem("lemon_leaves", settings -> new TexturedPolyBlockItem(LEMON_LEAVES, settings), new Item.Settings());
     public static final BlockItem LEMON_PLANKS_ITEM = registerBlockItem("lemon_planks", settings -> new TexturedPolyBlockItem(LEMON_PLANKS, settings), new Item.Settings());
+    public static final BlockItem LEMON_STAIRS_ITEM = registerBlockItem("lemon_stairs", settings -> new TexturedPolyBlockItem(LEMON_STAIRS, settings), new Item.Settings());
+    public static final BlockItem LEMON_FENCE_ITEM = registerBlockItem("lemon_fence_inventory", settings -> new TexturedPolyBlockItem(LEMON_FENCE, settings), new Item.Settings());
+    public static final BlockItem LEMON_FENCE_GATE_ITEM = registerBlockItem("lemon_fence_gate", settings -> new TexturedPolyBlockItem(LEMON_FENCE_GATE, settings), new Item.Settings());
+    public static final BlockItem LEMON_BUTTON_ITEM = registerBlockItem("lemon_button_inventory", settings -> new TexturedPolyBlockItem(LEMON_BUTTON, settings), new Item.Settings());
+    public static final BlockItem LEMON_PRESSURE_PLATE_ITEM = registerBlockItem("lemon_pressure_plate", settings -> new TexturedPolyBlockItem(LEMON_PRESSURE_PLATE, settings), new Item.Settings());
     public static final BlockItem LEMON_SLAB_ITEM = registerBlockItem("lemon_slab", settings -> new TexturedPolyBlockItem(LEMON_SLAB, settings), new Item.Settings());
     public static final BlockItem LEMON_TRAPDOOR_ITEM = registerBlockItem("lemon_trapdoor", settings -> new TexturedPolyBlockItem(LEMON_TRAPDOOR, settings), new Item.Settings());
     public static final BlockItem LEMON_DOOR_ITEM = registerBlockItem("lemon_door", settings -> new TexturedPolyBlockItem(LEMON_DOOR, settings), new Item.Settings());
@@ -142,6 +154,11 @@ public class ModBlocks {
     public static final BlockItem STRIPPED_AVOCADO_WOOD_ITEM = registerBlockItem("stripped_avocado_wood", settings -> new TexturedPolyBlockItem(STRIPPED_AVOCADO_WOOD, settings), new Item.Settings());
     public static final BlockItem AVOCADO_LEAVES_ITEM = registerBlockItem("avocado_leaves", settings -> new TexturedPolyBlockItem(AVOCADO_LEAVES, settings), new Item.Settings());
     public static final BlockItem AVOCADO_PLANKS_ITEM = registerBlockItem("avocado_planks", settings -> new TexturedPolyBlockItem(AVOCADO_PLANKS, settings), new Item.Settings());
+    public static final BlockItem AVOCADO_STAIRS_ITEM = registerBlockItem("avocado_stairs", settings -> new TexturedPolyBlockItem(AVOCADO_STAIRS, settings), new Item.Settings());
+    public static final BlockItem AVOCADO_FENCE_ITEM = registerBlockItem("avocado_fence_inventory", settings -> new TexturedPolyBlockItem(AVOCADO_FENCE, settings), new Item.Settings());
+    public static final BlockItem AVOCADO_FENCE_GATE_ITEM = registerBlockItem("avocado_fence_gate", settings -> new TexturedPolyBlockItem(AVOCADO_FENCE_GATE, settings), new Item.Settings());
+    public static final BlockItem AVOCADO_BUTTON_ITEM = registerBlockItem("avocado_button_inventory", settings -> new TexturedPolyBlockItem(AVOCADO_BUTTON, settings), new Item.Settings());
+    public static final BlockItem AVOCADO_PRESSURE_PLATE_ITEM = registerBlockItem("avocado_pressure_plate", settings -> new TexturedPolyBlockItem(AVOCADO_PRESSURE_PLATE, settings), new Item.Settings());
     public static final BlockItem AVOCADO_SLAB_ITEM = registerBlockItem("avocado_slab", settings -> new TexturedPolyBlockItem(AVOCADO_SLAB, settings), new Item.Settings());
     public static final BlockItem AVOCADO_TRAPDOOR_ITEM = registerBlockItem("avocado_trapdoor", settings -> new TexturedPolyBlockItem(AVOCADO_TRAPDOOR, settings), new Item.Settings());
     public static final BlockItem AVOCADO_DOOR_ITEM = registerBlockItem("avocado_door", settings -> new TexturedPolyBlockItem(AVOCADO_DOOR, settings), new Item.Settings());
@@ -216,6 +233,11 @@ public class ModBlocks {
             entries.add(LEMON_SLAB_ITEM);
             entries.add(LEMON_TRAPDOOR_ITEM);
             entries.add(LEMON_DOOR_ITEM);
+            entries.add(LEMON_STAIRS_ITEM);
+            entries.add(LEMON_FENCE_ITEM);
+            entries.add(LEMON_FENCE_GATE_ITEM);
+            entries.add(LEMON_BUTTON_ITEM);
+            entries.add(LEMON_PRESSURE_PLATE_ITEM);
             entries.add(AVOCADO_SAPLING_ITEM);
             entries.add(AVOCADO_LEAVES_ITEM);
             entries.add(AVOCADO_FRUIT_LEAVES_ITEM);
@@ -227,6 +249,11 @@ public class ModBlocks {
             entries.add(AVOCADO_SLAB_ITEM);
             entries.add(AVOCADO_TRAPDOOR_ITEM);
             entries.add(AVOCADO_DOOR_ITEM);
+            entries.add(AVOCADO_STAIRS_ITEM);
+            entries.add(AVOCADO_FENCE_ITEM);
+            entries.add(AVOCADO_FENCE_GATE_ITEM);
+            entries.add(AVOCADO_BUTTON_ITEM);
+            entries.add(AVOCADO_PRESSURE_PLATE_ITEM);
             entries.add(ModItems.GRAPE_SAPLING);
         });
         ItemGroup polymerGroup = builder.build();
