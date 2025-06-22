@@ -61,6 +61,7 @@ public class ModModelProvider extends FabricModelProvider {
         lemonPlanksPool.button(ModBlocks.LEMON_BUTTON);
         lemonPlanksPool.pressurePlate(ModBlocks.LEMON_PRESSURE_PLATE);
         lemonPlanksPool.fence(ModBlocks.LEMON_FENCE);
+        blockStateModelGenerator.registerTrapdoor(ModBlocks.LEMON_TRAPDOOR);
 
         blockStateModelGenerator.createLogTexturePool(ModBlocks.AVOCADO_LOG).log(ModBlocks.AVOCADO_LOG).wood(ModBlocks.AVOCADO_WOOD);
         blockStateModelGenerator.createLogTexturePool(ModBlocks.STRIPPED_AVOCADO_LOG).log(ModBlocks.STRIPPED_AVOCADO_LOG).wood(ModBlocks.STRIPPED_AVOCADO_WOOD);
@@ -72,6 +73,7 @@ public class ModModelProvider extends FabricModelProvider {
         avocadoPlanksPool.button(ModBlocks.AVOCADO_BUTTON);
         avocadoPlanksPool.pressurePlate(ModBlocks.AVOCADO_PRESSURE_PLATE);
         avocadoPlanksPool.fence(ModBlocks.AVOCADO_FENCE);
+        blockStateModelGenerator.registerTrapdoor(ModBlocks.AVOCADO_TRAPDOOR);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.AVOCADO_LEAVES);
         generateSapling(blockStateModelGenerator, ModBlocks.AVOCADO_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
