@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
@@ -64,6 +65,22 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         valueLookupBuilder(ItemTags.PLANKS)
                 .add(AVOCADO_PLANKS_ITEM)
                 .add(LEMON_PLANKS_ITEM);
+
+        valueLookupBuilder(ItemTags.STAIRS)
+                .add(AVOCADO_STAIRS_ITEM)
+                .add(LEMON_STAIRS_ITEM);
+
+        valueLookupBuilder(ItemTags.BUTTONS)
+                .add(AVOCADO_BUTTON_ITEM)
+                .add(LEMON_BUTTON_ITEM);
+
+        valueLookupBuilder(ItemTags.WOODEN_PRESSURE_PLATES)
+                .add(AVOCADO_PRESSURE_PLATE_ITEM)
+                .add(LEMON_PRESSURE_PLATE_ITEM);
+
+        valueLookupBuilder(ItemTags.FENCE_GATES)
+                .add(AVOCADO_FENCE_GATE_ITEM)
+                .add(LEMON_FENCE_GATE_ITEM);
 
         valueLookupBuilder(ItemTags.LEAVES)
                 .add(LEMON_LEAVES_ITEM)

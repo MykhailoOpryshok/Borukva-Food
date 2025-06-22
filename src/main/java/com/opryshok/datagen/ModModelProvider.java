@@ -56,12 +56,20 @@ public class ModModelProvider extends FabricModelProvider {
 
         BlockStateModelGenerator.BlockTexturePool lemonPlanksPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.LEMON_PLANKS);
         lemonPlanksPool.slab(ModBlocks.LEMON_SLAB);
+        lemonPlanksPool.stairs(ModBlocks.LEMON_STAIRS);
+        lemonPlanksPool.fenceGate(ModBlocks.LEMON_FENCE_GATE);
+        lemonPlanksPool.button(ModBlocks.LEMON_BUTTON);
+        lemonPlanksPool.pressurePlate(ModBlocks.LEMON_PRESSURE_PLATE);
 
         blockStateModelGenerator.createLogTexturePool(ModBlocks.AVOCADO_LOG).log(ModBlocks.AVOCADO_LOG).wood(ModBlocks.AVOCADO_WOOD);
         blockStateModelGenerator.createLogTexturePool(ModBlocks.STRIPPED_AVOCADO_LOG).log(ModBlocks.STRIPPED_AVOCADO_LOG).wood(ModBlocks.STRIPPED_AVOCADO_WOOD);
         blockStateModelGenerator.createLogTexturePool(ModBlocks.NETHER_HAY).log(ModBlocks.NETHER_HAY);
         BlockStateModelGenerator.BlockTexturePool avocadoPlanksPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.AVOCADO_PLANKS);
         avocadoPlanksPool.slab(ModBlocks.AVOCADO_SLAB);
+        avocadoPlanksPool.stairs(ModBlocks.AVOCADO_STAIRS);
+        avocadoPlanksPool.fenceGate(ModBlocks.AVOCADO_FENCE_GATE);
+        avocadoPlanksPool.button(ModBlocks.AVOCADO_BUTTON);
+        avocadoPlanksPool.pressurePlate(ModBlocks.AVOCADO_PRESSURE_PLATE);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.AVOCADO_LEAVES);
         generateSapling(blockStateModelGenerator, ModBlocks.AVOCADO_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);

@@ -294,6 +294,9 @@ public class ModRecipeGenerator extends RecipeGenerator {
         planksRecipe(ModTags.Items.AVOCADO_LOGS, ModBlocks.AVOCADO_PLANKS_ITEM, exporter);
         planksRecipe(ModTags.Items.LEMON_LOGS, ModBlocks.LEMON_PLANKS_ITEM, exporter);
 
+        stairsRecipe(ModBlocks.AVOCADO_PLANKS_ITEM, ModBlocks.AVOCADO_STAIRS_ITEM, exporter);
+        stairsRecipe(ModBlocks.LEMON_PLANKS_ITEM, ModBlocks.LEMON_STAIRS_ITEM, exporter);
+
         woodRecipe(ModBlocks.AVOCADO_LOG_ITEM, ModBlocks.AVOCADO_WOOD_ITEM, exporter);
         woodRecipe(ModBlocks.LEMON_LOG_ITEM, ModBlocks.LEMON_WOOD_ITEM, exporter);
         woodRecipe(ModBlocks.STRIPPED_AVOCADO_LOG_ITEM, ModBlocks.STRIPPED_AVOCADO_WOOD_ITEM, exporter);
@@ -585,12 +588,17 @@ public class ModRecipeGenerator extends RecipeGenerator {
             .offerTo(exporter);
         offerSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.AVOCADO_SLAB_ITEM, ModBlocks.AVOCADO_PLANKS_ITEM);
         offerSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LEMON_SLAB_ITEM, ModBlocks.LEMON_PLANKS_ITEM);
+        offerPressurePlateRecipe(ModBlocks.LEMON_PRESSURE_PLATE_ITEM, ModBlocks.LEMON_PLANKS_ITEM);
+        offerPressurePlateRecipe(ModBlocks.AVOCADO_PRESSURE_PLATE_ITEM, ModBlocks.AVOCADO_PLANKS_ITEM);
+        offerButtonRecipe(exporter, ModBlocks.AVOCADO_BUTTON_ITEM, ModBlocks.AVOCADO_PLANKS_ITEM);
+        offerButtonRecipe(exporter, ModBlocks.LEMON_BUTTON_ITEM, ModBlocks.LEMON_PLANKS_ITEM);
+        offerFenceGateRecipe(exporter, ModBlocks.AVOCADO_FENCE_GATE_ITEM, ModBlocks.AVOCADO_PLANKS_ITEM);
+        offerFenceGateRecipe(exporter, ModBlocks.LEMON_FENCE_GATE_ITEM, ModBlocks.LEMON_PLANKS_ITEM);
         offerTrapdoorRecipe(exporter, ModBlocks.AVOCADO_TRAPDOOR_ITEM, ModBlocks.AVOCADO_PLANKS_ITEM);
         offerTrapdoorRecipe(exporter, ModBlocks.LEMON_TRAPDOOR_ITEM, ModBlocks.LEMON_PLANKS_ITEM);
         offerDoorRecipe(exporter, ModBlocks.AVOCADO_DOOR_ITEM, ModBlocks.AVOCADO_PLANKS_ITEM);
         offerDoorRecipe(exporter, ModBlocks.LEMON_DOOR_ITEM, ModBlocks.LEMON_PLANKS_ITEM);
 
-        
         createShapeless(RecipeCategory.FOOD, ModItems.CHORUS_FRUIT_IN_CHOCOLATE_ON_A_STICK, 1)
             .input(Items.STICK)
             .input(Items.CHORUS_FRUIT)
@@ -667,6 +675,15 @@ public class ModRecipeGenerator extends RecipeGenerator {
     private void offerTrapdoorRecipe(RecipeExporter exporter, Item output, Item input){
         createTrapdoorRecipe(output, Ingredient.ofItems(input)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
     }
+
+    private void offerButtonRecipe(RecipeExporter exporter, Item output, Item input){
+        createButtonRecipe(output, Ingredient.ofItems(input)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
+    }
+
+    private void offerFenceGateRecipe(RecipeExporter exporter, Item output, Item input){
+        createFenceGateRecipe(output, Ingredient.ofItems(input)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
+    }
+
     private void campfireCookingRecipe(RecipeExporter exporter, Item input, Item output) {
         CookingRecipeJsonBuilder.create(Ingredient.ofItems(input), RecipeCategory.FOOD, output, 0, 600, RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new)
             .criterion(hasItem(input), conditionsFromItem(input))
@@ -705,6 +722,15 @@ public class ModRecipeGenerator extends RecipeGenerator {
             .input('S', log)
             .criterion(hasItem(log), conditionsFromItem(log))
             .offerTo(exporter);
+    }
+    private void stairsRecipe(Item planks, Item stairs, RecipeExporter exporter){
+        createShaped(RecipeCategory.BUILDING_BLOCKS, stairs, 4)
+                .pattern("S  ")
+                .pattern("SS ")
+                .pattern("SSS")
+                .input('S', planks)
+                .criterion(hasItem(planks), conditionsFromItem(planks))
+                .offerTo(exporter);
     }
     private void pieRecipe(Item item, Item ingredient, RecipeExporter exporter){
         createShapeless(RecipeCategory.FOOD, item, 1)
