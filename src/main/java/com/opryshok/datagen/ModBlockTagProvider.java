@@ -95,6 +95,14 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(AVOCADO_FENCE_GATE)
                 .add(LEMON_FENCE_GATE);
 
+        valueLookupBuilder(BlockTags.FENCES)
+                .add(AVOCADO_FENCE)
+                .add(LEMON_FENCE);
+
+        valueLookupBuilder(BlockTags.WOODEN_FENCES)
+                .add(AVOCADO_FENCE)
+                .add(LEMON_FENCE);
+
         valueLookupBuilder(BlockTags.LEAVES)
                 .add(LEMON_LEAVES)
                 .add(AVOCADO_LEAVES)

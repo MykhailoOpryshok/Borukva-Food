@@ -1,1 +1,6 @@
-{"model":{"model":"borukva-food:block/lemon_fence_gate","type":"minecraft:model"}}
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "borukva-food:block/lemon_fence_gate"
+  }
+}

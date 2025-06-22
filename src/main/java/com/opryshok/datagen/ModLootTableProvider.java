@@ -76,10 +76,12 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(AVOCADO_STAIRS);
         addDrop(AVOCADO_BUTTON);
         addDrop(AVOCADO_PRESSURE_PLATE);
+        addDrop(AVOCADO_FENCE);
         addDrop(AVOCADO_FENCE_GATE);
         addDrop(LEMON_STAIRS);
         addDrop(LEMON_BUTTON);
         addDrop(LEMON_PRESSURE_PLATE);
+        addDrop(LEMON_FENCE);
         addDrop(LEMON_FENCE_GATE);
         addDrop(LEMON_LEAVES, leavesDrops(LEMON_LEAVES, LEMON_SAPLING, 0.05f, 0.0625f, 0.083333336f, 0.1f));
         addDrop(AVOCADO_LEAVES, leavesDrops(AVOCADO_LEAVES, AVOCADO_SAPLING, 0.05f, 0.0625f, 0.083333336f, 0.1f));

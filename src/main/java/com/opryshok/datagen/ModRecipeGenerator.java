@@ -592,6 +592,8 @@ public class ModRecipeGenerator extends RecipeGenerator {
         offerPressurePlateRecipe(ModBlocks.AVOCADO_PRESSURE_PLATE_ITEM, ModBlocks.AVOCADO_PLANKS_ITEM);
         offerButtonRecipe(exporter, ModBlocks.AVOCADO_BUTTON_ITEM, ModBlocks.AVOCADO_PLANKS_ITEM);
         offerButtonRecipe(exporter, ModBlocks.LEMON_BUTTON_ITEM, ModBlocks.LEMON_PLANKS_ITEM);
+        offerFenceRecipe(exporter, ModBlocks.AVOCADO_FENCE_ITEM, ModBlocks.AVOCADO_PLANKS_ITEM);
+        offerFenceRecipe(exporter, ModBlocks.LEMON_FENCE_ITEM, ModBlocks.LEMON_PLANKS_ITEM);
         offerFenceGateRecipe(exporter, ModBlocks.AVOCADO_FENCE_GATE_ITEM, ModBlocks.AVOCADO_PLANKS_ITEM);
         offerFenceGateRecipe(exporter, ModBlocks.LEMON_FENCE_GATE_ITEM, ModBlocks.LEMON_PLANKS_ITEM);
         offerTrapdoorRecipe(exporter, ModBlocks.AVOCADO_TRAPDOOR_ITEM, ModBlocks.AVOCADO_PLANKS_ITEM);
@@ -678,6 +680,10 @@ public class ModRecipeGenerator extends RecipeGenerator {
 
     private void offerButtonRecipe(RecipeExporter exporter, Item output, Item input){
         createButtonRecipe(output, Ingredient.ofItems(input)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
+    }
+
+    private void offerFenceRecipe(RecipeExporter exporter, Item output, Item input){
+        createFenceRecipe(output, Ingredient.ofItems(input)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
     }
 
     private void offerFenceGateRecipe(RecipeExporter exporter, Item output, Item input){

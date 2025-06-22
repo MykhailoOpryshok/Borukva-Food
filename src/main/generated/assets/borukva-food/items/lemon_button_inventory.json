@@ -1,1 +1,6 @@
-{"model":{"model":"borukva-food:block/lemon_button_inventory","type":"minecraft:model"}}
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "borukva-food:block/lemon_button_inventory"
+  }
+}

@@ -82,6 +82,14 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(AVOCADO_FENCE_GATE_ITEM)
                 .add(LEMON_FENCE_GATE_ITEM);
 
+        valueLookupBuilder(ItemTags.FENCES)
+                .add(AVOCADO_FENCE_ITEM)
+                .add(LEMON_FENCE_ITEM);
+
+        valueLookupBuilder(ItemTags.WOODEN_FENCES)
+                .add(AVOCADO_FENCE_ITEM)
+                .add(LEMON_FENCE_ITEM);
+
         valueLookupBuilder(ItemTags.LEAVES)
                 .add(LEMON_LEAVES_ITEM)
                 .add(AVOCADO_LEAVES_ITEM)
