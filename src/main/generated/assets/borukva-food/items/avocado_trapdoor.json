@@ -1,1 +1,6 @@
-{"model":{"model":"borukva-food:item/avocado_trapdoor","type":"minecraft:model"}}
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "borukva-food:block/avocado_trapdoor_bottom"
+  }
+}
