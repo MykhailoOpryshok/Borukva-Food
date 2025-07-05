@@ -230,10 +230,10 @@ public class ModBlocks {
             entries.add(STRIPPED_LEMON_LOG_ITEM);
             entries.add(STRIPPED_LEMON_WOOD_ITEM);
             entries.add(LEMON_PLANKS_ITEM);
+            entries.add(LEMON_STAIRS_ITEM);
             entries.add(LEMON_SLAB_ITEM);
             entries.add(LEMON_TRAPDOOR_ITEM);
             entries.add(LEMON_DOOR_ITEM);
-            entries.add(LEMON_STAIRS_ITEM);
             entries.add(LEMON_FENCE_ITEM);
             entries.add(LEMON_FENCE_GATE_ITEM);
             entries.add(LEMON_BUTTON_ITEM);
@@ -246,10 +246,10 @@ public class ModBlocks {
             entries.add(STRIPPED_AVOCADO_LOG_ITEM);
             entries.add(STRIPPED_AVOCADO_WOOD_ITEM);
             entries.add(AVOCADO_PLANKS_ITEM);
+            entries.add(AVOCADO_STAIRS_ITEM);
             entries.add(AVOCADO_SLAB_ITEM);
             entries.add(AVOCADO_TRAPDOOR_ITEM);
             entries.add(AVOCADO_DOOR_ITEM);
-            entries.add(AVOCADO_STAIRS_ITEM);
             entries.add(AVOCADO_FENCE_ITEM);
             entries.add(AVOCADO_FENCE_GATE_ITEM);
             entries.add(AVOCADO_BUTTON_ITEM);
