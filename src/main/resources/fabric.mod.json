@@ -26,13 +26,13 @@
 		"borukva-food.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.15.11",
-		"minecraft": "~1.21",
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.7",
 		"java": ">=21",
 		"fabric-api": "*",
-		"polymer-core": ">=0.9.18",
-		"polymer-resource-pack": ">=0.9.18",
-		"polymer-virtual-entity": ">=0.9.18"
+		"polymer-core": ">=0.13.4",
+		"polymer-resource-pack": ">=0.13.4",
+		"polymer-virtual-entity": ">=0.13.4"
 	},
 	"suggests": {
 		"another-mod": "*"
