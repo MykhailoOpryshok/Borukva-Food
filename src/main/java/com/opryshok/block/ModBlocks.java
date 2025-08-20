@@ -15,6 +15,7 @@ import com.opryshok.block.leaves.LemonFruitLeaves;
 import com.opryshok.item.ModItems;
 import com.opryshok.world.tree.ModSaplingGenerator;
 import eu.pb4.polymer.core.api.item.PolymerItemGroupUtils;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.*;
 import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.Entity;
@@ -116,6 +117,7 @@ public class ModBlocks {
     public static final Block AVOCADO_PLANKS = registerBlock("avocado_planks", SimplePolyBlock::new, Block.Settings.copy(Blocks.OAK_PLANKS));
     public static final Block AVOCADO_STAIRS = registerBlock("avocado_stairs", settings -> new PolyStairsBlock(AVOCADO_PLANKS.getDefaultState(), settings, AVOCADO_PLANKS), Block.Settings.copy(Blocks.OAK_STAIRS));
     public static final Block AVOCADO_FENCE = registerBlock("avocado_fence", settings -> new PolyFenceBlock(settings, Blocks.OAK_FENCE), Block.Settings.copy(Blocks.OAK_FENCE));
+
     public static final Block AVOCADO_FENCE_GATE = registerBlock("avocado_fence_gate", settings -> new PolyFenceGateBlock(WoodType.OAK, settings, Blocks.OAK_FENCE_GATE), Block.Settings.copy(Blocks.OAK_FENCE_GATE));
     public static final Block AVOCADO_BUTTON = registerBlock("avocado_button", settings -> new PolyButtonBlock(BlockSetType.OAK, 30, settings, Blocks.OAK_BUTTON), Block.Settings.copy(Blocks.OAK_BUTTON));
     public static final Block AVOCADO_PRESSURE_PLATE = registerBlock("avocado_pressure_plate", settings -> new PolyPressurePlate(BlockSetType.OAK, settings, Blocks.OAK_PRESSURE_PLATE), Block.Settings.copy(Blocks.OAK_PRESSURE_PLATE));
@@ -156,6 +158,7 @@ public class ModBlocks {
     public static final BlockItem AVOCADO_PLANKS_ITEM = registerBlockItem("avocado_planks", settings -> new TexturedPolyBlockItem(AVOCADO_PLANKS, settings), new Item.Settings());
     public static final BlockItem AVOCADO_STAIRS_ITEM = registerBlockItem("avocado_stairs", settings -> new TexturedPolyBlockItem(AVOCADO_STAIRS, settings), new Item.Settings());
     public static final BlockItem AVOCADO_FENCE_ITEM = registerBlockItem("avocado_fence_inventory", settings -> new TexturedPolyBlockItem(AVOCADO_FENCE, settings), new Item.Settings());
+
     public static final BlockItem AVOCADO_FENCE_GATE_ITEM = registerBlockItem("avocado_fence_gate", settings -> new TexturedPolyBlockItem(AVOCADO_FENCE_GATE, settings), new Item.Settings());
     public static final BlockItem AVOCADO_BUTTON_ITEM = registerBlockItem("avocado_button_inventory", settings -> new TexturedPolyBlockItem(AVOCADO_BUTTON, settings), new Item.Settings());
     public static final BlockItem AVOCADO_PRESSURE_PLATE_ITEM = registerBlockItem("avocado_pressure_plate", settings -> new TexturedPolyBlockItem(AVOCADO_PRESSURE_PLATE, settings), new Item.Settings());
@@ -198,22 +201,31 @@ public class ModBlocks {
         builder.displayName(Text.translatable("item-group.borukva-food.blocks_and_tools"));
 
         builder.entries((displayContext, entries) -> {
-            entries.add(BEETROOT_CRATE_ITEM);
-            entries.add(CABBAGE_CRATE_ITEM);
-            entries.add(CARROT_CRATE_ITEM);
+            if (!FabricLoader.getInstance().isModLoaded("farmersdelight")) {
+                entries.add(TOMATO_CRATE_ITEM);
+                entries.add(CABBAGE_CRATE_ITEM);
+                entries.add(CARROT_CRATE_ITEM);
+                entries.add(ONION_CRATE_ITEM);
+                entries.add(RICE_CRATE_ITEM);
+                entries.add(POTATO_CRATE_ITEM);
+                entries.add(BEETROOT_CRATE_ITEM);
+                entries.add(CABBAGE_CRATE_ITEM);
+                entries.add(CABBAGE_CRATE_ITEM);
+                entries.add(CABBAGE_CRATE_ITEM);
+                entries.add(CABBAGE_CRATE_ITEM);
+                entries.add(CABBAGE_CRATE_ITEM);
+                entries.add(CABBAGE_CRATE_ITEM);
+                entries.add(STOVE_ITEM);
+                entries.add(PAN_ITEM);
+                entries.add(POT_ITEM);
+            }
+
             entries.add(CHILLI_CRATE_ITEM);
             entries.add(CORN_CRATE_ITEM);
             entries.add(CUCUMBER_CRATE_ITEM);
             entries.add(LETTUCE_CRATE_ITEM);
-            entries.add(POTATO_CRATE_ITEM);
-            entries.add(TOMATO_CRATE_ITEM);
-            entries.add(ONION_CRATE_ITEM);
-            entries.add(RICE_CRATE_ITEM);
             entries.add(CHORUS_CRATE_ITEM);
             entries.add(NETHER_HAY);
-            entries.add(STOVE_ITEM);
-            entries.add(PAN_ITEM);
-            entries.add(POT_ITEM);
             entries.add(CUTTING_BOARD_ITEM);
             entries.add(ModItems.KNIFE);
             entries.add(ModItems.HARVEST_SICKLE);
@@ -230,10 +242,10 @@ public class ModBlocks {
             entries.add(STRIPPED_LEMON_LOG_ITEM);
             entries.add(STRIPPED_LEMON_WOOD_ITEM);
             entries.add(LEMON_PLANKS_ITEM);
+            entries.add(LEMON_STAIRS_ITEM);
             entries.add(LEMON_SLAB_ITEM);
             entries.add(LEMON_TRAPDOOR_ITEM);
             entries.add(LEMON_DOOR_ITEM);
-            entries.add(LEMON_STAIRS_ITEM);
             entries.add(LEMON_FENCE_ITEM);
             entries.add(LEMON_FENCE_GATE_ITEM);
             entries.add(LEMON_BUTTON_ITEM);
@@ -246,10 +258,10 @@ public class ModBlocks {
             entries.add(STRIPPED_AVOCADO_LOG_ITEM);
             entries.add(STRIPPED_AVOCADO_WOOD_ITEM);
             entries.add(AVOCADO_PLANKS_ITEM);
+            entries.add(AVOCADO_STAIRS_ITEM);
             entries.add(AVOCADO_SLAB_ITEM);
             entries.add(AVOCADO_TRAPDOOR_ITEM);
             entries.add(AVOCADO_DOOR_ITEM);
-            entries.add(AVOCADO_STAIRS_ITEM);
             entries.add(AVOCADO_FENCE_ITEM);
             entries.add(AVOCADO_FENCE_GATE_ITEM);
             entries.add(AVOCADO_BUTTON_ITEM);
