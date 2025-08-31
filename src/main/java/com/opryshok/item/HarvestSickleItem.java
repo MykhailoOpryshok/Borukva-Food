@@ -84,6 +84,7 @@ public class HarvestSickleItem extends MiningToolItem implements PolymerItem {
                 ItemStack sickleStack = player.getMainHandStack();
                 if (sickleStack.getItem() instanceof HarvestSickleItem) {
                     boolean brokePlant = false;
+                    int currentDamage = sickleStack.getDamage();
 
                     // Iterate over a 3x3 area centered on the targeted block
                     for (int dx = -1; dx <= 1; dx++) {
@@ -91,8 +92,9 @@ public class HarvestSickleItem extends MiningToolItem implements PolymerItem {
                             BlockPos targetPos = pos.add(dx, 0, dz);
                             BlockState state = world.getBlockState(targetPos);
 
-                            if (state.getBlock() instanceof PlantBlock) {
+                            if (state.getBlock() instanceof PlantBlock && sickleStack.getItem().canMine(state, world, targetPos, player)) {
                                 world.breakBlock(targetPos, true, player);
+                                sickleStack.getItem().postMine(sickleStack, world, state, targetPos, player);
                                 if(FabricLoader.getInstance().isModLoaded("ledger")) {
                                     BlockBreakCallback.EVENT.invoker().breakBlock(world, targetPos, state, world.getBlockEntity(targetPos), player);
                                 }
@@ -100,6 +102,7 @@ public class HarvestSickleItem extends MiningToolItem implements PolymerItem {
                             }
                         }
                     }
+                    sickleStack.setDamage(currentDamage);
 
                     if (brokePlant) {
                         if (player instanceof ServerPlayerEntity serverPlayerEntity && world instanceof ServerWorld serverWorld && !(player).getAbilities().creativeMode) {
