@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "B": "borukva-food:blackcurrants",
-    "W": "minecraft:wheat"
+    "W": "#c:crops/wheat"
   },
   "pattern": [
     "WBW"

@@ -2,16 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "borukva-food:hot_spice",
-    "borukva-food:cooked_beef_slices",
+    "#c:spices",
+    "#c:foods/cooked_meats/cooked_beef",
     "borukva-food:ketchup",
     "borukva-food:mayonnaise",
     [
       "borukva-food:tomato_slices",
       "borukva-food:cucumber_slices"
     ],
-    "borukva-food:lettuce",
-    "borukva-food:lavash"
+    "#c:foods/vegetables/lettuce",
+    "#c:foods/bread"
   ],
   "result": {
     "count": 1,

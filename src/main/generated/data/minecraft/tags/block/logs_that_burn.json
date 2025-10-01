@@ -1,6 +1,12 @@
 {
   "values": [
-    "#borukva-food:avocado_logs",
-    "#borukva-food:lemon_logs"
+    "borukva-food:lemon_log",
+    "borukva-food:lemon_wood",
+    "borukva-food:stripped_lemon_log",
+    "borukva-food:stripped_lemon_wood",
+    "borukva-food:avocado_log",
+    "borukva-food:avocado_wood",
+    "borukva-food:stripped_avocado_log",
+    "borukva-food:stripped_avocado_wood"
   ]
 }

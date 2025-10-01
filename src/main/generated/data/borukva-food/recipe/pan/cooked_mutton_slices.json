@@ -1,7 +1,7 @@
 {
   "type": "borukva-food:pan",
   "input": {
-    "base": "borukva-food:mutton_slices"
+    "base": "#c:foods/raw_meats/raw_mutton"
   },
   "output": {
     "count": 1,

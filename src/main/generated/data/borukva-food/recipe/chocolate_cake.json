@@ -3,9 +3,9 @@
   "category": "misc",
   "key": {
     "B": "borukva-food:blackcurrants",
-    "C": "borukva-food:chocolate_bar",
-    "M": "minecraft:milk_bucket",
-    "W": "minecraft:wheat"
+    "C": "#c:chocolates",
+    "M": "#c:buckets/milk",
+    "W": "#c:crops/wheat"
   },
   "pattern": [
     "MMM",

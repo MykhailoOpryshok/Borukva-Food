@@ -4,7 +4,7 @@
   "ingredients": [
     "minecraft:apple",
     "minecraft:sugar",
-    "minecraft:stick"
+    "#c:rods/wooden"
   ],
   "result": {
     "count": 1,

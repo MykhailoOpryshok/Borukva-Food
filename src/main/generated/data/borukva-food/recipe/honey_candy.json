@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "minecraft:honey_bottle",
+    "#c:drinks/honey",
     "minecraft:sugar"
   ],
   "result": {

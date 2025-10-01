@@ -2,9 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "minecraft:wheat",
-    "minecraft:egg",
-    "borukva-food:ender_jam"
+    "#c:crops/wheat",
+    "#c:eggs",
+    "#c:jams"
   ],
   "result": {
     "count": 1,

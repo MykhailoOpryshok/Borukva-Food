@@ -2,8 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "R": "minecraft:redstone",
-    "S": "minecraft:copper_ingot"
+    "R": "#c:dusts/redstone",
+    "S": "#c:ingots/copper"
   },
   "pattern": [
     " S ",

@@ -1,7 +1,7 @@
 {
   "type": "borukva-food:cutting_board",
   "input": {
-    "base": "borukva-food:chilli_pepper"
+    "base": "#c:crops/chilli_pepper"
   },
   "output": {
     "count": 1,

@@ -2,9 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "borukva-food:butter",
-    "minecraft:wheat",
-    "minecraft:egg",
+    "#c:butters",
+    "#c:crops/wheat",
+    "#c:eggs",
     "minecraft:sugar"
   ],
   "result": {

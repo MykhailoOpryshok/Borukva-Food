@@ -2,10 +2,10 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "L": "borukva-food:lettuce",
+    "L": "#c:foods/vegetables/lettuce",
     "M": "borukva-food:mayonnaise",
     "S": "borukva-food:bread_slice",
-    "T": "borukva-food:tomato"
+    "T": "#c:crops/tomato"
   },
   "pattern": [
     " S ",

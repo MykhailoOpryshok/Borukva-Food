@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     "borukva-food:waffle",
-    "borukva-food:chocolate_bar"
+    "#c:chocolates"
   ],
   "result": {
     "count": 3,

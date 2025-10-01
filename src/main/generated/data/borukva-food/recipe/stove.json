@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "G": "minecraft:mud_bricks",
-    "S": "minecraft:iron_ingot"
+    "S": "#c:ingots/iron"
   },
   "pattern": [
     "SSS",

@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "minecraft:pumpkin",
+    "#c:pumpkins/normal",
     "minecraft:sugar"
   ],
   "result": {

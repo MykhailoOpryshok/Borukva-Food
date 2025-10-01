@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_apple": {
+    "has_egg": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:apple"
+            "items": "#c:eggs"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_apple"
+      "has_egg"
     ]
   ],
   "rewards": {

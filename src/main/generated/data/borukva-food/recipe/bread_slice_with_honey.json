@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "B": "borukva-food:bread_slice",
-    "H": "minecraft:honey_bottle"
+    "H": "#c:drinks/honey"
   },
   "pattern": [
     " H ",

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_lemon": {
+    "has_egg": {
       "conditions": {
         "items": [
           {
-            "items": "borukva-food:lemon"
+            "items": "#c:eggs"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_lemon"
+      "has_egg"
     ]
   ],
   "rewards": {

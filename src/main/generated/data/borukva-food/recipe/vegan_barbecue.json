@@ -6,8 +6,8 @@
       "borukva-food:cucumber_slices",
       "borukva-food:tomato_slices"
     ],
-    "P": "#borukva-food:plant_food",
-    "S": "minecraft:stick"
+    "P": "#c:plant_food",
+    "S": "#c:rods/wooden"
   },
   "pattern": [
     "P  ",

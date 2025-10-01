@@ -1,5 +1,10 @@
 {
   "values": [
-    "borukva-food:nether_hay"
+    "borukva-food:nether_hay",
+    "borukva-food:wormwood_grass",
+    "borukva-food:lemon_leaves",
+    "borukva-food:avocado_leaves",
+    "borukva-food:lemon_fruit_leaves",
+    "borukva-food:avocado_fruit_leaves"
   ]
 }

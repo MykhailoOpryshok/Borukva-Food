@@ -3,9 +3,9 @@
   "category": "misc",
   "key": {
     "B": "borukva-food:gooseberry",
-    "C": "minecraft:honey_bottle",
-    "M": "minecraft:milk_bucket",
-    "W": "minecraft:wheat"
+    "C": "#c:drinks/honey",
+    "M": "#c:buckets/milk",
+    "W": "#c:crops/wheat"
   },
   "pattern": [
     "MMM",

@@ -1,7 +1,7 @@
 {
   "type": "borukva-food:pan",
   "input": {
-    "base": "minecraft:potato"
+    "base": "#c:crops/potato"
   },
   "output": {
     "count": 1,

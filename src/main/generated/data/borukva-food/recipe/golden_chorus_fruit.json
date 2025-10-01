@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "C": "minecraft:chorus_fruit",
-    "G": "minecraft:gold_ingot"
+    "G": "#c:ingots/gold"
   },
   "pattern": [
     "GGG",

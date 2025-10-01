@@ -1,6 +1,8 @@
 {
   "values": [
     "borukva-food:stove",
+    "borukva-food:pan",
+    "borukva-food:pot",
     "borukva-food:salt_block",
     "borukva-food:fertilizer_sprayer"
   ]

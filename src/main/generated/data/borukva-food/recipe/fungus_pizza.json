@@ -5,7 +5,7 @@
     "C": "minecraft:crimson_fungus",
     "F": "minecraft:warped_fungus",
     "K": "borukva-food:ketchup",
-    "W": "minecraft:wheat"
+    "W": "#c:crops/wheat"
   },
   "pattern": [
     "FKC",

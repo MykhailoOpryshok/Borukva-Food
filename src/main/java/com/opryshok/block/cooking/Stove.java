@@ -38,15 +38,10 @@ import org.joml.Vector3f;
 import xyz.nucleoid.packettweaker.PacketContext;
 
 public class Stove extends BlockWithEntity implements FactoryBlock, BlockEntityProvider, InventoryProvider {
-    public static final MapCodec<Stove> CODEC;
-    public static final BooleanProperty LIT;
-    public static final EnumProperty<Direction> FACING;
+    public static final MapCodec<Stove> CODEC = createCodec(Stove::new);
+    public static final BooleanProperty LIT = Properties.LIT;
+    public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
 
-    static{
-        FACING = Properties.HORIZONTAL_FACING;
-        LIT = Properties.LIT;
-        CODEC = createCodec(Stove::new);
-    }
     public Stove(Settings settings) {
         super(settings.nonOpaque());
         this.setDefaultState(getDefaultState().with(LIT, false));

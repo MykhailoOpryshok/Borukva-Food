@@ -1,0 +1,15 @@
+{
+  "values": [
+    "borukva-food:tomato_crop",
+    "borukva-food:cabbage_crop",
+    "borukva-food:corn_crop",
+    "borukva-food:chilli_pepper_crop",
+    "borukva-food:lettuce_crop",
+    "borukva-food:cucumber_crop",
+    "borukva-food:onion_crop",
+    "borukva-food:rice_crop",
+    "borukva-food:nether_wheat_crop",
+    "borukva-food:ender_infected_onion",
+    "borukva-food:grape_crop"
+  ]
+}

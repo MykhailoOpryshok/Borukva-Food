@@ -2,12 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "C": "borukva-food:cheese",
-    "J": "minecraft:brown_mushroom",
+    "C": "#c:cheeses",
+    "J": "#c:mushrooms",
     "K": "borukva-food:ketchup",
     "M": "borukva-food:mayonnaise",
     "S": "borukva-food:tomato_slices",
-    "W": "minecraft:wheat"
+    "W": "#c:crops/wheat"
   },
   "pattern": [
     "KMS",

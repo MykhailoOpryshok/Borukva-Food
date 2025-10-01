@@ -3,10 +3,10 @@
   "category": "misc",
   "key": {
     "B": "minecraft:bowl",
-    "C": "borukva-food:cabbage",
+    "C": "#c:crops/cabbage",
     "G": "minecraft:sugar",
-    "J": "minecraft:carrot",
-    "S": "borukva-food:salt"
+    "J": "#c:crops/carrot",
+    "S": "#c:salts"
   },
   "pattern": [
     "SGS",

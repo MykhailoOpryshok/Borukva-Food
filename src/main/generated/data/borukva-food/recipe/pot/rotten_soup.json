@@ -5,16 +5,16 @@
   },
   "input": [
     {
-      "base": "#borukva-food:rotten_soup_ingredients"
+      "base": "#c:rotten_soup_ingredients"
     },
     {
-      "base": "#borukva-food:rotten_soup_ingredients"
+      "base": "#c:rotten_soup_ingredients"
     },
     {
-      "base": "#borukva-food:rotten_soup_ingredients"
+      "base": "#c:rotten_soup_ingredients"
     },
     {
-      "base": "#borukva-food:rotten_soup_ingredients"
+      "base": "#c:rotten_soup_ingredients"
     }
   ],
   "output": {

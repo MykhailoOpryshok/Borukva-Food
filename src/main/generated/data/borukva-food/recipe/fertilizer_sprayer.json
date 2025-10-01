@@ -4,8 +4,8 @@
   "key": {
     "C": "minecraft:smooth_stone",
     "D": "minecraft:dispenser",
-    "I": "minecraft:iron_ingot",
-    "R": "minecraft:redstone"
+    "I": "#c:ingots/iron",
+    "R": "#c:dusts/redstone"
   },
   "pattern": [
     "III",

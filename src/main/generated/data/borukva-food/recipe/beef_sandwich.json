@@ -4,7 +4,7 @@
   "key": {
     "B": "minecraft:cooked_beef",
     "K": "borukva-food:ketchup",
-    "L": "borukva-food:lettuce",
+    "L": "#c:foods/vegetables/lettuce",
     "S": "borukva-food:bread_slice"
   },
   "pattern": [

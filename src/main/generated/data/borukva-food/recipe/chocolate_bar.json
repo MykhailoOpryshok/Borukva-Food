@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "minecraft:cocoa_beans",
+    "#c:crops/cocoa_bean",
     "minecraft:sugar"
   ],
   "result": {

@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "G": "minecraft:glass_pane",
+    "G": "#c:glass_panes",
     "S": "#minecraft:wooden_slabs"
   },
   "pattern": [

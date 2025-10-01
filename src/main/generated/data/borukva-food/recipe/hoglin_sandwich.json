@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "B": "borukva-food:nether_bun_slice",
-    "H": "borukva-food:cooked_hoglin_meat"
+    "H": "#c:foods/cooked_meats/cooked_hoglin"
   },
   "pattern": [
     " B ",

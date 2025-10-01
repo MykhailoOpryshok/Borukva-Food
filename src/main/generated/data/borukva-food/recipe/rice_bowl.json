@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "B": "minecraft:bowl",
-    "R": "borukva-food:rice"
+    "R": "#c:grains/rice"
   },
   "pattern": [
     "RRR",

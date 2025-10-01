@@ -9,11 +9,22 @@
     "borukva-food:cabbage_seeds",
     "borukva-food:corn_seeds",
     "borukva-food:chilli_pepper_seeds",
+    "borukva-food:ender_infected_onion_seeds",
     "borukva-food:cucumber_seeds",
     "borukva-food:lettuce_seeds",
     "borukva-food:onion_seeds",
     "borukva-food:blackcurrants",
     "borukva-food:gooseberry",
-    "borukva-food:nether_wheat_seeds"
+    "borukva-food:nether_wheat_seeds",
+    "borukva-food:tomato_seeds",
+    "borukva-food:cabbage_seeds",
+    "borukva-food:corn_seeds",
+    "borukva-food:chilli_pepper_seeds",
+    "borukva-food:cucumber_seeds",
+    "borukva-food:lettuce_seeds",
+    "borukva-food:onion_seeds",
+    "borukva-food:ender_infected_onion_seeds",
+    "borukva-food:nether_wheat_seeds",
+    "borukva-food:sunflower_seed"
   ]
 }

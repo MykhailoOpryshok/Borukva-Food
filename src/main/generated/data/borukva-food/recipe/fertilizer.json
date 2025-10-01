@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "equipment",
   "ingredients": [
-    "minecraft:amethyst_shard"
+    "#c:gems/amethyst"
   ],
   "result": {
     "count": 4,

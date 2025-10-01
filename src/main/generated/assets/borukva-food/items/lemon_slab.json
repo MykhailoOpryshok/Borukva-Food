@@ -1,6 +1,1 @@
-{
-  "model": {
-    "type": "minecraft:model",
-    "model": "borukva-food:block/lemon_slab"
-  }
-}
+{"model":{"model":"borukva-food:block/lemon_slab","type":"minecraft:model"}}

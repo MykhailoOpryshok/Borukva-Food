@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "#borukva-food:plant_food"
+            "items": "#c:plant_food"
           }
         ]
       },

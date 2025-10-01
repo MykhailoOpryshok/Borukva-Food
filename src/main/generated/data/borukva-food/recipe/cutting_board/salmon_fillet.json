@@ -1,7 +1,7 @@
 {
   "type": "borukva-food:cutting_board",
   "input": {
-    "base": "minecraft:salmon"
+    "base": "#minecraft:fishes"
   },
   "output": {
     "count": 2,

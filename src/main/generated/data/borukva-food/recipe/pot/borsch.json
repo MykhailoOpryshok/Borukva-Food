@@ -5,22 +5,22 @@
   },
   "input": [
     {
-      "base": "minecraft:potato"
+      "base": "#c:crops/potato"
     },
     {
-      "base": "minecraft:beetroot"
+      "base": "#c:crops/beetroot"
     },
     {
-      "base": "borukva-food:onion"
+      "base": "#c:crops/onion"
     },
     {
-      "base": "borukva-food:cabbage"
+      "base": "#c:crops/cabbage"
     },
     {
-      "base": "borukva-food:salo"
+      "base": "#c:foods/raw_meat"
     },
     {
-      "base": "borukva-food:salt"
+      "base": "#c:salts"
     }
   ],
   "output": {

@@ -5,19 +5,19 @@
   },
   "input": [
     {
-      "base": "minecraft:carrot"
+      "base": "#c:crops/carrot"
     },
     {
       "base": "minecraft:chicken"
     },
     {
-      "base": "borukva-food:onion"
+      "base": "#c:crops/onion"
     },
     {
-      "base": "borukva-food:oil"
+      "base": "#c:cooking_oils"
     },
     {
-      "base": "borukva-food:salt"
+      "base": "#c:salts"
     }
   ],
   "output": {

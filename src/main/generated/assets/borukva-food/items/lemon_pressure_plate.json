@@ -1,6 +1,1 @@
-{
-  "model": {
-    "type": "minecraft:model",
-    "model": "borukva-food:block/lemon_pressure_plate"
-  }
-}
+{"model":{"model":"borukva-food:block/lemon_pressure_plate","type":"minecraft:model"}}

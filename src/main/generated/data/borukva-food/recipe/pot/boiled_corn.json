@@ -1,7 +1,7 @@
 {
   "type": "borukva-food:pot",
   "input": {
-    "base": "borukva-food:corn"
+    "base": "#c:crops/corn"
   },
   "output": {
     "count": 1,

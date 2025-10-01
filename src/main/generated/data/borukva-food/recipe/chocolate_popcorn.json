@@ -4,7 +4,7 @@
   "ingredients": [
     "borukva-food:popcorn",
     "borukva-food:popcorn",
-    "borukva-food:chocolate_bar",
+    "#c:chocolates",
     "minecraft:paper"
   ],
   "result": {

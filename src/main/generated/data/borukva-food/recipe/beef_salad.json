@@ -2,9 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "borukva-food:lettuce",
-    "borukva-food:oil",
-    "borukva-food:cooked_beef_slices",
+    "#c:foods/vegetables/lettuce",
+    "#c:cooking_oils",
+    "#c:foods/cooked_meats/cooked_beef",
     "borukva-food:cucumber_slices",
     "borukva-food:tomato_slices",
     "minecraft:bowl"

@@ -1,7 +1,7 @@
 {
   "type": "borukva-food:pan",
   "input": {
-    "base": "borukva-food:beef_slices"
+    "base": "#c:foods/raw_meats/raw_beef"
   },
   "output": {
     "count": 1,
