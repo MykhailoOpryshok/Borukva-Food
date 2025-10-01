@@ -119,7 +119,7 @@ public class ModifyLootTables {
                     LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .with(
-                            ItemEntry.builder(ModItems.SQUID_TENTAClES)
+                            ItemEntry.builder(ModItems.SQUID_TENTACLES)
                                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 2), false))
                                 .apply(
                                     EnchantedCountIncreaseLootFunction.builder(

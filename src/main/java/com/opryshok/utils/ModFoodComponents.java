@@ -50,7 +50,7 @@ public class ModFoodComponents {
     public static final FoodComponent TOMATO_SLICES = new FoodComponent.Builder().nutrition(1).saturationModifier(0.3f).build();
     public static final FoodComponent CUCUMBER_SLICES = new FoodComponent.Builder().nutrition(1).saturationModifier(0.3f).build();
     public static final FoodComponent COOKED_BEEF_SLICES = new FoodComponent.Builder().nutrition(4).saturationModifier(0.5f).build();
-    public static final FoodComponent SHAWARMA = new FoodComponent.Builder().nutrition(10).saturationModifier(0.5f).build();
+    public static final FoodComponent SHAWARMA = new FoodComponent.Builder().nutrition(12).saturationModifier(1f).build();
     public static final FoodComponent AVOCADO = new FoodComponent.Builder().nutrition(3).saturationModifier(0.3f).build();
     public static final FoodComponent VEGETABLE_SALAD = new FoodComponent.Builder().nutrition(8).saturationModifier(0.3f).build();
     public static final FoodComponent BEEF_SALAD = new FoodComponent.Builder().nutrition(10).saturationModifier(0.5f).build();

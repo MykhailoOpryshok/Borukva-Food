@@ -127,7 +127,7 @@ public class ModItems {
     public static Item COOKED_SQUID_RING = registerItem("cooked_squid_ring", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.COOKED_SQUID_RING));
     public static Item SQUID_RING = registerItem("squid_ring", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.SQUID_RING));
     public static Item PEELED_SQUID_TENTACLES = registerItem("peeled_squid_tentacles", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.PEELED_SQUID_TENTACLES));
-    public static Item SQUID_TENTAClES = registerItem("squid_tentacles", SimplePolymerItem::new);
+    public static Item SQUID_TENTACLES = registerItem("squid_tentacles", SimplePolymerItem::new);
 
     public static Item CHORUS_FRUIT_IN_CHOCOLATE_ON_A_STICK = registerItem("chorus_fruit_in_chocolate_on_a_stick", ChorusPolyItem::new, new Item.Settings().food(ModFoodComponents.CHORUS_FRUIT_IN_CHOCOLATE_ON_A_STICK));
     public static Item CHORUS_FRUITS_WITH_ENDER_JAM = registerItem("chorus_fruits_with_ender_jam", ChorusPolyItem::new, new Item.Settings().food(ModFoodComponents.CHORUS_FRUITS_WITH_ENDER_JAM));
@@ -173,7 +173,7 @@ public class ModItems {
                 entries.add(ONION_SEEDS);
                 entries.add(TOMATO_SANDWICH);
                 entries.add(SWEET_BERRY_COOKIE);
-                entries.add(SQUID_TENTAClES);
+                entries.add(SQUID_TENTACLES);
                 entries.add(PEELED_SQUID_TENTACLES);
                 entries.add(SQUID_RING);
                 entries.add(COOKED_SQUID_RING);

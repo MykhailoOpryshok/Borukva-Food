@@ -10,7 +10,6 @@ import com.opryshok.item.ModItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.client.data.*;
 import net.minecraft.client.render.model.json.ModelVariant;
 import net.minecraft.client.render.model.json.WeightedVariant;
@@ -179,7 +178,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.COOKED_SQUID_RING, Models.GENERATED);
         itemModelGenerator.register(ModItems.SQUID_RING, Models.GENERATED);
         itemModelGenerator.register(ModItems.PEELED_SQUID_TENTACLES, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SQUID_TENTAClES, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SQUID_TENTACLES, Models.GENERATED);
         itemModelGenerator.register(ModItems.CHORUS_FRUIT_IN_CHOCOLATE_ON_A_STICK, Models.GENERATED);
         itemModelGenerator.register(ModItems.CHORUS_FRUITS_WITH_ENDER_JAM, Models.GENERATED);
         itemModelGenerator.register(ModItems.ENDER_INFECTED_ONION, Models.GENERATED);
