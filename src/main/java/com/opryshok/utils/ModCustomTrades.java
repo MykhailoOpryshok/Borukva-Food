@@ -11,7 +11,7 @@ import net.minecraft.village.TradedItem;
 
 public class ModCustomTrades {
     public static void registerCustomTrades(){
-        TradeOfferHelper.registerWanderingTraderOffers(factories -> factories.addOffersToPool(BorukvaFood.id("wandering_trader_offers"), ((entity, random) ->
+        TradeOfferHelper.registerWanderingTraderOffers(factories -> factories.addOffersToPool(TradeOfferHelper.WanderingTraderOffersBuilder.SELL_COMMON_ITEMS_POOL, ((entity, random) ->
                 new TradeOffer(new TradedItem(Items.EMERALD), new ItemStack(ModBlocks.LEMON_SAPLING_ITEM),
                         12, 3, 0.05f))));
     }
